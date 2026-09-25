@@ -1,0 +1,13 @@
+config,method,n,delivery,value_mean,value_median
+CL = 0.15 (low),CMA-ES (no feedback),10,0.0,,
+CL = 0.15 (low),CMA-ES (selection only),10,0.0,,
+CL = 0.15 (low),CMA-ES (feedback-guided),10,0.6,16.755158541009923,16.669298461266223
+CL = 0.15 (low),DE (feedback-guided),10,1.0,17.51516702834595,17.751444748417864
+CL = 0.41 (nominal),CMA-ES (no feedback),10,0.4,33.215072580619896,33.18878057693929
+CL = 0.41 (nominal),CMA-ES (selection only),10,0.4,33.220504193717964,33.19611754237391
+CL = 0.41 (nominal),CMA-ES (feedback-guided),10,1.0,33.04003864041046,33.22904453073615
+CL = 0.41 (nominal),DE (feedback-guided),10,1.0,31.087590285837443,31.248198615511193
+CL = 0.66 (high),CMA-ES (no feedback),10,0.5,32.12118872851839,32.14533570545941
+CL = 0.66 (high),CMA-ES (selection only),10,0.5,32.11625065142993,32.14533570545941
+CL = 0.66 (high),CMA-ES (feedback-guided),10,1.0,31.638712936362605,31.828046113635523
+CL = 0.66 (high),DE (feedback-guided),10,1.0,27.047017236005665,27.61514964030852

@@ -1,0 +1,217 @@
+{
+  "schema_version": "wingbench-v2-candidate-protocol-v1",
+  "benchmark_id": "wingbench-superwing-mf-v2-candidate",
+  "protocol_id": "wingbench-superwing-mf-v2-candidate-protocol-1",
+  "protocol_revision": 1,
+  "status": "phase2_candidate_frozen_for_phase3_development_pilot",
+  "normative_release": false,
+  "official_results_enabled": false,
+  "sealed_execution_enabled": false,
+  "scientific_purpose": "Measure how quickly, reliably, and efficiently an optimizer improves a whole-wing recommendation as cheap and CFD evidence accumulates.",
+  "lineage": {
+    "v1_release": {
+      "path": "configs/benchmark/wingbench_multifidelity_benchmark_v1_release.json",
+      "file_sha256": "999ee06ab9d16641b4fdb3096eadbc9ba7c3598027decc9c76aa1bbf0d4ff9d3",
+      "mutable_in_place": false
+    },
+    "phase1_terminal": {
+      "path": "configs/cfd/cluster_q4_exceptional_recovery_terminal_v1.json",
+      "file_sha256": "75a78bec5b4b93ad74c1a7826d93c749c9a916107a371304529d685e1df781ca",
+      "disposition": "scientifically_usable_but_non_equivalent",
+      "passing_comparisons": 29,
+      "comparison_count": 31,
+      "scientific_mismatch_panel_indices": [
+        0,
+        5
+      ]
+    },
+    "v1_evaluator_identity_inherited": false
+  },
+  "evaluator_id": "wingbench-superwing-cluster-cfd-v2-candidate-1",
+  "design_action": {
+    "representation": "one physical 38-float64 SuperWing vector",
+    "geometry_schema": "superwing-38d-v1",
+    "geometry_hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+    "normalization_binding": {
+      "path": "configs/benchmark/superwing_physical_normalization_v1.json",
+      "file_sha256": "28ea4089b79a78c8e41ff45d8b58296e8437c0f0c6800de181acd55c2ee1f306"
+    },
+    "standardized_bounds_inclusive": [
+      -3.5,
+      3.5
+    ],
+    "geometry_gate": null,
+    "manifold_restriction": null
+  },
+  "physical_objective": {
+    "cl_target": 0.41,
+    "mach_conditions": [
+      0.7853,
+      0.8195,
+      0.853
+    ],
+    "required_valid_conditions": 3,
+    "per_condition_ld_lower_exclusive": 0.0,
+    "per_condition_ld_upper_inclusive": 40.0,
+    "conditional_value": "three-condition geometric-mean L/D",
+    "partial_score_is_eligible": false
+  },
+  "tracks": {
+    "anytime_main": {
+      "maximum_online_cfd_queries": 64,
+      "maximum_cheap_queries": 4096,
+      "maximum_cheap_batch_size": 16,
+      "checkpoints": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64
+      ],
+      "one_unresolved_online_cfd_query_per_episode": true,
+      "parallelism_across_episodes_only": true,
+      "terminal_recommendations": 1
+    },
+    "phase3_pilot_profile": {
+      "maximum_online_cfd_queries": 32,
+      "maximum_cheap_queries": 4096,
+      "active_checkpoints": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "data_namespace": "development",
+      "official": false,
+      "sealed": false
+    },
+    "four_cfd_bridge": {
+      "separate_track": true,
+      "maximum_online_cfd_queries": 4,
+      "maximum_cheap_queries": 4096,
+      "active_checkpoints": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "long_horizon_prefix_is_equivalent": false,
+      "official": false
+    }
+  },
+  "checkpoint_policy": {
+    "nomination_required_at_every_active_checkpoint": true,
+    "previously_online_graded_geometry": {
+      "action": "bind_exact_online_result",
+      "provenance_label": "reused_online_visible",
+      "fresh_grade_consumed": false
+    },
+    "previously_ungraded_geometry": {
+      "action": "obtain_fresh_hidden_grade",
+      "provenance_label": "fresh_hidden",
+      "returned_to_optimizer": false,
+      "fresh_grade_consumed": true
+    },
+    "provenance_classes_reported_separately": true,
+    "terminal_nomination_equals_final_checkpoint_nomination": true,
+    "terminal_grade_binds_final_checkpoint_grade": true
+  },
+  "anytime_views": {
+    "discovery_curve": "best complete online CFD value observed by the optimizer",
+    "recommendation_curve": "delivery and conditional value of the checkpoint nominee under the hidden-grade policy"
+  },
+  "outcomes": {
+    "weighted_scalar_grade": false,
+    "delivery": "complete score-eligible three-condition grade",
+    "value_conditional_on_delivery": "three-condition geometric-mean L/D",
+    "realized_cost": "reported separately",
+    "scientific_nondelivery_is_not_numeric_penalty": true,
+    "infrastructure_loss_is_censored_not_scientific_failure": true
+  },
+  "budget_state_fields": [
+    "cheap_queries_used",
+    "online_cfd_queries_used",
+    "online_cfd_in_flight",
+    "fresh_checkpoint_grades_used",
+    "terminal_grades_used"
+  ],
+  "reason_code_categories": {
+    "complete": [
+      "complete_score_eligible"
+    ],
+    "scientific_nondelivery": [
+      "geometry_out_of_bounds",
+      "mesh_invalid",
+      "solver_nonconvergence",
+      "condition_invalid",
+      "condition_inconclusive",
+      "incomplete_condition_set",
+      "ld_envelope_violation",
+      "scientific_timeout"
+    ],
+    "infrastructure": [
+      "infrastructure_loss",
+      "scheduler_loss",
+      "artifact_transport_loss",
+      "runtime_environment_failure"
+    ],
+    "policy": [
+      "budget_exhausted",
+      "policy_stopped_early",
+      "unused_budget",
+      "duplicate_geometry_reused"
+    ]
+  },
+  "resource_accounting_fields": [
+    "evaluator_cpu_seconds",
+    "optimizer_cpu_seconds",
+    "optimizer_gpu_seconds",
+    "scheduler_wait_seconds",
+    "administrative_wall_seconds",
+    "storage_bytes"
+  ],
+  "data_boundaries": {
+    "allowed_phase2_namespaces": [
+      "development",
+      "retained_development_fixture"
+    ],
+    "landscape": "may influence a later frozen optimizer only if explicitly released before freeze",
+    "development": "may change the candidate protocol and can never be promoted to sealed evidence",
+    "sealed": "not accessible in Phase 2 or Phase 3 and never visible to optimizers or protocol development",
+    "cross_episode_observation_sharing": false,
+    "restart_state_must_bind_trace_head": true,
+    "cache_visibility_must_be_explicit": true
+  },
+  "trace_contract": {
+    "schema_version": "wingbench-v2-episode-trace-v1",
+    "append_only": true,
+    "hash_chained": true,
+    "order": "episode causal sequence, never scheduler completion order",
+    "checkpoint_and_terminal_grades_returned_as_feedback": false,
+    "independent_replay_required": true
+  },
+  "phase2_resolution": {
+    "D004_checkpoint_roster": "accepted_for_candidate_and_phase3_pilot",
+    "D005_32_vs_64_maximum_online_cfd": "64-capable interface with prospectively fixed 32-query Phase 3 pilot",
+    "D008_checkpoint_grade_reuse_policy": "exact reuse when online-visible, otherwise fresh hidden, with separate provenance",
+    "D010_cheap_query_policy": "fixed 4096 per episode for the candidate and Phase 3 pilot",
+    "D014_task_instance_definitions": "single V1-continuity instance for Phase 3 pilot; task-suite construction remains a measured Phase 3 output",
+    "D015_minimum_effects_and_replication": "five matched seeds per method for pilot measurement only; final replication determined by prospective power simulation",
+    "D016_method_roster": "four-family Phase 3 pilot roster with qualification gates",
+    "D020_cost_accounting_boundaries": "evaluator CPU-seconds primary resource axis; optimizer CPU/GPU, queue, administration, and storage separate",
+    "D026_cluster_concurrency_ramp": "begin Phase 3 at 8, then 16, then at most 32 concurrent 16-CPU grades only after measured gates and a separately recorded ceiling",
+    "D027_storage_and_public_release": "retain canonical JSON traces and bounded raw evidence; publish reconstructable open artifacts while separately inventorying licensed dependencies"
+  },
+  "next_gate": {
+    "phase": 3,
+    "action": "development_pilot",
+    "separate_authorization_required": true,
+    "phase3_started": false
+  }
+}

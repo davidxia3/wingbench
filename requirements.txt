@@ -1,0 +1,18 @@
+# Python 3.11
+
+# analysis
+numpy>=1.26
+scipy>=1.11
+pandas>=2.1
+matplotlib>=3.8
+scikit-learn>=1.3
+cst_modeling3d==0.2.8  # reconstructed wing-surface figure
+
+# optimizers
+cma==4.4.4
+smac==2.4.0
+
+# AeroTransformer surrogate wrapper (the weights are external)
+torch==2.7.1
+einops==0.8.2
+tqdm>=4.66

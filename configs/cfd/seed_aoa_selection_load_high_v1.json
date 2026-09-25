@@ -1,0 +1,57 @@
+{
+  "schema_version": "wingbench-cfd-load-qualification-seed-aoa-selection-v1",
+  "selection_status": "frozen_qualification_input",
+  "frozen_at_utc": "2026-08-02T22:29:07Z",
+  "development_only": true,
+  "official": false,
+  "sealed": false,
+  "canonical_seed_alpha0_deg": 8.924059800550001,
+  "selection_rule": {
+    "target_cl": 0.66,
+    "cl_band_inclusive": [0.64, 0.68],
+    "cl_band_basis": "target_cl_plus_or_minus_protocol_cl_match_tolerance",
+    "population": "successful_superwing_cases",
+    "failed_cases_in_selection": false,
+    "mach_population": "all_recorded_superwing_machs",
+    "statistic": "exact_median_recorded_aoa",
+    "rounding": "none",
+    "applies_to_every_wing_and_condition": true,
+    "future_reselection_allowed": false
+  },
+  "source_files": {
+    "successful_case_table": {
+      "path": "data/superwing/index.npy",
+      "resolved_read_only_path": "data/superwing/index.npy",
+      "sha256": "6028984561df7a4f377a757ada1edc4edfeb724d45c4b522e70c8ccc0f6c1671",
+      "shape": [28856, 12],
+      "dtype": "float64",
+      "columns": {"aoa": 2, "mach": 3, "cl": 9, "cd": 10}
+    }
+  },
+  "target_cl_evidence": {
+    "canonical_selection_population": {
+      "count": 1172,
+      "lower_middle_deg": 8.9232953996,
+      "upper_middle_deg": 8.9248242015,
+      "median_deg": 8.924059800550001
+    },
+    "benchmark_mach_context": {
+      "benchmark_machs": [0.7853, 0.8195, 0.853],
+      "mach_neighborhood_abs_less_than": 0.01,
+      "per_condition": [
+        {"condition_id": "mach_q1", "mach": 0.7853, "count": 163, "median_deg": 8.8923950741},
+        {"condition_id": "mach_q2", "mach": 0.8195, "count": 156, "median_deg": 8.53350067345},
+        {"condition_id": "mach_q3", "mach": 0.853, "count": 189, "median_deg": 9.0106280377}
+      ],
+      "pooled_cases": {"count": 508, "median_deg": 8.79579884025}
+    },
+    "individual_condition_ld_distribution": {
+      "count": 1172,
+      "q10": 11.577685724137343,
+      "q25": 14.186626502120648,
+      "median": 17.632042280961294,
+      "q75": 21.379939008905943,
+      "q90": 23.55355023081212
+    }
+  }
+}

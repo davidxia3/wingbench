@@ -1,0 +1,569 @@
+{
+ "stamp": "snapshot serial 1 @ 2026-08-27T00:39:45Z",
+ "cells": {
+  "superwing-load-low-cl015|static-precommitted-cmaes-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "delivery": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "value_mean": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "superwing-load-low-cl015|conventional-adaptive-cmaes-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "delivery": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "value_mean": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "superwing-load-low-cl015|fsd-cma-v1-port-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    3,
+    5,
+    4,
+    5,
+    5,
+    5,
+    6
+   ],
+   "delivery": [
+    0.3,
+    0.5,
+    0.4,
+    0.5,
+    0.5,
+    0.5,
+    0.6
+   ],
+   "value_mean": [
+    16.1726,
+    15.4249,
+    16.4742,
+    16.2536,
+    16.2536,
+    16.8722,
+    16.7552
+   ]
+  },
+  "superwing-load-low-cl015|checkpointed-de-feedback-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    3,
+    4,
+    6,
+    8,
+    10,
+    10,
+    10
+   ],
+   "delivery": [
+    0.3,
+    0.4,
+    0.6,
+    0.8,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "value_mean": [
+    13.1329,
+    12.3834,
+    14.0214,
+    14.7791,
+    16.1027,
+    17.1762,
+    17.5152
+   ]
+  },
+  "superwing-load-nominal-cl041|static-precommitted-cmaes-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4
+   ],
+   "delivery": [
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.3,
+    0.4,
+    0.4
+   ],
+   "value_mean": [
+    33.192,
+    33.192,
+    33.192,
+    33.2197,
+    33.2217,
+    33.1866,
+    33.2151
+   ]
+  },
+  "superwing-load-nominal-cl041|conventional-adaptive-cmaes-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "delivery": [
+    0.3,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4
+   ],
+   "value_mean": [
+    33.192,
+    33.1446,
+    33.1447,
+    33.1775,
+    33.1868,
+    33.207,
+    33.2205
+   ]
+  },
+  "superwing-load-nominal-cl041|fsd-cma-v1-port-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    3,
+    5,
+    6,
+    10,
+    10,
+    10,
+    10
+   ],
+   "delivery": [
+    0.3,
+    0.5,
+    0.6,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "value_mean": [
+    23.5777,
+    22.4224,
+    25.8157,
+    28.7255,
+    32.0648,
+    32.9058,
+    33.04
+   ]
+  },
+  "superwing-load-nominal-cl041|checkpointed-de-feedback-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    3,
+    5,
+    7,
+    9,
+    10,
+    10,
+    10
+   ],
+   "delivery": [
+    0.3,
+    0.5,
+    0.7,
+    0.9,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "value_mean": [
+    19.471,
+    18.7874,
+    20.1854,
+    22.3485,
+    25.4038,
+    28.9426,
+    31.0876
+   ]
+  },
+  "superwing-load-high-cl066|static-precommitted-cmaes-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5
+   ],
+   "delivery": [
+    0.4,
+    0.4,
+    0.4,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "value_mean": [
+    32.028,
+    32.028,
+    32.028,
+    32.0391,
+    32.0846,
+    32.1024,
+    32.1212
+   ]
+  },
+  "superwing-load-high-cl066|conventional-adaptive-cmaes-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "delivery": [
+    0.4,
+    0.4,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "value_mean": [
+    32.028,
+    32.028,
+    32.0391,
+    32.067,
+    32.0978,
+    32.1163,
+    32.1163
+   ]
+  },
+  "superwing-load-high-cl066|fsd-cma-v1-port-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    7,
+    6,
+    7,
+    10,
+    10,
+    10,
+    10
+   ],
+   "delivery": [
+    0.7,
+    0.6,
+    0.7,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "value_mean": [
+    16.6518,
+    17.8908,
+    18.8512,
+    23.9857,
+    28.1365,
+    30.9958,
+    31.6387
+   ]
+  },
+  "superwing-load-high-cl066|checkpointed-de-feedback-v2-pilot": {
+   "checkpoints": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   "n_episodes_at_ck": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "n_delivered_at_ck": [
+    1,
+    5,
+    7,
+    8,
+    9,
+    10,
+    10
+   ],
+   "delivery": [
+    0.1,
+    0.5,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.0
+   ],
+   "value_mean": [
+    17.2313,
+    15.1995,
+    15.4384,
+    18.1546,
+    19.9357,
+    23.5869,
+    27.047
+   ]
+  }
+ }
+}

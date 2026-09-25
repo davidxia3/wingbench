@@ -1,0 +1,265 @@
+{
+  "schema_version": "wingbench-v2-cluster-q4-exceptional-recovery-terminal-v1",
+  "attempt_id": "wingbench-v2-cluster-q4-exceptional-7134eaf-attempt1",
+  "disposition": "scientifically_usable_but_non_equivalent",
+  "phase1": {
+    "status": "complete",
+    "equivalence_status": "fail",
+    "blocked_by_infrastructure": false,
+    "standing_authorization_expired_at_terminal_disposition": true,
+    "official_result_label_assigned": false
+  },
+  "authorization": {
+    "parent_authorization_file_sha256": "7629db865f73750aaa05737f1656f2968fce60d59d48dc76db8a7ef909fcdf8e",
+    "exceptional_authorization_file_sha256": "b1eb19ddfc242c1aac5e78777d28d75d538d249a5d16a69b8675f20dba896dab",
+    "accepted_entrypoint_preflight_file_sha256": "c5f3094fa57f6d8f19def9fe8202c6723f01972e7835a95edb00359f41de96c8",
+    "child_authorization_id": "phase1-q4-exceptional-recovery-7134eaf-attempt1",
+    "child_authorization_canonical_sha256": "2ab71c8f721a2adc84390586427723e431a3de008665596adc5b3618ee27782c",
+    "child_authorization_file_sha256": "702e1f485d8b6475e7f87d17663906da76218be194d6b9032f0adedaddc5d787",
+    "retry_number": 4,
+    "terminal_status": "scientific_failed",
+    "terminal_at": "2026-07-29T08:41:15.435825Z",
+    "no_further_retry_authorized": true
+  },
+  "run": {
+    "source_git_commit": "7134eaf8999a8905a4e4afb9e2aa55689d46509a",
+    "repository_checkout": "/scratch/user/wingbench-benchmark-v2-phase1-standing-7134eaf",
+    "run_root": "/scratch/user/wingbench-v2-phase1-artifacts-e7563ac/q4-exceptional-7134eaf-attempt1",
+    "array_job_id": "8167564",
+    "reconciliation_job_id": "8167565",
+    "maximum_active_cpus": 96,
+    "maximum_concurrent_jobs": 6,
+    "cpus_per_case_job": 16,
+    "replacement_panel_indices": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      30
+    ]
+  },
+  "reconciliation": {
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "failure_classification": "scientific_comparison_failure",
+    "file_sha256": "8725d7120962e82af8a7d64b0e9e0d8035eb98855d295817305e9b7cd237dce4",
+    "stdout_file_sha256": "2056a28ea38a000f3a3328cb7fabe330638d3258affe1a869e3f92986222d997",
+    "stderr_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "expected_result_count": 31,
+    "observed_result_count": 31,
+    "comparison_count": 31,
+    "passing_comparison_count": 29,
+    "failing_comparison_count": 2,
+    "duplicate_result_geometry_sha256s": [],
+    "unexpected_result_geometry_sha256s": [],
+    "repeatability": {
+      "expected_repeat_count": 3,
+      "observed_repeat_count": 3,
+      "passing_repeat_count": 3,
+      "status": "pass"
+    }
+  },
+  "scientific_mismatches": [
+    {
+      "panel_index": 0,
+      "case_id": "semantic-control-01-l5_originals__run11",
+      "source": "retained_attempt3",
+      "retryable": false,
+      "errors": [
+        "timeouts: allowed=0, observed=1",
+        "aggregate.admissibility: reference='pass', observed='undetermined'",
+        "aggregate.n_valid: reference=3, observed=2",
+        "aggregate.n_inconclusive: reference=0, observed=1",
+        "condition outcomes are not all valid: ['valid', 'valid', 'inconclusive_timeout']"
+      ]
+    },
+    {
+      "panel_index": 5,
+      "case_id": "semantic-control-06-active_learning__r1_cand_06",
+      "source": "retained_attempt3",
+      "retryable": false,
+      "errors": [
+        "aggregate did not fail for the out-of-range control",
+        "required out-of-range AoA was not reproduced"
+      ]
+    }
+  ],
+  "combined_result_provenance": {
+    "retained_attempt3_root": "/scratch/user/wingbench-v2-phase1-artifacts-e7563ac/q4-phase1-fed7e89-attempt3",
+    "retained_attempt3_case_count": 25,
+    "retained_result_and_job_hashes_verified_before_launch": true,
+    "attempt3_reconciliation_file_sha256": "7de54793b79ae4b61f5b43ee3972b9c0335fcea42c82c792bc99ccb246e4b34b",
+    "replacement_case_count": 6,
+    "rule": "replace_only_attempt3_openmpi_infrastructure_contamination",
+    "scientific_mismatch_panel_indices_not_retried": [
+      0,
+      5
+    ]
+  },
+  "infrastructure": {
+    "clean": true,
+    "all_six_array_tasks_completed_exit_0": true,
+    "all_six_cleanup_statuses": 0,
+    "persistent_sandbox_directories": [],
+    "nonempty_stderr_inspected": true,
+    "forbidden_error_signatures_observed": [],
+    "checked_error_signatures": [
+      "ModuleNotFoundError",
+      "orte_session_dir",
+      "Disk quota exceeded",
+      "No space left on device",
+      "effective child environment contains unapproved names"
+    ]
+  },
+  "replacement_tasks": [
+    {
+      "panel_index": 17,
+      "slurm_job_id": "8167564_17",
+      "slurm_job_id_raw": "8167569",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:26:53",
+      "node": "node3077",
+      "aggregate": {
+        "profile_status": "complete",
+        "admissibility": "pass",
+        "n_valid": 3,
+        "n_inconclusive": 0,
+        "score_eligible": true,
+        "cfd_ld_geomean": 32.45524902722151
+      },
+      "result_file_sha256": "d82feade1fcbb3cf96c0dee818ba7ad23c9209f64ef2b904c6bbdb7e90ff047d",
+      "job_record_file_sha256": "cb494b180162c36fb81f34767a803fd58ee670530f134d605f83be1acc02b1d2",
+      "stdout_file_sha256": "f0418b70b8706c52ddc1bec689ac0848756d424c649d809f89b31c98608a4b90",
+      "stderr_file_sha256": "dd240c2774946bce9c7ea9707438e5c392edd47dd2efb9e38e617e590f8bda50"
+    },
+    {
+      "panel_index": 18,
+      "slurm_job_id": "8167564_18",
+      "slurm_job_id_raw": "8167570",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:34:38",
+      "node": "node3077",
+      "aggregate": {
+        "profile_status": "complete",
+        "admissibility": "pass",
+        "n_valid": 3,
+        "n_inconclusive": 0,
+        "score_eligible": true,
+        "cfd_ld_geomean": 32.27486225155806
+      },
+      "result_file_sha256": "65045f39a69682544b5041a4253fb0e878d7f1cf1fcd1f6beb4274f69f51dcbb",
+      "job_record_file_sha256": "79c78a964ae3bbb1240bb3a2baf5793b58cdf6c37defce383421a89da9fdd3e1",
+      "stdout_file_sha256": "415a095a5fb3c2323f742c488e9664f918289ec85b0d7f2371203559714384a7",
+      "stderr_file_sha256": "408f3d17f5470d26afeddc3499e42d544e4294286394c21ea16c0e606cc5b291"
+    },
+    {
+      "panel_index": 19,
+      "slurm_job_id": "8167564_19",
+      "slurm_job_id_raw": "8167571",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:12:43",
+      "node": "node3077",
+      "aggregate": {
+        "profile_status": "complete",
+        "admissibility": "pass",
+        "n_valid": 3,
+        "n_inconclusive": 0,
+        "score_eligible": true,
+        "cfd_ld_geomean": 31.487980364822587
+      },
+      "result_file_sha256": "0d5316d3803ef7358a558481a78d4cafb99abe10a64905b42069167d686299b5",
+      "job_record_file_sha256": "1e1e07b00e17ac399fa7968ccc324943d71c6e1c74bc170d881c7c582daf8bf9",
+      "stdout_file_sha256": "caa9890c871f757c3d855cf43fc4c755c0855a4215fd8e212a9e9443daf670ea",
+      "stderr_file_sha256": "a904fda4257a7c8f9b645c48bd870fef0af607e90b92d654bbb9b8525bb586ac"
+    },
+    {
+      "panel_index": 20,
+      "slurm_job_id": "8167564_20",
+      "slurm_job_id_raw": "8167572",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:03:34",
+      "node": "node3077",
+      "aggregate": {
+        "profile_status": "complete",
+        "admissibility": "pass",
+        "n_valid": 3,
+        "n_inconclusive": 0,
+        "score_eligible": true,
+        "cfd_ld_geomean": 30.875515842902765
+      },
+      "result_file_sha256": "8cf034905e6da0e651f364920c2347ae371b4a8b5c31042eebcfd6afaea558b8",
+      "job_record_file_sha256": "a444e771e0cfc5d0967a5a99c65ad74d536d3d0d8b5ba85cd0ee2d1393aa50f6",
+      "stdout_file_sha256": "01850266e6aef5487571d976c7707e87dca46edf7ec2414a3829b2404077096f",
+      "stderr_file_sha256": "7d1f0291f827c2a0511eea4864668abdeaaa34f9576b42a465ca4feefd05367e"
+    },
+    {
+      "panel_index": 21,
+      "slurm_job_id": "8167564_21",
+      "slurm_job_id_raw": "8167802",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:16:42",
+      "node": "node1251",
+      "aggregate": {
+        "profile_status": "complete",
+        "admissibility": "pass",
+        "n_valid": 3,
+        "n_inconclusive": 0,
+        "score_eligible": true,
+        "cfd_ld_geomean": 29.278116952186632
+      },
+      "result_file_sha256": "3fd06c23cfc2c69118fd1882dbab7fac3d5273404a35d7e614794267c8c0bfca",
+      "job_record_file_sha256": "cc4a78b65af3653f9dcd234691644d941230dbf7f9f47f8357a26d87b39774c9",
+      "stdout_file_sha256": "52a6fe16ba3212a92a75dbb57a206dd760fdb8277d1f1c6d2486c7caae0e66ff",
+      "stderr_file_sha256": "2650eb34ed3391281fb473a14546f3749025bfa55a83069863b577a671ae16ab"
+    },
+    {
+      "panel_index": 30,
+      "slurm_job_id": "8167564_30",
+      "slurm_job_id_raw": "8167564",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "06:02:46",
+      "node": "node1234",
+      "aggregate": {
+        "profile_status": "incomplete",
+        "admissibility": "undetermined",
+        "n_valid": 1,
+        "n_inconclusive": 2,
+        "score_eligible": false,
+        "cfd_ld_geomean": null
+      },
+      "result_file_sha256": "1d7fa0521794fc7787caa690156b7060512ffb69d5ef78651e497fb8dd50aef4",
+      "job_record_file_sha256": "9ccceb235146de21d93ff5c1e03ce80f0bed58400b1f9aac273f4a86eab13d2c",
+      "stdout_file_sha256": "d34985b2e983a198bc2d31b23cfe0c3275be5ca311f674b8e1b9126d9c6946b6",
+      "stderr_file_sha256": "0b03f91f3b373da41c7366608c649b54026cc3760866ed35d49df3a173a2bdb7"
+    }
+  ],
+  "frozen_bindings": {
+    "sif_file_sha256": "426f5b1e8758bb48be843231a7040e539ad8a8e0ae5acd6928fbc06a26fa067f",
+    "manifest_canonical_sha256": "96e81f2b10ac9e1c024e2889cedea49bd67759e2d16f3c6a0e867ec8a45749e8",
+    "panel_canonical_sha256": "e45a9430c6a75fee41ad12186f68f17c9b1c46dfccf2d3db044361c43c39e86d",
+    "tolerances_canonical_sha256": "455c1f138b6f723245f879fc46bd737599ce7431055fba27b96ff20edd355665",
+    "comparator_file_sha256": "fb0b5ebc7c8fa6bc009dd2ceca4f729edd8342a5deb230d1617f92b39032b9e4",
+    "v1_artifacts_changed": false,
+    "protocol_changed": false,
+    "panel_changed": false,
+    "tolerances_changed": false,
+    "comparator_changed": false
+  },
+  "result_label_rules": {
+    "official_results_authorized": false,
+    "q5_authorized": false,
+    "phase2_authorized": false
+  },
+  "external_ledger": {
+    "path": "/scratch/user/wingbench-v2-phase1-artifacts-e7563ac/phase1-standing-073f87e/authorization_ledger.json",
+    "canonical_sha256_after_terminal_record": "a8099822e53e1662c48bed9d7c6b53442fcada3b5444f47ab1a68cdb263597e5",
+    "file_sha256_after_terminal_record": "0da6aaeee1fcfb694ec48d8537ea6d8f65fc906df47a9267bc6d316c46cd07f2"
+  }
+}

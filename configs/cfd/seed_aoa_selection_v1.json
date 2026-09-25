@@ -1,0 +1,136 @@
+{
+  "canonical_seed_alpha0_deg": 6.6401110468,
+  "population_audit": {
+    "all_recorded_aoa": {
+      "count": 36207,
+      "lower_middle_deg": 6.9947801371,
+      "median_deg": 6.9947801371,
+      "upper_middle_deg": 6.9947801371
+    },
+    "condition_states": {
+      "CL fluctuation too large": 4563,
+      "Not Simulated": 137,
+      "Simulation Diverge": 2788,
+      "Success": 28856,
+      "null": 8
+    },
+    "failed_simulated_aoa": {
+      "count": 7351,
+      "lower_middle_deg": 9.7536786437,
+      "median_deg": 9.7536786437,
+      "upper_middle_deg": 9.7536786437
+    },
+    "failed_simulated_cases": 7351,
+    "missing_aoa_by_state": {
+      "Not Simulated": 137,
+      "null": 8
+    },
+    "missing_aoa_cases": 145,
+    "recorded_aoa_cases": 36207,
+    "scheduled_condition_slots": 36352,
+    "successful_aoa": {
+      "count": 28856,
+      "lower_middle_deg": 6.6620273845,
+      "median_deg": 6.6620725336,
+      "upper_middle_deg": 6.6621176827
+    },
+    "successful_cases": 28856,
+    "top_level_states": {
+      "Mesh Generation Failure": 1,
+      "Preprocess Success": 4543
+    },
+    "wing_records": 4544
+  },
+  "schema_version": "wingbench-cfd-seed-aoa-selection-v1",
+  "selection_rule": {
+    "applies_to_every_wing_and_condition": true,
+    "cl_band_basis": "target_cl_plus_or_minus_protocol_cl_match_tolerance",
+    "cl_band_inclusive": [
+      0.39,
+      0.43
+    ],
+    "failed_cases_in_selection": false,
+    "future_reselection_allowed": false,
+    "mach_population": "all_recorded_superwing_machs",
+    "population": "successful_superwing_cases",
+    "reason_failed_cases_are_excluded": "The initializer targets a successful CL=0.41 trim branch; failed-case AoA is strongly shifted toward buffet and divergence.",
+    "rounding": "none",
+    "statistic": "exact_median_recorded_aoa",
+    "target_cl": 0.41
+  },
+  "selection_status": "canonical_candidate_input",
+  "source_files": {
+    "all_case_state_table": {
+      "path": "data/superwing/running_info.jsonl",
+      "sha256": "b8f01d0986c0f8a73df49f8c72f522e10a4d7c6a28557fff6fdbdd245c3d82a5"
+    },
+    "successful_case_table": {
+      "columns": {
+        "aoa": 2,
+        "cl": 9,
+        "mach": 3
+      },
+      "dtype": "float64",
+      "path": "data/superwing/index.npy",
+      "sha256": "6028984561df7a4f377a757ada1edc4edfeb724d45c4b522e70c8ccc0f6c1671",
+      "shape": [
+        28856,
+        12
+      ]
+    }
+  },
+  "target_cl_evidence": {
+    "benchmark_mach_context": {
+      "benchmark_machs": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "equal_weight_condition_summary": {
+        "condition_count": 3,
+        "lower_middle_deg": 6.5148519937,
+        "median_of_condition_medians_deg": 6.5148519937,
+        "upper_middle_deg": 6.5148519937
+      },
+      "mach_neighborhood_abs_less_than": 0.01,
+      "per_condition": [
+        {
+          "condition_id": "mach_q1",
+          "count": 195,
+          "lower_middle_deg": 6.5148519937,
+          "mach": 0.7853,
+          "median_deg": 6.5148519937,
+          "upper_middle_deg": 6.5148519937
+        },
+        {
+          "condition_id": "mach_q2",
+          "count": 182,
+          "lower_middle_deg": 6.3102007343,
+          "mach": 0.8195,
+          "median_deg": 6.31845909335,
+          "upper_middle_deg": 6.3267174524
+        },
+        {
+          "condition_id": "mach_q3",
+          "count": 179,
+          "lower_middle_deg": 6.7994266065,
+          "mach": 0.853,
+          "median_deg": 6.7994266065,
+          "upper_middle_deg": 6.7994266065
+        }
+      ],
+      "pooled_cases": {
+        "count": 556,
+        "lower_middle_deg": 6.5672051339,
+        "median_deg": 6.56976600955,
+        "upper_middle_deg": 6.5723268852
+      }
+    },
+    "canonical_selection_population": {
+      "count": 1198,
+      "lower_middle_deg": 6.639732187,
+      "median_deg": 6.6401110468,
+      "upper_middle_deg": 6.6404899066
+    }
+  }
+}

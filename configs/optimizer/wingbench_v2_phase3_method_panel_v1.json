@@ -1,0 +1,200 @@
+{
+  "schema_version": "wingbench-v2-phase3-method-panel-v1",
+  "status": "prospectively_frozen_before_phase3_scientific_compute",
+  "official": false,
+  "sealed": false,
+  "v1_equivalent": false,
+  "authorization_binding": {
+    "path": "configs/benchmark/wingbench_v2_phase3_authorization_v1.json",
+    "authorization_id": "wingbench-v2-phase3-development-pilot-20260729"
+  },
+  "pilot_plan_binding": {
+    "path": "configs/benchmark/wingbench_v2_phase3_pilot_plan_v1.json",
+    "file_sha256": "bbffa5ff6a0502184e67a82fc8cb58e391627665bd1ffb26670c1bd9206b3cce"
+  },
+  "protocol_binding": {
+    "path": "configs/benchmark/wingbench_v2_candidate_protocol_v1.json",
+    "file_sha256": "2a64c7aa82dcb79152ec403b9dfc935ac9be64c333ed90f875290e8b791bd2d5",
+    "profile": "pilot32"
+  },
+  "reset_context": {
+    "record_count": 62,
+    "canonical_sha256": "094ac003418da96aa92696096ac79b2134b4ef13e85ab83cd3853c1768ab8d77",
+    "cross_episode_learning": false
+  },
+  "shared_search": {
+    "dimension": 38,
+    "unit_bounds_inclusive": [
+      0.0,
+      1.0
+    ],
+    "physical_bounds": "population-standardized [-3.5,3.5]^38",
+    "population_size": 16,
+    "generations": 256,
+    "cheap_queries": 4096,
+    "cheap_batch_size": 16,
+    "online_cfd_queries": 32,
+    "generations_per_online_block": 8,
+    "cheap_queries_per_online_block": 128,
+    "active_archive_size": 64,
+    "checkpoint_roster": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "seed_policy": "matched episode seed",
+    "one_unresolved_grade_per_episode": true,
+    "no_early_stopping": true,
+    "no_cross_episode_state": true
+  },
+  "implementation_dependencies": {
+    "python": "3.10.x",
+    "numpy": "2.0.2",
+    "cma": "4.4.4"
+  },
+  "cma": {
+    "dependency": "cma==4.4.4",
+    "initial_mean_each_coordinate": 0.5,
+    "initial_sigma": 0.25,
+    "population_size": 16,
+    "cma_mirrors": 0,
+    "invalid_cheap_loss": 1000000000000.0,
+    "resume": "reconstruct from seed and replay exact stored ask/tell generations"
+  },
+  "de": {
+    "strategy": "DE/rand/1/bin",
+    "population_size": 16,
+    "differential_weight": 0.8,
+    "crossover_probability": 0.9,
+    "bound_handling": "randomly reinitialize violated mutant coordinates",
+    "replacement": "trial replaces parent when private merit is greater or equal",
+    "rng": "numpy PCG64 seeded by matched episode seed"
+  },
+  "belief": {
+    "feature": "[1, z_1/3.5, ..., z_38/3.5, log(cheap_geomean_ld)-log(30)]",
+    "delivery_model": {
+      "kind": "L2-regularized weighted logistic regression",
+      "l2": 4.0,
+      "intercept_l2": 0.1,
+      "iterations": 40,
+      "probability_floor": 0.05,
+      "probability_ceiling": 0.95
+    },
+    "discrepancy_model": {
+      "kind": "ridge linear regression in log discrepancy",
+      "l2": 10.0,
+      "intercept_l2": 0.1,
+      "sigma_floor": 0.05,
+      "zero_label_sigma": 0.25
+    },
+    "private_merit": {
+      "formula": "log(p_delivery) + mu_log_cfd + 0.5*sigma_log_cfd + 0.1*bernoulli_entropy",
+      "beta_sigma": 0.5,
+      "eta_entropy": 0.1,
+      "benchmark_score": false
+    },
+    "outcome_weights": {
+      "pass": 1.0,
+      "conclusive_failure": 1.0,
+      "undetermined": 0.5,
+      "partial": 0.5
+    },
+    "verified_infrastructure_loss": {
+      "model_update": false,
+      "scientific_query_consumed": false,
+      "action_on_retry": "identical immutable pending action"
+    }
+  },
+  "methods": [
+    {
+      "method_id": "static-precommitted-cmaes-v2-pilot",
+      "family": "static_multifidelity",
+      "generator": "CMA-ES",
+      "generator_objective": "cheap_geomean_ld",
+      "cheap_schedule": "all 256 generations before checkpoint zero",
+      "online_selection": "precommit the top 32 unique cheap-valid candidates before any online CFD result",
+      "online_feedback_changes_future_proposals": false,
+      "online_feedback_changes_future_queries": false
+    },
+    {
+      "method_id": "conventional-adaptive-cmaes-v2-pilot",
+      "family": "conventional_adaptive",
+      "generator": "CMA-ES",
+      "generator_objective": "cheap_geomean_ld",
+      "cheap_schedule": "all 256 generations before checkpoint zero",
+      "online_selection": "deterministic delivery-probability-weighted corrected log-space selector over the active cheap archive",
+      "online_feedback_changes_future_proposals": false,
+      "online_feedback_changes_future_queries": true
+    },
+    {
+      "method_id": "fsd-cma-v1-port-v2-pilot",
+      "family": "feedback_steered",
+      "generator": "one continuing CMA-ES state",
+      "generator_objective": "private feedback-steered merit",
+      "cheap_schedule": "eight generations before each online query, with checkpoint zero after the first block",
+      "online_selection": "deterministic delivery-probability-weighted corrected log-space selector over the active cheap archive",
+      "online_feedback_changes_future_proposals": true,
+      "online_feedback_changes_future_queries": true,
+      "retroactive_relabel_or_retell": false,
+      "checkpoint_restart": false
+    },
+    {
+      "method_id": "checkpointed-de-feedback-v2-pilot",
+      "family": "non_cma_adaptive",
+      "generator": "one continuing checkpointable DE/rand/1/bin state",
+      "generator_objective": "private feedback-steered merit",
+      "cheap_schedule": "eight generations before each online query, with checkpoint zero after the first block",
+      "online_selection": "deterministic delivery-probability-weighted corrected log-space selector over the active cheap archive",
+      "online_feedback_changes_future_proposals": true,
+      "online_feedback_changes_future_queries": true,
+      "retroactive_relabel_or_retell": false
+    }
+  ],
+  "recommendation_rule": {
+    "if_any_online_delivery": "recommend the delivered online candidate with greatest observed whole-wing conditional L/D",
+    "otherwise": "recommend the highest current private-merit unqueried cheap-valid active-archive candidate",
+    "static_private_merit": "cheap_geomean_ld",
+    "conventional_private_merit": "selector acquisition value",
+    "hidden_checkpoint_grade_returned_to_method": false,
+    "terminal_reuses_checkpoint_32": true,
+    "tie_break": "stable candidate ID"
+  },
+  "information_policy": {
+    "allowed": [
+      "the frozen 62-record reset context",
+      "current-episode cheap observations",
+      "current-episode online CFD observations",
+      "current-episode realized evaluator cost and controller state"
+    ],
+    "forbidden": [
+      "hidden checkpoint grades",
+      "terminal grades",
+      "another episode's observations or state",
+      "future pilot outcomes",
+      "Phase 1 characterization labels beyond the frozen reset context",
+      "sealed data"
+    ]
+  },
+  "paused_optimizer_provenance": {
+    "copied_or_modified_in_place": false,
+    "feedback_research_harness_sha256": "7ccdcccbf85560343bc0ab6c514fc94b48c8c749b4536b54aeba4afb09845162",
+    "fsd_cma_v1_wrapper_sha256": "83881886f7587c3a7eac387b7edcc714a5d5349729c24478ae550b8bd143a86d",
+    "fsd_cma_v1_config_sha256": "5eef6ab96018f7d28de1c95b98165fb678239498f213a823373a5723ddddad06",
+    "fsd_cma_v1_release_sha256": "d0dcb836bfdbefcb24cca6854a648f5f681c91b5980e6e893bf0ee510dfcc71e",
+    "fsd_cma_v1_tests_sha256": "83420462f8d309f106bac26ff34e8108fb9a4ceecffbefaf3e155bbf352e70f8",
+    "port_rule": "preserve the FSD-CMA v1 belief, merit, continuing-state, archive, selector, outcome-weight, information, and terminal mechanisms while extending the prospective V2 budget to 32 online queries and 4096 cheap queries under a new method identity"
+  },
+  "state_and_replay": {
+    "authoritative_format": "canonical compact JSON with sorted keys, UTF-8, no NaN, and trailing newline",
+    "atomic_write_after_each_transition": true,
+    "append_only_hash_chained_events": true,
+    "bind_seed_context_config_source_and_evaluators": true,
+    "pending_action_immutable_on_resume": true,
+    "unchanged_terminal_state_byte_stable": true
+  },
+  "change_control": "Any method formula, hyperparameter, information rule, proposal schedule, selector, terminal rule, dependency, roster, seed, budget, or checkpoint change after the first scientific grade requires stopping Phase 3; it cannot be repaired in place."
+}

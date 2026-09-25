@@ -1,0 +1,241 @@
+episode,study,method,task,target_cl,seed,online_queries,cfd_core_seconds,timed_evaluations,original_id
+B000,baseline,CMA-ES no feedback,low,0.15,6200,32,1143158.5445058355,39,000-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6200
+B001,baseline,CMA-ES selection only,low,0.15,6200,32,1143154.3279143763,39,001-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6200
+B002,baseline,CMA-ES feedback-guided,low,0.15,6200,32,1675083.3372376256,35,002-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6200
+B003,baseline,DE feedback-guided,low,0.15,6200,32,2341873.2283045896,36,003-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6200
+B004,baseline,CMA-ES no feedback,nominal,0.41,6200,32,804031.9358633838,39,004-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6200
+B005,baseline,CMA-ES selection only,nominal,0.41,6200,32,774411.4967859422,39,005-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6200
+B006,baseline,CMA-ES feedback-guided,nominal,0.41,6200,32,7114152.424048559,35,006-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6200
+B007,baseline,DE feedback-guided,nominal,0.41,6200,32,5193193.861717176,34,007-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6200
+B008,baseline,CMA-ES no feedback,high,0.66,6200,32,6777833.294189124,33,008-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6200
+B009,baseline,CMA-ES selection only,high,0.66,6200,32,6847924.188487184,33,009-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6200
+B010,baseline,CMA-ES feedback-guided,high,0.66,6200,32,5545629.549793967,33,010-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6200
+B011,baseline,DE feedback-guided,high,0.66,6200,32,7142887.602071345,34,011-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6200
+B012,baseline,CMA-ES no feedback,low,0.15,6201,32,952387.4710587399,39,012-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6201
+B013,baseline,CMA-ES selection only,low,0.15,6201,32,979470.4885735817,39,013-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6201
+B014,baseline,CMA-ES feedback-guided,low,0.15,6201,32,1185156.6006865397,34,014-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6201
+B015,baseline,DE feedback-guided,low,0.15,6201,32,2602572.0418840977,35,015-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6201
+B016,baseline,CMA-ES no feedback,nominal,0.41,6201,32,889619.1494895716,39,016-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6201
+B017,baseline,CMA-ES selection only,nominal,0.41,6201,32,895354.7132122663,39,017-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6201
+B018,baseline,CMA-ES feedback-guided,nominal,0.41,6201,32,5602255.206052467,35,018-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6201
+B019,baseline,DE feedback-guided,nominal,0.41,6201,32,5307076.821586355,33,019-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6201
+B020,baseline,CMA-ES no feedback,high,0.66,6201,32,8120531.2338887695,33,020-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6201
+B021,baseline,CMA-ES selection only,high,0.66,6201,32,7822579.579715675,33,021-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6201
+B022,baseline,CMA-ES feedback-guided,high,0.66,6201,32,4954221.068009546,36,022-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6201
+B023,baseline,DE feedback-guided,high,0.66,6201,32,5086083.638464972,34,023-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6201
+B024,baseline,CMA-ES no feedback,low,0.15,6202,32,724228.2866001172,39,024-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6202
+B025,baseline,CMA-ES selection only,low,0.15,6202,32,726795.3488426758,39,025-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6202
+B026,baseline,CMA-ES feedback-guided,low,0.15,6202,32,1250201.8280990496,34,026-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6202
+B027,baseline,DE feedback-guided,low,0.15,6202,32,4378409.687873148,34,027-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6202
+B028,baseline,CMA-ES no feedback,nominal,0.41,6202,32,198539.21115787205,39,028-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6202
+B029,baseline,CMA-ES selection only,nominal,0.41,6202,32,174794.01265230987,39,029-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6202
+B030,baseline,CMA-ES feedback-guided,nominal,0.41,6202,32,7585989.451268537,35,030-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6202
+B031,baseline,DE feedback-guided,nominal,0.41,6202,32,3987799.9348710156,35,031-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6202
+B032,baseline,CMA-ES no feedback,high,0.66,6202,32,201170.8340117011,39,032-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6202
+B033,baseline,CMA-ES selection only,high,0.66,6202,32,226873.2881449587,39,033-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6202
+B034,baseline,CMA-ES feedback-guided,high,0.66,6202,32,7027266.98438523,35,034-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6202
+B035,baseline,DE feedback-guided,high,0.66,6202,32,6576164.480192093,36,035-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6202
+B036,baseline,CMA-ES no feedback,low,0.15,6203,32,369369.21840244456,39,036-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6203
+B037,baseline,CMA-ES selection only,low,0.15,6203,32,391289.3029491882,39,037-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6203
+B038,baseline,CMA-ES feedback-guided,low,0.15,6203,32,5170131.457486609,38,038-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6203
+B039,baseline,DE feedback-guided,low,0.15,6203,32,3548230.3798766257,35,039-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6203
+B040,baseline,CMA-ES no feedback,nominal,0.41,6203,32,1542288.5748961666,37,040-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6203
+B041,baseline,CMA-ES selection only,nominal,0.41,6203,32,1905962.90083892,34,041-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6203
+B042,baseline,CMA-ES feedback-guided,nominal,0.41,6203,32,5863537.005924507,35,042-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6203
+B043,baseline,DE feedback-guided,nominal,0.41,6203,32,6127228.21288198,34,043-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6203
+B044,baseline,CMA-ES no feedback,high,0.66,6203,32,381084.32109192666,39,044-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6203
+B045,baseline,CMA-ES selection only,high,0.66,6203,32,414817.5682798224,39,045-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6203
+B046,baseline,CMA-ES feedback-guided,high,0.66,6203,32,7735240.498442525,35,046-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6203
+B047,baseline,DE feedback-guided,high,0.66,6203,32,4886432.858069582,34,047-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6203
+B048,baseline,CMA-ES no feedback,low,0.15,6204,32,238110.09353433648,39,048-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6204
+B049,baseline,CMA-ES selection only,low,0.15,6204,32,225644.02445156977,39,049-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6204
+B050,baseline,CMA-ES feedback-guided,low,0.15,6204,32,814892.6557346028,39,050-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6204
+B051,baseline,DE feedback-guided,low,0.15,6204,32,2122626.8644986376,34,051-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6204
+B052,baseline,CMA-ES no feedback,nominal,0.41,6204,32,7458161.4187695505,33,052-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6204
+B053,baseline,CMA-ES selection only,nominal,0.41,6204,32,7382238.363950678,33,053-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6204
+B054,baseline,CMA-ES feedback-guided,nominal,0.41,6204,32,4500315.867225221,34,054-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6204
+B055,baseline,DE feedback-guided,nominal,0.41,6204,32,4921761.010622038,33,055-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6204
+B056,baseline,CMA-ES no feedback,high,0.66,6204,32,3893637.2978669866,36,056-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6204
+B057,baseline,CMA-ES selection only,high,0.66,6204,32,3708173.99919685,35,057-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6204
+B058,baseline,CMA-ES feedback-guided,high,0.66,6204,32,7544227.28463294,34,058-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6204
+B059,baseline,DE feedback-guided,high,0.66,6204,32,5300432.958401091,33,059-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6204
+B060,baseline,CMA-ES no feedback,low,0.15,6205,32,231579.88167857437,39,060-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6205
+B061,baseline,CMA-ES selection only,low,0.15,6205,32,205591.6755030338,39,061-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6205
+B062,baseline,CMA-ES feedback-guided,low,0.15,6205,32,161159.6495354344,39,062-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6205
+B063,baseline,DE feedback-guided,low,0.15,6205,32,1839646.0474536433,36,063-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6205
+B064,baseline,CMA-ES no feedback,nominal,0.41,6205,32,232180.4159642562,39,064-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6205
+B065,baseline,CMA-ES selection only,nominal,0.41,6205,32,230437.14072324504,39,065-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6205
+B066,baseline,CMA-ES feedback-guided,nominal,0.41,6205,32,6310645.725412269,33,066-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6205
+B067,baseline,DE feedback-guided,nominal,0.41,6205,32,5921283.502044677,34,067-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6205
+B068,baseline,CMA-ES no feedback,high,0.66,6205,32,124128.18937017371,39,068-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6205
+B069,baseline,CMA-ES selection only,high,0.66,6205,32,125360.3441143638,39,069-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6205
+B070,baseline,CMA-ES feedback-guided,high,0.66,6205,32,5816082.42442493,35,070-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6205
+B071,baseline,DE feedback-guided,high,0.66,6205,32,5028604.566256645,34,071-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6205
+B072,baseline,CMA-ES no feedback,low,0.15,6206,32,209846.79258750044,39,072-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6206
+B073,baseline,CMA-ES selection only,low,0.15,6206,32,238126.99934380548,39,073-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6206
+B074,baseline,CMA-ES feedback-guided,low,0.15,6206,32,2549013.9483846165,34,074-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6206
+B075,baseline,DE feedback-guided,low,0.15,6206,32,3143437.5130044203,35,075-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6206
+B076,baseline,CMA-ES no feedback,nominal,0.41,6206,32,6033908.497933173,33,076-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6206
+B077,baseline,CMA-ES selection only,nominal,0.41,6206,32,6130408.702481233,33,077-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6206
+B078,baseline,CMA-ES feedback-guided,nominal,0.41,6206,32,5366055.982244106,34,078-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6206
+B079,baseline,DE feedback-guided,nominal,0.41,6206,32,4452266.0950684585,35,079-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6206
+B080,baseline,CMA-ES no feedback,high,0.66,6206,32,193155.5071945066,39,080-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6206
+B081,baseline,CMA-ES selection only,high,0.66,6206,32,185482.45534623356,39,081-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6206
+B082,baseline,CMA-ES feedback-guided,high,0.66,6206,32,3325840.7174426313,33,082-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6206
+B083,baseline,DE feedback-guided,high,0.66,6206,32,5042384.185746432,36,083-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6206
+B084,baseline,CMA-ES no feedback,low,0.15,6207,32,199135.80502484378,39,084-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6207
+B085,baseline,CMA-ES selection only,low,0.15,6207,32,170086.85450006562,39,085-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6207
+B086,baseline,CMA-ES feedback-guided,low,0.15,6207,32,1693788.4251996824,39,086-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6207
+B087,baseline,DE feedback-guided,low,0.15,6207,32,4041881.5826509013,34,087-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6207
+B088,baseline,CMA-ES no feedback,nominal,0.41,6207,32,232686.1156176198,39,088-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6207
+B089,baseline,CMA-ES selection only,nominal,0.41,6207,32,173086.4064715083,39,089-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6207
+B090,baseline,CMA-ES feedback-guided,nominal,0.41,6207,32,8443969.94900572,35,090-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6207
+B091,baseline,DE feedback-guided,nominal,0.41,6207,32,4872402.184663928,33,091-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6207
+B092,baseline,CMA-ES no feedback,high,0.66,6207,32,6859355.952621579,33,092-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6207
+B093,baseline,CMA-ES selection only,high,0.66,6207,32,6970961.891086617,33,093-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6207
+B094,baseline,CMA-ES feedback-guided,high,0.66,6207,32,5911040.281417515,33,094-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6207
+B095,baseline,DE feedback-guided,high,0.66,6207,32,4762519.14973281,33,095-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6207
+B096,baseline,CMA-ES no feedback,low,0.15,6208,32,443247.989186984,39,096-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6208
+B097,baseline,CMA-ES selection only,low,0.15,6208,32,90736.92485884,39,097-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6208
+B098,baseline,CMA-ES feedback-guided,low,0.15,6208,32,455658.772049688,39,098-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6208
+B099,baseline,DE feedback-guided,low,0.15,6208,32,5141489.656635583,34,099-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6208
+B100,baseline,CMA-ES no feedback,nominal,0.41,6208,32,5120991.230556503,33,100-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6208
+B101,baseline,CMA-ES selection only,nominal,0.41,6208,32,5140236.207265592,33,101-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6208
+B102,baseline,CMA-ES feedback-guided,nominal,0.41,6208,32,7024182.0930363,34,102-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6208
+B103,baseline,DE feedback-guided,nominal,0.41,6208,32,4701157.164185281,36,103-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6208
+B104,baseline,CMA-ES no feedback,high,0.66,6208,32,6147071.159054175,33,104-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6208
+B105,baseline,CMA-ES selection only,high,0.66,6208,32,6043258.474098892,33,105-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6208
+B106,baseline,CMA-ES feedback-guided,high,0.66,6208,32,6468169.3601581715,33,106-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6208
+B107,baseline,DE feedback-guided,high,0.66,6208,32,5491329.270175037,33,107-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6208
+B108,baseline,CMA-ES no feedback,low,0.15,6209,32,148943.86254614402,39,108-phase5-superwing-load-low-cl015-static-precommitted-cmaes-v2-pilot-s6209
+B109,baseline,CMA-ES selection only,low,0.15,6209,32,150809.655485488,39,109-phase5-superwing-load-low-cl015-conventional-adaptive-cmaes-v2-pilot-s6209
+B110,baseline,CMA-ES feedback-guided,low,0.15,6209,32,470258.14970103203,33,110-phase5-superwing-load-low-cl015-fsd-cma-v1-port-v2-pilot-s6209
+B111,baseline,DE feedback-guided,low,0.15,6209,32,2203046.9321024874,34,111-phase5-superwing-load-low-cl015-checkpointed-de-feedback-v2-pilot-s6209
+B112,baseline,CMA-ES no feedback,nominal,0.41,6209,32,64632.84506944003,39,112-phase5-superwing-load-nominal-cl041-static-precommitted-cmaes-v2-pilot-s6209
+B113,baseline,CMA-ES selection only,nominal,0.41,6209,32,75371.64896211201,39,113-phase5-superwing-load-nominal-cl041-conventional-adaptive-cmaes-v2-pilot-s6209
+B114,baseline,CMA-ES feedback-guided,nominal,0.41,6209,32,5548422.42034875,35,114-phase5-superwing-load-nominal-cl041-fsd-cma-v1-port-v2-pilot-s6209
+B115,baseline,DE feedback-guided,nominal,0.41,6209,32,4475204.051007547,36,115-phase5-superwing-load-nominal-cl041-checkpointed-de-feedback-v2-pilot-s6209
+B116,baseline,CMA-ES no feedback,high,0.66,6209,32,145566.83052744798,39,116-phase5-superwing-load-high-cl066-static-precommitted-cmaes-v2-pilot-s6209
+B117,baseline,CMA-ES selection only,high,0.66,6209,32,151430.49241621597,39,117-phase5-superwing-load-high-cl066-conventional-adaptive-cmaes-v2-pilot-s6209
+B118,baseline,CMA-ES feedback-guided,high,0.66,6209,32,6421366.101418735,33,118-phase5-superwing-load-high-cl066-fsd-cma-v1-port-v2-pilot-s6209
+B119,baseline,DE feedback-guided,high,0.66,6209,32,6390564.9607447805,37,119-phase5-superwing-load-high-cl066-checkpointed-de-feedback-v2-pilot-s6209
+B120,baseline,SMAC3,low,0.15,6200,32,3044050.776310382,33,smac3-e00
+B121,baseline,SMAC3,low,0.15,6201,32,6312266.063006107,32,smac3-e01
+B122,baseline,SMAC3,low,0.15,6202,32,5054042.145070381,30,smac3-e02
+B123,baseline,SMAC3,low,0.15,6203,32,6937732.598325198,31,smac3-e03
+B124,baseline,SMAC3,low,0.15,6204,32,4956305.388587793,32,smac3-e04
+B125,baseline,SMAC3,low,0.15,6205,32,7620098.80315603,32,smac3-e05
+B126,baseline,SMAC3,low,0.15,6206,32,2335601.280465663,31,smac3-e06
+B127,baseline,SMAC3,low,0.15,6207,32,1804165.7250041754,31,smac3-e07
+B128,baseline,SMAC3,low,0.15,6208,32,6080177.070859117,31,smac3-e08
+B129,baseline,SMAC3,low,0.15,6209,32,4951745.16068325,31,smac3-e09
+B130,baseline,SMAC3,nominal,0.41,6200,32,3084516.6930847685,33,smac3-e10
+B131,baseline,SMAC3,nominal,0.41,6201,32,2695097.982354819,33,smac3-e11
+B132,baseline,SMAC3,nominal,0.41,6202,32,5979980.332635166,32,smac3-e12
+B133,baseline,SMAC3,nominal,0.41,6203,32,5054012.126402756,32,smac3-e13
+B134,baseline,SMAC3,nominal,0.41,6204,32,5145228.743867329,32,smac3-e14
+B135,baseline,SMAC3,nominal,0.41,6205,32,7234969.370581185,32,smac3-e15
+B136,baseline,SMAC3,nominal,0.41,6206,32,2223063.6458915663,32,smac3-e16
+B137,baseline,SMAC3,nominal,0.41,6207,32,2102134.4556782073,33,smac3-e17
+B138,baseline,SMAC3,nominal,0.41,6208,32,3059630.2811794723,33,smac3-e18
+B139,baseline,SMAC3,nominal,0.41,6209,32,5488550.095607745,32,smac3-e19
+B140,baseline,SMAC3,high,0.66,6200,32,3113979.803203668,33,smac3-e20
+B141,baseline,SMAC3,high,0.66,6201,32,3497436.275566961,33,smac3-e21
+B142,baseline,SMAC3,high,0.66,6202,32,8244298.74755088,30,smac3-e22
+B143,baseline,SMAC3,high,0.66,6203,32,2580014.654027215,32,smac3-e23
+B144,baseline,SMAC3,high,0.66,6204,32,6731880.243881565,31,smac3-e24
+B145,baseline,SMAC3,high,0.66,6205,32,1959864.6860263983,31,smac3-e25
+B146,baseline,SMAC3,high,0.66,6206,32,1453637.2173420154,32,smac3-e26
+B147,baseline,SMAC3,high,0.66,6207,32,1424674.2198453932,32,smac3-e27
+B148,baseline,SMAC3,high,0.66,6208,32,4231510.793827182,30,smac3-e28
+B149,baseline,SMAC3,high,0.66,6209,32,2703902.1579052955,32,smac3-e29
+A000,agent,Planning,high,0.66,9506,4,816410.864,5,rafa-best-of-n-v1-high-s9506
+A001,agent,Planning,high,0.66,9531,4,768858.192,5,rafa-best-of-n-v1-high-s9531
+A002,agent,Planning,high,0.66,9532,4,832082.2400000001,5,rafa-best-of-n-v1-high-s9532
+A003,agent,Planning,high,0.66,9548,4,462436.14400000003,6,rafa-best-of-n-v1-high-s9548
+A004,agent,Planning,high,0.66,9551,4,22577.024,7,rafa-best-of-n-v1-high-s9551
+A005,agent,Planning,high,0.66,9557,4,1004435.968,5,rafa-best-of-n-v1-high-s9557
+A006,agent,Planning,high,0.66,9562,4,456383.98400000005,5,rafa-best-of-n-v1-high-s9562
+A007,agent,Planning,high,0.66,9568,4,759811.104,5,rafa-best-of-n-v1-high-s9568
+A008,agent,Planning,high,0.66,9595,4,821264.64,7,rafa-best-of-n-v1-high-s9595
+A009,agent,Planning,high,0.66,9601,4,857989.968,5,rafa-best-of-n-v1-high-s9601
+A010,agent,Planning,low,0.15,9506,4,723656.032,5,rafa-best-of-n-v1-low-s9506
+A011,agent,Planning,low,0.15,9531,4,850383.1039999999,5,rafa-best-of-n-v1-low-s9531
+A012,agent,Planning,low,0.15,9532,4,728730.928,5,rafa-best-of-n-v1-low-s9532
+A013,agent,Planning,low,0.15,9548,4,478195.904,6,rafa-best-of-n-v1-low-s9548
+A014,agent,Planning,low,0.15,9551,4,722794.432,5,rafa-best-of-n-v1-low-s9551
+A015,agent,Planning,low,0.15,9557,4,624729.232,5,rafa-best-of-n-v1-low-s9557
+A016,agent,Planning,low,0.15,9562,4,681869.76,5,rafa-best-of-n-v1-low-s9562
+A017,agent,Planning,low,0.15,9568,4,1174414.176,5,rafa-best-of-n-v1-low-s9568
+A018,agent,Planning,low,0.15,9595,4,499964.288,6,rafa-best-of-n-v1-low-s9595
+A019,agent,Planning,low,0.15,9601,4,653718.416,5,rafa-best-of-n-v1-low-s9601
+A020,agent,Planning,nominal,0.41,9506,4,1110308.8639999998,5,rafa-best-of-n-v1-nominal-s9506
+A021,agent,Planning,nominal,0.41,9531,4,444583.71200000006,5,rafa-best-of-n-v1-nominal-s9531
+A022,agent,Planning,nominal,0.41,9532,4,583831.456,6,rafa-best-of-n-v1-nominal-s9532
+A023,agent,Planning,nominal,0.41,9548,4,780123.2,5,rafa-best-of-n-v1-nominal-s9548
+A024,agent,Planning,nominal,0.41,9551,4,821910.7039999999,6,rafa-best-of-n-v1-nominal-s9551
+A025,agent,Planning,nominal,0.41,9557,4,1136808.928,6,rafa-best-of-n-v1-nominal-s9557
+A026,agent,Planning,nominal,0.41,9562,4,1029136.0960000001,5,rafa-best-of-n-v1-nominal-s9562
+A027,agent,Planning,nominal,0.41,9568,4,683559.248,5,rafa-best-of-n-v1-nominal-s9568
+A028,agent,Planning,nominal,0.41,9595,4,617270.624,6,rafa-best-of-n-v1-nominal-s9595
+A029,agent,Planning,nominal,0.41,9601,4,855726.4639999999,6,rafa-best-of-n-v1-nominal-s9601
+A030,agent,Reflection,high,0.66,9506,4,936153.04,8,s-open-reflexion-v1-high-s9506
+A031,agent,Reflection,high,0.66,9531,4,773963.104,5,s-open-reflexion-v1-high-s9531
+A032,agent,Reflection,high,0.66,9532,4,826348.1439999999,5,s-open-reflexion-v1-high-s9532
+A033,agent,Reflection,high,0.66,9548,4,1135110.4000000001,7,s-open-reflexion-v1-high-s9548
+A034,agent,Reflection,high,0.66,9551,4,869022.736,5,s-open-reflexion-v1-high-s9551
+A035,agent,Reflection,high,0.66,9557,4,671301.504,5,s-open-reflexion-v1-high-s9557
+A036,agent,Reflection,high,0.66,9562,4,982432.512,6,s-open-reflexion-v1-high-s9562
+A037,agent,Reflection,high,0.66,9568,4,723638.048,5,s-open-reflexion-v1-high-s9568
+A038,agent,Reflection,high,0.66,9595,4,707204.432,5,s-open-reflexion-v1-high-s9595
+A039,agent,Reflection,high,0.66,9601,4,866679.088,5,s-open-reflexion-v1-high-s9601
+A040,agent,Reflection,low,0.15,9506,4,524383.584,5,s-open-reflexion-v1-low-s9506
+A041,agent,Reflection,low,0.15,9531,4,777015.2320000001,5,s-open-reflexion-v1-low-s9531
+A042,agent,Reflection,low,0.15,9532,4,496318.51200000005,5,s-open-reflexion-v1-low-s9532
+A043,agent,Reflection,low,0.15,9548,4,698813.6479999999,6,s-open-reflexion-v1-low-s9548
+A044,agent,Reflection,low,0.15,9551,4,657458.3840000001,5,s-open-reflexion-v1-low-s9551
+A045,agent,Reflection,low,0.15,9557,4,445634.448,7,s-open-reflexion-v1-low-s9557
+A046,agent,Reflection,low,0.15,9562,4,821846.992,5,s-open-reflexion-v1-low-s9562
+A047,agent,Reflection,low,0.15,9568,4,653033.4079999999,5,s-open-reflexion-v1-low-s9568
+A048,agent,Reflection,low,0.15,9595,4,1206484.336,6,s-open-reflexion-v1-low-s9595
+A049,agent,Reflection,low,0.15,9601,4,791916.6879999998,5,s-open-reflexion-v1-low-s9601
+A050,agent,Reflection,nominal,0.41,9506,4,650972.4959999999,5,s-open-reflexion-v1-nominal-s9506
+A051,agent,Reflection,nominal,0.41,9531,4,791915.4880000001,7,s-open-reflexion-v1-nominal-s9531
+A052,agent,Reflection,nominal,0.41,9532,4,719636.56,5,s-open-reflexion-v1-nominal-s9532
+A053,agent,Reflection,nominal,0.41,9548,4,859163.4720000001,5,s-open-reflexion-v1-nominal-s9548
+A054,agent,Reflection,nominal,0.41,9551,4,712789.9199999999,5,s-open-reflexion-v1-nominal-s9551
+A055,agent,Reflection,nominal,0.41,9557,4,1018684.672,7,s-open-reflexion-v1-nominal-s9557
+A056,agent,Reflection,nominal,0.41,9562,4,544354.848,5,s-open-reflexion-v1-nominal-s9562
+A057,agent,Reflection,nominal,0.41,9568,4,577536.528,6,s-open-reflexion-v1-nominal-s9568
+A058,agent,Reflection,nominal,0.41,9595,4,839121.088,7,s-open-reflexion-v1-nominal-s9595
+A059,agent,Reflection,nominal,0.41,9601,4,730815.632,5,s-open-reflexion-v1-nominal-s9601
+A060,agent,Open-ended research,high,0.66,9506,32,6955930.224,33,s-open-v2-high-s9506
+A061,agent,Open-ended research,high,0.66,9531,32,6317996.464000001,33,s-open-v2-high-s9531
+A062,agent,Open-ended research,high,0.66,9532,32,6312796.464,33,s-open-v2-high-s9532
+A063,agent,Open-ended research,high,0.66,9548,32,4102348.752,33,s-open-v2-high-s9548
+A064,agent,Open-ended research,high,0.66,9551,32,5574917.184000001,35,s-open-v2-high-s9551
+A065,agent,Open-ended research,high,0.66,9557,32,6044209.279999999,32,s-open-v2-high-s9557
+A066,agent,Open-ended research,high,0.66,9562,32,4282498.848,30,s-open-v2-high-s9562
+A067,agent,Open-ended research,high,0.66,9568,32,1219606.032,33,s-open-v2-high-s9568
+A068,agent,Open-ended research,high,0.66,9595,32,3904275.551999999,31,s-open-v2-high-s9595
+A069,agent,Open-ended research,high,0.66,9601,32,5378634.16,30,s-open-v2-high-s9601
+A070,agent,Open-ended research,low,0.15,9506,32,4135513.6319999993,28,s-open-v2-low-s9506
+A071,agent,Open-ended research,low,0.15,9531,32,6300004.191999998,34,s-open-v2-low-s9531
+A072,agent,Open-ended research,low,0.15,9532,32,6584293.056,34,s-open-v2-low-s9532
+A073,agent,Open-ended research,low,0.15,9548,32,4995119.631999999,34,s-open-v2-low-s9548
+A074,agent,Open-ended research,low,0.15,9551,32,4895265.984000001,34,s-open-v2-low-s9551
+A075,agent,Open-ended research,low,0.15,9557,32,3983029.4239999987,33,s-open-v2-low-s9557
+A076,agent,Open-ended research,low,0.15,9562,32,4550678.496,34,s-open-v2-low-s9562
+A077,agent,Open-ended research,low,0.15,9568,32,4846814.080000001,34,s-open-v2-low-s9568
+A078,agent,Open-ended research,low,0.15,9595,32,5356371.344,30,s-open-v2-low-s9595
+A079,agent,Open-ended research,low,0.15,9601,32,6785796.592,33,s-open-v2-low-s9601
+A080,agent,Open-ended research,nominal,0.41,9506,32,4157259.84,33,s-open-v2-nominal-s9506
+A081,agent,Open-ended research,nominal,0.41,9531,32,4813790.832,33,s-open-v2-nominal-s9531
+A082,agent,Open-ended research,nominal,0.41,9532,32,4824502.88,29,s-open-v2-nominal-s9532
+A083,agent,Open-ended research,nominal,0.41,9548,32,3567254.2880000006,32,s-open-v2-nominal-s9548
+A084,agent,Open-ended research,nominal,0.41,9551,32,6803030.416,31,s-open-v2-nominal-s9551
+A085,agent,Open-ended research,nominal,0.41,9557,32,5548590.367999999,32,s-open-v2-nominal-s9557
+A086,agent,Open-ended research,nominal,0.41,9562,32,5108385.376,33,s-open-v2-nominal-s9562
+A087,agent,Open-ended research,nominal,0.41,9568,32,4214223.504000001,31,s-open-v2-nominal-s9568
+A088,agent,Open-ended research,nominal,0.41,9595,32,5749217.760000002,31,s-open-v2-nominal-s9595
+A089,agent,Open-ended research,nominal,0.41,9601,32,4294077.8719999995,32,s-open-v2-nominal-s9601

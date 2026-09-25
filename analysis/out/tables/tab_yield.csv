@@ -1,0 +1,5 @@
+method,CL = 0.15 (low),CL = 0.41 (nominal),CL = 0.66 (high)
+CMA-ES (no feedback),0.0,0.259,0.369
+CMA-ES (selection only),0.0,0.266,0.35
+CMA-ES (feedback-guided),0.044,0.769,0.772
+DE (feedback-guided),0.291,0.625,0.622

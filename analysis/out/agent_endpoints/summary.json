@@ -1,0 +1,2366 @@
+{
+  "extension": {
+    "superwing-load-high-cl066": {
+      "1": {
+        "delivery_bounds": [
+          0.8,
+          0.8
+        ],
+        "episodes_with_delivery": 8,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          25.15414783392354,
+          25.15414783392354
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 8,
+          "delivery_rate": 0.8,
+          "mean_ld": 25.15414783392354,
+          "median_ld": 25.164368643907036,
+          "n": 10
+        },
+        "query": 1
+      },
+      "2": {
+        "delivery_bounds": [
+          0.85,
+          0.85
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          25.925054813115064,
+          25.925054813115064
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 17,
+          "delivery_rate": 0.85,
+          "mean_ld": 25.499840998162405,
+          "median_ld": 25.1916731457903,
+          "n": 20
+        },
+        "query": 2
+      },
+      "3": {
+        "delivery_bounds": [
+          0.8333333333333334,
+          0.8333333333333334
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          27.101788097891863,
+          27.101788097891863
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 25,
+          "delivery_rate": 0.8333333333333334,
+          "mean_ld": 26.239258920370684,
+          "median_ld": 26.070029573364113,
+          "n": 30
+        },
+        "query": 3
+      },
+      "4": {
+        "delivery_bounds": [
+          0.85,
+          0.85
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          27.828600138321406,
+          27.828600138321406
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 34,
+          "delivery_rate": 0.85,
+          "mean_ld": 26.64718504148195,
+          "median_ld": 26.670294283365784,
+          "n": 40
+        },
+        "query": 4
+      },
+      "5": {
+        "delivery_bounds": [
+          0.86,
+          0.86
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          28.22966956416286,
+          28.229669564162855
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 43,
+          "delivery_rate": 0.86,
+          "mean_ld": 26.980988298160355,
+          "median_ld": 26.86330458282195,
+          "n": 50
+        },
+        "query": 5
+      },
+      "6": {
+        "delivery_bounds": [
+          0.85,
+          0.85
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          28.671049168664684,
+          28.671049168664684
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 51,
+          "delivery_rate": 0.85,
+          "mean_ld": 27.238611879765486,
+          "median_ld": 27.18256408884531,
+          "n": 60
+        },
+        "query": 6
+      },
+      "7": {
+        "delivery_bounds": [
+          0.8428571428571429,
+          0.8428571428571429
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          28.989403112269798,
+          28.989403112269805
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 59,
+          "delivery_rate": 0.8428571428571429,
+          "mean_ld": 27.481081841118947,
+          "median_ld": 27.47720876742681,
+          "n": 70
+        },
+        "query": 7
+      },
+      "8": {
+        "delivery_bounds": [
+          0.8375,
+          0.8375
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.161780768905356,
+          29.161780768905356
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 67,
+          "delivery_rate": 0.8375,
+          "mean_ld": 27.709651049367697,
+          "median_ld": 27.682047374858698,
+          "n": 80
+        },
+        "query": 8
+      },
+      "9": {
+        "delivery_bounds": [
+          0.8,
+          0.8
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.361253257919554,
+          29.361253257919554
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 72,
+          "delivery_rate": 0.8,
+          "mean_ld": 27.897198216926913,
+          "median_ld": 27.8068636738685,
+          "n": 90
+        },
+        "query": 9
+      },
+      "10": {
+        "delivery_bounds": [
+          0.76,
+          0.76
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.439084655672218,
+          29.439084655672225
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 76,
+          "delivery_rate": 0.76,
+          "mean_ld": 28.059193356192367,
+          "median_ld": 28.045514841821742,
+          "n": 100
+        },
+        "query": 10
+      },
+      "11": {
+        "delivery_bounds": [
+          0.7181818181818181,
+          0.7181818181818181
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.58889529350207,
+          29.58889529350207
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 79,
+          "delivery_rate": 0.7181818181818181,
+          "mean_ld": 28.14555188332728,
+          "median_ld": 28.2631829820948,
+          "n": 110
+        },
+        "query": 11
+      },
+      "12": {
+        "delivery_bounds": [
+          0.6833333333333333,
+          0.6833333333333333
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.627787484864456,
+          29.627787484864463
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 82,
+          "delivery_rate": 0.6833333333333333,
+          "mean_ld": 28.199351109486997,
+          "median_ld": 28.296913348974005,
+          "n": 120
+        },
+        "query": 12
+      },
+      "13": {
+        "delivery_bounds": [
+          0.6846153846153846,
+          0.6846153846153846
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.664638476885404,
+          29.664638476885404
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 89,
+          "delivery_rate": 0.6846153846153846,
+          "mean_ld": 28.359762564154092,
+          "median_ld": 28.690259366673533,
+          "n": 130
+        },
+        "query": 13
+      },
+      "14": {
+        "delivery_bounds": [
+          0.6571428571428571,
+          0.6571428571428571
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.710210150798254,
+          29.710210150798254
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 92,
+          "delivery_rate": 0.6571428571428571,
+          "mean_ld": 28.450773740813514,
+          "median_ld": 28.7816151248746,
+          "n": 140
+        },
+        "query": 14
+      },
+      "15": {
+        "delivery_bounds": [
+          0.64,
+          0.64
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.715419131040164,
+          29.715419131040164
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 96,
+          "delivery_rate": 0.64,
+          "mean_ld": 28.484943250232064,
+          "median_ld": 28.7816151248746,
+          "n": 150
+        },
+        "query": 15
+      },
+      "16": {
+        "delivery_bounds": [
+          0.625,
+          0.625
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.806826264861208,
+          29.80682626486121
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 100,
+          "delivery_rate": 0.625,
+          "mean_ld": 28.52315805357857,
+          "median_ld": 28.7816151248746,
+          "n": 160
+        },
+        "query": 16
+      },
+      "17": {
+        "delivery_bounds": [
+          0.6294117647058823,
+          0.6294117647058823
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.833473897996516,
+          29.83347389799652
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 107,
+          "delivery_rate": 0.6294117647058823,
+          "mean_ld": 28.631826385407123,
+          "median_ld": 28.929541836746754,
+          "n": 170
+        },
+        "query": 17
+      },
+      "18": {
+        "delivery_bounds": [
+          0.6277777777777778,
+          0.6277777777777778
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.88439890493557,
+          29.884398904935573
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 113,
+          "delivery_rate": 0.6277777777777778,
+          "mean_ld": 28.70315990943479,
+          "median_ld": 29.004183257368737,
+          "n": 180
+        },
+        "query": 18
+      },
+      "19": {
+        "delivery_bounds": [
+          0.6210526315789474,
+          0.6210526315789474
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.917797582340377,
+          29.91779758234038
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 118,
+          "delivery_rate": 0.6210526315789474,
+          "mean_ld": 28.74161131418721,
+          "median_ld": 29.013038337821314,
+          "n": 190
+        },
+        "query": 19
+      },
+      "20": {
+        "delivery_bounds": [
+          0.61,
+          0.61
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.947429724693905,
+          29.947429724693905
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 122,
+          "delivery_rate": 0.61,
+          "mean_ld": 28.78157681695479,
+          "median_ld": 29.02592039253532,
+          "n": 200
+        },
+        "query": 20
+      },
+      "21": {
+        "delivery_bounds": [
+          0.6047619047619047,
+          0.6047619047619047
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.97852745072287,
+          29.978527450722872
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 127,
+          "delivery_rate": 0.6047619047619047,
+          "mean_ld": 28.81970474516088,
+          "median_ld": 29.029947366796755,
+          "n": 210
+        },
+        "query": 21
+      },
+      "22": {
+        "delivery_bounds": [
+          0.6045454545454545,
+          0.6045454545454545
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.021819480850883,
+          30.021819480850883
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 133,
+          "delivery_rate": 0.6045454545454545,
+          "mean_ld": 28.87836073472142,
+          "median_ld": 29.20143696040245,
+          "n": 220
+        },
+        "query": 22
+      },
+      "23": {
+        "delivery_bounds": [
+          0.6043478260869565,
+          0.6043478260869565
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.060468473330708,
+          30.060468473330708
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 139,
+          "delivery_rate": 0.6043478260869565,
+          "mean_ld": 28.928927504444186,
+          "median_ld": 29.234708918738743,
+          "n": 230
+        },
+        "query": 23
+      },
+      "24": {
+        "delivery_bounds": [
+          0.6041666666666666,
+          0.6041666666666666
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.105545591962418,
+          30.105545591962418
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 145,
+          "delivery_rate": 0.6041666666666666,
+          "mean_ld": 28.994095950693886,
+          "median_ld": 29.305763981513106,
+          "n": 240
+        },
+        "query": 24
+      },
+      "25": {
+        "delivery_bounds": [
+          0.604,
+          0.604
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.142683716078086,
+          30.14268371607809
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 151,
+          "delivery_rate": 0.604,
+          "mean_ld": 29.05652472997045,
+          "median_ld": 29.319433120274574,
+          "n": 250
+        },
+        "query": 25
+      },
+      "26": {
+        "delivery_bounds": [
+          0.6076923076923076,
+          0.6076923076923076
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.157685321127254,
+          30.157685321127257
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 158,
+          "delivery_rate": 0.6076923076923076,
+          "mean_ld": 29.126391764521813,
+          "median_ld": 29.452143359659857,
+          "n": 260
+        },
+        "query": 26
+      },
+      "27": {
+        "delivery_bounds": [
+          0.6074074074074074,
+          0.6074074074074074
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.158062280935745,
+          30.158062280935745
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 164,
+          "delivery_rate": 0.6074074074074074,
+          "mean_ld": 29.17949687939474,
+          "median_ld": 29.57660893765021,
+          "n": 270
+        },
+        "query": 27
+      },
+      "28": {
+        "delivery_bounds": [
+          0.6107142857142858,
+          0.6107142857142858
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.172166892862315,
+          30.172166892862315
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 171,
+          "delivery_rate": 0.6107142857142858,
+          "mean_ld": 29.22722340903813,
+          "median_ld": 29.601967077174056,
+          "n": 280
+        },
+        "query": 28
+      },
+      "29": {
+        "delivery_bounds": [
+          0.6103448275862069,
+          0.6103448275862069
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.175726863660124,
+          30.175726863660124
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 177,
+          "delivery_rate": 0.6103448275862069,
+          "mean_ld": 29.261128472810455,
+          "median_ld": 29.60437562957872,
+          "n": 290
+        },
+        "query": 29
+      },
+      "30": {
+        "delivery_bounds": [
+          0.6166666666666667,
+          0.6166666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.21022829298779,
+          30.210228292987797
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 185,
+          "delivery_rate": 0.6166666666666667,
+          "mean_ld": 29.30115425325934,
+          "median_ld": 29.63299641985576,
+          "n": 300
+        },
+        "query": 30
+      },
+      "31": {
+        "delivery_bounds": [
+          0.6193548387096774,
+          0.6193548387096774
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.219422220320865,
+          30.219422220320865
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 192,
+          "delivery_rate": 0.6193548387096774,
+          "mean_ld": 29.34029414644591,
+          "median_ld": 29.69695464924481,
+          "n": 310
+        },
+        "query": 31
+      },
+      "32": {
+        "delivery_bounds": [
+          0.615625,
+          0.615625
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.240662615753074,
+          30.240662615753074
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 197,
+          "delivery_rate": 0.615625,
+          "mean_ld": 29.373372018281334,
+          "median_ld": 29.713973415677085,
+          "n": 320
+        },
+        "query": 32
+      }
+    },
+    "superwing-load-low-cl015": {
+      "1": {
+        "delivery_bounds": [
+          0.4,
+          0.4
+        ],
+        "episodes_with_delivery": 4,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          16.77744608077649,
+          16.77744608077649
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 4,
+          "delivery_rate": 0.4,
+          "mean_ld": 16.77744608077649,
+          "median_ld": 16.785025279965993,
+          "n": 10
+        },
+        "query": 1
+      },
+      "2": {
+        "delivery_bounds": [
+          0.5,
+          0.5
+        ],
+        "episodes_with_delivery": 8,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          16.856556731782636,
+          16.85655673178264
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 10,
+          "delivery_rate": 0.5,
+          "mean_ld": 16.847043250119874,
+          "median_ld": 16.88614221813655,
+          "n": 20
+        },
+        "query": 2
+      },
+      "3": {
+        "delivery_bounds": [
+          0.5666666666666667,
+          0.5666666666666667
+        ],
+        "episodes_with_delivery": 9,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          16.938041660118472,
+          16.938041660118472
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 17,
+          "delivery_rate": 0.5666666666666667,
+          "mean_ld": 16.841133788182226,
+          "median_ld": 16.827342909050923,
+          "n": 30
+        },
+        "query": 3
+      },
+      "4": {
+        "delivery_bounds": [
+          0.525,
+          0.525
+        ],
+        "episodes_with_delivery": 9,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.175763949943473,
+          17.175763949943473
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 21,
+          "delivery_rate": 0.525,
+          "mean_ld": 16.96827760816065,
+          "median_ld": 16.92755026452946,
+          "n": 40
+        },
+        "query": 4
+      },
+      "5": {
+        "delivery_bounds": [
+          0.5,
+          0.5
+        ],
+        "episodes_with_delivery": 9,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.194065602526653,
+          17.194065602526653
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 25,
+          "delivery_rate": 0.5,
+          "mean_ld": 17.013977443978746,
+          "median_ld": 16.965025459337337,
+          "n": 50
+        },
+        "query": 5
+      },
+      "6": {
+        "delivery_bounds": [
+          0.5166666666666667,
+          0.5166666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.13252987947744,
+          17.13252987947744
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 31,
+          "delivery_rate": 0.5166666666666667,
+          "mean_ld": 17.001369372258427,
+          "median_ld": 16.965025459337337,
+          "n": 60
+        },
+        "query": 6
+      },
+      "7": {
+        "delivery_bounds": [
+          0.5571428571428572,
+          0.5571428571428572
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.2867732478989,
+          17.2867732478989
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 39,
+          "delivery_rate": 0.5571428571428572,
+          "mean_ld": 17.041869698378207,
+          "median_ld": 17.119902957405774,
+          "n": 70
+        },
+        "query": 7
+      },
+      "8": {
+        "delivery_bounds": [
+          0.575,
+          0.575
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.38607220638727,
+          17.38607220638727
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 46,
+          "delivery_rate": 0.575,
+          "mean_ld": 17.073684853515214,
+          "median_ld": 17.168182674686648,
+          "n": 80
+        },
+        "query": 8
+      },
+      "9": {
+        "delivery_bounds": [
+          0.6111111111111112,
+          0.6111111111111112
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.49845638489213,
+          17.498456384892137
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 55,
+          "delivery_rate": 0.6111111111111112,
+          "mean_ld": 17.15620732291533,
+          "median_ld": 17.24130383288937,
+          "n": 90
+        },
+        "query": 9
+      },
+      "10": {
+        "delivery_bounds": [
+          0.62,
+          0.62
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.55971399813838,
+          17.55971399813838
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 62,
+          "delivery_rate": 0.62,
+          "mean_ld": 17.207399090017397,
+          "median_ld": 17.27542027707878,
+          "n": 100
+        },
+        "query": 10
+      },
+      "11": {
+        "delivery_bounds": [
+          0.6363636363636364,
+          0.6363636363636364
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.637107831281345,
+          17.637107831281345
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 70,
+          "delivery_rate": 0.6363636363636364,
+          "mean_ld": 17.26482715319479,
+          "median_ld": 17.30010634111766,
+          "n": 110
+        },
+        "query": 11
+      },
+      "12": {
+        "delivery_bounds": [
+          0.6416666666666667,
+          0.6416666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.69372708635576,
+          17.693727086355757
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 77,
+          "delivery_rate": 0.6416666666666667,
+          "mean_ld": 17.317771050027353,
+          "median_ld": 17.34183145524236,
+          "n": 120
+        },
+        "query": 12
+      },
+      "13": {
+        "delivery_bounds": [
+          0.6384615384615384,
+          0.6384615384615384
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.762752060284193,
+          17.762752060284193
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 83,
+          "delivery_rate": 0.6384615384615384,
+          "mean_ld": 17.354434334151666,
+          "median_ld": 17.37097578938522,
+          "n": 130
+        },
+        "query": 13
+      },
+      "14": {
+        "delivery_bounds": [
+          0.6428571428571429,
+          0.6428571428571429
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.835916377725233,
+          17.835916377725233
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 90,
+          "delivery_rate": 0.6428571428571429,
+          "mean_ld": 17.379153544331945,
+          "median_ld": 17.37235064760179,
+          "n": 140
+        },
+        "query": 14
+      },
+      "15": {
+        "delivery_bounds": [
+          0.6333333333333333,
+          0.6333333333333333
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.849366395119937,
+          17.849366395119937
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 95,
+          "delivery_rate": 0.6333333333333333,
+          "mean_ld": 17.40240591486666,
+          "median_ld": 17.373725505818364,
+          "n": 150
+        },
+        "query": 15
+      },
+      "16": {
+        "delivery_bounds": [
+          0.6375,
+          0.6375
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.872728907375457,
+          17.872728907375457
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 102,
+          "delivery_rate": 0.6375,
+          "mean_ld": 17.42611950673093,
+          "median_ld": 17.378848687860774,
+          "n": 160
+        },
+        "query": 16
+      },
+      "17": {
+        "delivery_bounds": [
+          0.6352941176470588,
+          0.6352941176470588
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.90217490533339,
+          17.90217490533339
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 108,
+          "delivery_rate": 0.6352941176470588,
+          "mean_ld": 17.44209286686742,
+          "median_ld": 17.389132245728497,
+          "n": 170
+        },
+        "query": 17
+      },
+      "18": {
+        "delivery_bounds": [
+          0.6277777777777778,
+          0.6277777777777778
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.926616619988234,
+          17.926616619988234
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 113,
+          "delivery_rate": 0.6277777777777778,
+          "mean_ld": 17.463265380420285,
+          "median_ld": 17.393351230752284,
+          "n": 180
+        },
+        "query": 18
+      },
+      "19": {
+        "delivery_bounds": [
+          0.6263157894736842,
+          0.6263157894736842
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.950076624760563,
+          17.950076624760563
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 119,
+          "delivery_rate": 0.6263157894736842,
+          "mean_ld": 17.479415249438045,
+          "median_ld": 17.393351230752284,
+          "n": 190
+        },
+        "query": 19
+      },
+      "20": {
+        "delivery_bounds": [
+          0.615,
+          0.615
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          17.96514992225567,
+          17.965149922255673
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 123,
+          "delivery_rate": 0.615,
+          "mean_ld": 17.483771142820164,
+          "median_ld": 17.393351230752284,
+          "n": 200
+        },
+        "query": 20
+      },
+      "21": {
+        "delivery_bounds": [
+          0.6190476190476191,
+          0.6190476190476191
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.044625506885904,
+          18.044625506885904
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 130,
+          "delivery_rate": 0.6190476190476191,
+          "mean_ld": 17.519172165697512,
+          "median_ld": 17.434890354677393,
+          "n": 210
+        },
+        "query": 21
+      },
+      "22": {
+        "delivery_bounds": [
+          0.6363636363636364,
+          0.6363636363636364
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.088404588787956,
+          18.088404588787956
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 140,
+          "delivery_rate": 0.6363636363636364,
+          "mean_ld": 17.555105464679755,
+          "median_ld": 17.471536269771583,
+          "n": 220
+        },
+        "query": 22
+      },
+      "23": {
+        "delivery_bounds": [
+          0.6260869565217392,
+          0.6260869565217392
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.100586942793992,
+          18.100586942793992
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 144,
+          "delivery_rate": 0.6260869565217392,
+          "mean_ld": 17.566334359808994,
+          "median_ld": 17.539704492179833,
+          "n": 230
+        },
+        "query": 23
+      },
+      "24": {
+        "delivery_bounds": [
+          0.6291666666666667,
+          0.6291666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.109486458720447,
+          18.109486458720443
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 151,
+          "delivery_rate": 0.6291666666666667,
+          "mean_ld": 17.595637645761432,
+          "median_ld": 17.62443173050313,
+          "n": 240
+        },
+        "query": 24
+      },
+      "25": {
+        "delivery_bounds": [
+          0.632,
+          0.632
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.132482099183903,
+          18.132482099183907
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 158,
+          "delivery_rate": 0.632,
+          "mean_ld": 17.613944133823892,
+          "median_ld": 17.625904206118495,
+          "n": 250
+        },
+        "query": 25
+      },
+      "26": {
+        "delivery_bounds": [
+          0.6346153846153846,
+          0.6346153846153846
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.151171626333433,
+          18.15117162633343
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 165,
+          "delivery_rate": 0.6346153846153846,
+          "mean_ld": 17.636664575617353,
+          "median_ld": 17.631190021973698,
+          "n": 260
+        },
+        "query": 26
+      },
+      "27": {
+        "delivery_bounds": [
+          0.6370370370370371,
+          0.6370370370370371
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.161783543710783,
+          18.161783543710783
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 172,
+          "delivery_rate": 0.6370370370370371,
+          "mean_ld": 17.653595946614526,
+          "median_ld": 17.631611378426825,
+          "n": 270
+        },
+        "query": 27
+      },
+      "28": {
+        "delivery_bounds": [
+          0.6285714285714286,
+          0.6285714285714286
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.16664283229323,
+          18.16664283229323
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 176,
+          "delivery_rate": 0.6285714285714286,
+          "mean_ld": 17.66124968394456,
+          "median_ld": 17.631611378426825,
+          "n": 280
+        },
+        "query": 28
+      },
+      "29": {
+        "delivery_bounds": [
+          0.6310344827586207,
+          0.6310344827586207
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.187064480347026,
+          18.187064480347022
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 183,
+          "delivery_rate": 0.6310344827586207,
+          "mean_ld": 17.67944076569986,
+          "median_ld": 17.666898003119098,
+          "n": 290
+        },
+        "query": 29
+      },
+      "30": {
+        "delivery_bounds": [
+          0.63,
+          0.63
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.20464436110347,
+          18.20464436110347
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 189,
+          "delivery_rate": 0.63,
+          "mean_ld": 17.686337970496183,
+          "median_ld": 17.666898003119098,
+          "n": 300
+        },
+        "query": 30
+      },
+      "31": {
+        "delivery_bounds": [
+          0.6258064516129033,
+          0.6258064516129033
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.216399877733533,
+          18.21639987773353
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 194,
+          "delivery_rate": 0.6258064516129033,
+          "mean_ld": 17.692025730491896,
+          "median_ld": 17.6700517741574,
+          "n": 310
+        },
+        "query": 31
+      },
+      "32": {
+        "delivery_bounds": [
+          0.61875,
+          0.61875
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          18.227669012743114,
+          18.227669012743114
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 198,
+          "delivery_rate": 0.61875,
+          "mean_ld": 17.694661322791468,
+          "median_ld": 17.671902190351048,
+          "n": 320
+        },
+        "query": 32
+      }
+    },
+    "superwing-load-nominal-cl041": {
+      "1": {
+        "delivery_bounds": [
+          0.7,
+          0.7
+        ],
+        "episodes_with_delivery": 7,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.116965548026997,
+          29.116965548026997
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 7,
+          "delivery_rate": 0.7,
+          "mean_ld": 29.116965548026997,
+          "median_ld": 27.539586587366895,
+          "n": 10
+        },
+        "query": 1
+      },
+      "2": {
+        "delivery_bounds": [
+          0.75,
+          0.75
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          29.94793108381058,
+          29.94793108381058
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 15,
+          "delivery_rate": 0.75,
+          "mean_ld": 29.39120460344877,
+          "median_ld": 28.837879013846266,
+          "n": 20
+        },
+        "query": 2
+      },
+      "3": {
+        "delivery_bounds": [
+          0.7,
+          0.7
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          30.60351357817015,
+          30.60351357817015
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 21,
+          "delivery_rate": 0.7,
+          "mean_ld": 29.81211482682825,
+          "median_ld": 29.502067795373318,
+          "n": 30
+        },
+        "query": 3
+      },
+      "4": {
+        "delivery_bounds": [
+          0.7,
+          0.7
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          31.085628138669914,
+          31.085628138669914
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 28,
+          "delivery_rate": 0.7,
+          "mean_ld": 30.19013533450053,
+          "median_ld": 30.107868748740863,
+          "n": 40
+        },
+        "query": 4
+      },
+      "5": {
+        "delivery_bounds": [
+          0.74,
+          0.74
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          31.757348701151813,
+          31.75734870115182
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 37,
+          "delivery_rate": 0.74,
+          "mean_ld": 30.52690413659225,
+          "median_ld": 30.767290100719812,
+          "n": 50
+        },
+        "query": 5
+      },
+      "6": {
+        "delivery_bounds": [
+          0.7166666666666667,
+          0.7166666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          31.93632869692915,
+          31.93632869692915
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 43,
+          "delivery_rate": 0.7166666666666667,
+          "mean_ld": 30.61234805915359,
+          "median_ld": 30.88328587416929,
+          "n": 60
+        },
+        "query": 6
+      },
+      "7": {
+        "delivery_bounds": [
+          0.7285714285714285,
+          0.7285714285714285
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.04172647521172,
+          32.04172647521172
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 51,
+          "delivery_rate": 0.7285714285714285,
+          "mean_ld": 30.807629824957175,
+          "median_ld": 30.946090761970716,
+          "n": 70
+        },
+        "query": 7
+      },
+      "8": {
+        "delivery_bounds": [
+          0.7375,
+          0.7375
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.11863918578054,
+          32.11863918578054
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 59,
+          "delivery_rate": 0.7375,
+          "mean_ld": 31.026766118871034,
+          "median_ld": 31.042419287987133,
+          "n": 80
+        },
+        "query": 8
+      },
+      "9": {
+        "delivery_bounds": [
+          0.7666666666666667,
+          0.7666666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.407311526532595,
+          32.407311526532595
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 69,
+          "delivery_rate": 0.7666666666666667,
+          "mean_ld": 31.21848636493773,
+          "median_ld": 31.377448472439312,
+          "n": 90
+        },
+        "query": 9
+      },
+      "10": {
+        "delivery_bounds": [
+          0.75,
+          0.75
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.45714040538236,
+          32.45714040538236
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 75,
+          "delivery_rate": 0.75,
+          "mean_ld": 31.272961644797814,
+          "median_ld": 31.450772833530134,
+          "n": 100
+        },
+        "query": 10
+      },
+      "11": {
+        "delivery_bounds": [
+          0.7454545454545455,
+          0.7454545454545455
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.50037404465818,
+          32.50037404465818
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 82,
+          "delivery_rate": 0.7454545454545455,
+          "mean_ld": 31.343712276588988,
+          "median_ld": 31.92752323614866,
+          "n": 110
+        },
+        "query": 11
+      },
+      "12": {
+        "delivery_bounds": [
+          0.7333333333333333,
+          0.7333333333333333
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.53960440690021,
+          32.53960440690022
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 88,
+          "delivery_rate": 0.7333333333333333,
+          "mean_ld": 31.396745804975737,
+          "median_ld": 32.02221182953902,
+          "n": 120
+        },
+        "query": 12
+      },
+      "13": {
+        "delivery_bounds": [
+          0.7307692307692307,
+          0.7307692307692307
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.59161071731585,
+          32.59161071731585
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 95,
+          "delivery_rate": 0.7307692307692307,
+          "mean_ld": 31.445501361561863,
+          "median_ld": 32.11424438985556,
+          "n": 130
+        },
+        "query": 13
+      },
+      "14": {
+        "delivery_bounds": [
+          0.7214285714285714,
+          0.7214285714285714
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.615466435154296,
+          32.615466435154296
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 101,
+          "delivery_rate": 0.7214285714285714,
+          "mean_ld": 31.526935832822257,
+          "median_ld": 32.18971938638909,
+          "n": 140
+        },
+        "query": 14
+      },
+      "15": {
+        "delivery_bounds": [
+          0.7333333333333333,
+          0.7333333333333333
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.669408435239184,
+          32.66940843523918
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 110,
+          "delivery_rate": 0.7333333333333333,
+          "mean_ld": 31.618753316507938,
+          "median_ld": 32.34510478447884,
+          "n": 150
+        },
+        "query": 15
+      },
+      "16": {
+        "delivery_bounds": [
+          0.73125,
+          0.73125
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.70672010430998,
+          32.70672010430998
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 117,
+          "delivery_rate": 0.73125,
+          "mean_ld": 31.669394480379232,
+          "median_ld": 32.39151143394105,
+          "n": 160
+        },
+        "query": 16
+      },
+      "17": {
+        "delivery_bounds": [
+          0.7235294117647059,
+          0.7235294117647059
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.71533958348425,
+          32.71533958348425
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 123,
+          "delivery_rate": 0.7235294117647059,
+          "mean_ld": 31.704938109908024,
+          "median_ld": 32.41541986718856,
+          "n": 170
+        },
+        "query": 17
+      },
+      "18": {
+        "delivery_bounds": [
+          0.7,
+          0.7
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.74647514690014,
+          32.74647514690014
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 126,
+          "delivery_rate": 0.7,
+          "mean_ld": 31.730890253223443,
+          "median_ld": 32.429444738271016,
+          "n": 180
+        },
+        "query": 18
+      },
+      "19": {
+        "delivery_bounds": [
+          0.6947368421052632,
+          0.6947368421052632
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.782232583796834,
+          32.78223258379684
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 132,
+          "delivery_rate": 0.6947368421052632,
+          "mean_ld": 31.758354206035047,
+          "median_ld": 32.46676622223194,
+          "n": 190
+        },
+        "query": 19
+      },
+      "20": {
+        "delivery_bounds": [
+          0.695,
+          0.695
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.81855992576865,
+          32.81855992576865
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 139,
+          "delivery_rate": 0.695,
+          "mean_ld": 31.799115672365183,
+          "median_ld": 32.51090781529477,
+          "n": 200
+        },
+        "query": 20
+      },
+      "21": {
+        "delivery_bounds": [
+          0.6952380952380952,
+          0.6952380952380952
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.86401429325442,
+          32.86401429325442
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 146,
+          "delivery_rate": 0.6952380952380952,
+          "mean_ld": 31.843587590236762,
+          "median_ld": 32.581776907339226,
+          "n": 210
+        },
+        "query": 21
+      },
+      "22": {
+        "delivery_bounds": [
+          0.6863636363636364,
+          0.6863636363636364
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.88081676454252,
+          32.88081676454252
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 151,
+          "delivery_rate": 0.6863636363636364,
+          "mean_ld": 31.88492250123366,
+          "median_ld": 32.64877013748073,
+          "n": 220
+        },
+        "query": 22
+      },
+      "23": {
+        "delivery_bounds": [
+          0.691304347826087,
+          0.691304347826087
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.9097568795748,
+          32.90975687957481
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 159,
+          "delivery_rate": 0.691304347826087,
+          "mean_ld": 31.929974411793623,
+          "median_ld": 32.707148116105664,
+          "n": 230
+        },
+        "query": 23
+      },
+      "24": {
+        "delivery_bounds": [
+          0.7041666666666667,
+          0.7041666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.93455197622753,
+          32.93455197622753
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 169,
+          "delivery_rate": 0.7041666666666667,
+          "mean_ld": 31.986118679815668,
+          "median_ld": 32.72011104461147,
+          "n": 240
+        },
+        "query": 24
+      },
+      "25": {
+        "delivery_bounds": [
+          0.708,
+          0.708
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.95895708157989,
+          32.95895708157989
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 177,
+          "delivery_rate": 0.708,
+          "mean_ld": 32.02488095233262,
+          "median_ld": 32.79684672557124,
+          "n": 250
+        },
+        "query": 25
+      },
+      "26": {
+        "delivery_bounds": [
+          0.7038461538461539,
+          0.7038461538461539
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.9711351961068,
+          32.9711351961068
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 183,
+          "delivery_rate": 0.7038461538461539,
+          "mean_ld": 32.0552843468797,
+          "median_ld": 32.83508202403505,
+          "n": 260
+        },
+        "query": 26
+      },
+      "27": {
+        "delivery_bounds": [
+          0.6962962962962963,
+          0.6962962962962963
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.99228279719391,
+          32.99228279719391
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 188,
+          "delivery_rate": 0.6962962962962963,
+          "mean_ld": 32.08288586091146,
+          "median_ld": 32.91274854616862,
+          "n": 270
+        },
+        "query": 27
+      },
+      "28": {
+        "delivery_bounds": [
+          0.6964285714285714,
+          0.6964285714285714
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          32.99978625601401,
+          32.99978625601401
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 195,
+          "delivery_rate": 0.6964285714285714,
+          "mean_ld": 32.12813631595505,
+          "median_ld": 32.95383305210385,
+          "n": 280
+        },
+        "query": 28
+      },
+      "29": {
+        "delivery_bounds": [
+          0.6931034482758621,
+          0.6931034482758621
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          33.00762966435812,
+          33.00762966435812
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 201,
+          "delivery_rate": 0.6931034482758621,
+          "mean_ld": 32.17016269238673,
+          "median_ld": 32.984732039257416,
+          "n": 290
+        },
+        "query": 29
+      },
+      "30": {
+        "delivery_bounds": [
+          0.6966666666666667,
+          0.6966666666666667
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          33.01722616048452,
+          33.01722616048452
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 209,
+          "delivery_rate": 0.6966666666666667,
+          "mean_ld": 32.20345863125766,
+          "median_ld": 33.02615723198142,
+          "n": 300
+        },
+        "query": 30
+      },
+      "31": {
+        "delivery_bounds": [
+          0.7,
+          0.7
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          33.02722606754249,
+          33.02722606754249
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 217,
+          "delivery_rate": 0.7,
+          "mean_ld": 32.23129284511478,
+          "median_ld": 33.03512926481886,
+          "n": 310
+        },
+        "query": 31
+      },
+      "32": {
+        "delivery_bounds": [
+          0.703125,
+          0.703125
+        ],
+        "episodes_with_delivery": 10,
+        "episodes_with_missing": 0,
+        "mean_best_ld_bounds": [
+          33.038190583458295,
+          33.038190583458295
+        ],
+        "missing": 0,
+        "observed": {
+          "delivered": 225,
+          "delivery_rate": 0.703125,
+          "mean_ld": 32.26108876417316,
+          "median_ld": 33.0506269519872,
+          "n": 320
+        },
+        "query": 32
+      }
+    }
+  },
+  "inputs": {
+    "data/episodes.csv": "1520e7396137381e131c2477605db91f51a63135aa3e5e005154670141178285",
+    "data/evaluations.csv": "a56a0a202fd98397285b6b7436000d4f1d41e1d769879577c6e672d7114fa7df",
+    "data/recommendations.csv": "03dc9728950644cc2aa15f55b1317250a27c1450f23c8fee8d9bb9a8c3c15ea9"
+  },
+  "q4_delivered_totals": {
+    "RAFA_BEST_OF_N_v1": 28,
+    "S_OPEN_REFLEXION_v1": 30,
+    "S_OPEN_v2": 29
+  },
+  "q4_open_ended_minus_comparator": {
+    "RAFA_BEST_OF_N_v1": {
+      "superwing-load-high-cl066": {
+        "delivery": {
+          "ci95": [
+            0.0,
+            0.3
+          ],
+          "estimate": 0.1,
+          "n": 10
+        },
+        "paired_ld": {
+          "ci95": [
+            -2.4501078205943423,
+            2.7821388211483833
+          ],
+          "estimate": 0.3086213871753962,
+          "n": 9
+        }
+      },
+      "superwing-load-low-cl015": {
+        "delivery": {
+          "ci95": [
+            -0.3,
+            0.0
+          ],
+          "estimate": -0.1,
+          "n": 10
+        },
+        "paired_ld": {
+          "ci95": [
+            -0.7399085919931129,
+            -0.01280500508665954
+          ],
+          "estimate": -0.39846246662809215,
+          "n": 9
+        }
+      },
+      "superwing-load-nominal-cl041": {
+        "delivery": {
+          "ci95": [
+            0.0,
+            0.3
+          ],
+          "estimate": 0.1,
+          "n": 10
+        },
+        "paired_ld": {
+          "ci95": [
+            0.6769935562044052,
+            2.7093324340381693
+          ],
+          "estimate": 1.6586801839275773,
+          "n": 9
+        }
+      }
+    },
+    "S_OPEN_REFLEXION_v1": {
+      "superwing-load-high-cl066": {
+        "delivery": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "estimate": 0.0,
+          "n": 10
+        },
+        "paired_ld": {
+          "ci95": [
+            -0.4509770325473836,
+            2.4436693069847406
+          ],
+          "estimate": 1.0423892013937714,
+          "n": 10
+        }
+      },
+      "superwing-load-low-cl015": {
+        "delivery": {
+          "ci95": [
+            -0.3,
+            0.0
+          ],
+          "estimate": -0.1,
+          "n": 10
+        },
+        "paired_ld": {
+          "ci95": [
+            -0.5863061143725476,
+            0.3388374574651158
+          ],
+          "estimate": -0.15828858884332003,
+          "n": 9
+        }
+      },
+      "superwing-load-nominal-cl041": {
+        "delivery": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "estimate": 0.0,
+          "n": 10
+        },
+        "paired_ld": {
+          "ci95": [
+            -0.23143273932041555,
+            2.821510699861301
+          ],
+          "estimate": 1.2587246358549014,
+          "n": 10
+        }
+      }
+    }
+  },
+  "recommendations": {
+    "RAFA_BEST_OF_N_v1": {
+      "superwing-load-high-cl066": {
+        "1": {
+          "delivered": 8,
+          "delivery_rate": 0.8,
+          "mean_ld": 26.093243332863693,
+          "median_ld": 25.852666255332196,
+          "n": 10
+        },
+        "2": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 26.605074007013197,
+          "median_ld": 26.170258443708022,
+          "n": 10
+        },
+        "4": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 27.59176053442113,
+          "median_ld": 27.629384043233582,
+          "n": 10
+        }
+      },
+      "superwing-load-low-cl015": {
+        "1": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 16.641602318964267,
+          "median_ld": 16.650142325667762,
+          "n": 10
+        },
+        "2": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 17.006072564615625,
+          "median_ld": 16.95083961098222,
+          "n": 10
+        },
+        "4": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 17.409334715018083,
+          "median_ld": 17.510524534376188,
+          "n": 10
+        }
+      },
+      "superwing-load-nominal-cl041": {
+        "1": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 28.276584151361092,
+          "median_ld": 27.987262529461198,
+          "n": 10
+        },
+        "2": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 28.43430343975078,
+          "median_ld": 28.266783060319476,
+          "n": 10
+        },
+        "4": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 29.31265726016616,
+          "median_ld": 29.228408157777512,
+          "n": 10
+        }
+      }
+    },
+    "S_OPEN_REFLEXION_v1": {
+      "superwing-load-high-cl066": {
+        "1": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 24.531294926738145,
+          "median_ld": 24.29707068778171,
+          "n": 10
+        },
+        "2": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 25.745865537139345,
+          "median_ld": 26.00345379336654,
+          "n": 10
+        },
+        "4": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 26.786210936927638,
+          "median_ld": 26.768909148203203,
+          "n": 10
+        }
+      },
+      "superwing-load-low-cl015": {
+        "1": {
+          "delivered": 8,
+          "delivery_rate": 0.8,
+          "mean_ld": 16.591244147434857,
+          "median_ld": 16.484741517651734,
+          "n": 10
+        },
+        "2": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 16.982473036048834,
+          "median_ld": 17.057270721215684,
+          "n": 10
+        },
+        "4": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 17.334577224947267,
+          "median_ld": 17.251174021987048,
+          "n": 10
+        }
+      },
+      "superwing-load-nominal-cl041": {
+        "1": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 28.416726879121057,
+          "median_ld": 28.33266174205889,
+          "n": 10
+        },
+        "2": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 29.05029127416081,
+          "median_ld": 28.725553003177062,
+          "n": 10
+        },
+        "4": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 29.826903502815014,
+          "median_ld": 29.60251309826345,
+          "n": 10
+        }
+      }
+    },
+    "S_OPEN_v2": {
+      "superwing-load-high-cl066": {
+        "1": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 24.917071723463845,
+          "median_ld": 24.552915711824426,
+          "n": 10
+        },
+        "2": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 26.200452773503457,
+          "median_ld": 26.39638822943655,
+          "n": 10
+        },
+        "4": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 27.828600138321406,
+          "median_ld": 27.797849499273216,
+          "n": 10
+        }
+      },
+      "superwing-load-low-cl015": {
+        "1": {
+          "delivered": 7,
+          "delivery_rate": 0.7,
+          "mean_ld": 16.43676742332094,
+          "median_ld": 16.272385368763874,
+          "n": 10
+        },
+        "2": {
+          "delivered": 8,
+          "delivery_rate": 0.8,
+          "mean_ld": 16.948882266693236,
+          "median_ld": 16.88614221813655,
+          "n": 10
+        },
+        "4": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 17.14547584917738,
+          "median_ld": 17.33007467161806,
+          "n": 10
+        }
+      },
+      "superwing-load-nominal-cl041": {
+        "1": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 28.66060363282873,
+          "median_ld": 27.263380988206,
+          "n": 10
+        },
+        "2": {
+          "delivered": 9,
+          "delivery_rate": 0.9,
+          "mean_ld": 29.789095818407386,
+          "median_ld": 28.96808585696027,
+          "n": 10
+        },
+        "4": {
+          "delivered": 10,
+          "delivery_rate": 1.0,
+          "mean_ld": 31.085628138669914,
+          "median_ld": 30.9220928536245,
+          "n": 10
+        }
+      }
+    }
+  },
+  "schema": "wingbench_delivery_quality_v1"
+}
