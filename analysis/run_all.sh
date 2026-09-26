@@ -47,4 +47,8 @@ echo
 echo "=== 15_confirmatory_contrasts: the six planned baseline contrasts of Section 6.1 ==="
 python3.11 15_confirmatory_contrasts.py
 echo
+echo "=== 16_marginal_intervals: unpaired intervals for every reported mean ==="
+python3.11 16_marginal_intervals.py > /dev/null
+echo "wrote analysis/out/tables/tab_marginal_intervals.csv"
+echo
 echo "=== done: tables in analysis/out/, figures in analysis/figures/, macros in analysis/out/macros/ and paper/ ==="

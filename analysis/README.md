@@ -32,6 +32,7 @@ with `pandas`, `matplotlib`, `numpy`, `scipy` and `scikit-learn`.
 | `13_cfd_cost.py` | Processor-core hours per CFD evaluation over both studies |
 | `14_wing_meshing_examples.py` | Draws Figure 1, the delivered and unmeshable wing examples (needs `cst_modeling3d`) |
 | `15_confirmatory_contrasts.py` | The six planned baseline contrasts of Section 6.1: seed-block estimates, sign-flip tests, bootstrap intervals, and Holm correction |
+| `16_marginal_intervals.py` | Unpaired bootstrap intervals for every delivery rate and conditional mean the paper reports, the table in Appendix A |
 | `render_wing.py` | Builds a wing surface from its 38 design variables, used by `14` |
 | `common.py` | Shared paths, names and loaders used by the other scripts |
 
