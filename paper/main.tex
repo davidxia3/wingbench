@@ -463,11 +463,13 @@ feedback. (b) The three methods differ only in how each decision is made.}
 \textbf{Open-ended research.} The agent receives the optimization task and
 available tools without an imposed planning or reflection template. It may
 choose its own analysis, code, and decision process.
+
 \textbf{Explicit reflection.} Following the verbal-feedback approach of
 Reflexion \citep{shinn2023reflexion}, the same agent writes a reflection after every
 newly returned online grade. The next decision receives the newest full
 reflection and a bounded cumulative summary of at most 4{,}000 characters.
 Reflection supplements the numerical history rather than replacing it.
+
 \textbf{Best-of-four contingent planning.} A learner first summarizes the
 observed environment. Four blind, independent planners are then asked to produce complete
 two-step contingent plans. A common value estimator scores the plans by
