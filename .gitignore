@@ -77,6 +77,7 @@ credentials.json
 !/paper/iclr2027_conference.sty
 !/paper/fancyhdr.sty
 !/paper/natbib.sty
+!/paper/app_limitations.tex
 !/paper/app_formal.tex
 !/paper/app_rules.tex
 !/paper/app_prompts.tex

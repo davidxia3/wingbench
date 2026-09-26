@@ -24,6 +24,8 @@ import importlib
 import sys
 from pathlib import Path
 
+import math
+
 import matplotlib
 
 matplotlib.use("Agg")
@@ -31,6 +33,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
+from matplotlib.ticker import FormatStrFormatter, MultipleLocator
 from matplotlib.patches import Patch
 
 HERE = Path(__file__).resolve().parent
@@ -292,6 +295,13 @@ def fig_discovery_vs_recommendation(curves, disc) -> dict:
         ax.set_title(TASK_TITLE[cfg])
         ax.set_xlabel("online CFD queries used")
         grid(ax, "both")
+    # one y-axis convention for the three panels: ticks every 2 L/D, integer labels,
+    # limits snapped to even values, so the panels differ only in their range
+    for ax in axes:
+        lo, hi = ax.get_ylim()
+        ax.set_ylim(2 * math.floor(lo / 2), 2 * math.ceil(hi / 2))
+        ax.yaxis.set_major_locator(MultipleLocator(2))
+        ax.yaxis.set_major_formatter(FormatStrFormatter("%d"))
     axes[0].set_ylabel("$L/D$")
     top = key_rows(fig, [
         ([method_line(m) for m in METHODS], [METHOD_LABEL[m] for m in METHODS], 2),

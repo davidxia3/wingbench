@@ -39,8 +39,8 @@ score after each step. The plan with the highest expected value is kept, and
 ties go to the plan whose first action is more likely to complete. The learner
 memo lists measured facts from online and surrogate results, beliefs with
 evidence and a confidence of low, medium or high, prediction calibration
-records, reusable artifacts, and a budget note. The 104 placeholder plans the
-paper reports are plans whose `procedure` or `wing_selection` text was a
+records, reusable artifacts, and a budget note. The 104 placeholder plans are
+plans whose `procedure` or `wing_selection` text was a
 placeholder rather than an instruction.
 
 ## How the agents ran
