@@ -2,7 +2,7 @@
   "schema_version": "wingbench-cfd-publication-storage-binding-v1",
   "status": "pinned",
   "storage_provider": "aws_s3",
-  "bucket": "wingbench-cfd-stage0-c341e9d311-use1",
+  "bucket": "wingbench-cfd-results-bucket",
   "qualification_campaign_publication_id": "superwing-fixed-cl-v5-protocol-qualification-v1",
   "benchmark_campaign_publication_id": "superwing-benchmark-redevelopment-v1",
   "s3_object_lock_mode": "COMPLIANCE",

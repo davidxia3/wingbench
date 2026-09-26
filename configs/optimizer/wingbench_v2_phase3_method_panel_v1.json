@@ -10,11 +10,11 @@
   },
   "pilot_plan_binding": {
     "path": "configs/benchmark/wingbench_v2_phase3_pilot_plan_v1.json",
-    "file_sha256": "bbffa5ff6a0502184e67a82fc8cb58e391627665bd1ffb26670c1bd9206b3cce"
+    "file_sha256": "7f8b2ecde437428b4cddb9eed5733ca1310795b761244186d34a9a2d51f994aa"
   },
   "protocol_binding": {
     "path": "configs/benchmark/wingbench_v2_candidate_protocol_v1.json",
-    "file_sha256": "2a64c7aa82dcb79152ec403b9dfc935ac9be64c333ed90f875290e8b791bd2d5",
+    "file_sha256": "5b961591c87d1f201b93942d314e8a6beaecf9f6a21f56acc83882999b78a4f3",
     "profile": "pilot32"
   },
   "reset_context": {

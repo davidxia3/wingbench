@@ -11,9 +11,15 @@ each file here, and the grader checks them before it runs.
 - `task_protocols.py` derives the low-load and
   high-load protocols from the frozen base, changing only the lift target and
   its angle-of-attack seed.
-- The grader calls SuperWing's mesh generator and ADflow runner. They come
-  with SuperWing and are not included here. The protocol records their
-  fingerprints.
+- The grader calls SuperWing's mesh generator and ADflow runner. The SuperWing
+  authors publish them in the public AeroTransformer repository, and the
+  protocol records their fingerprints. Run
+  `python3 scripts/cfd/fetch_superwing_scripts.py` once. It downloads the four
+  files at the pinned commit into `aerotransformer/`, applies
+  `run-adflow.wingbench.patch` to the ADflow runner, and checks every file
+  against the protocol. The patch sets the solver options the paper describes
+  and records the lift-matching result in the output. After this step
+  `grading_protocol.py` loads.
 - `derive_seed_aoa.py` and `prepare_superwing_cases.py` derive the
   angle-of-attack seeds and the case tables from the dataset records.
 

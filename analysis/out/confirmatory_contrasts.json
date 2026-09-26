@@ -1,0 +1,100 @@
+{
+ "holm_family_size": 6,
+ "familywise_alpha": 0.05,
+ "bootstrap": {
+  "replicates": 10000,
+  "seed": 73001
+ },
+ "contrasts": [
+  {
+   "contrast": "feedback-guided CMA-ES vs selection-only CMA-ES",
+   "endpoint": "delivery",
+   "method_a": "CMA-ES feedback-guided",
+   "method_b": "CMA-ES selection only",
+   "seed_blocks": 10,
+   "estimate": 0.5667,
+   "ci95": [
+    0.3667,
+    0.7667
+   ],
+   "p_sign_flip": 0.00781,
+   "p_holm": 0.03905,
+   "significant": true
+  },
+  {
+   "contrast": "feedback-guided CMA-ES vs selection-only CMA-ES",
+   "endpoint": "conditional_ld",
+   "method_a": "CMA-ES feedback-guided",
+   "method_b": "CMA-ES selection only",
+   "seed_blocks": 7,
+   "estimate": -0.3447,
+   "ci95": [
+    -0.7924,
+    -0.0095
+   ],
+   "p_sign_flip": 0.14062,
+   "p_holm": 0.28124,
+   "significant": false
+  },
+  {
+   "contrast": "feedback-guided CMA-ES vs no-feedback CMA-ES",
+   "endpoint": "delivery",
+   "method_a": "CMA-ES feedback-guided",
+   "method_b": "CMA-ES no feedback",
+   "seed_blocks": 10,
+   "estimate": 0.5667,
+   "ci95": [
+    0.3667,
+    0.7667
+   ],
+   "p_sign_flip": 0.00781,
+   "p_holm": 0.03905,
+   "significant": true
+  },
+  {
+   "contrast": "feedback-guided CMA-ES vs no-feedback CMA-ES",
+   "endpoint": "conditional_ld",
+   "method_a": "CMA-ES feedback-guided",
+   "method_b": "CMA-ES no feedback",
+   "seed_blocks": 7,
+   "estimate": -0.3461,
+   "ci95": [
+    -0.8017,
+    -0.0083
+   ],
+   "p_sign_flip": 0.14062,
+   "p_holm": 0.28124,
+   "significant": false
+  },
+  {
+   "contrast": "feedback-guided DE vs selection-only CMA-ES",
+   "endpoint": "delivery",
+   "method_a": "DE feedback-guided",
+   "method_b": "CMA-ES selection only",
+   "seed_blocks": 10,
+   "estimate": 0.7,
+   "ci95": [
+    0.5667,
+    0.8333
+   ],
+   "p_sign_flip": 0.00195,
+   "p_holm": 0.0117,
+   "significant": true
+  },
+  {
+   "contrast": "feedback-guided DE vs selection-only CMA-ES",
+   "endpoint": "conditional_ld",
+   "method_a": "DE feedback-guided",
+   "method_b": "CMA-ES selection only",
+   "seed_blocks": 7,
+   "estimate": -3.5004,
+   "ci95": [
+    -4.9428,
+    -2.2795
+   ],
+   "p_sign_flip": 0.01562,
+   "p_holm": 0.04686,
+   "significant": true
+  }
+ ]
+}

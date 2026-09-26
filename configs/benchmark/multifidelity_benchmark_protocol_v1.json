@@ -8,7 +8,7 @@
   "supersedes_for_prospective_qualification": "wingbench-superwing-mf-v0",
   "base_protocol": {
     "path": "configs/benchmark/multifidelity_benchmark_protocol_v0.json",
-    "file_sha256": "ff7d9ccb479bed4f12bb763af0fcb07c6e1774cbee06eda382e7fcc9979bfbf1",
+    "file_sha256": "28952614a2477bbee0365522aa5b9f2eddb783c76d484b876e2ecfac8060b530",
     "inheritance_rule": "Deep-copy the base JSON and apply every JSON-Pointer replacement in overrides exactly. Fields not named by an override are inherited byte-semantically from v0. The amendment file and its pinned base together are the complete v1 protocol."
   },
   "change_control": {

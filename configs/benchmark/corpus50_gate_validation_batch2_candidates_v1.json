@@ -1589,8 +1589,8 @@
   "cfd_protocol": {
     "infrastructure_loss_policy": "only_positively_bound_infrastructure_loss_is_censored",
     "official_benchmark": false,
-    "protocol_canonical_sha256": "4e259508000df50046a599f81acee4ad19808aa39af703469811c9eaeedcff92",
-    "protocol_file_sha256": "b0ed2577c6779dc71ef87cba3112ce3b5c47aa1075e2c608b1393be07bfac5de",
+    "protocol_canonical_sha256": "403410fcb0daed2fbc6f46d0356e7e346adcb78b6f021edf1725cf0afc885852",
+    "protocol_file_sha256": "f840ebd87a4f3c0fbbc53fe4faac0953eeaf9b48c976cc82eea64db70021c4eb",
     "protocol_path": "configs/cfd/final_protocol_candidate_v2.json",
     "protocol_status": "qualification_required",
     "scientific_attempt_policy": "one_uninterrupted_mesh_attempt_and_one_uninterrupted_attempt_per_mach"
@@ -1646,7 +1646,7 @@
   },
   "logical_candidate_count": 12,
   "logical_pair_count": 6,
-  "manifest_canonical_sha256": "658733a7f67435a05a8eabb3c9a535a9e69b1e6f5f34cfb236c3cca5935511b6",
+  "manifest_canonical_sha256": "876d018be0e8d43ab0bfe015d83382c801c58bcbc3cc95301cb49282a0607237",
   "manifest_id": "corpus50-gate-v2-matched-validation-v1-batch-2",
   "official": false,
   "pairs": [

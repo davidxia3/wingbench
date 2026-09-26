@@ -21,7 +21,7 @@ with `pandas`, `matplotlib`, `numpy`, `scipy` and `scikit-learn`.
 | `02_yield.py` | How often each program produced a usable wing, overall and as the run goes on |
 | `03_recommendation_curves.py` | How good each program's answer was after 1 simulation, after 2, after 4, and so on |
 | `04_discovery_vs_recommendation.py` | Whether a program found a good wing but failed to choose it as its answer |
-| `05_paper_macros.py` | Puts every number into a file the paper reads, so no number is typed by hand |
+| `05_paper_macros.py` | Writes the paper's number macros. `paper/main.tex` embeds a copy of each macro file, so after a rerun compare the two |
 | `06_failure_predictability.py` | The offline failure-classifier study on the SuperWing records |
 | `07_solver_error.py` | The early-stop outcome: how fast it fails, whether it repeats, and what removing it would change |
 | `08_recommendation_curves_all.py` | The recommendation-delivery figure for all five baselines |
@@ -31,6 +31,7 @@ with `pandas`, `matplotlib`, `numpy`, `scipy` and `scikit-learn`.
 | `12_agent_cfd_outcomes.py` | Checks the outcome of every agent-study CFD request |
 | `13_cfd_cost.py` | Processor-core hours per CFD evaluation over both studies |
 | `14_wing_meshing_examples.py` | Draws Figure 1, the delivered and unmeshable wing examples (needs `cst_modeling3d`) |
+| `15_confirmatory_contrasts.py` | The six planned baseline contrasts of Section 6.1: seed-block estimates, sign-flip tests, bootstrap intervals, and Holm correction |
 | `render_wing.py` | Builds a wing surface from its 38 design variables, used by `14` |
 | `common.py` | Shared paths, names and loaders used by the other scripts |
 

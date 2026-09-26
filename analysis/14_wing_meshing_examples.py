@@ -30,7 +30,6 @@ OUTPUT = ROOT / "paper/fig_wing_mesh_outcomes.pdf"
 
 # Shared paper style (see the palette block in paper/main.tex).
 DELIVERED, UNMESHABLE = "#107A83", "#8F1F22"
-TITLE_PT = 9
 plt.rcParams.update({"font.family": "serif",
                      "font.serif": ["Times New Roman", "Times"],
                      "pdf.fonttype": 42})
@@ -41,10 +40,10 @@ PANEL_W, PANEL_H = 2.9833, 1.2970
 LINE_W = 0.505          # root and tip outlines, pt
 DPI = 600               # used only to measure the wings' pixel boxes
 MARGIN = 0.02           # white margin around the whole figure, in
-TITLE_H = 0.17          # row for the column titles, in
 CLEARANCE = 3 / 72      # closest approach between the two wings in a column, in
 
-# Each column is (task, delivered geometry hash, unmeshable geometry hash).
+# Each column is (task, delivered geometry hash, unmeshable geometry hash). The
+# task is not printed, since whether a wing meshes depends only on its shape.
 PAIRS = (
     ("Low", "ab754cd6ddf1", "4beb6c0cc8eb"),
     ("Nominal A", "279a839814de", "bda7a3ae3986"),
@@ -150,7 +149,7 @@ def main():
     cell_h = max(c.shape[0] for c in crops.values()) / DPI
     shift = tuck(crops, cell_w, cell_h)
     width = 2 * MARGIN + len(PAIRS) * cell_w
-    height = 2 * MARGIN + TITLE_H + 2 * cell_h - shift
+    height = 2 * MARGIN + 2 * cell_h - shift
 
     fig = plt.figure(figsize=(width, height))
     for col, row, task, wing, color, shared in items:
@@ -164,9 +163,6 @@ def main():
         ax = fig.add_axes((x0 / width, y0 / height, PANEL_W / width, PANEL_H / height),
                           projection="3d")
         draw(ax, wing, color, shared)
-        if row == 0:
-            fig.text((cell_x + cell_w / 2) / width, (height - MARGIN - TITLE_H / 2) / height,
-                     task, ha="center", va="center", fontsize=TITLE_PT)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUTPUT)
     plt.close(fig)

@@ -120,7 +120,7 @@
       "state": "COMPLETED",
       "exit_code": "0:0",
       "elapsed": "02:26:53",
-      "node": "node3077",
+      "node": "node-a",
       "aggregate": {
         "profile_status": "complete",
         "admissibility": "pass",
@@ -141,7 +141,7 @@
       "state": "COMPLETED",
       "exit_code": "0:0",
       "elapsed": "02:34:38",
-      "node": "node3077",
+      "node": "node-a",
       "aggregate": {
         "profile_status": "complete",
         "admissibility": "pass",
@@ -162,7 +162,7 @@
       "state": "COMPLETED",
       "exit_code": "0:0",
       "elapsed": "02:12:43",
-      "node": "node3077",
+      "node": "node-a",
       "aggregate": {
         "profile_status": "complete",
         "admissibility": "pass",
@@ -183,7 +183,7 @@
       "state": "COMPLETED",
       "exit_code": "0:0",
       "elapsed": "02:03:34",
-      "node": "node3077",
+      "node": "node-a",
       "aggregate": {
         "profile_status": "complete",
         "admissibility": "pass",
@@ -204,7 +204,7 @@
       "state": "COMPLETED",
       "exit_code": "0:0",
       "elapsed": "03:16:42",
-      "node": "node1251",
+      "node": "node-c",
       "aggregate": {
         "profile_status": "complete",
         "admissibility": "pass",
@@ -225,7 +225,7 @@
       "state": "COMPLETED",
       "exit_code": "0:0",
       "elapsed": "06:02:46",
-      "node": "node1234",
+      "node": "node-b",
       "aggregate": {
         "profile_status": "incomplete",
         "admissibility": "undetermined",

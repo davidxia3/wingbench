@@ -44,4 +44,7 @@ echo
 echo "=== 13_cfd_cost: processor-core hours per CFD evaluation, both studies ==="
 python3.11 13_cfd_cost.py
 echo
+echo "=== 15_confirmatory_contrasts: the six planned baseline contrasts of Section 6.1 ==="
+python3.11 15_confirmatory_contrasts.py
+echo
 echo "=== done: tables in analysis/out/, figures in analysis/figures/, macros in analysis/out/macros/ and paper/ ==="

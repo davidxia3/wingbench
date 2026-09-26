@@ -11,6 +11,7 @@
 !/data/
 !/paper/
 !/scripts/
+!/benchmark/
 !/wingbench/
 
 # Python, editors, OS, secrets
@@ -33,7 +34,6 @@ credentials.json
 /analysis/figures/
 /analysis/out/agent_campaign/
 /analysis/out/macros/.main_tex_rendered.sha256
-/analysis/04_confirmatory_preview.py
 /analysis/06_exposure.py
 /analysis/07_audit.py
 /analysis/08_render_markdown.py
@@ -48,8 +48,6 @@ credentials.json
 /analysis/smac3/smac3_timing_extract.py
 /analysis/out/audit.json
 /analysis/out/exposure.json
-/analysis/out/confirmatory_preview.json
-/analysis/out/tables/tab_confirmatory.*
 /analysis/out/macros/crash_macros.json
 /analysis/out/grades.csv
 /analysis/out/episodes.csv
@@ -81,6 +79,8 @@ credentials.json
 /scripts/*
 !/scripts/cfd/
 /scripts/cfd/*
+!/scripts/cfd/fetch_superwing_scripts.py
+!/scripts/cfd/run-adflow.wingbench.patch
 !/scripts/cfd/grading_protocol.py
 !/scripts/cfd/grade_schema.py
 !/scripts/cfd/grade_benchmark.py
@@ -124,6 +124,7 @@ credentials.json
 !/configs/benchmark/corpus50_gate_matched_validation_results_v1.json
 !/configs/benchmark/wingbench_multifidelity_benchmark_v1_release.json
 !/configs/benchmark/superwing_physical_normalization_v1.json
+!/configs/benchmark/wingbench_v2_phase3_pilot_plan_v1.json
 !/configs/optimizer/
 /configs/optimizer/*
 !/configs/optimizer/wingbench_v2_phase3_method_panel_v1.json
@@ -136,6 +137,9 @@ credentials.json
 !/data/recommendations.csv
 !/data/wings.csv
 !/data/cfd_attempts.csv
+!/data/cfd_conditions.csv
+!/data/agent_nominations.csv
+!/data/agent_turns.csv
 !/data/weight_sensitivity_refits.csv
 !/data/weight_sensitivity_wings.csv
 !/data/superwing/

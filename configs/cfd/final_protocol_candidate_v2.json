@@ -256,7 +256,7 @@
     },
     {
       "path": "configs/cfd/publication_storage_binding_v1.json",
-      "sha256": "f47f781848cd549c32770271900a9c2abc3b6054270a8c187f4cf812a27f02b6"
+      "sha256": "a7179dd4ed4218abb67984a1ac1c2befd5bdb0e447e5ca78698ff3fc5cd2bf0a"
     },
     {
       "path": "configs/cfd/seed_aoa_selection_v1.json",

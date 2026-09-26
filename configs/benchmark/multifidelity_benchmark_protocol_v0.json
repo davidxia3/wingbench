@@ -55,11 +55,11 @@
       },
       {
         "path": "configs/benchmark/corpus50_gate_validation_batch1_candidates_v1.json",
-        "file_sha256": "69ccd1c399866a02c5eec0208a042f71ebd949426e5f6b23bedb37e5fefb7e75"
+        "file_sha256": "b52950556ca8034fcdce79b87147e9fc4f2fd62067d1dfd756b5babc45d5c8b7"
       },
       {
         "path": "configs/benchmark/corpus50_gate_validation_batch2_candidates_v1.json",
-        "file_sha256": "9ea3e2c8d65422552622dfe6ca879cc1f32965664c6b7a5b958aa7edc753b5c2"
+        "file_sha256": "df60ca0f53457475a26bf90316b5d396a46df971db462fcbd6c08da5c1f18f8c"
       },
       {
         "path": "configs/benchmark/corpus50_gate_matched_validation_results_v1.json",
@@ -151,8 +151,8 @@
     "name": "whole-wing fixed-CL ADflow oracle",
     "binding": {
       "path": "configs/cfd/final_protocol_candidate_v2.json",
-      "file_sha256": "b0ed2577c6779dc71ef87cba3112ce3b5c47aa1075e2c608b1393be07bfac5de",
-      "canonical_sha256": "4e259508000df50046a599f81acee4ad19808aa39af703469811c9eaeedcff92",
+      "file_sha256": "f840ebd87a4f3c0fbbc53fe4faac0953eeaf9b48c976cc82eea64db70021c4eb",
+      "canonical_sha256": "403410fcb0daed2fbc6f46d0356e7e346adcb78b6f021edf1725cf0afc885852",
       "bound_revision": 3,
       "bound_status_at_freeze": "qualification_required"
     },

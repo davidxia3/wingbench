@@ -15,7 +15,13 @@ The settings files the benchmark ran with.
   begins from.
 - `optimizer/wingbench_v2_phase3_method_panel_v1.json` fixes the four
   surrogate-assisted baselines and their settings.
+- `benchmark/wingbench_v2_phase3_pilot_plan_v1.json` is the development plan
+  the method panel binds to. The panel does not load without it.
 
 The files record each other's fingerprints, and the code checks those
-fingerprints when it loads them. A few of the records they point to are
-development files that are not included here.
+fingerprints when it loads them. Two kinds of records they point to are not
+stored here. The four SuperWing simulation files are fetched with
+`scripts/cfd/fetch_superwing_scripts.py`. The surrogate weights binding
+`aerotransformer_l_v1.json` is a development file whose contents, the model
+name and the weight hashes, are listed in
+`benchmark/environment/ENVIRONMENT.md`.

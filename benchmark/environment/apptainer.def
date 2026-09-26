@@ -1,0 +1,105 @@
+Bootstrap: docker
+From: mdolab/public@sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd
+
+# Software environment of the benchmark's CFD evaluator, as an Apptainer
+# image. It does the same as the Dockerfile next to it. The base image is the
+# MDO Lab public ADflow image from the u20-gcc-ompi-stable line, pinned to the
+# exact linux/amd64 digest that graded the recorded results.
+
+%labels
+    org.opencontainers.image.base.digest sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd
+    org.opencontainers.image.base.name docker.io/mdolab/public:u20-gcc-ompi-stable
+    wingbench.cst_modeling3d.commit 9500b19a732463c26b32f6860ac6c517c7d212a5
+
+%help
+    CFD evaluator environment of the benchmark.
+
+    The image holds the MDO Lab ADflow toolchain plus cst-modeling3d at the
+    pinned commit on PYTHONPATH. Run it with --cleanenv and bind a writable
+    directory at /workspace, for example
+
+        apptainer exec --cleanenv --bind "$PWD/work:/workspace" wingbench-cfd.sif bash
+
+    The solver settings the protocol requires are stored in
+    /etc/wingbench/solver.env. Do not load that file before running the
+    grader. The grader refuses to start when those names are set and exports
+    them itself. ENVIRONMENT.md explains the rest.
+
+%post
+    set -e
+    CST_MODELING3D_URL=https://github.com/YangYunjia/cst-modeling3d.git
+    CST_MODELING3D_COMMIT=9500b19a732463c26b32f6860ac6c517c7d212a5
+    CST_MODELING3D_DIR=/home/mdolabuser/repos/cst-modeling3d
+
+    # cst-modeling3d at the pinned commit. The build stops unless the checkout
+    # is exactly that commit. The .git directory is kept on purpose. The
+    # grader's runtime probe runs git next to the imported module and compares
+    # the commit with the protocol.
+    git clone "$CST_MODELING3D_URL" "$CST_MODELING3D_DIR"
+    git -C "$CST_MODELING3D_DIR" -c advice.detachedHead=false checkout "$CST_MODELING3D_COMMIT"
+    test "$(git -C "$CST_MODELING3D_DIR" rev-parse --verify HEAD)" = "$CST_MODELING3D_COMMIT"
+    test -f "$CST_MODELING3D_DIR/cst_modeling/__init__.py"
+    chmod -R a+rX "$CST_MODELING3D_DIR"
+
+    # Apptainer builds as root, so the clone is owned by root. At run time the
+    # container runs as you, and git refuses a repository owned by another
+    # account unless it is marked safe. The runtime probe needs this.
+    git config --system --add safe.directory "$CST_MODELING3D_DIR"
+
+    # The grader takes a lock file under /workspace. The image is read only at
+    # run time, so bind a writable directory there when you run it.
+    mkdir -p /workspace/.wingbench-locks /etc/wingbench
+
+    # Solver settings the protocol requires in every ADflow child process.
+    # They are stored in a file and NOT exported. The grader refuses to start
+    # when these names are already set in its own environment, and it passes
+    # them to mpirun itself. Load the file only to run the SuperWing mesh or
+    # solver scripts by hand.
+    printf '%s\n' \
+      '# Solver settings required by the grading protocol.' \
+      '# Do not load this file before scripts/cfd/grade_benchmark.py. The grader' \
+      '# refuses to start when these names are set, and it exports them itself.' \
+      '# Load it only when you run the mesh or solver scripts by hand.' \
+      'export ADFLOW_USE_ANK=1' \
+      'export ADFLOW_USE_NK=1' \
+      'export ADFLOW_NK_SWITCH=1e-8' \
+      'export OMP_NUM_THREADS=1' \
+      'export OPENBLAS_NUM_THREADS=1' \
+      'export MKL_NUM_THREADS=1' \
+      > /etc/wingbench/solver.env
+
+    # The base image sets its compiler, MPI, PETSc and Python paths in a shell
+    # file that only interactive shells read. Read it once here, as the image
+    # account, and store every variable it adds or changes in the container
+    # environment, so that every command sees them. PYTHONPATH is written
+    # last, with cst-modeling3d in front of anything the file may have set.
+    ENV_FILE="${APPTAINER_ENVIRONMENT:-${SINGULARITY_ENVIRONMENT:-/.singularity.d/env/91-environment.sh}}"
+    cat > /tmp/capture_toolchain_env.sh <<'CAPTURE'
+#!/bin/bash
+export HOME=/home/mdolabuser
+cst=/home/mdolabuser/repos/cst-modeling3d
+env -0 | LC_ALL=C sort -z > /tmp/env_before
+source /home/mdolabuser/.bashrc_mdolab >&2
+env -0 | LC_ALL=C sort -z > /tmp/env_after
+LC_ALL=C comm -z -13 /tmp/env_before /tmp/env_after | while IFS= read -r -d '' entry; do
+  name=${entry%%=*}
+  value=${entry#*=}
+  [[ $name =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || continue
+  case "$name" in _|SHLVL|PWD|OLDPWD|HOME|PYTHONPATH) continue ;; esac
+  case "$value" in *\'*) echo "skipping $name because its value contains a quote" >&2; continue ;; esac
+  printf "export %s='%s'\n" "$name" "$value"
+done
+printf "export PYTHONPATH='%s'\n" "$cst${PYTHONPATH:+:$PYTHONPATH}"
+CAPTURE
+    bash /tmp/capture_toolchain_env.sh >> "$ENV_FILE"
+    rm -f /tmp/capture_toolchain_env.sh /tmp/env_before /tmp/env_after
+    echo "stored toolchain variables in $ENV_FILE"
+    grep -c '^export ' "$ENV_FILE"
+
+%test
+    set -e
+    python3 -c 'import sys; assert sys.version_info[:2] == (3, 9), sys.version; print("python", sys.version.split()[0])'
+    python3 -c 'import cst_modeling, numpy, scipy; print("cst_modeling", cst_modeling.__version__)'
+    command -v mpirun
+    test "$(git -C /home/mdolabuser/repos/cst-modeling3d rev-parse --verify HEAD)" = 9500b19a732463c26b32f6860ac6c517c7d212a5
+    echo "environment test passed"

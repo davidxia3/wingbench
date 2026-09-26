@@ -1,0 +1,7 @@
+contrast,endpoint,method_a,method_b,seed_blocks,estimate,ci95,p_sign_flip,p_holm,significant
+feedback-guided CMA-ES vs selection-only CMA-ES,delivery,CMA-ES feedback-guided,CMA-ES selection only,10,0.5667,"[0.3667, 0.7667]",0.00781,0.03905,True
+feedback-guided CMA-ES vs selection-only CMA-ES,conditional_ld,CMA-ES feedback-guided,CMA-ES selection only,7,-0.3447,"[-0.7924, -0.0095]",0.14062,0.28124,False
+feedback-guided CMA-ES vs no-feedback CMA-ES,delivery,CMA-ES feedback-guided,CMA-ES no feedback,10,0.5667,"[0.3667, 0.7667]",0.00781,0.03905,True
+feedback-guided CMA-ES vs no-feedback CMA-ES,conditional_ld,CMA-ES feedback-guided,CMA-ES no feedback,7,-0.3461,"[-0.8017, -0.0083]",0.14062,0.28124,False
+feedback-guided DE vs selection-only CMA-ES,delivery,DE feedback-guided,CMA-ES selection only,10,0.7,"[0.5667, 0.8333]",0.00195,0.0117,True
+feedback-guided DE vs selection-only CMA-ES,conditional_ld,DE feedback-guided,CMA-ES selection only,7,-3.5004,"[-4.9428, -2.2795]",0.01562,0.04686,True
