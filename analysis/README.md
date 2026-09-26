@@ -33,7 +33,10 @@ with `pandas`, `matplotlib`, `numpy`, `scipy` and `scikit-learn`.
 | `14_wing_meshing_examples.py` | Draws Figure 1, the delivered and unmeshable wing examples (needs `cst_modeling3d`) |
 | `15_confirmatory_contrasts.py` | The six planned baseline contrasts of Section 6.1: seed-block estimates, sign-flip tests, bootstrap intervals, and Holm correction |
 | `16_marginal_intervals.py` | An interval for every delivery rate (exact binomial) and conditional mean (bootstrap) the paper reports, and the agent contrasts at query 4 with the two methods' episodes resampled independently, the two tables in Appendix A |
-| `render_wing.py` | Builds a wing surface from its 38 design variables, used by `14` |
+| `17_appendix_tables.py` | Every result table of the full-results appendix, per checkpoint, per method and task, per outcome type, and per episode, written straight into `paper/app_results.tex` |
+| `18_wing_gallery.py` | Renders the best delivered wing of every method and task and tabulates their geometry, the gallery appendix |
+| `19_appendix_figures.py` | Redraws the outcome-composition, online-yield, and discovery-versus-recommendation figures in the paper's style for the supplementary-figures appendix |
+| `render_wing.py` | Builds a wing surface from its 38 design variables, used by `14` and `18` |
 | `common.py` | Shared paths, names and loaders used by the other scripts |
 
 ## Rules the scripts follow

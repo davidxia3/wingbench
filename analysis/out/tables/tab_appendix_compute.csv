@@ -1,0 +1,12 @@
+study,method,episodes,timed_evaluations,core_hours,core_hours_per_evaluation
+baseline,CMA-ES no feedback,30,1123,16689,14.9
+baseline,CMA-ES selection only,30,1119,16584,14.8
+baseline,CMA-ES feedback-guided,30,1049,38759,36.9
+baseline,DE feedback-guided,30,1034,38064,36.8
+baseline,SMAC3,30,954,35307,37.0
+baseline,all,150,5279,145403,27.5
+agent,Open-ended research,30,968,42113,43.5
+agent,Planning,30,162,6112,37.7
+agent,Reflection,30,167,6392,38.3
+agent,all,90,1297,54617,42.1
+both,all,240,6576,200019,30.4

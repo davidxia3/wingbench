@@ -106,6 +106,10 @@
 
 % \iclrfinalcopy % Uncomment for camera-ready version, but NOT for submission.
 % Float spacing. The style file leaves the LaTeX defaults of 20pt and 10pt.
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{listings}
+\lstdefinestyle{prompt}{basicstyle=\ttfamily\scriptsize,breaklines=true,breakatwhitespace=false,columns=fullflexible,keepspaces=true,frame=single,framerule=0.3pt,xleftmargin=4pt,xrightmargin=4pt,showstringspaces=false}
 \setlength{\textfloatsep}{12pt plus 2pt minus 4pt}
 \setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \setlength{\intextsep}{8pt plus 2pt minus 2pt}
@@ -194,9 +198,9 @@ episode. After
 specific CFD evaluation checkpoints, the optimizer must recommend the design it would
 return to a user. A private grade then evaluates whether that recommendation receives
 a valid score and, if so, how good it is. We call these outcomes
-\emph{delivery} and \emph{conditional quality}. This distinction is important as it separates a
-method that returns exceptional wings in half of its runs from one
-that returns mediocre wings every time.
+\emph{delivery} and \emph{conditional quality}. It separates a method that
+returns exceptional wings in half its runs from one that returns mediocre
+wings every time.
 
 We use WingBench for two complementary studies. The first study establishes baseline
 performance with five optimizers. These include three CMA-ES variants that
@@ -219,13 +223,13 @@ recorded failure type. It grades each
 recommendation privately and reports delivery and conditional quality
 separately.
 \item \textbf{A baseline study.} Five baseline optimizers show that feedback
-raises delivery when it changes later proposals.
+raises delivery when it changes later proposals, and that the proposal
+generator still sets the quality of what is delivered.
 \item \textbf{An optimization-agent study.} Three agent optimizers test whether
 explicit reflection or planning improves on open-ended research.
-\item \textbf{Released data and code.} The release includes all
-\UnifiedCFDObserved{} CFD evaluation records with their failure types, the
-recommendation scores, the benchmark and baseline optimizer code, the agent
-prompts, and the analysis scripts.
+\item \textbf{Released data and code.} The release holds all
+\UnifiedCFDObserved{} evaluation records with failure types, recommendation
+scores, benchmark and baseline code, prompts, and analysis scripts.
 \end{enumerate}
 
 \section{WingBench}
@@ -244,7 +248,6 @@ of dataset designs lie inside this box, while the remaining volume still
 permits substantial extrapolation. This is compact compared with the 153
 degrees of freedom that \citet{yang2026aerotransformer} use for the Common
 Research Model wing \citep{vassberg2008crm}.
-
 The objective is $L/D$ at a target lift coefficient $C_L$. Because the required
 lift is the operating constraint, angle of attack is adjusted until computed
 lift is within 0.02 of the target. We use $C_L\in\{0.15,0.41,0.66\}$, the rounded
@@ -267,18 +270,23 @@ It predicts surface quantities and integrates them to estimate lift and drag.
 In our three-worker CPU deployment, one surrogate evaluation scores one wing in
 about a second, including all three Mach conditions and the angle-of-attack
 adjustment needed to reach the required lift.
-
 The high-fidelity evaluator checks candidate wings using ADflow
 \citep{mader2020adflow}, the SuperWing mesh procedure, and common solver settings.
 Each CFD job uses 16 cores and 64 GB of memory on one AWS m7a.4xlarge machine.
 Meshing has a 30-minute limit and each of three flow conditions a two-hour
 limit, both in wall-clock time.
-
 A high-fidelity evaluation can nevertheless fail to produce a usable score.
 The geometry may be rejected as unmeshable, meshing may stop without a valid
 mesh, or the flow solver may stop before satisfying the convergence and
 lift requirements. We call these outcomes nondeliveries and record their types
-rather than assign them invented objective values. The failure types give an
+rather than assign them invented objective values. Across both studies, 4{,}009
+of the 6{,}629 evaluations delivered no score. The mesh generator rejected 557
+geometries and stopped without a mesh in 2{,}173 evaluations, a flow condition
+reached its two-hour limit in 782, a solver process stopped with an error in
+493 (24 had both), and 28 ended in other ways. The \TimedEvaluationsOverall{}
+timed evaluations used \CoreHoursOverall{} core-hours,
+\AvgCoreHoursPerEvalOverall{} per evaluation on average
+(Appendix~\ref{app:outcomes}). The failure types give an
 optimizer useful evidence about the proposed geometry and where the evaluation
 process encounters difficulties. Figure~\ref{fig:wing-mesh-outcomes} shows visible shape differences between
 some meshable and unmeshable wings.
@@ -305,16 +313,15 @@ Appendix~\ref{app:classifier} gives details.
 An episode is an independent search, and information is not shared across episodes. An optimizer may spend at most 4{,}096 cheap evaluations and 32
 sequential online CFD evaluations. It submits one design, observes the accepted
 result, and then chooses again.
-
 After selected CFD query counts, the optimizer nominates one design. Its
 CFD performance is assessed outside the search, and the assessment provides no
 additional feedback to the optimizer. The benchmark supports checkpoints
 $q\in\{0,1,2,4,8,16,32\}$.
-
 We report three quantities. Recommendation delivery is the fraction of private
 recommendations with a valid score. Conditional quality is their $L/D$ among
 delivered recommendations. Online delivery is the fraction of requested
-experiments that return a score.
+experiments that return a score. Appendix~\ref{app:formal} states the problem
+in symbols and Appendix~\ref{app:rules} gives the full rules.
 
 \section{Related work}
 
@@ -344,7 +351,7 @@ directly into the search, returning each evaluation's score or failure type to
 the optimizer. Furthermore, it privately grades the design each optimizer
 explicitly recommends, not just the best design it found during search. Agent
 benchmarks make similar distinctions, reporting the best submission apart from
-the best attempt \citep{nathani2025mlgym} or valid execution apart from success
+the best attempt \citep{nathani2025mlgym,chan2025mlebench,huang2024mlagentbench} or valid execution apart from success
 \citep{chen2025scienceagentbench,somasekharan2026cfdllmbench}, but checking an
 attempt there takes minutes and can be repeated within a run. A WingBench grade
 costs hours of CFD and can fail, so each recommendation is graded once,
@@ -352,8 +359,12 @@ privately, at a fixed budget. Together, these
 let WingBench test whether an optimizer turns limited, failure-prone CFD
 feedback into a design worth recommending to a user.
 
-The optimizer can also be an AI agent. Systems that conduct computational research \citep{lu2026aiscientist}, or propose scientific designs \citep{swanson2025virtuallab}, show how language
-models can participate in research beyond predicting an outcome. Language-model
+The optimizer can also be an AI agent. Systems that conduct computational
+research \citep{lu2026aiscientist,yamada2025aiscientistv2,schmidgall2025agentlab},
+run laboratory chemistry \citep{boiko2023coscientist,bran2024chemcrow}, discover
+algorithms \citep{romeraparedes2024funsearch,novikov2025alphaevolve}, or propose
+scientific designs \citep{swanson2025virtuallab} show how language models can
+participate in research beyond predicting an outcome. Language-model
 agents can also run CFD, using solver errors to repair their simulation setups
 \citep{yue2026foamagent}, and language-model optimizers can estimate the
 chance that an evaluation fails \citep{meindl2026semanticopt}. For design
@@ -367,15 +378,13 @@ reliable external feedback is available
 \citep{huang2024selfcorrect,kamoi2024selfcorrection}, and searching over
 candidate plans pays off only when those plans can be judged accurately
 \citep{chen2024treesearch}.
-
-Most of this evidence comes from simple games, question answering, mathematics, and
+Most of this evidence comes from games, question answering, mathematics, and
 coding, where feedback is cheap and an attempt is easy to repeat. It is less
 clear whether such structure helps when each piece of feedback is a costly
 simulation that may fail. WingBench creates such a setting by combining a
-learned aerodynamic surrogate with sequential CFD evaluations, giving optimizers
+learned aerodynamic surrogate with sequential CFD evaluations, giving
 multifidelity feedback on an engineering task.
-We test whether explicit reflection or contingent planning improves on
-open-ended research in this setting.
+We test whether reflection or planning improves on open-ended research.
 
 \section{Methods}
 \label{sec:methods}
@@ -392,15 +401,15 @@ delivered online design once it has one. Before that, it recommends an untested
 design chosen by its own selection rule. The four surrogate-assisted methods
 also start every episode from the same 62 CFD results recorded during benchmark
 development. Those that learn from feedback use them as prior data, none of the
-62 wings is tested again, and the agents did not receive them.
+62 is tested again, and the agents did not receive them.
 
 \begin{table}[htbp]
 \caption{Baseline optimizers.}
 \label{tab:baseline-methods}
 \centering
-\footnotesize
+\scriptsize
 \setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{lccccl}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccl}
 \toprule
 method & \shortstack{surrogate\\calls} & \shortstack{CFD\\calls} & \shortstack{feedback\\picks next} & \shortstack{changes\\proposals} & generator \\
 \midrule
@@ -410,7 +419,7 @@ Feedback-guided CMA-ES & 4{,}096 & 32 & yes & yes & CMA-ES \\
 Feedback-guided DE & 4{,}096 & 32 & yes & yes & DE \\
 SMAC3 & 0 & 32 & yes & yes & GP BO \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 
 The first three use CMA-ES \citep{hansen2001cmaes,hansen2016tutorial} as their
@@ -421,13 +430,13 @@ delivery and value-correction models to choose which archived design to evaluate
 next, but cannot generate a new design. The \emph{feedback-guided CMA-ES} method alternates
 eight surrogate generations with one CFD evaluation. The resulting feedback
 updates beliefs that guide both selection and the future proposal distribution.
-
 The \emph{feedback-guided differential evolution} method uses differential
 evolution \citep{storn1997differential}. We used DE/rand/1/bin with mutation
 factor 0.8 and crossover probability 0.9. It otherwise shares the feedback
 design. The \emph{SMAC3} baseline \citep{lindauer2022smac3} uses version
 2.4.0 for CFD-only Gaussian-process Bayesian optimization with 8 Sobol initial
 points and 24 adaptive queries, with a common penalty for each nondelivery.
+Appendix~\ref{app:formal} gives the belief model's equations and every setting.
 
 
 \subsection{Optimization agents}
@@ -454,13 +463,11 @@ feedback. (b) The three methods differ only in how each decision is made.}
 \textbf{Open-ended research.} The agent receives the optimization task and
 available tools without an imposed planning or reflection template. It may
 choose its own analysis, code, and decision process.
-
 \textbf{Explicit reflection.} Following the verbal-feedback approach of
 Reflexion \citep{shinn2023reflexion}, the same agent writes a reflection after every
 newly returned online grade. The next decision receives the newest full
 reflection and a bounded cumulative summary of at most 4{,}000 characters.
 Reflection supplements the numerical history rather than replacing it.
-
 \textbf{Best-of-four contingent planning.} A learner first summarizes the
 observed environment. Four blind, independent planners are then asked to produce complete
 two-step contingent plans. A common value estimator scores the plans by
@@ -469,6 +476,7 @@ executed, and the process replans after the returned grade. At most three
 planning cycles are used per decision. We call this RAFA-motivated because it
 learns, plans, acts once, and replans, but its finite horizon and discrete
 best-of-four selection differ from RAFA \citep{liu2024rafa}.
+Appendix~\ref{app:prompts} reproduces every prompt and task document.
 
 \section{Experimental design and analysis}
 \label{sec:analysis}
@@ -489,12 +497,15 @@ recommendations after one, two, and four CFD queries. These runs contain
 We continued the open-ended agent's 30 episodes to 32 queries for comparison
 with the baselines, choosing it for its highest conditional quality on two of the three tasks after four queries.
 The extension added 840 online evaluations, bringing both studies to \UnifiedCFDObserved{} evaluation records.
-
 For the agent comparison, we report delivery and conditional mean $L/D$ for
 each task. At query 4, we estimated differences between open-ended research and
 each alternative. Because a seed label does not pair agent episodes, the two
 methods' episodes are resampled independently, 10{,}000 times, and quality
-differences compare delivered recommendations only.
+differences compare delivered recommendations only. Delivery rates carry
+exact binomial intervals and agent delivery differences Newcombe score
+intervals (Appendix~\ref{app:formal}). Appendix~\ref{app:fulltables}
+lists every result table, Appendix~\ref{app:datacard} the released records, and
+Appendix~\ref{app:cfdprotocol} the protocol.
 
 
 \section{Results and discussion}
@@ -644,14 +655,13 @@ which designs are tested, not just which recommendation is retained
 (Table~\ref{tab:baseline-yield}). The variants also allocate cheap evaluations
 differently, completing them up front or interleaving them with CFD. Their
 comparison therefore tests whole search strategies, not failure modeling alone.
-
 \begin{table}[t]
 \caption{Online CFD delivery rate in the baseline study.}
 \label{tab:baseline-yield}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{lccc}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccc}
 \toprule
 method & $C_L=0.15$ & $C_L=0.41$ & $C_L=0.66$ \\
 \midrule
@@ -661,17 +671,15 @@ Feedback-guided CMA-ES & 0.04 & 0.77 & 0.77 \\
 Feedback-guided DE & 0.29 & 0.62 & 0.62 \\
 SMAC3 & \SMACLowOnlineRate & \SMACNomOnlineRate & \SMACHighOnlineRate \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
-
 Feedback-guided DE also delivers in every nominal- and high-load episode,
 but mean quality is lower at 31.09 and 27.05. At low load, DE delivers in all ten episodes with mean $L/D$ of 17.52,
 compared with six deliveries and 16.76 for feedback-guided CMA-ES. Since both
 use the same feedback model, the generator remains important. DE
 may preserve useful alternatives where CMA-ES concentrates too narrowly,
 while CMA-ES may refine productive regions more effectively on other
-tasks. 
-
+tasks.
 SMAC3 delivers in \SMACLowFinalDelivered, \SMACNominalFinalDelivered, and
 \SMACHighFinalDelivered{} episodes at low, nominal, and high load, but its
 conditional mean $L/D$ is much lower at \SMACLowFinalMean,
@@ -690,11 +698,10 @@ pairs leave the planned sign-flip tests underpowered (Holm $p=0.28$). Relative t
 selection-only method, feedback-guided DE improves delivery by 0.70
 [0.57, 0.83] (Holm $p=0.012$) but loses 3.50 $L/D$ [2.28, 4.94] among
 paired delivered recommendations (Holm $p=0.047$).
-
-At nominal load, feedback-guided CMA-ES largely resolves the tradeoff by achieving complete delivery with similar quality.
-This leaves less room for improvement at query 32, although the differences
+At nominal load, feedback-guided CMA-ES largely resolves the tradeoff with complete delivery at similar quality.
+This leaves less room for improvement at query 32, although differences
 at other loads rule out uniform saturation. At query 4, the nominal-load
-archive-only methods already average about 33.2 but deliver in only three or
+archive-only methods already average about 33.2 but deliver in three or
 four episodes, while feedback-guided CMA-ES delivers in all ten at 28.73.
 
 \subsection{Agent performance over 32 queries}
@@ -714,13 +721,14 @@ so we also score each episode's last nomination as its standing recommendation.
 It is a delivered wing in 28 of 30 episodes, nine each at low and high load and
 ten at nominal load, with mean $L/D$ of 18.21, 33.03, and 30.43, and the best
 delivered wing in 20 (Appendix~\ref{app:agent-comparison}).
-
 Table~\ref{tab:agent-extension} and Figure~\ref{fig:agent-search-quality}
 show how this performance develops. The scores are episode maxima among
-delivered online designs, not additional private recommendation assessments.
+delivered online designs, not private recommendation assessments.
 Ten of the 960 online evaluations failed in the grading service before CFD
 began and were charged to the agent against the released rules
-(Appendix~\ref{app:agent-comparison}).
+(Appendix~\ref{app:agent-comparison}). Appendix~\ref{app:gallery} shows the
+best delivered wing of every method and task, and Appendix~\ref{app:figures}
+the outcome composition of the online evaluations.
 
 \begin{table}[t]
 \caption{Open-ended research over a longer search. Best $L/D$ is the mean
@@ -731,7 +739,7 @@ at query 4, ten in every other cell).}
 \scriptsize
 \setlength{\tabcolsep}{4pt}
 % BEGIN embedded extension.tex
-\begin{tabular}{lrrrr}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr}
 \toprule
 $C_L$ & online delivery through query 32 & best $L/D$ at 4 & at 16 & at 32 \\
 \midrule
@@ -739,7 +747,7 @@ $0.15$ & 0.62 & 17.18 & 17.87 & 18.23 \\
 $0.41$ & 0.70 & 31.09 & 32.71 & 33.04 \\
 $0.66$ & 0.62 & 27.83 & 29.81 & 30.24 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 % END embedded extension.tex
 \end{table}
 
@@ -857,7 +865,7 @@ so the quality columns can describe different subsets of episodes.}
 \scriptsize
 \setlength{\tabcolsep}{3.2pt}
 % BEGIN embedded recommendations.tex
-\begin{tabular}{lrrrrrr}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr}
 \toprule
 method & \multicolumn{2}{c}{$C_L=0.15$} & \multicolumn{2}{c}{$C_L=0.41$} & \multicolumn{2}{c}{$C_L=0.66$} \\
  & delivered & mean $L/D$ & delivered & mean $L/D$ & delivered & mean $L/D$ \\
@@ -866,7 +874,7 @@ Open-ended research & 9/10 & 17.15 & 10/10 & 31.09 & 10/10 & 27.83 \\
 Planning & 10/10 & 17.41 & 9/10 & 29.31 & 9/10 & 27.59 \\
 Reflection & 10/10 & 17.33 & 10/10 & 29.83 & 10/10 & 26.79 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 % END embedded recommendations.tex
 \end{table}
 
@@ -1029,31 +1037,28 @@ $L/D$ with a descriptive 95\% bootstrap interval of [0.32, 3.21]. At low load,
 the difference is $-0.26$ with interval [$-0.85$, 0.31], so planning's higher
 mean is not distinguishable from chance. The intervals against reflection
 include zero on all three tasks. Full comparisons are given in
-Appendix~\ref{app:agent-comparison}. Relative to the baselines at this checkpoint, open-ended research attains
+Appendix~\ref{app:agent-comparison}. The whole agent study used 71.5 million
+input and 29.1 million output tokens and cost about \$118, under \$0.25 per CFD
+query for every method, with open-ended research averaging 9 minutes of model
+time per query, planning 25, reflection 31. Relative to the baselines at this checkpoint, open-ended research attains
 higher nominal- and high-load quality than feedback-guided CMA-ES while
-matching its complete recommendation delivery. These are intermediate
-results within the supplied 32-query task, not a test of strategies designed
-to stop after four evaluations.
+matching its complete delivery. These are intermediate results within the
+32-query task, not a test of strategies built to stop after four evaluations.
 
 \subsection{Agent strategies and failure modes}
 
 The traces show agents fitting supplementary models, writing geometry checks, and developing numerical search procedures across the three methods and tasks.
-
 A nominal-load reflection episode combined a local aerodynamic model and condition-success classifier with CMA-ES. Its CFD quality rose from 28.79 to 31.14 across four delivered evaluations, but the supplementary aerodynamic model became about 12\% optimistic on later candidates while AeroTransformer stayed within about half a percent. Extra modeling could also encourage excessive caution. A high-load reflection episode initially rejected a wing family whose local ensemble prediction was 22.91. When tested later, the wing delivered at 24.89, close to AeroTransformer's 24.85. These cases show why constructing another predictor does not necessarily improve the search.
-
 Agents also used failure diagnostics to change candidate selection. After two meshing failures, a high-load planning executor reconstructed wing surfaces and developed a surface-triangle quality measure. Using that measure produced a fourth wing that delivered at 28.55, slightly above the first wing's 28.52. This was a substantive attempt to recover delivery, but not a large improvement.
 
-Some procedures resemble the baselines, such as a nominal-load open-ended episode that ran CMA-ES with corrections for surrogate errors. Agents can construct and revise these methods, but added flexibility helps only when it changes which experiments are worth performing. With at most 32 CFD evaluations and fewer usable scores, validating new models or geometry rules remains difficult. This offers one explanation for why elaborate analyses need not beat a strong numerical optimizer, even at the early checkpoint.
+Some procedures resemble the baselines, such as a nominal-load open-ended episode that ran CMA-ES with corrections for surrogate errors. Agents can construct and revise these methods, but added flexibility helps only when it changes which experiments are worth performing. With at most 32 CFD evaluations and fewer usable scores, validating new models or rules is difficult. This is one reason elaborate analyses need not beat a strong numerical optimizer, even at the early checkpoint.
 
 \section{Limitations}
 \label{sec:limitations}
 
 Ten seeds per method and task provide limited statistical power, especially for modest differences between methods. Comparisons of conditional quality rest on fewer episodes still, because they use delivered recommendations only, so uncertainty intervals can be wide. Clock limits define 31\% of baseline nondeliveries, so delivery depends on the reference machine, and Appendix~\ref{app:outcomes} bounds the effect.
-
 The planning results reflect both the selected plans and the executor's own reasoning. In 104 of 154 planning and replanning cycles, two first-action fields, the procedure and wing-selection rule, were left as placeholders. Executors could still develop and run substantive optimization procedures. This limits conclusions about the value of explicit planning but not the resulting CFD grades.
-
 SMAC3 fits its own Gaussian-process surrogate but does not use AeroTransformer. We used an off-the-shelf Bayesian optimization implementation. Developing and validating a custom AeroTransformer-assisted method was beyond the scope of this study. This makes SMAC3 a CFD-only comparator, not an equal-information test against surrogate-assisted methods. Its lower scores therefore do not establish that Bayesian optimization is intrinsically less effective.
-
 The agent results are specific to DeepSeek V4.1 Flash. We do not compare language models. 
 
 \subsection*{AI use statement}
@@ -1061,9 +1066,9 @@ The agent results are specific to DeepSeek V4.1 Flash. We do not compare languag
 Generative AI assisted with formulating research questions and hypotheses,
 developing the benchmark's conceptual framework, designing the methods and
 experiments, implementing the agent methods and evaluation harness, and cleaning
-and organizing CFD records. We did not use
-generative AI to create synthetic datasets, translate research material,
-formulate mathematical claims, or develop proofs.
+and organizing CFD records. We did not use it
+to create synthetic datasets, translate research material, or formulate
+mathematical claims or proofs.
 
 Generative AI also helped write and edit code, prepare figures, search and
 summarize literature, format references, and
@@ -1095,14 +1100,14 @@ SuperWing simulation files, and the public surrogate weights, all pinned by
 fingerprint. Third, the benchmark folder holds a runner that lets a new
 optimizer play episodes under the released episode machine, a verifier that
 replays its trace, and a scorer that compares it with the six reference methods.
-The runner has been tested with recorded outcomes, and its CFD path was run
+The runner was tested with recorded outcomes, and its CFD path was run
 once in a rebuilt environment on a fresh machine of the reference type, where
 it reproduced a recorded evaluation exactly, to the last digit of lift, drag,
 and angle of attack at every condition (Appendix~\ref{app:outcomes}). The
-SuperWing run records are redistributed with their authors' permission. The code
+SuperWing run records are redistributed with the authors' permission. The code
 that ran jobs on our cloud and cluster machines, the agent session controller,
-and the agents' full execution traces are not included, and the recorded results
-were graded on a fixed machine type that the rules name.
+and the full agent traces are not included, and the recorded results were
+graded on the machine type the rules name.
 
 % Bibliography embedded so this main.tex carries every cited entry to Overleaf.
 \begin{thebibliography}{30}
@@ -1117,6 +1122,16 @@ Fran{\c c}ois Bachoc, C{\'e}line Helbert, and Victor Picheny.
 \newblock Gaussian process optimization with failures: classification and convergence proof.
 \newblock \emph{Journal of Global Optimization}, 78\penalty0 (3):\penalty0 483--506, 2020.
 
+\bibitem[Boiko et~al.(2023)Boiko, MacKnight, Kline, and Gomes]{boiko2023coscientist}
+Daniil~A. Boiko, Robert MacKnight, Ben Kline, and Gabe Gomes.
+\newblock Autonomous chemical research with large language models.
+\newblock \emph{Nature}, 624\penalty0 (7992):\penalty0 570--578, 2023.
+
+\bibitem[Bran et~al.(2024)Bran, Cox, Schilter, Baldassari, White, and Schwaller]{bran2024chemcrow}
+Andres~M. Bran, Sam Cox, Oliver Schilter, Carlo Baldassari, Andrew~D. White, and Philippe Schwaller.
+\newblock Augmenting large language models with chemistry tools.
+\newblock \emph{Nature Machine Intelligence}, 6\penalty0 (5):\penalty0 525--535, 2024.
+
 \bibitem[Bussemaker et~al.(2024)Bussemaker, Saves, Bartoli, Lefebvre, and Nagel]{bussemaker2024hidden}
 Jasper Bussemaker, Paul Saves, Nathalie Bartoli, Thierry Lefebvre, and Bj{\"o}rn Nagel.
 \newblock Surrogate-based optimization of system architectures subject to hidden constraints.
@@ -1126,6 +1141,11 @@ Jasper Bussemaker, Paul Saves, Nathalie Bartoli, Thierry Lefebvre, and Bj{\"o}rn
 Ankush Chakrabarty, Scott~A. Bortoff, and Christopher~R. Laughman.
 \newblock Simulation failure robust {Bayesian} optimization for estimating black-box model parameters.
 \newblock In \emph{IEEE International Conference on Systems, Man, and Cybernetics (SMC)}, pp.\  1533--1538, 2021.
+
+\bibitem[Chan et~al.(2025)Chan, Chowdhury, Jaffe, Aung, Sherburn, Mays, Starace, Liu, Maksin, Patwardhan, Weng, and Madry]{chan2025mlebench}
+Jun~Shern Chan, Neil Chowdhury, Oliver Jaffe, James Aung, Dane Sherburn, Evan Mays, Giulio Starace, Kevin Liu, Leon Maksin, Tejal Patwardhan, Lilian Weng, and Aleksander Madry.
+\newblock {MLE}-bench: Evaluating machine learning agents on machine learning engineering.
+\newblock In \emph{International Conference on Learning Representations}, 2025.
 
 \bibitem[Chen et~al.(2024)Chen, White, Mooney, Payani, Su, and Sun]{chen2024treesearch}
 Ziru Chen, Michael White, Ray Mooney, Ali Payani, Yu~Su, and Huan Sun.
@@ -1193,10 +1213,15 @@ Youwei He, Jinju Sun, Peng Song, and Xuesong Wang.
 \newblock Variable-fidelity expected improvement based efficient global optimization of expensive problems in presence of simulation failures and its parallelization.
 \newblock \emph{Aerospace Science and Technology}, 111:\penalty0 106572, 2021.
 
-\bibitem[Huang et~al.(2024)Huang, Chen, Mishra, Zheng, Yu, Song, and Zhou]{huang2024selfcorrect}
+\bibitem[Huang et~al.(2024{\natexlab{a}})Huang, Chen, Mishra, Zheng, Yu, Song, and Zhou]{huang2024selfcorrect}
 Jie Huang, Xinyun Chen, Swaroop Mishra, Huaixiu~Steven Zheng, Adams~Wei Yu, Xinying Song, and Denny Zhou.
 \newblock Large language models cannot self-correct reasoning yet.
 \newblock In \emph{International Conference on Learning Representations}, 2024.
+
+\bibitem[Huang et~al.(2024{\natexlab{b}})Huang, Vora, Liang, and Leskovec]{huang2024mlagentbench}
+Qian Huang, Jian Vora, Percy Liang, and Jure Leskovec.
+\newblock {MLAgentBench}: Evaluating language agents on machine learning experimentation.
+\newblock \emph{arXiv preprint arXiv:2310.03302}, 2024.
 
 \bibitem[Jin(2011)]{jin2011surrogate}
 Yaochu Jin.
@@ -1269,20 +1294,40 @@ Deepak Nathani, Lovish Madaan, Nicholas Roberts, Nikolay Bashlykov, Ajay Menon, 
 \newblock {MLGym}: A new framework and benchmark for advancing {AI} research agents.
 \newblock In \emph{Second Conference on Language Modeling}, 2025.
 
+\bibitem[Novikov et~al.(2025)Novikov, V\~{u}, Eisenberger, Dupont, Huang, Wagner, Shirobokov, Kozlovskii, Ruiz, Mehrabian, Kumar, See, Chaudhuri, Holland, Davies, Nowozin, Kohli, and Balog]{novikov2025alphaevolve}
+Alexander Novikov, Ng\^{a}n V\~{u}, Marvin Eisenberger, Emilien Dupont, Po-Sen Huang, Adam~Zsolt Wagner, Sergey Shirobokov, Borislav Kozlovskii, Francisco J.~R. Ruiz, Abbas Mehrabian, M.~Pawan Kumar, Abigail See, Swarat Chaudhuri, George Holland, Alex Davies, Sebastian Nowozin, Pushmeet Kohli, and Matej Balog.
+\newblock {AlphaEvolve}: A coding agent for scientific and algorithmic discovery.
+\newblock \emph{arXiv preprint arXiv:2506.13131}, 2025.
+
 \bibitem[Plaban et~al.(2026)Plaban, Bachman, and Renganathan]{plaban2026derivativefree}
 Punya Plaban, Peter Bachman, and Ashwin Renganathan.
 \newblock Derivative-free optimization is competitive for aerodynamic design optimization in moderate dimensions.
 \newblock \emph{arXiv preprint arXiv:2505.09088}, 2026.
+
+\bibitem[Romera-Paredes et~al.(2024)Romera-Paredes, Barekatain, Novikov, Balog, Kumar, Dupont, Ruiz, Ellenberg, Wang, Fawzi, Kohli, and Fawzi]{romeraparedes2024funsearch}
+Bernardino Romera-Paredes, Mohammadamin Barekatain, Alexander Novikov, Matej Balog, M.~Pawan Kumar, Emilien Dupont, Francisco J.~R. Ruiz, Jordan~S. Ellenberg, Pengming Wang, Omar Fawzi, Pushmeet Kohli, and Alhussein Fawzi.
+\newblock Mathematical discoveries from program search with large language models.
+\newblock \emph{Nature}, 625\penalty0 (7995):\penalty0 468--475, 2024.
 
 \bibitem[Sacher et~al.(2018)Sacher, Duvigneau, Le~Ma{\^i}tre, Durand, Berrini, Hauville, and Astolfi]{sacher2018classification}
 Matthieu Sacher, R{\'e}gis Duvigneau, Olivier Le~Ma{\^i}tre, Mathieu Durand, {\'E}lisa Berrini, Fr{\'e}d{\'e}ric Hauville, and Jacques-Andr{\'e} Astolfi.
 \newblock A classification approach to efficient global optimization in presence of non-computable domains.
 \newblock \emph{Structural and Multidisciplinary Optimization}, 58\penalty0 (4):\penalty0 1537--1557, 2018.
 
+\bibitem[Schmidgall et~al.(2025)Schmidgall, Su, Wang, Sun, Wu, Yu, Liu, Moor, Liu, and Barsoum]{schmidgall2025agentlab}
+Samuel Schmidgall, Yusheng Su, Ze Wang, Ximeng Sun, Jialian Wu, Xiaodong Yu, Jiang Liu, Michael Moor, Zicheng Liu, and Emad Barsoum.
+\newblock Agent {Laboratory}: Using {LLM} agents as research assistants.
+\newblock \emph{arXiv preprint arXiv:2501.04227}, 2025.
+
 \bibitem[Shinn et~al.(2023)Shinn, Cassano, Gopinath, Narasimhan, and Yao]{shinn2023reflexion}
 Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao.
 \newblock {Reflexion}: Language agents with verbal reinforcement learning.
 \newblock In \emph{Advances in Neural Information Processing Systems}, volume~36, pp.\  8634--8652. Curran Associates, Inc., 2023.
+
+\bibitem[Smith \& Winkler(2006)Smith and Winkler]{smith2006curse}
+James~E. Smith and Robert~L. Winkler.
+\newblock The optimizer's curse: Skepticism and postdecision surprise in decision analysis.
+\newblock \emph{Management Science}, 52\penalty0 (3):\penalty0 311--322, 2006.
 
 \bibitem[Somasekharan et~al.(2026)Somasekharan, Yue, Cao, Li, Emami, Bhargav, Acharya, Xie, and Pan]{somasekharan2026cfdllmbench}
 Nithin Somasekharan, Ling Yue, Yadi Cao, Weichao Li, Patrick Emami, Pochinapeddi~Sai Bhargav, Anurag Acharya, Xingyu Xie, and Shaowu Pan.
@@ -1326,6 +1371,11 @@ John~C. Vassberg, Mark DeHaan, Melissa Rivers, and Richard~A. Wahls.
 \newblock Development of a {Common Research Model} for applied {CFD} validation studies.
 \newblock In \emph{26th AIAA Applied Aerodynamics Conference}, AIAA Paper 2008-6919, 2008.
 
+\bibitem[Yamada et~al.(2025)Yamada, Lange, Lu, Hu, Lu, Foerster, Clune, and Ha]{yamada2025aiscientistv2}
+Yutaro Yamada, Robert~Tjarko Lange, Cong Lu, Shengran Hu, Chris Lu, Jakob Foerster, Jeff Clune, and David Ha.
+\newblock The {AI} {Scientist}-v2: Workshop-level automated scientific discovery via agentic tree search.
+\newblock \emph{arXiv preprint arXiv:2504.08066}, 2025.
+
 \bibitem[Yang et~al.(2026{\natexlab{a}})Yang, Gholami, Gurbuz, Rashed, and Thuerey]{yang2026aerotransformer}
 Yunjia Yang, Babak Gholami, Caglar Gurbuz, Mohammad Rashed, and Nils Thuerey.
 \newblock Towards a foundation-model paradigm for aerodynamic prediction in three-dimensional design.
@@ -1346,6 +1396,7 @@ Ling Yue, Nithin Somasekharan, Tingwen Zhang, Yadi Cao, Zhangze Chen, Shimin Di,
 
 \clearpage
 \appendix
+\raggedbottom
 
 \section{Agent comparisons}
 \label{app:agent-comparison}
@@ -1414,16 +1465,15 @@ The released tables list every session and every recorded recommendation.
 \begin{table}[h]
 \caption{Open-ended research minus each comparator after four CFD queries,
 with the two methods' episodes resampled independently. Quality differences
-compare delivered recommendations, counted in the delivered column for
-open-ended research and the comparator. Positive differences favor open-ended
-research. Quality intervals use 10{,}000 bootstrap resamples and delivery
-intervals are Newcombe score intervals.}
+compare delivered recommendations, counted in the delivered column for each
+method. Positive differences favor open-ended research. Quality intervals use
+10{,}000 bootstrap resamples and delivery intervals are Newcombe's.}
 \label{tab:agent-contrasts}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 % BEGIN embedded tab_agent_contrasts_unpaired.tex
-\begin{tabular}{llrrrrr}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrr}
 \toprule
 comparator & $C_L$ & $\Delta$ delivery & 95\% CI & delivered & $\Delta L/D$ & 95\% CI \\
 \midrule
@@ -1434,7 +1484,7 @@ Reflection & $0.15$ & -0.10 & [-0.40, 0.19] & 9/10 & -0.19 & [-0.67, 0.31] \\
 Reflection & $0.41$ & 0.00 & [-0.28, 0.28] & 10/10 & 1.26 & [-0.03, 2.55] \\
 Reflection & $0.66$ & 0.00 & [-0.28, 0.28] & 10/10 & 1.04 & [-0.33, 2.38] \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 % END embedded tab_agent_contrasts_unpaired.tex
 \end{table}
 
@@ -1450,13 +1500,13 @@ SMAC3's rest on scores that vary widely.
 \caption{95\% intervals for the recommendation delivery rate (exact binomial)
 and for the mean $L/D$ of delivered recommendations (percentile bootstrap from
 10{,}000 resamples of each method's ten episodes per task). Agents at query 4,
-baselines at query 32. A dash marks a cell with no delivered recommendation.}
+baselines at query 32. A dash marks a cell with no delivery.}
 \label{tab:marginal}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{4pt}
 % BEGIN embedded tab_marginal_intervals.tex
-\begin{tabular}{llrlrl}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrlrl}
 \toprule
 method & $C_L$ & delivered & 95\% CI & mean $L/D$ & 95\% CI \\
 \midrule
@@ -1488,7 +1538,7 @@ SMAC3 & $0.15$ & 9/10 & [0.56, 1.00] & 10.56 & [7.52, 13.63] \\
  & $0.41$ & 7/10 & [0.35, 0.93] & 17.00 & [13.77, 20.12] \\
  & $0.66$ & 6/10 & [0.26, 0.88] & 12.82 & [8.74, 16.93] \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 % END embedded tab_marginal_intervals.tex
 \end{table}
 
@@ -1498,18 +1548,18 @@ SMAC3 & $0.15$ & 9/10 & [0.56, 1.00] & 10.56 & [7.52, 13.63] \\
 The source records provide outcomes for 4{,}544 designs, including the 4{,}239
 released geometries and attempted designs with no valid condition. We
 standardized the 38 variables with the benchmark normalization and predicted
-whether a design fails any original SuperWing condition. Logistic regression,
-15-nearest-neighbors, and histogram gradient boosting reach stratified
-five-fold AUC 0.69, 0.65, and 0.71. Training on the central 85\% and testing on
-the most extreme 15\% reduces these to 0.62, 0.52, and 0.63.
+whether a design fails any SuperWing condition. Logistic regression,
+15-nearest-neighbors, and histogram gradient boosting reach five-fold AUC
+0.69, 0.65, and 0.71. Training on the central 85\% and testing on
+the extreme 15\% reduces these to 0.62, 0.52, and 0.63.
 
 We then applied the source-trained classifiers to the 3{,}840 designs proposed by
 the four surrogate-assisted baseline methods and labeled them with their actual
 WingBench outcomes. AUC is 0.41, 0.52, and 0.50 at low load and 0.51--0.75 at
-nominal and high load. These values are reported per task because online
+nominal and high load. These values are per task because online
 nondelivery differs sharply across tasks. The experiment does not prove that
-failure prediction is impossible. It shows that the tested off-the-shelf source
-models do not remove the need for online learning.
+failure prediction is impossible. It shows that the tested source models do not
+remove the need for online learning.
 
 \section{Sensitivity to the inconclusive-outcome weight}
 \label{app:weight}
@@ -1545,7 +1595,7 @@ cannot be reused.}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{5pt}
-\begin{tabular}{llrrr}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr}
 \toprule
 study & evaluation & delivered a score & no score & total \\
 \midrule
@@ -1556,7 +1606,7 @@ Three agent methods & online & 806 & 394 & 1{,}200 \\
 \midrule
 Both studies & all & 2{,}620 & 4{,}009 & 6{,}629 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 \FloatBarrier
 
@@ -1567,17 +1617,18 @@ mesh and attempt all three conditions but do not deliver, 375 produce a valid
 result at two of three conditions. This group differs slightly from the 955
 time-limit and solver-error outcomes in Table~\ref{tab:outcomes}. It adds five
 other errors that attempted all three conditions and leaves out six outcomes
-that have no condition records. A nondelivery is therefore often a near miss
-rather than a geometry from which the pipeline obtains nothing.
+that have no condition records. A nondelivery is therefore often a near miss,
+not a geometry from which the pipeline obtains nothing.
 
 \begin{table}[htbp]
 \caption{CFD outcomes in the five-method baseline study. Private counts include
-only recommendations requiring a separate grade.}
+only recommendations requiring a separate grade. Counts are evaluations, not
+distinct wings.}
 \label{tab:outcomes}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{5pt}
-\begin{tabular}{lrrr}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrr}
 \toprule
 outcome & online & checkpoint & total \\
 \midrule
@@ -1592,7 +1643,7 @@ all nondeliveries & 3{,}152 & 431 & 3{,}583 \\
 \midrule
 evaluations & 4{,}800 & 493 & 5{,}293 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 
 The agent study contributes 1{,}336 graded requests. Its 136 private grades
@@ -1606,20 +1657,20 @@ does not receive a complete wing score.
 Both tables come from the same grader. Table~\ref{tab:agent-outcomes} uses the
 four outcome types that the feedback-guided baselines weight in their delivery
 model, and agents receive each result together with the files the evaluation
-produced. Table~\ref{tab:outcomes} instead groups the grader's reason codes by
-the first failing stage. In baseline records that carry both labels, every mesh
-rejection is a conclusive failure and every mesh stop is undetermined.
-Time-limit and solver-error outcomes are partial in 389 cases and undetermined
-in 252.
+produced. Table~\ref{tab:outcomes} groups the grader's reason codes by
+the first failing stage. In baseline records with both labels, every mesh
+rejection is a conclusive failure and every mesh stop undetermined.
+Time-limit and solver-error outcomes are partial in 389 and undetermined in 252.
 
 \begin{table}[htbp]
 \caption{Recorded CFD outcome types in the three-method agent study. A pass
-delivers a complete score. The other outcome types do not.}
+delivers a complete score. The other outcome types do not. Private counts are
+the 136 separate grades.}
 \label{tab:agent-outcomes}
 \centering
 \scriptsize
 \setlength{\tabcolsep}{5pt}
-\begin{tabular}{lrrr}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrr}
 \toprule
 outcome & online & private & total \\
 \midrule
@@ -1630,7 +1681,7 @@ conclusive failure & 45 & 9 & 54 \\
 \midrule
 evaluations & 1{,}200 & 136 & 1{,}336 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
 
 Mesh rejection in the baseline study is a geometry failure under the chosen
@@ -1661,9 +1712,17 @@ type. The container built from the recipe, the fetch script matched all four
 pinned SuperWing files, and the local grading adapter regraded a recorded
 nominal-load wing. It reproduced the recorded score of 33.4018 exactly, with
 lift, drag, and angle of attack identical to the last digit at all three
-conditions, in 7{,}973 seconds. Only the runtime fingerprint differed, as the
-release documents, because the fingerprint binds the original machines. The
+conditions, in 7{,}973 seconds. Only the runtime fingerprint differed, as
+documented, because it binds the original machines. The
 regrades of the five outage wings in Appendix~\ref{app:agent-comparison} used
 the same rebuilt evaluator on machines of the same type.
+
+\input{app_formal.tex}
+\input{app_rules.tex}
+\input{app_data_cfd.tex}
+\input{app_gallery.tex}
+\input{app_results.tex}
+\input{app_figures.tex}
+\input{app_prompts.tex}
 
 \end{document}

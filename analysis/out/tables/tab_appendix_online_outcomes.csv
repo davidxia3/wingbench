@@ -1,0 +1,28 @@
+block,method,task,pass,partial,undetermined,conclusive_failure,total
+baseline,CMA-ES no feedback,low,0,0,308,12,320
+baseline,CMA-ES no feedback,nominal,83,20,178,39,320
+baseline,CMA-ES no feedback,high,118,36,119,47,320
+baseline,CMA-ES selection only,low,0,0,308,12,320
+baseline,CMA-ES selection only,nominal,85,21,177,37,320
+baseline,CMA-ES selection only,high,112,43,120,45,320
+baseline,CMA-ES feedback-guided,low,14,15,230,61,320
+baseline,CMA-ES feedback-guided,nominal,246,44,17,13,320
+baseline,CMA-ES feedback-guided,high,247,37,35,1,320
+baseline,DE feedback-guided,low,93,33,135,59,320
+baseline,DE feedback-guided,nominal,200,47,53,20,320
+baseline,DE feedback-guided,high,199,49,61,11,320
+baseline,SMAC3,low,,,,,320
+baseline,SMAC3,nominal,,,,,320
+baseline,SMAC3,high,,,,,320
+agent_comparison,Open-ended research,low,21,9,5,5,40
+agent_comparison,Open-ended research,nominal,28,6,5,1,40
+agent_comparison,Open-ended research,high,34,0,3,3,40
+agent_comparison,Planning,low,31,6,2,1,40
+agent_comparison,Planning,nominal,30,6,4,0,40
+agent_comparison,Planning,high,29,0,10,1,40
+agent_comparison,Reflection,low,30,5,3,2,40
+agent_comparison,Reflection,nominal,29,5,5,1,40
+agent_comparison,Reflection,high,37,0,1,2,40
+agent_extension,Open-ended research,low,198,81,27,14,320
+agent_extension,Open-ended research,nominal,225,53,34,8,320
+agent_extension,Open-ended research,high,197,56,51,16,320

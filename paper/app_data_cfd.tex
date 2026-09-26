@@ -1,0 +1,945 @@
+% Appendix fragment: released data card and CFD protocol.
+% Every statement is taken from the release's own files:
+%   data/README.md, configs/cfd/final_protocol_candidate_v2.json,
+%   configs/cfd/seed_aoa_selection_*.json, configs/README.md,
+%   benchmark/RULES.md, benchmark/environment/ENVIRONMENT.md and
+%   scripts/cfd/README.md.
+% Needs the packages booktabs and longtable. Tables are longtables so that
+% they stay in place in the text, set full width with elastic margins
+% (a rigid 0pt margin makes every caption row overfull under the caption
+% package's longtable support). The lengths set here are restored at the
+% end of the fragment.
+\setlength{\LTpre}{6pt plus 2pt minus 2pt}
+\setlength{\LTpost}{6pt plus 2pt minus 2pt}
+\setlength{\LTcapwidth}{\textwidth}
+% Ragged-right p-cell. It restores the row terminator, which
+% \raggedright would otherwise redefine.
+\providecommand{\wbraggedcell}{\raggedright\let\\\tabularnewline}
+
+\section{Released data}
+\label{app:datacard}
+
+This appendix reproduces the data card of the release,
+\texttt{data/README.md}. The folder \texttt{data/} holds the CFD records
+behind the paper's tables and numbers. Claims that come from the agents'
+execution traces, such as the count of placeholder plans, are not in them.
+The tables link to each other through the \texttt{episode} and
+\texttt{wing} columns, and an episode is one optimization run.
+Table~\ref{tab:data-overview} lists the files with the row counts the README
+states. Every count agrees with the released file. The tables that
+follow list every column of every file with its meaning, converted from the
+README.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.50\textwidth}p{0.10\textwidth}}
+\caption{Released tables, with the meaning of one row and the row count
+from the README.}
+\label{tab:data-overview}\\
+\toprule
+File & One row per & Rows \\
+\midrule
+\endfirsthead
+\toprule
+File & One row per & Rows \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{episodes.csv} & episode & 240 \\
+\texttt{evaluations.csv} & CFD evaluation, either an online query or a private grade & 6,629 \\
+\texttt{recommendations.csv} & recommended wing graded at a checkpoint & 1,410 \\
+\texttt{wings.csv} & wing evaluated in either study & 5,200 \\
+\texttt{cfd\_attempts.csv} & mesh or flow-condition attempt in the baseline study & 13,248 \\
+\texttt{cfd\_conditions.csv} & flow condition of an evaluation that has a result document & 18,723 \\
+\texttt{agent\_nominations.csv} & wing an agent named as its current recommendation & 1,782 \\
+\texttt{agent\_turns.csv} & model session of an agent episode, with its usage and cost & 1,805 \\
+\texttt{weight\_sensitivity\_refits.csv} & recommendation that the inconclusive-outcome weight can change & 103 \\
+\texttt{weight\_sensitivity\_wings.csv} & design that the weight chooses between at checkpoint 32 & 4 \\
+\texttt{regrades\_after\_outage.csv} & wing regraded after the study because its online request died in the grading service & 1 of 5 so far \\
+\texttt{superwing/} & the SuperWing records used by the failure-prediction study & \\
+\end{longtable}
+}
+
+\subsection{Episodes and evaluations}
+
+Tables~\ref{tab:data-episodes} and \ref{tab:data-evaluations} describe
+\texttt{episodes.csv} and \texttt{evaluations.csv}, and
+Table~\ref{tab:data-reasons} lists the grader's reason codes with the names
+the paper uses for them. The last three codes need a note. Ten online
+requests in five extension episodes carry them, nine of them within twelve
+minutes on 2026-09-21. They were charged to the agent as inconclusive
+outcomes, which the benchmark rules do not allow. The five distinct wings
+were regraded after the study, see \texttt{regrades\_after\_outage.csv}
+below.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{episodes.csv}.}
+\label{tab:data-episodes}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{episode} & \texttt{B000} to \texttt{B149} for the baseline study, where \texttt{B120} to \texttt{B149} are SMAC3, and \texttt{A000} to \texttt{A089} for the agent study \\
+\texttt{study} & \texttt{baseline} or \texttt{agent} \\
+\texttt{method} & the method, named as in the paper \\
+\texttt{task} & \texttt{low}, \texttt{nominal} or \texttt{high} load \\
+\texttt{target\_cl} & the target lift coefficient of the task \\
+\texttt{seed} & the random seed of a baseline episode. For an agent episode it is only a label that pairs episodes across methods and does not set the model's sampling \\
+\texttt{online\_queries} & how many CFD queries the method made, which is 32, or 4 in the agent comparison \\
+\texttt{cfd\_core\_seconds} & processor-core seconds of CFD run for the episode, which is wall time times the 16 cores of each job \\
+\texttt{timed\_evaluations} & how many of the episode's evaluations that time covers \\
+\texttt{original\_id} & the name the episode had while the experiment ran \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{evaluations.csv}.}
+\label{tab:data-evaluations}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{evaluation} & \texttt{E0001} to \texttt{E6629} \\
+\wbraggedcell \texttt{episode}, \texttt{study}, \texttt{method}, \texttt{task}, \texttt{seed} & as in \texttt{episodes.csv} \\
+\texttt{kind} & \texttt{online} for a query whose result the method saw, \texttt{private} for a grade of a recommended wing that the method never saw \\
+\texttt{query} & the online query number, 1 to 32 \\
+\texttt{checkpoint} & for a private grade, the checkpoint of the recommendation \\
+\texttt{wing} & the wing's identifier, a SHA-256 hash of its design \\
+\texttt{delivered} & whether CFD returned a valid score \\
+\texttt{ld} & the score when delivered, the geometric mean of $L/D$ over the three flight conditions \\
+\texttt{outcome} & \texttt{pass} (delivered), \texttt{partial} (some but not all flight conditions gave a result), \texttt{undetermined} (no condition gave a result) or \texttt{conclusive\_failure} (the geometry was rejected) \\
+\texttt{reasons} & the grader's reason codes, separated by the character \texttt{;} \\
+\texttt{recorded\_at} & when the result was recorded, in UTC \\
+\texttt{original\_id} & the name the evaluation had while the experiment ran \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.44\textwidth}p{0.48\textwidth}}
+\caption{The grader's reason codes and the names the paper uses for them.}
+\label{tab:data-reasons}\\
+\toprule
+Code & In the paper \\
+\midrule
+\endfirsthead
+\toprule
+Code & In the paper \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{complete\_score\_eligible} & delivered a score \\
+\texttt{not\_run\_unmeshable} & mesh generator rejected geometry \\
+\texttt{not\_run\_mesh\_inconclusive} & mesh generator stopped without a mesh \\
+\texttt{inconclusive\_timeout} & flow condition reached time limit \\
+\texttt{inconclusive\_infrastructure} & solver process stopped with an error \\
+\texttt{undetermined} & other errors \\
+\wbraggedcell \texttt{grade\_exit\_2}, \texttt{grade\_exit\_134}, \texttt{grader\_exited\_without\_result} & the grading job stopped before CFD began (agent study only) \\
+\end{longtable}
+}
+
+\subsection{Recommendations and wings}
+
+Table~\ref{tab:data-recommendations} describes \texttt{recommendations.csv}.
+The file \texttt{wings.csv} has the column \texttt{wing} and the 38 design
+variables \texttt{x00} to \texttt{x37}, in physical units
+(Table~\ref{tab:data-wings}). It covers the 3,294 wings of the four
+surrogate-assisted baselines, the 741 SMAC3 wings, and the 1,165 agent wings
+whose grader result documents were kept. The SMAC3 coordinates were rebuilt
+from the coefficient files in the grader's evidence and each was checked
+against its fingerprint. Five agent wings whose requests stopped before a
+document was written appear in the other tables by their hash only. 43 of
+the agent wings lie on the edge of the design box, up to $9\times10^{-16}$
+standardized units outside it once their physical values are standardized
+again. The campaign accepted and graded them, and the released episode
+machine accepts a proposal within $10^{-9}$ standardized units of the edge,
+so they can be proposed again.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{recommendations.csv}.}
+\label{tab:data-recommendations}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell \texttt{episode}, \texttt{study}, \texttt{method}, \texttt{task}, \texttt{seed} & as in \texttt{episodes.csv} \\
+\texttt{checkpoint} & how many online queries the method had made when it recommended the wing \\
+\texttt{wing} & the recommended wing \\
+\wbraggedcell \texttt{delivered}, \texttt{ld} & the recommendation's grade \\
+\texttt{graded\_by} & \texttt{online} when the wing already had an online result, which is reused, or \texttt{private} when it needed its own grade, which is a row of \texttt{evaluations.csv} \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{The design variables of \texttt{wings.csv}.}
+\label{tab:data-wings}\\
+\toprule
+Columns & Variable \\
+\midrule
+\endfirsthead
+\toprule
+Columns & Variable \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{x00} & leading-edge sweep, in degrees \\
+\texttt{x01} & tip dihedral, in degrees \\
+\texttt{x02} & inner dihedral, in degrees \\
+\texttt{x03} & aspect ratio \\
+\texttt{x04} & taper ratio \\
+\texttt{x05} & kink location, as a fraction of the span \\
+\texttt{x06} & root chord adjustment \\
+\wbraggedcell \texttt{x07} to \texttt{x09} & thickness factors at three stations \\
+\wbraggedcell \texttt{x10} to \texttt{x12} & camber at three stations \\
+\wbraggedcell \texttt{x13} to \texttt{x16} & twist at four stations \\
+\wbraggedcell \texttt{x17} to \texttt{x26} & upper-surface CST weights \\
+\wbraggedcell \texttt{x27} to \texttt{x36} & lower-surface CST weights \\
+\texttt{x37} & root thickness ratio \\
+\end{longtable}
+}
+
+\subsection{Regrades after the outage}
+
+\texttt{regrades\_after\_outage.csv} holds the five wings whose online
+requests carried the grading-job codes of Table~\ref{tab:data-reasons},
+regraded after the study with \texttt{benchmark/grade\_local.py} inside the
+rebuilt container on a fresh machine of the reference type, one row per
+finished regrade. These grades are not part of the study and do not enter
+any table in the paper. They show what the charged queries would have
+returned. The README describes the columns in prose, and
+Table~\ref{tab:data-regrades} pairs that prose with the column names.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{regrades\_after\_outage.csv}.}
+\label{tab:data-regrades}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{wing} & the regraded wing, by its hash \\
+\wbraggedcell \texttt{episode}, \texttt{task} & as in \texttt{episodes.csv} \\
+\texttt{queries\_charged} & the online queries that were charged for the wing, separated by the character \texttt{;} \\
+\texttt{regraded\_at} & when the regrade ran, in UTC \\
+\texttt{machine} & the machine type and container the regrade ran on \\
+\wbraggedcell \texttt{delivered}, \texttt{ld} & whether the regrade delivered, and its score \\
+\wbraggedcell \texttt{outcome}, \texttt{reasons} & its outcome type and reason codes, as in \texttt{evaluations.csv} \\
+\texttt{wall\_seconds} & its wall time, in seconds \\
+\end{longtable}
+}
+
+\subsection{Per-attempt and per-condition records}
+
+\texttt{cfd\_attempts.csv} has one row per mesh or flow-condition attempt of
+a baseline-study evaluation (Table~\ref{tab:data-attempts}).
+\texttt{cfd\_conditions.csv} has one row per flow condition of every
+evaluation whose grader result document was kept, which is 1,297 of the
+1,336 agent evaluations, 4,252 of the 4,333 non-SMAC3 baseline evaluations,
+and 692 of the 960 SMAC3 evaluations (Table~\ref{tab:data-conditions}). The
+SMAC3 documents come from its publication ledger, where each is stored
+encoded. The other evaluations stopped before a document was written, their
+documents were lost, or the only document kept belongs to a different
+attempt at the same wing. Measurements are empty when a condition was not
+solved or gave no usable result, and the lift is accepted when it is within
+0.02 of the target.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{cfd\_attempts.csv}, from the README's prose.}
+\label{tab:data-attempts}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell \texttt{evaluation}, \texttt{episode} & the evaluation and episode the attempt belongs to \\
+\texttt{stage} & \texttt{mesh} or \texttt{solve} \\
+\texttt{condition} & the flight condition \\
+\texttt{termination\_reason} & the termination reason \\
+\texttt{returncode} & the process return code \\
+\texttt{outcome} & the outcome of the attempt \\
+\texttt{wall\_seconds} & the wall time of the attempt, in seconds \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{cfd\_conditions.csv}.}
+\label{tab:data-conditions}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell \texttt{evaluation}, \texttt{episode}, \texttt{study}, \texttt{method}, \texttt{task} & as in \texttt{evaluations.csv} \\
+\texttt{mesh\_outcome} & the mesh step's outcome for the whole evaluation \\
+\texttt{condition} & \texttt{mach\_q1}, \texttt{mach\_q2} or \texttt{mach\_q3}, the three Mach numbers in order \\
+\wbraggedcell \texttt{mach}, \texttt{cl\_target} & the flight condition \\
+\texttt{outcome} & \texttt{valid}, \texttt{invalid} or \texttt{inconclusive} for this condition \\
+\texttt{reasons} & the grader's reason codes for this condition, separated by the character \texttt{;} \\
+\wbraggedcell \texttt{cl}, \texttt{cd}, \texttt{ld} & the computed lift, drag, and lift-to-drag ratio \\
+\texttt{err\_cl} & the lift oscillation over the last iterations, which must stay below 0.0005 \\
+\texttt{realized\_aoa\_deg} & the angle of attack that reached the target lift \\
+\texttt{seed\_alpha0\_deg} & the angle of attack the lift matching started from \\
+\wbraggedcell \texttt{solvecl\_iterations}, \texttt{solvecl\_l2convergence}, \texttt{solvecl\_time\_seconds} & the lift-matching loop's iteration count, final residual, and run time \\
+\end{longtable}
+}
+
+\subsection{Agent records}
+
+\texttt{agent\_nominations.csv} records every time an agent recorded a
+recommendation with \texttt{campaign.py nominate}
+(Table~\ref{tab:data-nominations}). The campaign asked for one at the
+checkpoints 0, 1, 2 and 4, and agents could also record one at any time.
+The 32-query continuation asked for none, so the agents' standing
+recommendations at 8, 16 and 32 queries are the last nomination made at or
+before that many results. \texttt{agent\_turns.csv} has one row per model
+session the campaign launched (Table~\ref{tab:data-turns}). A research
+session ran until the agent handed over a wing, a review session handled a
+checkpoint, and a reflection session wrote one reflection. The planning
+method's planner, evaluator and executor calls were made inside its research
+sessions and are counted in them. Eleven sessions have no token counts
+because the provider did not report them.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{agent\_nominations.csv}.}
+\label{tab:data-nominations}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell \texttt{episode}, \texttt{study}, \texttt{method}, \texttt{task} & as in \texttt{episodes.csv} \\
+\texttt{sequence} & the order of the nomination within its episode \\
+\texttt{kind} & \texttt{checkpoint} when the campaign asked for it, \texttt{during\_search} when the agent recorded it on its own \\
+\texttt{results\_seen} & how many online CFD results the agent had seen when it made the nomination \\
+\texttt{decision} & the campaign's name for the turn \\
+\texttt{wing} & the nominated wing's hash \\
+\texttt{recorded\_at} & when the campaign recorded it, in UTC \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Columns of \texttt{agent\_turns.csv}.}
+\label{tab:data-turns}\\
+\toprule
+Column & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Column & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell \texttt{episode}, \texttt{study}, \texttt{method}, \texttt{task} & as in \texttt{episodes.csv} \\
+\texttt{launch} & the session's number within its episode \\
+\texttt{kind} & \texttt{research}, \texttt{review} or \texttt{reflection} \\
+\texttt{decision} & the campaign's name for the turn \\
+\texttt{wall\_seconds} & how long the session ran \\
+\wbraggedcell \texttt{input\_tokens}, \texttt{output\_tokens}, \texttt{cache\_read\_input\_tokens} & the token counts the model provider reported, summed over the session's calls \\
+\texttt{model\_requests} & how many model calls the session made \\
+\texttt{cost\_usd} & the session's cost at the provider's list prices \\
+\texttt{is\_error} & whether the session ended with an error \\
+\texttt{ended\_at} & when it ended, in UTC \\
+\end{longtable}
+}
+
+\subsection{Weight-sensitivity tables}
+
+{\sloppy
+These hold the evidence for Appendix~\ref{app:weight}.
+\texttt{weight\_sensitivity\_refits.csv} has one row for each of the 103
+checkpoint recommendations the weight can change, naming the design that
+weights 0, 0.5 and 1 each pick, in the columns \texttt{episode},
+\texttt{checkpoint}, \texttt{method}, \texttt{n\_inconclusive},
+\texttt{pick\_w0.0}, \texttt{pick\_w0.5}, \texttt{pick\_w1.0} and
+\texttt{same\_pick}. \texttt{weight\_sensitivity\_wings.csv} has the four
+designs the weight chooses between at checkpoint 32, with their 38 variables
+and CFD outcome, in the columns \texttt{episode}, \texttt{method},
+\texttt{task}, \texttt{checkpoint}, \texttt{weight}, \texttt{graded},
+\texttt{wing}, \texttt{delivered}, \texttt{ld}, \texttt{reasons} and
+\texttt{x00} to \texttt{x37}. The campaign graded two of the four designs.
+The other two were graded afterwards, once the refit showed which designs a
+weight of 1 would have recommended, so that the appendix could say whether
+the weight changes what gets delivered and not only what gets recommended.
+\par}
+
+\subsection{SuperWing records}
+
+SuperWing is the wing dataset the benchmark is built on. Its complete run
+records are redistributed in \texttt{data/superwing/} with the SuperWing
+authors' permission. \texttt{superwing\_records.csv} has one row per wing
+for all 4,544 wings, with the same 38 variables as \texttt{wings.csv},
+whether the mesh step worked, and the result of each of the wing's 8 flight
+conditions. It was built from the complete run record,
+\texttt{running\_info.jsonl}, while the public release of SuperWing contains
+only the converged results. \texttt{cruise\_ld\_percentiles.json} holds the
+dataset's cruise-band lift-to-drag percentiles. Of the 36,344 tests, 28,856
+succeeded. 4,563 failed because the lift kept changing and never settled,
+2,788 failed because the simulation blew up, and 137 were never run. The
+often-used table of 4,239 wings lists only the wings where at least one of
+the 8 tests succeeded, so it leaves out the 305 wings that failed every
+test. The column \texttt{any\_success} is 0 for those 305.
+
+\subsection{Further notes from the data card}
+
+The SMAC3 records name the reason for each nondelivery but not the outcome
+type, so SMAC3's \texttt{outcome} column is empty, and 18 nondeliveries its
+run controller recorded without a reason carry \texttt{undetermined}. Three
+SMAC3 evaluations have no wing hash, because their evidence was lost. The
+agent export left out the scores of the 90 private grades made before the
+first query and the reason codes of all 136 agent private grades. Both were
+filled in from the grader's result documents, the reason codes by the rule
+the export used for the other rows, checked against every evaluation that
+has both a code and a document. The 39 agent requests that stopped before a
+document was written keep their recorded outcome and no score. SMAC3's
+\texttt{cfd\_core\_seconds} and \texttt{timed\_evaluations} include two
+checkpoint-32 grades that were replaced when two SMAC3 episodes were run
+again, and the paper's cost numbers use these totals. The 44 GB of raw CFD
+output, the optimizers' full logs, and the agents' full execution traces are
+not included.
+
+\section{CFD protocol and environment}
+\label{app:cfdprotocol}
+
+{\sloppy
+The grading protocol is the file
+\texttt{configs/cfd/final\_protocol\_candidate\_v2.json}. The configs README
+describes it as the grading protocol the benchmark ran with, and it pins the
+grader's source files under \texttt{scripts/cfd/} by content. The grader
+\texttt{grade\_benchmark.py} builds the mesh of one wing, runs the three
+flow conditions in series at fixed lift, and writes the result document.
+\texttt{grading\_protocol.py} loads the protocol and refuses to run if any
+pinned file has changed, and \texttt{task\_protocols.py} derives the
+low-load and high-load protocols from this file, changing only the lift
+target and its angle-of-attack seed. The values below are copied from the
+protocol file, and a field quoted in typewriter type without a plain reading
+is reproduced as written. The file's own identity fields are
+\texttt{protocol\_id} \texttt{superwing-fixed-cl-v5-candidate-c},
+\texttt{protocol\_revision} \texttt{3}, \texttt{protocol\_status}
+\texttt{qualification\_required}, \texttt{official\_grading\_enabled}
+\texttt{false} and \texttt{benchmark\_release\_id} \texttt{null}. Its scope
+block names the geometry schema \texttt{superwing-38d-v1}, one mesh per
+wing, conditions run one after another, and
+\texttt{partial\_scores\_official} \texttt{false}. The
+\texttt{geometry\_hash\_algorithm} is
+\texttt{sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)}, which reads as
+the SHA-256 of a fixed prefix string, a NUL byte and the 38 coordinates as
+little-endian 64-bit floats, and it is the \texttt{wing} identifier of the
+released tables.
+\par}
+
+\subsection{Flow conditions and trim procedure}
+
+Every task uses the same three conditions and flow reference quantities.
+The protocol file carries the nominal task, and the other two tasks change
+only the target lift coefficient of the three conditions and the
+angle-of-attack seed (Table~\ref{tab:cfd-tasks}). Each seed is the exact
+median, with no rounding, of the recorded angle of attack over the
+successful SuperWing cases whose lift coefficient lies within 0.02 of the
+target, over all recorded Mach numbers. The nominal seed comes from
+\texttt{configs/cfd/seed\_aoa\_selection\_v1.json}, whose band 0.39 to 0.43
+held 1,198 cases, and the low and high seeds from
+\texttt{seed\_aoa\_selection\_load\_low\_v1.json}, band 0.13 to 0.17 with
+994 cases, and \texttt{seed\_aoa\_selection\_load\_high\_v1.json}, band 0.64
+to 0.68 with 1,172 cases. All three files state that the seed applies to
+every wing and condition and that no reselection is allowed. Both load
+files carry a freeze time of 2026-08-02. The protocol's seed policy is
+\texttt{fixed\_per\_condition} with \texttt{selection\_rule}
+\texttt{exact\_median\_successful\_cases\_in\_cl\_0.39\_0.43\_no\_rounding}.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.08\textwidth}p{0.08\textwidth}p{0.20\textwidth}p{0.15\textwidth}p{0.12\textwidth}p{0.18\textwidth}}
+\caption{The three flow conditions of each task. The Mach numbers are
+\texttt{mach\_q1} to \texttt{mach\_q3}, run and reported in that order. The
+lift target is \texttt{cl\_target} of every condition and the seed is
+\texttt{seed\_policy.alpha0\_deg}, the angle of attack that lift matching
+starts from. The lift tolerance is the gate
+\texttt{cl\_match\_abs\_less\_than\_or\_equal}. The flow block also sets
+\texttt{reynolds\_length} 1.0, \texttt{temperature\_k} 300.0,
+\texttt{area\_ref\_source} \texttt{generated\_wing\_surface\_area}, which
+is the surface area of the generated wing, \texttt{chord\_ref} 1.0 and
+\texttt{x\_ref} 0.25.}
+\label{tab:cfd-tasks}\\
+\toprule
+Task & Lift target & Mach numbers & Reynolds number & Lift tolerance & Seed (degrees) \\
+\midrule
+\endfirsthead
+\toprule
+Task & Lift target & Mach numbers & Reynolds number & Lift tolerance & Seed (degrees) \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+low & 0.15 & 0.7853, 0.8195, 0.853 & 20,000,000 & 0.02 & 4.4259755152 \\
+nominal & 0.41 & 0.7853, 0.8195, 0.853 & 20,000,000 & 0.02 & 6.6401110468 \\
+high & 0.66 & 0.7853, 0.8195, 0.853 & 20,000,000 & 0.02 & 8.924059800550001 \\
+\end{longtable}
+}
+
+{\sloppy
+Each condition is solved at fixed lift. The ADflow runner calls the solver's
+lift-matching routine \texttt{solveCL} with the target lift, the seed angle
+of attack and the options of the \texttt{solver.solvecl} block. The
+release's patch to the runner makes every option explicit, so that a change
+of a library default cannot change the protocol, and records the routine's
+result in the output. The options with a plain reading are \texttt{delta}
+\texttt{0.5}, the first step in angle of attack in degrees, \texttt{tol}
+\texttt{0.001}, the lift tolerance the matching loop aims for before the
+condition gate accepts a lift within 0.02 of the target, \texttt{max\_iter}
+\texttt{20}, at most 20 matching iterations, \texttt{clalpha\_guess}
+\texttt{null}, no starting guess of the lift slope, and
+\texttt{write\_solution} \texttt{true}. The remaining options are
+reproduced as written. They are \texttt{auto\_reset} \texttt{false},
+\texttt{relax\_clalpha} \texttt{1.0}, \texttt{relax\_alpha} \texttt{1.0},
+\texttt{l2\_convergence\_rel} \texttt{null}, \texttt{stop\_on\_stall}
+\texttt{false}, \texttt{work\_unit\_time} \texttt{null} and
+\texttt{update\_cutoff} \texttt{1e-16}.
+\par}
+
+\subsection{Mesh and solver settings}
+
+The mesh recipe is the SuperWing dataset default, built once per wing by the
+SuperWing mesh generator (Table~\ref{tab:cfd-mesh}). The flow solver is
+ADflow on the RANS equations, run as 16 MPI ranks with one thread each
+(Table~\ref{tab:cfd-solver}). The protocol requires six environment
+variables in every ADflow process. The released grader refuses to start when
+any variable that begins with \texttt{ADFLOW\_}, or any of the three thread
+variables, is set in its own environment. It then adds the six values
+itself, from the protocol, to the environment of every \texttt{mpirun}
+child, and passes only a fixed list of other variables through. The
+protocol has no iteration limit on a condition beyond \texttt{n\_cycles} and
+\texttt{n\_cycles\_coarse}. Its limits per step are wall-clock time, 1800
+seconds for meshing and 7200 seconds for each flow condition, with no
+retries after an infrastructure failure.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.32\textwidth}p{0.18\textwidth}p{0.40\textwidth}}
+\caption{The \texttt{mesh} block and the mesh time limit.}
+\label{tab:cfd-mesh}\\
+\toprule
+Field & Value & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Field & Value & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{3}{l}{Block \texttt{mesh}} \\
+\texttt{recipe} & \texttt{superwing-\allowbreak dataset-\allowbreak default-v1} & the mesh procedure of the SuperWing dataset \\
+\texttt{robust\_mesh} & \texttt{false} & reproduced as written \\
+\texttt{min\_volume\_valid\_if} & \texttt{\textgreater 0} & a mesh is valid only if its smallest cell volume is positive \\
+\texttt{min\_quality\_valid\_if} & \texttt{\textgreater 0} & and only if its smallest cell quality is positive \\
+\texttt{marginal\_quality\_if} & \texttt{0\textless q\textless 0.05} & a quality in this range is recorded as marginal \\
+\texttt{missing\_or\_malformed\_evidence} & \texttt{inconclusive} & a missing or unreadable mesh report makes the mesh step inconclusive \\
+\multicolumn{3}{l}{Block \texttt{execution}} \\
+\texttt{mesh\_timeout\_seconds} & \texttt{1800} & the mesh step is stopped after 30 minutes of wall-clock time \\
+\end{longtable}
+}
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.32\textwidth}p{0.18\textwidth}p{0.40\textwidth}}
+\caption{Solver switches, execution settings and the required environment
+variables.}
+\label{tab:cfd-solver}\\
+\toprule
+Field & Value & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Field & Value & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{3}{l}{Block \texttt{solver}} \\
+\texttt{equation\_type} & \texttt{RANS} & Reynolds-averaged Navier Stokes equations \\
+\texttt{mg\_cycle} & \texttt{3w} & the multigrid cycle \\
+\texttt{use\_ank\_solver} & \texttt{true} & ADflow's approximate Newton Krylov solver for the early part of the solve \\
+\texttt{use\_nk\_solver} & \texttt{true} & ADflow's Newton Krylov solver for the late part of the solve \\
+\texttt{nk\_switch\_tol} & \texttt{1e-08} & relative residual at which the solver switches to Newton Krylov \\
+\texttt{l2\_convergence} & \texttt{1e-10} & residual at which a solve counts as converged \\
+\texttt{n\_cycles\_coarse} & \texttt{500} & iteration limit on the coarse grids \\
+\texttt{n\_cycles} & \texttt{3000} & iteration limit of the solve \\
+\midrule
+\multicolumn{3}{l}{Block \texttt{execution}} \\
+\texttt{mpi\_ranks} & \texttt{16} & MPI ranks per job \\
+\wbraggedcell \texttt{omp\_num\_threads}, \texttt{openblas\_num\_threads}, \texttt{mkl\_num\_threads} & \texttt{1} & one thread per rank \\
+\wbraggedcell \texttt{solve\_timeout\_seconds\_\allowbreak per\_attempt} & \texttt{7200} & each condition attempt is stopped after 2 hours of wall-clock time \\
+\texttt{infrastructure\_retries} & \texttt{0} & no retry after an infrastructure failure \\
+\texttt{fresh\_attempt\_directory} & \texttt{true} & every attempt runs in a new directory \\
+\texttt{fail\_fast\_conditions} & \texttt{false} & the remaining conditions still run after one fails \\
+\texttt{early\_stall\_abort} & \texttt{false} & no early stop on a stalled residual \\
+\texttt{timeout\_is\_scientific\_failure} & \texttt{false} & a time limit is not counted as a conclusive failure of the wing \\
+\texttt{host\_lock\_path} & \texttt{/workspace/\allowbreak .wingbench-locks/\allowbreak np16.lock} & the lock that allows one 16 rank solve per machine \\
+\midrule
+\multicolumn{3}{l}{Block \texttt{environment}, required in every ADflow process} \\
+\texttt{ADFLOW\_USE\_ANK} & \texttt{1} & turn on the approximate Newton Krylov solver \\
+\texttt{ADFLOW\_USE\_NK} & \texttt{1} & turn on the Newton Krylov solver \\
+\texttt{ADFLOW\_NK\_SWITCH} & \texttt{1e-8} & relative residual of the switch \\
+\wbraggedcell \texttt{OMP\_NUM\_THREADS}, \texttt{OPENBLAS\_NUM\_THREADS}, \texttt{MKL\_NUM\_THREADS} & \texttt{1} & one OpenMP, OpenBLAS and MKL thread per rank \\
+\texttt{forbidden\_parent\_prefixes} & \texttt{ADFLOW\_} & the grader refuses to start if a variable with this prefix is set in its own environment \\
+\texttt{forbidden\_parent\_names} & the three thread variables & the same rule for these names \\
+\texttt{require\_non\_root} & \texttt{true} & the grader refuses to run as root \\
+\end{longtable}
+}
+
+\subsection{Condition gates, outcomes and aggregation}
+
+A condition is valid only if every gate of Table~\ref{tab:cfd-gates} holds.
+The protocol file itself has only the positivity gates on lift, drag and
+lift-to-drag ratio. The upper limit of 40 on each lift-to-drag ratio is
+part of the benchmark objective in the rules, and the released local grader
+applies it as the $(0,40]$ envelope. The rules state the delivery condition
+in one sentence. A CFD evaluation delivers a score only if all three
+conditions return a valid result, the lift is within 0.02 of the target,
+every lift-to-drag ratio is above 0 and at most 40, and the angle of attack
+is between $-10$ and 25 degrees. Otherwise the evaluation returns a failure
+type and no score. The failing gate is recorded as a reason code.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.36\textwidth}p{0.12\textwidth}p{0.42\textwidth}}
+\caption{The \texttt{condition\_gates} block.}
+\label{tab:cfd-gates}\\
+\toprule
+Field & Value & Meaning \\
+\midrule
+\endfirsthead
+\toprule
+Field & Value & Meaning \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{process\_returncode\_zero\_required} & \texttt{true} & the solver process must exit with code 0 \\
+\texttt{solvecl\_result\_required} & \texttt{true} & the lift-matching routine must return a result \\
+\texttt{solvecl\_converged\_required} & \texttt{true} & and it must report convergence \\
+\wbraggedcell \texttt{aeroproblem\_solve\_failed\_\allowbreak must\_equal} & \texttt{false} & ADflow's solve-failed flag must be false \\
+\wbraggedcell \texttt{aeroproblem\_fatal\_fail\_\allowbreak must\_equal} & \texttt{false} & ADflow's fatal-fail flag must be false \\
+\texttt{err\_cl\_strictly\_less\_than} & \texttt{0.0005} & the lift oscillation over the last iterations must stay below this value \\
+\wbraggedcell \texttt{cl\_match\_abs\_less\_than\_\allowbreak or\_equal} & \texttt{0.02} & the lift must be within this distance of the target \\
+\texttt{aoa\_deg\_inclusive} & $[-10, 25]$ & the angle of attack must lie in this range, in degrees \\
+\wbraggedcell \texttt{positive\_cl\_required}, \texttt{positive\_cd\_required}, \texttt{positive\_ld\_required} & \texttt{true} & lift, drag and lift-to-drag ratio must be positive \\
+\end{longtable}
+}
+
+Table~\ref{tab:cfd-aggregation} gives the \texttt{aggregation} and
+\texttt{outcome\_policy} blocks. A wing passes only when all three
+conditions are valid, and its score is the geometric mean of the three
+lift-to-drag ratios. Per-condition values of a failed wing are kept as
+diagnostics and never scored. The released tables and the local grader
+report four outcome types. \texttt{pass} means the wing delivered.
+\texttt{partial} means some but not all flight conditions gave a result.
+\texttt{undetermined} means no condition gave a result.
+\texttt{conclusive\_failure} means the geometry was rejected. The rules
+separate failures of the machine from failures of the wing. If a worker is
+lost, a job is killed by the system, or a result file is never written, the
+evaluation is retried and does not cost a query. Failures of the wing itself
+are outcomes and cost the query. They are a rejected geometry, a mesh
+generator that stops without a mesh, a flow condition that reaches its time
+limit, and a solver process that stops with an error. A wing that was
+already evaluated in the same episode returns the recorded result again and
+still costs a query. The \texttt{result\_contract} block requires an atomic
+write of the result document with a copy of the protocol, the protocol
+hash, the geometry hash and every attempt preserved, under
+\texttt{schema\_version} \texttt{wingbench-cfd-whole-wing-result-v1}, and
+states \texttt{official\_requires\_protocol\_status} \texttt{frozen}.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.36\textwidth}p{0.56\textwidth}}
+\caption{The \texttt{aggregation} and \texttt{outcome\_policy} blocks.
+Values without a plain reading are reproduced as written.}
+\label{tab:cfd-aggregation}\\
+\toprule
+Field & Value \\
+\midrule
+\endfirsthead
+\toprule
+Field & Value \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{2}{l}{Block \texttt{aggregation}} \\
+\texttt{required\_valid\_conditions} & \texttt{3} \\
+\texttt{admissibility\_pass} & \texttt{all\_conditions\_valid} \\
+\texttt{admissibility\_fail} & \texttt{any\_conclusive\_condition\_invalid\_or\_unmeshable} \\
+\texttt{admissibility\_undetermined} & \texttt{no\_conclusive\_invalidity\_and\_any\_inconclusive\_evidence} \\
+\texttt{score} & \texttt{geometric\_mean\_ld}, the geometric mean of the three lift-to-drag ratios \\
+\texttt{score\_requires\_complete\_pass} & \texttt{true}, no score unless all three conditions are valid \\
+\texttt{diagnostic\_partial\_metrics\_allowed} & \texttt{true}, per-condition values of a failed wing are kept \\
+\midrule
+\multicolumn{2}{l}{Block \texttt{outcome\_policy}} \\
+\texttt{timeout} & \texttt{inconclusive\_timeout} \\
+\texttt{process\_error} & \texttt{inconclusive\_infrastructure} \\
+\wbraggedcell \texttt{missing\_output}, \texttt{malformed\_output}, \texttt{missing\_convergence\_evidence} & \texttt{inconclusive\_output\_failure} \\
+\texttt{completed\_solvecl\_nonconvergence} & \texttt{invalid\_solver\_nonconvergence}, a matching loop that finished without converging is a conclusive invalid result \\
+\wbraggedcell \texttt{uninterrupted\_\allowbreak infrastructure\_failure} & \texttt{terminal\_inconclusive\_no\_retry} \\
+\texttt{verified\_spot\_reclaim} & \texttt{censored\_external\_reacquisition\_not\_scientific\_attempt} \\
+\end{longtable}
+}
+
+\subsection{Execution environment}
+
+The recorded results come from AWS \texttt{m7a.4xlarge} machines with 16
+vCPUs and 64 GB of memory. One wing was graded per machine at a time, and
+each CFD job used all 16 cores as 16 MPI ranks with one thread each and had
+the full 64 GB. The grader enforces one job per machine with the lock file
+of Table~\ref{tab:cfd-solver}. The three conditions run one after another,
+so one wing can take up to six and a half hours. A job that reaches a limit
+is stopped and recorded as inconclusive. It gets no score, and the wing does
+not count as delivered. On a slower machine, on a machine where two ranks
+share one core, or with less memory so that the solver swaps, the same wing
+takes longer and more wings reach the limits. The rules note that about one
+third of the reference nondeliveries were set by a time limit, require an
+\texttt{m7a.4xlarge} or a faster machine for comparisons with the reference
+results, and state that a later version will replace the time limits with
+iteration limits.
+
+\subsection{Software versions and pinned digests}
+
+The CFD workers ran inside the public ADflow container image published by
+the MDO Lab, \texttt{mdolab/public} on Docker Hub, from the
+\texttt{u20-gcc-ompi-stable} line, named by digest
+(Table~\ref{tab:cfd-digests}). The base image was built in June 2025. It
+contains Ubuntu 20.04, gcc, Open MPI 4.1.6, PETSc, CGNS 4.2.0, Python 3.9.12
+installed through pyenv, numpy, scipy, mpi4py, petsc4py, and the MDO Lab
+packages ADflow, pyHyp, cgnsUtilities, baseclasses, pyGeo, IDWarp and
+pySpline. The build history of the image shows numpy 1.21.5, scipy 1.7.3 and
+mpi4py 3.1.5 being installed. The MDO Lab packages were taken from their
+main branches at build time, and the digest pins their exact versions. The
+image exists only for amd64, has one account of its own with user id 1000,
+and every command runs as that account. The SuperWing mesh generator builds
+the wing surface with the library \texttt{cst-modeling3d}, placed on
+\texttt{PYTHONPATH} as a git checkout at a pinned commit, which the grader's
+runtime probe reads from the checkout and compares with the protocol. The
+environment document names the library's source repository and the pinned
+commit. The surrogate is the L size surface flow AeroTransformer, called
+\texttt{ATsurf\_L}. It runs outside the container, on the optimizer side,
+on the CPU, in float32. The benchmark protocol
+\texttt{configs/benchmark/multifidelity\_benchmark\_protocol\_v0.json} names
+the model and pins a binding file,
+\texttt{configs/benchmark/aerotransformer\_l\_v1.json}, by its SHA-256. The
+binding file is not in the release, and the weight hashes in
+Table~\ref{tab:cfd-digests} come from a copy of it whose hash matches the
+pin. The environment document states that on 2026-09-25 both file hashes
+matched the files in the public weights repository at the pinned revision,
+that the revision was the head of that repository, and that the container
+tag still pointed to the pinned platform list.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.30\textwidth}p{0.62\textwidth}}
+\caption{Pinned digests, commits and hashes. Long values are broken across
+lines but are complete.}
+\label{tab:cfd-digests}\\
+\toprule
+Item & Value \\
+\midrule
+\endfirsthead
+\toprule
+Item & Value \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell Base image for linux/amd64 & \texttt{mdolab/public@sha256:fb6d20250ad192b6034c3e61286e6179}\newline\texttt{f4854eb58e3fdb25d98dd5844fcb42fd} \\
+\wbraggedcell Platform list the tag pointed to & \texttt{sha256:68393a976907d6306f8b2d87ba95365a}\newline\texttt{8720c3b2a5e55ae431f3cb05d5198223} \\
+\wbraggedcell Base image download size & about 2.7 GB in 79 compressed layers \\
+\wbraggedcell Image that graded the baseline study, \texttt{final\_child\_image\_\allowbreak linux\_amd64\_digest} & \wbraggedcell \texttt{sha256:53a214a5c6ea52287b08656da5e37041}\newline\texttt{1323aca64b60e7ab0b13992eb21f8c44}. It lived in a private registry and is not public \\
+\wbraggedcell Image recorded by the agent study's result documents & \wbraggedcell \texttt{sha256:426f5b1e8758bb48be843231a7040e53}\newline\texttt{9ad8a8e0ae5acd6928fbc06a26fa067f}, a newer build of the same recipe with the same base image, library commit and solver settings \\
+\wbraggedcell \texttt{cst-modeling3d} commit & \texttt{9500b19a732463c26b32f6860ac6c517c7d212a5} \\
+\wbraggedcell Location of the checkout in the container, also \texttt{PYTHONPATH} & \texttt{/home/mdolabuser/repos/cst-modeling3d} \\
+\wbraggedcell \texttt{expected\_runtime\_\allowbreak fingerprint\_sha256} & \texttt{60263209c65d73810a768021b8043ced}\newline\texttt{6038a9c55b0c7feaf37c82168e73314d}, the hash of the complete report of \texttt{scripts/cfd/runtime\_probe.py} on the recorded machines \\
+\wbraggedcell SuperWing simulation files & \wbraggedcell four files from the \texttt{simulation} folder of the public AeroTransformer code repository at commit\newline\texttt{3dc350ff69e354d1451eae468c686a368bd6151f}, three used unchanged and \texttt{run-adflow.py} used with the patch \texttt{scripts/cfd/run-adflow.wingbench.patch} (Table~\ref{tab:cfd-superwing-files}) \\
+\wbraggedcell Surrogate weights & \texttt{ATsurf\_L/best\_model\_weights}, 58,218,804 bytes, SHA-256 \newline\texttt{4fa8fb4e3986cdb7a4a24f1f74410c54}\newline\texttt{412beb5191857c76fdd4c4f0c5dc8bfa} \\
+\wbraggedcell Surrogate model config & \texttt{ATsurf\_L/model\_config}, 310 bytes, SHA-256 \newline\texttt{a6cedb0a3dba73f99c41bcfdf3913d37}\newline\texttt{a912c6b0558d5f906e6633aebdca8ef2} \\
+\wbraggedcell Surrogate weights repository revision & \wbraggedcell \texttt{698d70095a00d6f4a25f870e8de0772fc12b68f7}, in the public AeroTransformer weights repository \\
+\wbraggedcell Surrogate model code & \wbraggedcell the public AeroTransformer code repository at commit\newline\texttt{3dc350ff69e354d1451eae468c686a368bd6151f} \\
+\wbraggedcell Surrogate binding file pin & \texttt{aerotransformer\_l\_v1.json}, SHA-256 \newline\texttt{c18b1c9e5535ec0bf38ec1178aa16d46}\newline\texttt{ab9b599cbaa71f6ce5c7eb395e6220d4} \\
+\end{longtable}
+}
+
+The grader checks the four SuperWing files against the protocol before it
+runs anything and refuses to run if one differs. It then copies the scripts
+into each case directory under adapted names and checks those copies too,
+against the \texttt{generated\_case\_file\_sha256} block
+(Table~\ref{tab:cfd-superwing-files}). The script
+\texttt{scripts/cfd/fetch\_superwing\_scripts.py} downloads the four files
+at the pinned commit, applies the patch, and checks every file against the
+protocol. In all, the \texttt{scientific\_files} block pins 24 files by
+SHA-256, namely eighteen grader modules under \texttt{scripts/cfd/}, the
+four SuperWing files, and the two configuration files
+\texttt{configs/cfd/publication\_storage\_binding\_v1.json}, which names
+the object store the results were published to with a compliance object
+lock and a minimum retention of 90 days, and
+\texttt{configs/cfd/seed\_aoa\_selection\_v1.json}. The environment
+document's verification recipe hashes all 24 files and reports that they
+matched on 2026-09-25.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.23\textwidth}p{0.69\textwidth}}
+\caption{The four SuperWing files as pinned in the repository, and the
+hashes of their copies in a case directory. The tip geometry is the same
+file in both places.}
+\label{tab:cfd-superwing-files}\\
+\toprule
+File & SHA-256 \\
+\midrule
+\endfirsthead
+\toprule
+File & SHA-256 \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{2}{l}{In \texttt{scripts/cfd/aerotransformer/}} \\
+\texttt{gen-mesh.superwing.py} & \texttt{7daf656cdb23c6de32fba1585e22bb850d1b7e86c2ad7d031239989f2d1f73b4} \\
+\wbraggedcell \texttt{run-adflow.py} (patched) & \texttt{c4f2bb3c04aa21a5a07b5c51a3612e4cd04f7bcc108894e953dd2c6506a86ad6} \\
+\texttt{single-point.py} & \texttt{3682aad55ebc051121e0aa373305d0341bbde1a57642fc3f8981b84ffbd15f27} \\
+\texttt{original\_tip.xyz} & \texttt{c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1} \\
+\midrule
+\multicolumn{2}{l}{Copies in a case directory, \texttt{generated\_case\_file\_sha256}} \\
+\texttt{gen-mesh.py} & \texttt{8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997} \\
+\texttt{run-adflow.py} & \texttt{6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b} \\
+\texttt{single-point.py} & \texttt{eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976} \\
+\texttt{original\_tip.xyz} & \texttt{c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1} \\
+\end{longtable}
+}
+
+\subsection{What a rebuild reproduces}
+
+The release rebuilds the container from the public base image with a
+Dockerfile and an Apptainer definition in \texttt{benchmark/environment/}.
+On 2026-09-25 the Docker image was built from that folder on a new
+\texttt{m7a.4xlarge}, the four SuperWing files were fetched, and
+\texttt{benchmark/grade\_local.py} graded one recorded wing. All three
+conditions returned lift, drag, angle of attack and lift-to-drag ratio
+identical to the recorded values, the score equaled the recorded
+33.401823323619524, and the grade took 2 hours 13 minutes. The folder
+\texttt{rebuilt\_test/} holds that result document, the grader's log, the
+fetch log and the image digest of the rebuilt container. The environment
+document lists four things the rebuild does not reproduce. First, the exact
+image that graded the wings, since the rebuilt image has the same content
+but a different digest. Second, the runtime fingerprint. The probe report
+includes the host kernel version, the path of every module, the account ids
+and the values of \texttt{PATH} and similar variables, so a rebuilt
+environment produces a different report and the released grader stops with
+a fingerprint mismatch. To grade with a rebuilt environment one must run the
+probe, write its hash into a copy of the protocol, and treat that copy as a
+new protocol revision. Results graded under it are the user's own and not
+the recorded results, and the tested rebuild therefore carries
+\texttt{grading\_mode} \texttt{local} in its result document. Third, the
+grader's other inputs. \texttt{grade\_benchmark.py} also requires an
+authorization file, a runtime attestation file and a publication journal,
+and the tools that produced the first two ran on the recorded machines and
+are not in the release. Fourth, the surrogate, which runs outside the
+container.
+
+\subsection{Settings files}
+
+The configs README lists the settings files the benchmark ran with
+(Table~\ref{tab:cfd-configs}). The files record each other's fingerprints,
+and the code checks those fingerprints when it loads them. The released
+episodes follow \texttt{benchmark/RULES.md}, version 1.0, with 32 CFD
+queries and 4,096 surrogate evaluations per episode.
+
+{\scriptsize
+\setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}
+\begin{longtable}{p{0.40\textwidth}p{0.52\textwidth}}
+\caption{Settings files under \texttt{configs/}, as the configs README
+describes them.}
+\label{tab:cfd-configs}\\
+\toprule
+File & Role \\
+\midrule
+\endfirsthead
+\toprule
+File & Role \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\wbraggedcell \texttt{cfd/\allowbreak final\_protocol\_candidate\_v2.json} & the grading protocol, which pins the grader's source files under \texttt{scripts/cfd/} by content \\
+\texttt{cfd/seed\_aoa\_selection\_*.json} & how the angle-of-attack seed of each lift target was chosen from the dataset \\
+\wbraggedcell \texttt{benchmark/\allowbreak wingbench\_v2\_candidate\_\allowbreak protocol\_v1.json} & the episode protocol the optimizers ran under, which verifies the lineage files beside it \\
+\wbraggedcell \texttt{benchmark/\allowbreak superwing\_physical\_\allowbreak normalization\_v1.json} & maps the 38 standardized design variables to physical values \\
+\wbraggedcell \texttt{benchmark/\allowbreak undefended\_50\_wing\_\allowbreak corpus\_v1.json} and the three \texttt{corpus50\_*} files & the fixed warm-start context every surrogate-assisted episode begins from \\
+\wbraggedcell \texttt{optimizer/\allowbreak wingbench\_v2\_phase3\_\allowbreak method\_panel\_v1.json} & fixes the four surrogate-assisted baselines and their settings \\
+\wbraggedcell \texttt{benchmark/\allowbreak wingbench\_v2\_phase3\_\allowbreak pilot\_plan\_v1.json} & the development plan the method panel binds to. The panel does not load without it \\
+\wbraggedcell \texttt{benchmark/\allowbreak wingbench\_multifidelity\_\allowbreak benchmark\_v1\_release.json} & the frozen July 2026 definition of the interface that the candidate protocol binds by fingerprint. Its four-query cap and 512-call matched track describe the development-time characterization panel \\
+\end{longtable}
+}
+
+% Restore the longtable lengths to their package defaults.
+\setlength{\LTpre}{\bigskipamount}
+\setlength{\LTpost}{\bigskipamount}
+\setlength{\LTcapwidth}{4in}
+\setlength{\LTleft}{\fill}
+\setlength{\LTright}{\fill}

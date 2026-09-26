@@ -51,4 +51,16 @@ echo "=== 16_marginal_intervals: unpaired intervals for every reported mean ==="
 python3.11 16_marginal_intervals.py > /dev/null
 echo "wrote analysis/out/tables/tab_marginal_intervals.csv"
 echo
+echo "=== 17_appendix_tables: every result table of the full-results appendix ==="
+python3.11 17_appendix_tables.py > /dev/null
+echo "wrote paper/app_results.tex"
+echo
+echo "=== 18_wing_gallery: the best delivered wing of every method and task, the gallery appendix ==="
+python3.11 18_wing_gallery.py > /dev/null
+echo "wrote paper/fig_wing_gallery.pdf"
+echo
+echo "=== 19_appendix_figures: the supplementary figures appendix, drawn in the paper style ==="
+python3.11 19_appendix_figures.py > /dev/null
+echo "wrote paper/app_fig_*.pdf"
+echo
 echo "=== done: tables in analysis/out/, figures in analysis/figures/, macros in analysis/out/macros/ and paper/ ==="

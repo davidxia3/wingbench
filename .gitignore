@@ -77,6 +77,18 @@ credentials.json
 !/paper/iclr2027_conference.sty
 !/paper/fancyhdr.sty
 !/paper/natbib.sty
+!/paper/app_formal.tex
+!/paper/app_rules.tex
+!/paper/app_prompts.tex
+!/paper/app_results.tex
+!/paper/app_data_cfd.tex
+!/paper/app_gallery.tex
+!/paper/app_figures.tex
+!/paper/fig_wing_gallery.pdf
+!/paper/app_fig_yield_by_cell.pdf
+!/paper/app_fig_online_yield_vs_index.pdf
+!/paper/app_fig_discovery_vs_recommendation.pdf
+!/paper/app_fig_fresh_hidden_vs_online_yield.pdf
 
 # scripts keeps only the protocol-pinned grader files
 /scripts/*

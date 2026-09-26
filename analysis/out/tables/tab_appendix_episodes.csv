@@ -1,0 +1,241 @@
+episode,study,method,task,seed,online_evaluations,online_delivered,best_online_ld,final_checkpoint,final_delivered,final_ld
+B000,baseline,CMA-ES no feedback,low,6200,32,0,,32,False,
+B012,baseline,CMA-ES no feedback,low,6201,32,0,,32,False,
+B024,baseline,CMA-ES no feedback,low,6202,32,0,,32,False,
+B036,baseline,CMA-ES no feedback,low,6203,32,0,,32,False,
+B048,baseline,CMA-ES no feedback,low,6204,32,0,,32,False,
+B060,baseline,CMA-ES no feedback,low,6205,32,0,,32,False,
+B072,baseline,CMA-ES no feedback,low,6206,32,0,,32,False,
+B084,baseline,CMA-ES no feedback,low,6207,32,0,,32,False,
+B096,baseline,CMA-ES no feedback,low,6208,32,0,,32,False,
+B108,baseline,CMA-ES no feedback,low,6209,32,0,,32,False,
+B004,baseline,CMA-ES no feedback,nominal,6200,32,0,,32,False,
+B016,baseline,CMA-ES no feedback,nominal,6201,32,0,,32,False,
+B028,baseline,CMA-ES no feedback,nominal,6202,32,0,,32,False,
+B040,baseline,CMA-ES no feedback,nominal,6203,32,8,33.09,32,True,33.09
+B052,baseline,CMA-ES no feedback,nominal,6204,32,30,32.77,32,True,32.77
+B064,baseline,CMA-ES no feedback,nominal,6205,32,0,,32,False,
+B076,baseline,CMA-ES no feedback,nominal,6206,32,14,33.71,32,True,33.71
+B088,baseline,CMA-ES no feedback,nominal,6207,32,0,,32,False,
+B100,baseline,CMA-ES no feedback,nominal,6208,32,31,33.28,32,True,33.28
+B112,baseline,CMA-ES no feedback,nominal,6209,32,0,,32,False,
+B008,baseline,CMA-ES no feedback,high,6200,32,29,32.1,32,True,32.1
+B020,baseline,CMA-ES no feedback,high,6201,32,21,31.91,32,True,31.91
+B032,baseline,CMA-ES no feedback,high,6202,32,0,,32,False,
+B044,baseline,CMA-ES no feedback,high,6203,32,0,,32,False,
+B056,baseline,CMA-ES no feedback,high,6204,32,8,32.16,32,True,32.16
+B068,baseline,CMA-ES no feedback,high,6205,32,0,,32,False,
+B080,baseline,CMA-ES no feedback,high,6206,32,0,,32,False,
+B092,baseline,CMA-ES no feedback,high,6207,32,31,32.15,32,True,32.15
+B104,baseline,CMA-ES no feedback,high,6208,32,29,32.29,32,True,32.29
+B116,baseline,CMA-ES no feedback,high,6209,32,0,,32,False,
+B001,baseline,CMA-ES selection only,low,6200,32,0,,32,False,
+B013,baseline,CMA-ES selection only,low,6201,32,0,,32,False,
+B025,baseline,CMA-ES selection only,low,6202,32,0,,32,False,
+B037,baseline,CMA-ES selection only,low,6203,32,0,,32,False,
+B049,baseline,CMA-ES selection only,low,6204,32,0,,32,False,
+B061,baseline,CMA-ES selection only,low,6205,32,0,,32,False,
+B073,baseline,CMA-ES selection only,low,6206,32,0,,32,False,
+B085,baseline,CMA-ES selection only,low,6207,32,0,,32,False,
+B097,baseline,CMA-ES selection only,low,6208,32,0,,32,False,
+B109,baseline,CMA-ES selection only,low,6209,32,0,,32,False,
+B005,baseline,CMA-ES selection only,nominal,6200,32,0,,32,False,
+B017,baseline,CMA-ES selection only,nominal,6201,32,0,,32,False,
+B029,baseline,CMA-ES selection only,nominal,6202,32,0,,32,False,
+B041,baseline,CMA-ES selection only,nominal,6203,32,10,33.11,32,True,33.11
+B053,baseline,CMA-ES selection only,nominal,6204,32,30,32.79,32,True,32.79
+B065,baseline,CMA-ES selection only,nominal,6205,32,0,,32,False,
+B077,baseline,CMA-ES selection only,nominal,6206,32,13,33.7,32,True,33.7
+B089,baseline,CMA-ES selection only,nominal,6207,32,0,,32,False,
+B101,baseline,CMA-ES selection only,nominal,6208,32,32,33.28,32,True,33.28
+B113,baseline,CMA-ES selection only,nominal,6209,32,0,,32,False,
+B009,baseline,CMA-ES selection only,high,6200,32,29,32.09,32,True,32.09
+B021,baseline,CMA-ES selection only,high,6201,32,20,31.89,32,True,31.89
+B033,baseline,CMA-ES selection only,high,6202,32,0,,32,False,
+B045,baseline,CMA-ES selection only,high,6203,32,0,,32,False,
+B057,baseline,CMA-ES selection only,high,6204,32,6,32.16,32,True,32.16
+B069,baseline,CMA-ES selection only,high,6205,32,0,,32,False,
+B081,baseline,CMA-ES selection only,high,6206,32,0,,32,False,
+B093,baseline,CMA-ES selection only,high,6207,32,29,32.15,32,True,32.15
+B105,baseline,CMA-ES selection only,high,6208,32,28,32.29,32,True,32.29
+B117,baseline,CMA-ES selection only,high,6209,32,0,,32,False,
+B002,baseline,CMA-ES feedback-guided,low,6200,32,1,15.37,32,True,15.37
+B014,baseline,CMA-ES feedback-guided,low,6201,32,1,14.95,32,True,14.95
+B026,baseline,CMA-ES feedback-guided,low,6202,32,3,19.05,32,True,19.05
+B038,baseline,CMA-ES feedback-guided,low,6203,32,1,16.17,32,True,16.17
+B050,baseline,CMA-ES feedback-guided,low,6204,32,0,,32,False,
+B062,baseline,CMA-ES feedback-guided,low,6205,32,0,,32,False,
+B074,baseline,CMA-ES feedback-guided,low,6206,32,7,17.17,32,True,17.17
+B086,baseline,CMA-ES feedback-guided,low,6207,32,0,,32,False,
+B098,baseline,CMA-ES feedback-guided,low,6208,32,0,,32,False,
+B110,baseline,CMA-ES feedback-guided,low,6209,32,1,17.82,32,True,17.82
+B006,baseline,CMA-ES feedback-guided,nominal,6200,32,27,32.6,32,True,32.6
+B018,baseline,CMA-ES feedback-guided,nominal,6201,32,27,33.8,32,True,33.8
+B030,baseline,CMA-ES feedback-guided,nominal,6202,32,21,33.12,32,True,33.12
+B042,baseline,CMA-ES feedback-guided,nominal,6203,32,29,32.61,32,True,32.61
+B054,baseline,CMA-ES feedback-guided,nominal,6204,32,28,33.34,32,True,33.34
+B066,baseline,CMA-ES feedback-guided,nominal,6205,32,22,33.49,32,True,33.49
+B078,baseline,CMA-ES feedback-guided,nominal,6206,32,27,33.52,32,True,33.52
+B090,baseline,CMA-ES feedback-guided,nominal,6207,32,11,32.27,32,True,32.27
+B102,baseline,CMA-ES feedback-guided,nominal,6208,32,27,33.61,32,True,33.61
+B114,baseline,CMA-ES feedback-guided,nominal,6209,32,27,32.04,32,True,32.04
+B010,baseline,CMA-ES feedback-guided,high,6200,32,27,31.68,32,True,31.68
+B022,baseline,CMA-ES feedback-guided,high,6201,32,17,30.34,32,True,30.34
+B034,baseline,CMA-ES feedback-guided,high,6202,32,27,31.84,32,True,31.84
+B046,baseline,CMA-ES feedback-guided,high,6203,32,28,31.87,32,True,31.87
+B058,baseline,CMA-ES feedback-guided,high,6204,32,29,31.81,32,True,31.81
+B070,baseline,CMA-ES feedback-guided,high,6205,32,18,31.41,32,True,31.41
+B082,baseline,CMA-ES feedback-guided,high,6206,32,12,30.81,32,True,30.81
+B094,baseline,CMA-ES feedback-guided,high,6207,32,28,32.27,32,True,32.27
+B106,baseline,CMA-ES feedback-guided,high,6208,32,30,31.96,32,True,31.96
+B118,baseline,CMA-ES feedback-guided,high,6209,32,31,32.37,32,True,32.37
+B003,baseline,DE feedback-guided,low,6200,32,8,18.15,32,True,18.15
+B015,baseline,DE feedback-guided,low,6201,32,6,17.58,32,True,17.58
+B027,baseline,DE feedback-guided,low,6202,32,7,17.37,32,True,17.37
+B039,baseline,DE feedback-guided,low,6203,32,11,18.15,32,True,18.15
+B051,baseline,DE feedback-guided,low,6204,32,9,17.93,32,True,17.93
+B063,baseline,DE feedback-guided,low,6205,32,3,16.41,32,True,16.41
+B075,baseline,DE feedback-guided,low,6206,32,11,16.43,32,True,16.43
+B087,baseline,DE feedback-guided,low,6207,32,17,18.6,32,True,18.6
+B099,baseline,DE feedback-guided,low,6208,32,14,16.55,32,True,16.55
+B111,baseline,DE feedback-guided,low,6209,32,7,17.98,32,True,17.98
+B007,baseline,DE feedback-guided,nominal,6200,32,20,30.97,32,True,30.97
+B019,baseline,DE feedback-guided,nominal,6201,32,26,31.53,32,True,31.53
+B031,baseline,DE feedback-guided,nominal,6202,32,18,29.96,32,True,29.96
+B043,baseline,DE feedback-guided,nominal,6203,32,24,31.93,32,True,31.93
+B055,baseline,DE feedback-guided,nominal,6204,32,21,30.86,32,True,30.86
+B067,baseline,DE feedback-guided,nominal,6205,32,18,30.18,32,True,30.18
+B079,baseline,DE feedback-guided,nominal,6206,32,20,31.79,32,True,31.79
+B091,baseline,DE feedback-guided,nominal,6207,32,23,31.81,32,True,31.81
+B103,baseline,DE feedback-guided,nominal,6208,32,16,31.75,32,True,31.75
+B115,baseline,DE feedback-guided,nominal,6209,32,14,30.1,32,True,30.1
+B011,baseline,DE feedback-guided,high,6200,32,21,24.92,32,True,24.92
+B023,baseline,DE feedback-guided,high,6201,32,24,28.01,32,True,28.01
+B035,baseline,DE feedback-guided,high,6202,32,19,27.23,32,True,27.23
+B047,baseline,DE feedback-guided,high,6203,32,20,28.38,32,True,28.38
+B059,baseline,DE feedback-guided,high,6204,32,23,28.74,32,True,28.74
+B071,baseline,DE feedback-guided,high,6205,32,25,28.57,32,True,28.57
+B083,baseline,DE feedback-guided,high,6206,32,8,22.8,32,True,22.8
+B095,baseline,DE feedback-guided,high,6207,32,22,28.13,32,True,28.13
+B107,baseline,DE feedback-guided,high,6208,32,21,26.49,32,True,26.49
+B119,baseline,DE feedback-guided,high,6209,32,16,27.21,32,True,27.21
+B120,baseline,SMAC3,low,6200,32,0,,32,False,
+B121,baseline,SMAC3,low,6201,32,20,14.15,32,True,14.15
+B122,baseline,SMAC3,low,6202,32,17,17.41,32,True,17.41
+B123,baseline,SMAC3,low,6203,32,17,7.48,32,True,7.48
+B124,baseline,SMAC3,low,6204,32,14,13.07,32,True,13.07
+B125,baseline,SMAC3,low,6205,32,11,6.61,32,True,6.61
+B126,baseline,SMAC3,low,6206,32,1,4.16,32,True,4.16
+B127,baseline,SMAC3,low,6207,32,3,5.24,32,True,5.24
+B128,baseline,SMAC3,low,6208,32,16,10.43,32,True,10.43
+B129,baseline,SMAC3,low,6209,32,15,16.54,32,True,16.54
+B130,baseline,SMAC3,nominal,6200,32,0,,32,False,
+B131,baseline,SMAC3,nominal,6201,32,0,,32,False,
+B132,baseline,SMAC3,nominal,6202,32,19,22.66,32,True,22.66
+B133,baseline,SMAC3,nominal,6203,32,14,10.78,32,True,10.78
+B134,baseline,SMAC3,nominal,6204,32,18,20.89,32,True,20.89
+B135,baseline,SMAC3,nominal,6205,32,17,16.05,32,True,16.05
+B136,baseline,SMAC3,nominal,6206,32,3,15.37,32,True,15.37
+B137,baseline,SMAC3,nominal,6207,32,0,,32,False,
+B138,baseline,SMAC3,nominal,6208,32,7,12.85,32,True,12.85
+B139,baseline,SMAC3,nominal,6209,32,10,20.37,32,True,20.37
+B140,baseline,SMAC3,high,6200,32,0,,32,False,
+B141,baseline,SMAC3,high,6201,32,0,,32,False,
+B142,baseline,SMAC3,high,6202,32,8,16.38,32,True,16.38
+B143,baseline,SMAC3,high,6203,32,3,7.17,32,True,7.17
+B144,baseline,SMAC3,high,6204,32,11,19.99,32,True,19.99
+B145,baseline,SMAC3,high,6205,32,3,14.43,32,True,14.43
+B146,baseline,SMAC3,high,6206,32,19,6.29,32,True,6.29
+B147,baseline,SMAC3,high,6207,32,0,,32,False,
+B148,baseline,SMAC3,high,6208,32,5,12.65,32,True,12.65
+B149,baseline,SMAC3,high,6209,32,0,,32,False,
+A070,agent,Open-ended research,low,9506,32,14,18.35,4,True,16.57
+A071,agent,Open-ended research,low,9531,32,20,19.31,4,False,
+A072,agent,Open-ended research,low,9532,32,18,17.48,4,True,17.38
+A073,agent,Open-ended research,low,9548,32,24,17.25,4,True,16.63
+A074,agent,Open-ended research,low,9551,32,19,18.56,4,True,16.83
+A075,agent,Open-ended research,low,9557,32,24,18.31,4,True,17.8
+A076,agent,Open-ended research,low,9562,32,28,17.67,4,True,16.04
+A077,agent,Open-ended research,low,9568,32,20,17.96,4,True,17.33
+A078,agent,Open-ended research,low,9595,32,19,18.5,4,True,17.48
+A079,agent,Open-ended research,low,9601,32,12,18.89,4,True,18.25
+A080,agent,Open-ended research,nominal,9506,32,27,33.54,4,True,33.4
+A081,agent,Open-ended research,nominal,9531,32,25,33.28,4,True,29.74
+A082,agent,Open-ended research,nominal,9532,32,11,32.53,4,True,30.47
+A083,agent,Open-ended research,nominal,9548,32,17,33.23,4,True,30.89
+A084,agent,Open-ended research,nominal,9551,32,20,34.05,4,True,33.41
+A085,agent,Open-ended research,nominal,9557,32,27,33.15,4,True,32.11
+A086,agent,Open-ended research,nominal,9562,32,28,32.05,4,True,29.01
+A087,agent,Open-ended research,nominal,9568,32,26,30.65,4,True,28.29
+A088,agent,Open-ended research,nominal,9595,32,20,34.0,4,True,32.58
+A089,agent,Open-ended research,nominal,9601,32,24,33.9,4,True,30.95
+A060,agent,Open-ended research,high,9506,32,25,31.04,4,True,28.26
+A061,agent,Open-ended research,high,9531,32,26,32.22,4,True,30.59
+A062,agent,Open-ended research,high,9532,32,25,28.07,4,True,24.42
+A063,agent,Open-ended research,high,9548,32,22,28.89,4,True,28.12
+A064,agent,Open-ended research,high,9551,32,24,31.07,4,True,27.18
+A065,agent,Open-ended research,high,9557,32,26,31.7,4,True,25.34
+A066,agent,Open-ended research,high,9562,32,12,29.36,4,True,27.48
+A067,agent,Open-ended research,high,9568,32,6,28.33,4,True,26.86
+A068,agent,Open-ended research,high,9595,32,12,29.75,4,True,29.03
+A069,agent,Open-ended research,high,9601,32,19,31.97,4,True,31.01
+A010,agent,Planning,low,9506,4,4,17.26,4,True,17.26
+A011,agent,Planning,low,9531,4,2,16.2,4,True,16.2
+A012,agent,Planning,low,9532,4,4,17.99,4,True,17.99
+A013,agent,Planning,low,9548,4,2,17.65,4,True,17.65
+A014,agent,Planning,low,9551,4,3,17.82,4,True,17.82
+A015,agent,Planning,low,9557,4,4,17.37,4,True,17.37
+A016,agent,Planning,low,9562,4,4,16.78,4,True,16.78
+A017,agent,Planning,low,9568,4,1,16.68,4,True,16.68
+A018,agent,Planning,low,9595,4,3,17.89,4,True,17.89
+A019,agent,Planning,low,9601,4,4,18.46,4,True,18.46
+A020,agent,Planning,nominal,9506,4,2,30.32,4,True,30.32
+A021,agent,Planning,nominal,9531,4,2,26.12,4,True,26.12
+A022,agent,Planning,nominal,9532,4,3,29.23,4,True,29.23
+A023,agent,Planning,nominal,9548,4,4,29.31,4,True,29.31
+A024,agent,Planning,nominal,9551,4,4,29.11,4,True,29.11
+A025,agent,Planning,nominal,9557,4,2,28.62,4,False,
+A026,agent,Planning,nominal,9562,4,2,29.01,4,True,29.01
+A027,agent,Planning,nominal,9568,4,4,28.67,4,True,28.67
+A028,agent,Planning,nominal,9595,4,3,32.28,4,True,32.28
+A029,agent,Planning,nominal,9601,4,4,29.77,4,True,29.77
+A000,agent,Planning,high,9506,4,4,27.63,4,True,27.63
+A001,agent,Planning,high,9531,4,4,25.28,4,True,25.28
+A002,agent,Planning,high,9532,4,4,31.46,4,True,31.46
+A003,agent,Planning,high,9548,4,2,23.97,4,True,23.97
+A004,agent,Planning,high,9551,4,0,,4,False,
+A005,agent,Planning,high,9557,4,4,30.93,4,True,30.93
+A006,agent,Planning,high,9562,4,2,28.55,4,True,28.55
+A007,agent,Planning,high,9568,4,4,26.73,4,True,26.73
+A008,agent,Planning,high,9595,4,2,25.37,4,True,25.37
+A009,agent,Planning,high,9601,4,3,28.4,4,True,28.4
+A040,agent,Reflection,low,9506,4,3,17.17,4,True,17.17
+A041,agent,Reflection,low,9531,4,3,17.61,4,True,17.61
+A042,agent,Reflection,low,9532,4,3,17.33,4,True,17.33
+A043,agent,Reflection,low,9548,4,2,16.89,4,True,16.89
+A044,agent,Reflection,low,9551,4,4,17.69,4,True,17.69
+A045,agent,Reflection,low,9557,4,2,16.89,4,True,16.89
+A046,agent,Reflection,low,9562,4,4,16.93,4,True,16.93
+A047,agent,Reflection,low,9568,4,4,17.92,4,True,17.92
+A048,agent,Reflection,low,9595,4,2,17.93,4,True,17.93
+A049,agent,Reflection,low,9601,4,3,16.98,4,True,16.98
+A050,agent,Reflection,nominal,9506,4,2,27.26,4,True,27.26
+A051,agent,Reflection,nominal,9531,4,2,29.45,4,True,29.45
+A052,agent,Reflection,nominal,9532,4,2,29.64,4,True,29.64
+A053,agent,Reflection,nominal,9548,4,3,30.8,4,True,30.8
+A054,agent,Reflection,nominal,9551,4,4,31.14,4,True,31.14
+A055,agent,Reflection,nominal,9557,4,3,28.85,4,True,28.85
+A056,agent,Reflection,nominal,9562,4,3,32.04,4,True,32.04
+A057,agent,Reflection,nominal,9568,4,3,29.98,4,True,29.98
+A058,agent,Reflection,nominal,9595,4,3,29.56,4,True,29.56
+A059,agent,Reflection,nominal,9601,4,4,29.53,4,True,29.53
+A030,agent,Reflection,high,9506,4,3,25.51,4,True,26.1
+A031,agent,Reflection,high,9531,4,4,26.41,4,True,26.41
+A032,agent,Reflection,high,9532,4,4,28.35,4,True,28.35
+A033,agent,Reflection,high,9548,4,4,25.72,4,True,25.72
+A034,agent,Reflection,high,9551,4,4,27.11,4,True,27.11
+A035,agent,Reflection,high,9557,4,3,24.89,4,True,24.89
+A036,agent,Reflection,high,9562,4,4,27.79,4,True,27.79
+A037,agent,Reflection,high,9568,4,3,27.26,4,True,27.26
+A038,agent,Reflection,high,9595,4,4,27.8,4,True,27.8
+A039,agent,Reflection,high,9601,4,4,26.43,4,True,26.43
