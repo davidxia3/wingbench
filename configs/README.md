@@ -17,6 +17,11 @@ The settings files the benchmark ran with.
   surrogate-assisted baselines and their settings.
 - `benchmark/wingbench_v2_phase3_pilot_plan_v1.json` is the development plan
   the method panel binds to. The panel does not load without it.
+- `benchmark/wingbench_multifidelity_benchmark_v1_release.json` is the frozen
+  July 2026 definition of the interface that the candidate protocol binds by
+  fingerprint. Its four-query cap and 512-call matched track describe the
+  development-time characterization panel. The released episodes follow
+  `benchmark/RULES.md`: 32 CFD queries and 4,096 surrogate evaluations.
 
 The files record each other's fingerprints, and the code checks those
 fingerprints when it loads them. Two kinds of records they point to are not

@@ -84,6 +84,15 @@ class TaskSpec:
         )
 
 
+EDGE_TOLERANCE = 1e-9
+"""How far outside the box, in standardized units, a proposal may lie.
+
+Standardizing a physical value and mapping it back does not always return the
+same float, so a wing placed exactly on the edge can land 1e-16 outside it.
+The tolerance absorbs that. It is far below any difference in the design.
+"""
+
+
 @dataclass(frozen=True)
 class Box:
     """The design box. Physical value = mean + sd * z, with z in [z_lower, z_upper]."""
@@ -116,12 +125,14 @@ class Box:
         return [(value - mu) / sigma for mu, sigma, value in zip(self.mean, self.sd, values)]
 
     def contains(self, x: Sequence[float]) -> bool:
-        """True when every physical value is finite and inside the box."""
+        """True when every physical value is finite and inside the box, allowing
+        ``EDGE_TOLERANCE`` standardized units beyond the edge."""
         try:
             z = self.to_standardized(x)
         except (TypeError, ValueError):
             return False
-        return all(math.isfinite(value) and self.z_lower <= value <= self.z_upper for value in z)
+        return all(math.isfinite(value) and self.z_lower - EDGE_TOLERANCE <= value <= self.z_upper + EDGE_TOLERANCE
+                   for value in z)
 
     def to_dict(self) -> dict[str, Any]:
         return {

@@ -30,7 +30,7 @@ from wingbench.benchmark.multifidelity_protocol import (  # noqa: E402
     resolve_protocol,
 )
 
-from benchmark.optimizer_api import DESIGN_DIM, Box, TaskSpec  # noqa: E402
+from benchmark.optimizer_api import DESIGN_DIM, EDGE_TOLERANCE, Box, TaskSpec  # noqa: E402
 
 DATA = ROOT / "data"
 TASK_DOCUMENTS = ROOT / "agents" / "tasks" / "task_documents.json"
@@ -170,7 +170,7 @@ def out_of_box_report(geometry: Sequence[float], box: Box) -> list[str]:
     problems: list[str] = []
     for index, value in enumerate(geometry):
         z = (float(value) - box.mean[index]) / box.sd[index]
-        if not (box.z_lower <= z <= box.z_upper) or not math.isfinite(z):
+        if not (box.z_lower - EDGE_TOLERANCE <= z <= box.z_upper + EDGE_TOLERANCE) or not math.isfinite(z):
             problems.append(f"x{index:02d}={float(value)!r} is {z:.3f} standard deviations from the mean")
     return problems
 

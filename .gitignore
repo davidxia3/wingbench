@@ -145,4 +145,5 @@ credentials.json
 !/data/agent_turns.csv
 !/data/weight_sensitivity_refits.csv
 !/data/weight_sensitivity_wings.csv
+!/data/regrades_after_outage.csv
 !/data/superwing/

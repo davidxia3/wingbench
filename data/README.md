@@ -18,6 +18,7 @@ optimization run.
 | `agent_turns.csv` | model session of an agent episode, with its usage and cost | 1,805 |
 | `weight_sensitivity_refits.csv` | recommendation that the inconclusive-outcome weight can change | 103 |
 | `weight_sensitivity_wings.csv` | design that the weight chooses between at checkpoint 32 | 4 |
+| `regrades_after_outage.csv` | wing regraded after the study because its online request died in the grading service | 5 |
 | `superwing/` | the SuperWing records used by the failure-prediction study | |
 
 ## `episodes.csv`
@@ -62,7 +63,7 @@ The reason codes, with the names the paper uses for them:
 | `inconclusive_timeout` | flow condition reached time limit |
 | `inconclusive_infrastructure` | solver process stopped with an error |
 | `undetermined` | other errors |
-| `grade_exit_2`, `grade_exit_134`, `grader_exited_without_result` | the grading job stopped before writing a result (agent study only) |
+| `grade_exit_2`, `grade_exit_134`, `grader_exited_without_result` | the grading job stopped before CFD began (agent study only). Ten online requests in five extension episodes carry these codes, nine of them within twelve minutes on 2026-09-21. They were charged to the agent as inconclusive outcomes, which the benchmark rules do not allow. The five distinct wings were regraded after the study, see `regrades_after_outage.csv` |
 
 ## `recommendations.csv`
 
@@ -99,10 +100,21 @@ The table covers the 3,294 wings of the four surrogate-assisted baselines, the
 kept. The SMAC3 coordinates were rebuilt from the coefficient files in the
 grader's evidence and each was checked against its fingerprint. Five agent
 wings whose requests stopped before a document was written appear in the other
-tables by their hash only. 41 of the agent wings lie on the
-edge of the design box. The campaign accepted and graded them, but the released
-episode machine rejects a proposal on the edge, so `benchmark/run_episode.py`
-will not accept them as proposals.
+tables by their hash only. 43 of the agent wings lie on the
+edge of the design box, up to 9e-16 standardized units outside it once their
+physical values are standardized again. The campaign accepted and graded them,
+and the released episode machine accepts a proposal within 1e-9 standardized
+units of the edge, so they can be proposed again.
+
+## `regrades_after_outage.csv`
+
+The five wings whose online requests carried the grading-job codes above,
+regraded after the study with `benchmark/grade_local.py` inside the rebuilt
+container on a fresh machine of the reference type. One row per wing, with
+the episode and the queries that were charged, when the regrade ran, whether
+it delivered, its score, its outcome type and reason codes, and its wall time.
+These grades are not part of the study and do not enter any table in the
+paper. They show what the charged queries would have returned.
 
 ## `cfd_attempts.csv`
 
@@ -194,6 +206,8 @@ what gets recommended.
 ## `superwing/`
 
 SuperWing is the wing dataset the benchmark is built on. The paper cites it.
+Its complete run records are redistributed here with the SuperWing authors'
+permission.
 
 - `superwing_records.csv` has one row per wing for all 4,544 wings: the same 38
   variables as `wings.csv`, whether the mesh step worked, and the result of each

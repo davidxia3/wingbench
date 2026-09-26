@@ -8,7 +8,8 @@ new number, and results from different versions are reported separately.
 
 A design is a wing described by 38 numbers. The benchmark standardizes each
 number with the SuperWing dataset and searches the box from -3.5 to 3.5 in
-every coordinate. A wing is scored at a fixed target lift coefficient and at
+every coordinate. A proposal may lie at most 1e-9 standardized units outside
+the box, which absorbs floating-point round trips through physical values. A wing is scored at a fixed target lift coefficient and at
 three Mach numbers, 0.7853, 0.8195 and 0.8530, with Reynolds number 20
 million. The score is the geometric mean of the three lift-to-drag ratios.
 

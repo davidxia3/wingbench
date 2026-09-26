@@ -36,8 +36,7 @@ class RetrievalRecorded(Optimizer):
             for row in csv.DictReader(stream):
                 if row["task"] == task.name and row["wing"]:
                     graded_here.add(row["wing"])
-        # Only wings inside the design box. A few recorded wings sit exactly on
-        # its edge, and the episode machine rejects a proposal on the edge.
+        # Only wings inside the design box, within the machine's edge tolerance.
         pool: list[tuple[float, ...]] = []
         with (DATA / "wings.csv").open(newline="", encoding="utf-8") as stream:
             for row in csv.DictReader(stream):
