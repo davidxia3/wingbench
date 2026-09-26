@@ -12,6 +12,9 @@
 !/paper/
 !/scripts/
 !/benchmark/
+!/submissions/
+/submissions/*
+!/submissions/README.md
 !/wingbench/
 
 # Python, editors, OS, secrets
