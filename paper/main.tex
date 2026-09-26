@@ -1430,13 +1430,13 @@ predicts the probability $p$ that the evaluation completes and, given
 completion, the 10th, 50th, and 90th percentiles of its $L/D$. The rule turns
 this into four scenarios, incomplete with weight $1 - p$ and complete with
 weights $0.3p$, $0.4p$, and $0.3p$ at the three percentiles, the Pearson--Tukey
-three-point approximation of a mean. With $\beta_t$ the best complete $L/D$
+three-point approximation. With $\beta_t$ the best complete $L/D$
 measured after step $t$ of the plan, zero if none, and $b_0$ that best before
 the plan, the value of a two-step plan is $\mathbb{E}[(\beta_1 + \beta_2)/2]$
 over the scenario tree, where the second step's predictions are conditional on
 whether the first step was incomplete, complete without improving on $b_0$, or
-improved on it. Plans are ranked by this value, then by the probability that
-the first step completes.
+improved on it. Plans are ranked by this value, then by the first step's
+completion probability.
 
 The agent recommendation data contain 270 assessments at queries 1, 2, and 4,
 across three methods, three tasks, and ten seeds. Each assessment identifies its
