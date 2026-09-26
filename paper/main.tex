@@ -1448,9 +1448,9 @@ at query 4 in Table~\ref{tab:agent-recommendations}. At this point, agents
 have only the surrogate and the SuperWing records to guide them.
 
 The 32-query continuation asked for no further checkpoint recommendations, but
-agents could record a recommendation at any time, and all 30 open-ended
-episodes did. Taking the last recommendation recorded at or before 32 results
-as the agent's standing recommendation, 28 of 30 name a wing that delivered
+agents could record one at any time, and all 30 open-ended episodes did.
+Taking the last recommendation recorded by 32 results as the standing
+recommendation, 28 of 30 name a wing that delivered
 online, 2 name a wing that failed, and 20 name the best delivered wing. The
 delivered ones average 18.21, 33.03, and 30.43 $L/D$ at low, nominal, and high
 load, within 0.2 of the best online values in Table~\ref{tab:agent-extension}.
@@ -1467,7 +1467,7 @@ online delivery in Table~\ref{tab:agent-extension} from 0.62 to 0.63 at low
 load and from 0.70 to 0.71 at nominal load, leaves 0.62 at high load, and
 changes no episode maximum. We regraded the five wings after the study on
 fresh machines of the reference type. The high-load wing was rejected as
-unmeshable within three minutes, so that outcome was the wing's. Three of the other four delivered, at 18.39, 30.59, and 33.97, and the fourth was valid at two conditions and hit the two-hour limit at the third. The low-load wing of episode A070 exceeded its episode's best online score of 18.35. The linked repository's regrade table lists all five.
+unmeshable in three minutes, so that outcome was the wing's. Three of the other four delivered, at 18.39, 30.59, and 33.97, and the fourth was valid at two conditions and hit the two-hour limit at the third. The low-load wing of episode A070 exceeded its episode's best online score of 18.35. The linked repository's regrade table lists them.
 
 The model sessions of the agent study used 71.5 million input tokens, 29.1
 million output tokens, and 6.2 billion cached input tokens, and cost about
