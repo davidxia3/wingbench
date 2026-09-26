@@ -1082,7 +1082,9 @@ analysis. Appendix~\ref{app:agent-comparison}
 gives the agent comparisons, while
 Appendices~\ref{app:classifier}, \ref{app:weight}, and \ref{app:outcomes}
 provide the failure-classifier analysis, sensitivity checks, and CFD outcomes.
-The accompanying materials support three levels of reproduction. First, every
+The accompanying materials, an anonymized repository at
+\url{https://anonymous.4open.science/r/wingbench}, support three levels of
+reproduction. First, every
 table and number in the paper, except the counts taken from the agents'
 execution traces, can be recomputed from the released records with the analysis
 scripts, which need no CFD. Second, every evaluated wing but five is released with its 38 coordinates, and
@@ -1399,8 +1401,9 @@ online delivery in Table~\ref{tab:agent-extension} from 0.62 to 0.63 at low
 load and from 0.70 to 0.71 at nominal load, leaves 0.62 at high load, and
 changes no episode maximum. We regraded the five wings after the study on
 fresh machines of the reference type. The high-load wing was rejected as
-unmeshable within three minutes, so that outcome was the wing's, and the
-released data list the regrades of the other four beside the charged evaluations.
+unmeshable within three minutes, so that outcome was the wing's. The other four
+passed meshing and were still being solved when this version was frozen. Their
+grades are in the regrade table of the linked repository.
 
 The model sessions of the agent study used 71.5 million input tokens, 29.1
 million output tokens, and 6.2 billion cached input tokens, and cost about

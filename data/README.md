@@ -18,7 +18,7 @@ optimization run.
 | `agent_turns.csv` | model session of an agent episode, with its usage and cost | 1,805 |
 | `weight_sensitivity_refits.csv` | recommendation that the inconclusive-outcome weight can change | 103 |
 | `weight_sensitivity_wings.csv` | design that the weight chooses between at checkpoint 32 | 4 |
-| `regrades_after_outage.csv` | wing regraded after the study because its online request died in the grading service | 5 |
+| `regrades_after_outage.csv` | wing regraded after the study because its online request died in the grading service | 1 of 5 so far |
 | `superwing/` | the SuperWing records used by the failure-prediction study | |
 
 ## `episodes.csv`
@@ -110,7 +110,8 @@ units of the edge, so they can be proposed again.
 
 The five wings whose online requests carried the grading-job codes above,
 regraded after the study with `benchmark/grade_local.py` inside the rebuilt
-container on a fresh machine of the reference type. One row per wing, with
+container on a fresh machine of the reference type. One row per finished
+regrade, added as each one completes, with
 the episode and the queries that were charged, when the regrade ran, whether
 it delivered, its score, its outcome type and reason codes, and its wall time.
 These grades are not part of the study and do not enter any table in the
