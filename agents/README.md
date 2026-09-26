@@ -30,8 +30,13 @@ of what to do, `surrogate_evaluations_planned`, a whole number, and
 `wing_selection`, the rule for choosing the wing to hand over. The evaluator
 gives each action a prediction with `p_complete`, the chance of a complete
 evaluation, `ld_q10`, `ld_q50` and `ld_q90`, three quantiles of the expected
-L/D, and a `basis`. Step 4 keeps the plan whose first action has the highest
-predicted L/D at the median, weighted by its chance of completing. The learner
+L/D, and a `basis`. Step 4 scores each plan by its expected best delivered L/D over a small
+tree of outcomes. With probability `p_complete` the first action delivers a
+score, taken as one of the three predicted quantiles, and otherwise it delivers
+nothing, which counts as zero unless a better wing is already in hand. A
+two-step plan treats its follow-up action the same way and averages the best
+score after each step. The plan with the highest expected value is kept, and
+ties go to the plan whose first action is more likely to complete. The learner
 memo lists measured facts from online and surrogate results, beliefs with
 evidence and a confidence of low, medium or high, prediction calibration
 records, reusable artifacts, and a budget note. The 104 placeholder plans the
