@@ -728,7 +728,8 @@ show how this performance develops. The scores are episode maxima among
 delivered online designs, not private recommendation assessments.
 Ten of the 960 online evaluations failed in the grading service before CFD
 began and were charged to the agent against the released rules
-(Appendix~\ref{app:agent-comparison}). Appendix~\ref{app:gallery} shows the
+(Appendix~\ref{app:agent-comparison}). Regraded after the study, the high-load wing was unmeshable, three of the other four delivered, one above its episode's best online score, and the fourth reached the time limit at one of its three conditions.
+Appendix~\ref{app:gallery} shows the
 best delivered wing of every method and task, and Appendix~\ref{app:figures}
 the outcome composition of the online evaluations.
 
@@ -1077,16 +1078,11 @@ to its ambition, and the failure types turn every nondelivery into evidence
 that an optimizer can use. The benchmark side is complete as well. A new
 optimizer plugs into the same episode machine, its trace is replayed
 independently, and its result lands next to the six reference methods in the
-closed or the open variant of three tracks. Nothing in the rules is specific to
-wings beyond the parameterization and the evaluator, so the same design carries
-over to other expensive simulators with hidden constraints. The benchmark
+closed or the open variant of three tracks. The benchmark
 rewards methods that treat a failed evaluation as information, and the release
-gives them a fixed place to prove it. We hope it becomes a place where progress
-in scientific agents is measured by designs that survive the high-fidelity
-evaluator rather than by scores a surrogate predicted for them. The two studies
-are only a start. The reference results set a bar that a stronger method should
-clear on all three tasks at once, and every record needed to check such a claim
-is in the release, episode by episode and query by query.
+gives them a fixed place to prove it. The reference results set a bar that a
+stronger method should clear on all three tasks at once, and every record
+needed to check such a claim is in the release, down to the single evaluation.
 
 \subsection*{AI use statement}
 
@@ -1458,8 +1454,8 @@ as the agent's standing recommendation, 28 of 30 name a wing that delivered
 online, 2 name a wing that failed, and 20 name the best delivered wing. The
 delivered ones average 18.21, 33.03, and 30.43 $L/D$ at low, nominal, and high
 load, within 0.2 of the best online values in Table~\ref{tab:agent-extension}.
-At 8 and 16 results, 19 and 14 of the standing recommendations were wings not
-yet tested, so their delivery is unknown.
+At 8 and 16 results, 19 and 14 of the standing recommendations were untested
+wings, so their delivery is unknown.
 
 Ten of the extension's 960 online evaluations, in five episodes and covering
 five distinct wings, ended before CFD began, with the grader's exit code and a
@@ -1471,8 +1467,7 @@ online delivery in Table~\ref{tab:agent-extension} from 0.62 to 0.63 at low
 load and from 0.70 to 0.71 at nominal load, leaves 0.62 at high load, and
 changes no episode maximum. We regraded the five wings after the study on
 fresh machines of the reference type. The high-load wing was rejected as
-unmeshable within three minutes, so that outcome was the wing's. The regrade
-table of the linked repository lists all five outcomes.
+unmeshable within three minutes, so that outcome was the wing's. Three of the other four delivered, at 18.39, 30.59, and 33.97, and the fourth was valid at two conditions and hit the two-hour limit at the third. The low-load wing of episode A070 exceeded its episode's best online score of 18.35. The linked repository's regrade table lists all five.
 
 The model sessions of the agent study used 71.5 million input tokens, 29.1
 million output tokens, and 6.2 billion cached input tokens, and cost about
