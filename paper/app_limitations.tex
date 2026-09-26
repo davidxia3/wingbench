@@ -1,10 +1,12 @@
 \section{Limitations}
 \label{app:limitations}
 
-Ten seeds per method and task provide limited statistical power, especially
-for modest differences between methods. Comparisons of conditional quality rest
-on fewer episodes still, because they use delivered recommendations only, so
-uncertainty intervals can be wide. Clock limits define 31\% of baseline
-nondeliveries, so delivery depends on the reference machine, and
-Appendix~\ref{app:outcomes} bounds the effect. The agent results are specific
-to DeepSeek V4.1 Flash. We do not compare language models.
+WingBench focuses on transonic wing design under a fixed simulation protocol
+and computational budget. Ten seeds per method and task provide limited power
+to detect small performance differences. Delivery rates also depend on the
+computing environment: time limits account for 31\% of baseline nondeliveries,
+with their impact bounded in Appendix~\ref{app:outcomes}. Planning results
+capture the combined contributions of the selected plans and the executor's
+reasoning. Future work could extend the benchmark to other design domains,
+increase the number of independent runs, and evaluate additional search
+strategies across different computational budgets.
