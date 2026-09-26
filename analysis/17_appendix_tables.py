@@ -74,8 +74,7 @@ TEXT = {
         "Baseline recommendations at every checkpoint. A checkpoint is the number of online CFD "
         "queries the method had made when it recommended the wing, so checkpoint 0 is the "
         "recommendation made before any CFD feedback. For each method and task, $n$ is the number of "
-        "the ten episodes whose recommended wing delivered a CFD score, and $L/D$ is the mean score of "
-        "those delivered recommendations."),
+        "the ten episodes whose recommended wing delivered a CFD score, and $L/D$ is their mean score."),
     "agent_recommendations": (
         r"Table~\ref{tab:app-agent-recommendations} gives the same for the three agent methods at the "
         "checkpoints of the four-query comparison.",
@@ -87,8 +86,8 @@ TEXT = {
         "Online CFD delivery per method and task. Delivered is the number of online queries that "
         "returned a valid score, total is the number of online queries, and rate is their ratio. The "
         "agent rows cover queries 1 to 4 of all 90 agent episodes. The extension row covers all 32 "
-        "queries of the 30 open-ended research episodes that continued, so it counts the first four "
-        "queries of those episodes a second time."),
+        "queries of the 30 open-ended research episodes that continued, so it counts their first four "
+        "queries a second time."),
     "online_outcomes": (
         r"Table~\ref{tab:app-online-outcomes} splits the same online queries by the grader's outcome type.",
         r"Outcome types of the online CFD queries, in the groups of Table~\ref{tab:app-online-delivery}. "
@@ -98,7 +97,7 @@ TEXT = {
         "outcome type, so its type counts are empty."),
     "compute": (
         r"Table~\ref{tab:app-compute} sums the CFD processor time of each method over the evaluations "
-        "that have a recorded run time.",
+        "with a recorded run time.",
         "CFD processor time per method. A core-hour is one hour of one processor core, and each CFD "
         "job used 16 cores. The totals cover the evaluations with a recorded run time. The SMAC3 total "
         "includes two checkpoint-32 grades that were replaced when two SMAC3 episodes were run again."),
@@ -136,10 +135,10 @@ def round2(value):
 
 
 def table_env(label: str, caption: str, colspec: str, body: list[str], tabcolsep: str = "4pt") -> str:
-    return "\n".join([r"\begin{table}[htbp]", r"\caption{" + caption + "}", r"\label{" + label + "}",
+    return "\n".join([r"\begin{table}[H]", r"\caption{" + caption + "}", r"\label{" + label + "}",
                       r"\centering", r"\scriptsize", r"\setlength{\tabcolsep}{" + tabcolsep + "}",
-                      r"\begin{tabular}{" + colspec + "}", r"\toprule", *body, r"\bottomrule",
-                      r"\end{tabular}", r"\end{table}"])
+                      r"\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}" + colspec + "}", r"\toprule", *body, r"\bottomrule",
+                      r"\end{tabular*}", r"\end{table}"])
 
 
 # ---------------------------------------------------------------------------
@@ -378,8 +377,9 @@ def episode_longtable(rows, label: str, caption: str) -> str:
             r"episode & method & $C_L$ & seed & total & delivered & best $L/D$ & delivered & $L/D$ \\",
             r"\midrule"]
     lines = [r"\begingroup", r"\scriptsize", r"\setlength{\tabcolsep}{4pt}",
-             r"\begin{longtable}{lllrrrrlr}",
-             r"\caption{" + caption + r"}\label{" + label + r"} \\",
+             r"\captionof{table}{" + caption + r"}\label{" + label + r"}",
+             r"\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}",
+             r"\begin{longtable}{@{\extracolsep{\fill}}lllrrrrlr}",
              *head, r"\endfirsthead",
              *head, r"\endhead",
              r"\midrule", r"\multicolumn{9}{r}{continued on the next page} \\", r"\endfoot",
@@ -431,10 +431,9 @@ def main() -> None:
         tables["agent_recommendations"], "agent", "tab:app-agent-recommendations", cap("agent_recommendations")))
     parts += entry("online_delivery", delivery_table(
         tables["online_delivery"], blocks, "tab:app-online-delivery", cap("online_delivery")))
+    parts += entry("compute", compute_table(tables["compute"], "tab:app-compute", cap("compute")))
     parts += entry("online_outcomes", outcome_table(
         tables["online_outcomes"], blocks, "tab:app-online-outcomes", cap("online_outcomes")))
-    parts += entry("compute", compute_table(tables["compute"], "tab:app-compute", cap("compute")))
-    parts += [r"\clearpage", ""]
     parts += entry("episodes", episode_longtable(tables["episodes"], "tab:app-episodes", cap("episodes")))
     FRAGMENT.write_text("\n".join(parts).rstrip() + "\n")
 

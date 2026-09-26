@@ -56,7 +56,7 @@ python3.11 17_appendix_tables.py > /dev/null
 echo "wrote paper/app_results.tex"
 echo
 echo "=== 18_wing_gallery: the best delivered wing of every method and task, the gallery appendix ==="
-python3.11 18_wing_gallery.py > /dev/null
+python3 18_wing_gallery.py > /dev/null   # needs cst_modeling3d, like 14, so it runs on the system python3
 echo "wrote paper/fig_wing_gallery.pdf"
 echo
 echo "=== 19_appendix_figures: the supplementary figures appendix, drawn in the paper style ==="
