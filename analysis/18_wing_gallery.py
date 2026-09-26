@@ -6,7 +6,7 @@ row per task and one column per method, and a table of their planform values.
 
 Selection. For each of the five baseline optimizers and each task, the
 delivered recommendation at checkpoint 32 with the highest L/D over the ten
-seeds. For open-ended research, which made no recommendation after query 4,
+seeds. For open-ended research, which made no further requested checkpoint recommendation after query 4,
 the delivered online evaluation with the highest L/D among queries 5 to 32 of
 its extension episodes. A method with no delivered recommendation for a task
 gets an empty cell, and the text says so.
@@ -285,7 +285,7 @@ def write_tex(sel: pd.DataFrame) -> None:
         "This appendix shows the best wing each method delivered. "
         f"For the five baseline optimizers, we took the recommendation each method made after {CHECKPOINT} queries "
         "in each of its ten episodes per task and kept the delivered one with the highest $L/D$. "
-        f"The open-ended research agent made no recommendation after query {EXTENSION_FROM - 1}, "
+        f"The open-ended research agent made no further requested checkpoint recommendation after query {EXTENSION_FROM - 1}, "
         f"so for it we took the delivered online design with the highest $L/D$ among queries {EXTENSION_FROM} to {ONLINE_QUERIES} "
         f"of its {EPISODES_PER_CELL * len(TASKS)} extension episodes. "
         f"Figure~\\ref{{fig:wing-gallery}} draws the {n_drawn} wings at one scale, "

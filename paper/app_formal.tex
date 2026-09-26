@@ -26,7 +26,7 @@ r_c(x) = \frac{C_L(x, c, \alpha_c^{*})}{C_D(x, c, \alpha_c^{*})},
 \label{eq:condition}
 \end{equation}
 The condition is valid only if a mesh exists, the solver process exits
-normally, the trim converges with a lift error below $5 \times 10^{-4}$, the
+normally, the solver's lift oscillation measure is below $5 \times 10^{-4}$, the
 trimmed angle lies in $[-10^{\circ}, 25^{\circ}]$, and $0 < r_c(x) \le 40$.
 Otherwise the condition returns a failure type instead of a number. The score
 is the geometric mean over the three conditions,
@@ -39,7 +39,8 @@ $d(x) \in \{0, 1\}$ for this event, delivery. When $d(x) = 0$ the
 evaluation returns one of three outcome types. A conclusive failure means the
 geometry was rejected or a condition was conclusively invalid. Partial means
 some conditions returned values and none was invalid. Undetermined means no
-condition returned one.
+condition returned one. In the released records every conclusive failure is a
+rejected geometry.
 
 The surrogate $s(x)$ is the same geometric mean computed from AeroTransformer
 predictions with the same trim procedure. One surrogate evaluation takes about
@@ -246,10 +247,11 @@ the interval for $\hat{p}_1 - \hat{p}_2$ is
 surrogate score of candidate $i$ as $s_i = y_i + \epsilon_i$ with an error
 $\epsilon_i$ that has mean zero for a randomly chosen design. A search that
 screens many candidates and keeps $i^{*} = \arg\max_i s_i$ selects for large
-positive errors as much as for large true scores, so
-$\mathbb{E}[\, s_{i^{*}} - y_{i^{*}} \,] \ge 0$, with the gap growing with the
-number of candidates screened and with the error variance. This is the
-optimizer's curse of \citet{smith2006curse}. In WingBench the error variance is
+positive errors as much as for large true scores. This is the optimizer's
+curse of \citet{smith2006curse}. Under their assumption that the error has mean
+zero given the true score, selecting the maximum gives
+$\mathbb{E}[\, s_{i^{*}} - y_{i^{*}} \,] \ge 0$, and the gap grows with the
+number of candidates screened and with the error variance. In WingBench the error variance is
 largest away from the SuperWing data, which is where optimization pushes, and
 the same selection applies to delivery, since a design whose failure the
 surrogate does not see is favored exactly because that failure is not priced.
@@ -279,7 +281,7 @@ setting & value \\
 \midrule
 design box & $[-3.5, 3.5]^{38}$ standardized, edge tolerance $10^{-9}$ \\
 flow conditions & Mach $0.7853$, $0.8195$, $0.8530$ at $\mathrm{Re} = 2 \times 10^{7}$ \\
-lift match & $|C_L - C_L^{*}| \le 0.02$, trim error $< 5 \times 10^{-4}$, $\alpha \in [-10^{\circ}, 25^{\circ}]$ \\
+lift match & $|C_L - C_L^{*}| \le 0.02$, lift oscillation $< 5 \times 10^{-4}$, $\alpha \in [-10^{\circ}, 25^{\circ}]$ \\
 score envelope & $0 < r_c \le 40$ for every condition \\
 time limits & 30 min per mesh, 2 h per flow condition, wall clock \\
 reference machine & one job at a time on an AWS m7a.4xlarge, 16 cores, 64 GB \\

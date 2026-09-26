@@ -126,8 +126,8 @@ the flight `condition`, the `termination_reason`, the process `returncode`, the
 ## `cfd_conditions.csv`
 
 One row per flow condition of every evaluation whose grader result document
-was kept, which is 1,297 of the 1,336 agent evaluations, 4,252 of the 4,333
-non-SMAC3 baseline evaluations, and 692 of the 960 SMAC3 evaluations. The SMAC3
+was kept, which is 1,297 of the 1,336 agent evaluations, 4,252 of the 4,325
+non-SMAC3 baseline evaluations, and 692 of the 968 SMAC3 evaluations. The SMAC3
 documents come from its publication ledger, where each is stored encoded. The
 other evaluations stopped before a document was written, their documents were
 lost, or the only document kept belongs to a different attempt at the same

@@ -269,8 +269,8 @@ Column & Meaning \\
 a baseline-study evaluation (Table~\ref{tab:data-attempts}).
 \texttt{cfd\_conditions.csv} has one row per flow condition of every
 evaluation whose grader result document was kept, which is 1,297 of the
-1,336 agent evaluations, 4,252 of the 4,333 non-SMAC3 baseline evaluations,
-and 692 of the 960 SMAC3 evaluations (Table~\ref{tab:data-conditions}). The
+1,336 agent evaluations, 4,252 of the 4,325 non-SMAC3 baseline evaluations,
+and 692 of the 968 SMAC3 evaluations (Table~\ref{tab:data-conditions}). The
 SMAC3 documents come from its publication ledger, where each is stored
 encoded. The other evaluations stopped before a document was written, their
 documents were lost, or the only document kept belongs to a different
@@ -569,7 +569,11 @@ child, and passes only a fixed list of other variables through. The
 protocol has no iteration limit on a condition beyond \texttt{n\_cycles} and
 \texttt{n\_cycles\_coarse}. Its limits per step are wall-clock time, 1800
 seconds for meshing and 7200 seconds for each flow condition, with no
-retries after an infrastructure failure.
+retries after an infrastructure failure. Those are the grading job's own
+settings. Retrying a job after a machine failure was the campaign
+controller's task, and the ten charged requests in
+Appendix~\ref{app:agent-comparison} are the cases where that layer did not
+retry.
 
 {\scriptsize
 \setlength{\LTleft}{0pt plus 1fill}\setlength{\LTright}{0pt plus 1fill}

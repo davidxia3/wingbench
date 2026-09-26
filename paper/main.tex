@@ -46,6 +46,7 @@
 \newcommand{\TimedEvaluationsOverall}{6{,}576}
 % END embedded cfd_cost_numbers.tex
 \usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -329,7 +330,7 @@ are costly. Adjoint methods make gradient-based shape
 optimization practical \citep{martins2022aerodynamic}, and benchmarks such as
 the Common Research Model wing case \citep{lyu2015crm} and the EngiBench
 airfoil problem \citep{felten2025engibench} run CFD inside that optimization.
-They start from a given design and expect the solver to converge. WingBench
+They start from a given design and report a failed simulation as an error. WingBench
 instead treats CFD as a black box with a fixed budget of 32 evaluations that
 can fail. Surrogate-assisted search explores more designs with cheap models
 \citep{forrester2009recent,jin2011surrogate}, and multifidelity Bayesian
@@ -352,11 +353,11 @@ explicitly recommends, not just the best design it found during search. Agent
 benchmarks make similar distinctions, reporting the best submission apart from
 the best attempt \citep{nathani2025mlgym,chan2025mlebench,huang2024mlagentbench} or valid execution apart from success
 \citep{chen2025scienceagentbench,somasekharan2026cfdllmbench}, but checking an
-attempt there takes minutes and can be repeated within a run. A WingBench grade
+attempt there is cheap and can be repeated within a run. A WingBench grade
 costs hours of CFD and can fail, so each recommendation is graded once,
 privately, at a fixed budget. Together, these
 let WingBench test whether an optimizer turns limited, failure-prone CFD
-feedback into a design worth recommending to a user.
+feedback into a design worth recommending.
 
 The optimizer can also be an AI agent. Systems that conduct computational
 research \citep{lu2026aiscientist,yamada2025aiscientistv2,schmidgall2025agentlab},
@@ -1060,7 +1061,7 @@ Some procedures resemble the baselines, such as a nominal-load open-ended episod
 
 WingBench turns a hard engineering question into a measurable one. Every
 optimizer, numerical or agentic, faces the same 32 costly CFD evaluations that
-can fail, and every method is judged on the wing it would hand to a user, not
+can fail, and the benchmark grades the wing a method would hand to a user, not
 on the best result it happened to see. The baseline study shows that this
 framing rewards a specific skill. Feedback that changes later proposals raised
 delivery by 0.57 across tasks at a small cost in quality, while reranking a
@@ -1106,7 +1107,7 @@ reproduction. First, every
 table and number in the paper, except the counts taken from the agents'
 execution traces, can be recomputed from the released records with the analysis
 scripts, which need no CFD. Second, every evaluated wing but five is released with its 38 coordinates, and
-every evaluation with a result document with its per-condition lift, drag,
+every evaluation with a result document, 6{,}241 of the 6{,}629, with its per-condition lift, drag,
 angle of attack, and convergence values, so a design can be regraded, and
 the CFD evaluator can be rebuilt from a container recipe, a fetch script for the
 SuperWing simulation files, and the public surrogate weights, all pinned by
@@ -1234,7 +1235,7 @@ Jie Huang, Xinyun Chen, Swaroop Mishra, Huaixiu~Steven Zheng, Adams~Wei Yu, Xiny
 \bibitem[Huang et~al.(2024{\natexlab{b}})Huang, Vora, Liang, and Leskovec]{huang2024mlagentbench}
 Qian Huang, Jian Vora, Percy Liang, and Jure Leskovec.
 \newblock {MLAgentBench}: Evaluating language agents on machine learning experimentation.
-\newblock \emph{arXiv preprint arXiv:2310.03302}, 2024.
+\newblock In \emph{Proceedings of the 41st International Conference on Machine Learning}, volume 235 of \emph{Proceedings of Machine Learning Research}, pp.\  20271--20309, 2024.
 
 \bibitem[Jin(2011)]{jin2011surrogate}
 Yaochu Jin.
@@ -1315,7 +1316,7 @@ Alexander Novikov, Ng\^{a}n V\~{u}, Marvin Eisenberger, Emilien Dupont, Po-Sen H
 \bibitem[Plaban et~al.(2026)Plaban, Bachman, and Renganathan]{plaban2026derivativefree}
 Punya Plaban, Peter Bachman, and Ashwin Renganathan.
 \newblock Derivative-free optimization is competitive for aerodynamic design optimization in moderate dimensions.
-\newblock \emph{arXiv preprint arXiv:2505.09088}, 2026.
+\newblock \emph{Structural and Multidisciplinary Optimization}, 69\penalty0 (6):\penalty0 154, 2026.
 
 \bibitem[Romera-Paredes et~al.(2024)Romera-Paredes, Barekatain, Novikov, Balog, Kumar, Dupont, Ruiz, Ellenberg, Wang, Fawzi, Kohli, and Fawzi]{romeraparedes2024funsearch}
 Bernardino Romera-Paredes, Mohammadamin Barekatain, Alexander Novikov, Matej Balog, M.~Pawan Kumar, Emilien Dupont, Francisco J.~R. Ruiz, Jordan~S. Ellenberg, Pengming Wang, Omar Fawzi, Pushmeet Kohli, and Alhussein Fawzi.
@@ -1330,7 +1331,7 @@ Matthieu Sacher, R{\'e}gis Duvigneau, Olivier Le~Ma{\^i}tre, Mathieu Durand, {\'
 \bibitem[Schmidgall et~al.(2025)Schmidgall, Su, Wang, Sun, Wu, Yu, Liu, Moor, Liu, and Barsoum]{schmidgall2025agentlab}
 Samuel Schmidgall, Yusheng Su, Ze Wang, Ximeng Sun, Jialian Wu, Xiaodong Yu, Jiang Liu, Michael Moor, Zicheng Liu, and Emad Barsoum.
 \newblock Agent {Laboratory}: Using {LLM} agents as research assistants.
-\newblock \emph{arXiv preprint arXiv:2501.04227}, 2025.
+\newblock In \emph{Findings of the Association for Computational Linguistics: EMNLP 2025}, pp.\  5977--6043, 2025.
 
 \bibitem[Shinn et~al.(2023)Shinn, Cassano, Gopinath, Narasimhan, and Yao]{shinn2023reflexion}
 Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao.
@@ -1421,8 +1422,21 @@ requests set no temperature or other sampling option, so the provider's
 defaults applied. Each model response could use up to 262{,}144 output tokens
 within the model's context of 1{,}048{,}576 tokens, and each turn could make
 up to 64 rounds of tool calls. The agent episodes ran in September 2026. For
-the agents, a seed is a label. The same ten labels pair episodes across
+the agents, a seed is a label. The same ten labels match episodes across
 methods, and they do not set the model's sampling.
+
+The planning value rule is fixed. For a candidate first action, the evaluator
+predicts the probability $p$ that the evaluation completes and, given
+completion, the 10th, 50th, and 90th percentiles of its $L/D$. The rule turns
+this into four scenarios, incomplete with weight $1 - p$ and complete with
+weights $0.3p$, $0.4p$, and $0.3p$ at the three percentiles, the Pearson--Tukey
+three-point approximation of a mean. With $\beta_t$ the best complete $L/D$
+measured after step $t$ of the plan, zero if none, and $b_0$ that best before
+the plan, the value of a two-step plan is $\mathbb{E}[(\beta_1 + \beta_2)/2]$
+over the scenario tree, where the second step's predictions are conditional on
+whether the first step was incomplete, complete without improving on $b_0$, or
+improved on it. Plans are ranked by this value, then by the probability that
+the first step completes.
 
 The agent recommendation data contain 270 assessments at queries 1, 2, and 4,
 across three methods, three tasks, and ten seeds. Each assessment identifies its
@@ -1673,7 +1687,7 @@ model, and agents receive each result together with the files the evaluation
 produced. Table~\ref{tab:outcomes} groups the grader's reason codes by
 the first failing stage. In baseline records with both labels, every mesh
 rejection is a conclusive failure and every mesh stop undetermined.
-Time-limit and solver-error outcomes are partial in 389 and undetermined in 252.
+Of the 955 time-limit and solver-error outcomes, the 641 with a type label are partial in 389 cases and undetermined in 252. The other 314 are SMAC3 records, which carry no type label.
 
 \begin{table}[htbp]
 \caption{Recorded CFD outcome types in the three-method agent study. A pass

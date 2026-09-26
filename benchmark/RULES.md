@@ -95,7 +95,7 @@ score. `score.py` produces these next to the six reference methods, the five
 baselines and open-ended research, with bootstrap intervals.
 
 Run ten seeds per task. For a language-model agent a seed is only a label
-that pairs its episodes with the other methods.
+that matches its episodes with the other methods.
 
 ## Tracks
 
