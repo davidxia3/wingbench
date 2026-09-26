@@ -30,6 +30,8 @@ CELLS = [  # (study, checkpoint, method order)
 ]
 TASKS = ["low", "nominal", "high"]
 TASK_LABEL = {"low": "$0.15$", "nominal": "$0.41$", "high": "$0.66$"}
+DISPLAY = {"CMA-ES no feedback": "CMA-ES, no feedback", "CMA-ES selection only": "CMA-ES, selection only",
+           "CMA-ES feedback-guided": "Feedback-guided CMA-ES", "DE feedback-guided": "Feedback-guided DE"}
 
 
 def intervals(delivered: np.ndarray, ld: np.ndarray) -> tuple[tuple[float, float], tuple[float, float] | None]:
@@ -86,7 +88,7 @@ def main() -> None:
                     mean, mci = f"{r.mean_ld:.2f}", "--"
                 else:
                     mean, mci = f"{r.mean_ld:.2f}", f"[{r.mean_ld_ci_low:.2f}, {r.mean_ld_ci_high:.2f}]"
-                name = method if task == "low" else ""
+                name = DISPLAY.get(method, method) if task == "low" else ""
                 lines.append(f"{name} & {TASK_LABEL[task]} & {int(r.delivered)}/10 & {ci} & {mean} & {mci} \\\\")
         if study == "agent":
             lines.append(r"\midrule")

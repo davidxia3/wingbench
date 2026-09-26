@@ -1230,12 +1230,12 @@ Zhoujie Lyu, Gaetan K.~W. Kenway, and Joaquim R.~R.~A. Martins.
 \newblock \emph{AIAA Journal}, 53\penalty0 (4):\penalty0 968--985, 2015.
 
 \bibitem[Mader et~al.(2020)Mader, Kenway, Yildirim, and Martins]{mader2020adflow}
-Charles~A. Mader, Gaetan K.~W. Kenway, Anil Yildirim, and Joaquim R. R.~A. Martins.
+Charles~A. Mader, Gaetan K.~W. Kenway, Anil Yildirim, and Joaquim R.~R.~A. Martins.
 \newblock {ADflow}: An open-source computational fluid dynamics solver for aerodynamic and multidisciplinary optimization.
 \newblock \emph{Journal of Aerospace Information Systems}, 17\penalty0 (9):\penalty0 508--527, 2020.
 
 \bibitem[Martins(2022)]{martins2022aerodynamic}
-Joaquim R. R.~A. Martins.
+Joaquim R.~R.~A. Martins.
 \newblock Aerodynamic design optimization: Challenges and perspectives.
 \newblock \emph{Computers \& Fluids}, 239:\penalty0 105391, 2022.
 
@@ -1247,7 +1247,7 @@ Jamison Meindl, Yunsheng Tian, Tony Cui, Veronika Thost, Zhang-Wei Hong, Jie Che
 \bibitem[Nathani et~al.(2025)Nathani, Madaan, Roberts, Bashlykov, Menon, Moens, Plekhanov, Budhiraja, Magka, Vorotilov, Chaurasia, Hupkes, Cabral, Shavrina, Foerster, Bachrach, Wang, and Raileanu]{nathani2025mlgym}
 Deepak Nathani, Lovish Madaan, Nicholas Roberts, Nikolay Bashlykov, Ajay Menon, Vincent Moens, Mikhail Plekhanov, Amar Budhiraja, Despoina Magka, Vladislav Vorotilov, Gaurav Chaurasia, Dieuwke Hupkes, Ricardo~Silveira Cabral, Tatiana Shavrina, Jakob Foerster, Yoram Bachrach, William~Yang Wang, and Roberta Raileanu.
 \newblock {MLGym}: A new framework and benchmark for advancing {AI} research agents.
-\newblock In \emph{Conference on Language Modeling}, 2025.
+\newblock In \emph{Second Conference on Language Modeling}, 2025.
 
 \bibitem[Sacher et~al.(2018)Sacher, Duvigneau, Le~Ma{\^i}tre, Durand, Berrini, Hauville, and Astolfi]{sacher2018classification}
 Matthieu Sacher, R{\'e}gis Duvigneau, Olivier Le~Ma{\^i}tre, Mathieu Durand, {\'E}lisa Berrini, Fr{\'e}d{\'e}ric Hauville, and Jacques-Andr{\'e} Astolfi.
@@ -1299,7 +1299,7 @@ Anh Tran, Jing Sun, John~M. Furlan, Krishnan~V. Pagalthivarthi, Robert~J. Visint
 \bibitem[Vassberg et~al.(2008)Vassberg, DeHaan, Rivers, and Wahls]{vassberg2008crm}
 John~C. Vassberg, Mark DeHaan, Melissa Rivers, and Richard~A. Wahls.
 \newblock Development of a {Common Research Model} for applied {CFD} validation studies.
-\newblock In \emph{26th AIAA Applied Aerodynamics Conference}, AIAA Paper 2008--6919, 2008.
+\newblock In \emph{26th AIAA Applied Aerodynamics Conference}, AIAA Paper 2008-6919, 2008.
 
 \bibitem[Yang et~al.(2026{\natexlab{a}})Yang, Gholami, Gurbuz, Rashed, and Thuerey]{yang2026aerotransformer}
 Yunjia Yang, Babak Gholami, Caglar Gurbuz, Mohammad Rashed, and Nils Thuerey.
@@ -1308,7 +1308,7 @@ Yunjia Yang, Babak Gholami, Caglar Gurbuz, Mohammad Rashed, and Nils Thuerey.
 
 \bibitem[Yang et~al.(2026{\natexlab{b}})Yang, Tang, Liu, Thuerey, Zhang, and Chen]{yang2026superwing}
 Yunjia Yang, Weishao Tang, Mengxin Liu, Nils Thuerey, Yufei Zhang, and Haixin Chen.
-\newblock {SuperWing}: a comprehensive transonic wing dataset for data-driven aerodynamic design.
+\newblock {SuperWing}: A comprehensive transonic wing dataset for data-driven aerodynamic design.
 \newblock \emph{Scientific Data}, 13:\penalty0 1113, 2026{\natexlab{b}}.
 
 \bibitem[Yue et~al.(2026)Yue, Somasekharan, Zhang, Cao, Chen, Di, and Pan]{yue2026foamagent}
@@ -1429,16 +1429,16 @@ Reflection & $0.15$ & 10/10 & [1.00, 1.00] & 17.33 & [17.09, 17.58] \\
  & $0.66$ & 10/10 & [1.00, 1.00] & 26.79 & [26.15, 27.41] \\
 \midrule
 \multicolumn{6}{l}{\emph{Baselines after 32 queries}} \\
-CMA-ES no feedback & $0.15$ & 0/10 & [0.00, 0.00] & -- & -- \\
+CMA-ES, no feedback & $0.15$ & 0/10 & [0.00, 0.00] & -- & -- \\
  & $0.41$ & 4/10 & [0.10, 0.70] & 33.22 & [32.85, 33.63] \\
  & $0.66$ & 5/10 & [0.20, 0.80] & 32.12 & [32.00, 32.23] \\
-CMA-ES selection only & $0.15$ & 0/10 & [0.00, 0.00] & -- & -- \\
+CMA-ES, selection only & $0.15$ & 0/10 & [0.00, 0.00] & -- & -- \\
  & $0.41$ & 4/10 & [0.10, 0.70] & 33.22 & [32.87, 33.63] \\
  & $0.66$ & 5/10 & [0.20, 0.80] & 32.12 & [31.99, 32.23] \\
-CMA-ES feedback-guided & $0.15$ & 6/10 & [0.30, 0.90] & 16.76 & [15.60, 18.01] \\
+Feedback-guided CMA-ES & $0.15$ & 6/10 & [0.30, 0.90] & 16.76 & [15.60, 18.01] \\
  & $0.41$ & 10/10 & [1.00, 1.00] & 33.04 & [32.68, 33.39] \\
  & $0.66$ & 10/10 & [1.00, 1.00] & 31.64 & [31.25, 31.98] \\
-DE feedback-guided & $0.15$ & 10/10 & [1.00, 1.00] & 17.52 & [17.04, 17.97] \\
+Feedback-guided DE & $0.15$ & 10/10 & [1.00, 1.00] & 17.52 & [17.04, 17.97] \\
  & $0.41$ & 10/10 & [1.00, 1.00] & 31.09 & [30.61, 31.53] \\
  & $0.66$ & 10/10 & [1.00, 1.00] & 27.05 & [25.83, 28.04] \\
 SMAC3 & $0.15$ & 9/10 & [0.70, 1.00] & 10.56 & [7.52, 13.63] \\
