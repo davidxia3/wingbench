@@ -1,0 +1,71 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "count": 70590,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-08T00:47:48Z",
+            "involvedObject": {
+                "apiVersion": "scheduling.volcano.sh/v1beta1",
+                "kind": "PodGroup",
+                "name": "podgroup-7e31dcf5-ba84-4261-9f2f-00d4980e1fac",
+                "namespace": "jisenli2",
+                "resourceVersion": "417065097",
+                "uid": "464ce7bb-d0e2-4788-840c-20a831a4e069"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-08T20:42:56Z",
+            "message": "0/0 tasks in gang unschedulable: pod group is not ready, 1 minAvailable",
+            "metadata": {
+                "creationTimestamp": "2026-11-08T00:47:56Z",
+                "name": "podgroup-7e31dcf5-ba84-4261-9f2f-00d4980e1fac.18e5eb6a59bf33cb",
+                "namespace": "jisenli2",
+                "resourceVersion": "418766035",
+                "uid": "52aad78e-beee-42fe-9c22-caa313e90895"
+            },
+            "reason": "Unschedulable",
+            "reportingComponent": "volcano",
+            "reportingInstance": "",
+            "source": {
+                "component": "volcano"
+            },
+            "type": "Warning"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-08T20:44:15Z",
+            "involvedObject": {
+                "apiVersion": "batch/v1",
+                "kind": "Job",
+                "name": "wb-validation-followup-20261107c-v3-replica",
+                "namespace": "jisenli2",
+                "resourceVersion": "418768165",
+                "uid": "dd4c66e9-897f-4a4e-91d8-b90f39b15dcd"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-08T20:44:15Z",
+            "message": "Job completed",
+            "metadata": {
+                "creationTimestamp": "2026-11-08T20:44:15Z",
+                "name": "wb-validation-followup-20261107c-v3-replica.18e62cb4a3a8c12d",
+                "namespace": "jisenli2",
+                "resourceVersion": "418768169",
+                "uid": "849e0778-e231-4168-be0d-b9f22fcd5fbc"
+            },
+            "reason": "Completed",
+            "reportingComponent": "job-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "job-controller"
+            },
+            "type": "Normal"
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

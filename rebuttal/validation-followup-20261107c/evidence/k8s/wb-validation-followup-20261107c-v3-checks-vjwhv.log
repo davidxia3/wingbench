@@ -1,0 +1,5 @@
+2026-11-08T01:52:02.333648890-08:00 2026-11-08T09:52:02Z runtime record
+2026-11-08T01:52:04.831087896-08:00 2026-11-08T09:52:04Z initial preflight rc1=0
+2026-11-08T01:52:11.265900897-08:00 2026-11-08T09:52:11Z test_core rc2=0
+2026-11-08T01:52:13.254824057-08:00 2026-11-08T09:52:13Z done rc3=0
+2026-11-08T01:52:13.282232927-08:00 {"runtime_record_rc": 0, "runtime_record_passed": true, "initial_preflight_rc": 0, "initial_preflight_passed": true, "test_core_rc": 0, "test_core_passed": true, "passed": true}

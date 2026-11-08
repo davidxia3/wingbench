@@ -1,0 +1,42 @@
+[
+  {
+    "function": "cl",
+    "attempt": 1,
+    "rhs_norm": 0.011446464169675263,
+    "starting_residual_norm": 0.011446464169675263,
+    "final_residual_norm": 2.044361489103655e-13,
+    "relative_residual": 1.7860200834068164e-11,
+    "failed": false,
+    "solver_failed": false,
+    "native_gate": 1.1e-09,
+    "strict_native_gate": 1.1e-09,
+    "qualified": true,
+    "finite_norms": true,
+    "raw_norms_repr": [
+      "0.011446464169675263",
+      "0.011446464169675263",
+      "2.044361489103655e-13"
+    ],
+    "wall_seconds": 536.7188873887062
+  },
+  {
+    "function": "cd",
+    "attempt": 1,
+    "rhs_norm": 0.002120760298716094,
+    "starting_residual_norm": 0.002120760298716094,
+    "final_residual_norm": 3.699694430944855e-14,
+    "relative_residual": 1.7445132451718592e-11,
+    "failed": false,
+    "solver_failed": false,
+    "native_gate": 1.1e-09,
+    "strict_native_gate": 1.1e-09,
+    "qualified": true,
+    "finite_norms": true,
+    "raw_norms_repr": [
+      "0.002120760298716094",
+      "0.002120760298716094",
+      "3.699694430944855e-14"
+    ],
+    "wall_seconds": 445.1546433158219
+  }
+]

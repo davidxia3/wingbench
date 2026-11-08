@@ -1,0 +1,17 @@
+{
+  "sample_count": 356,
+  "max_sampled_memory_current_bytes_by_cgroup": {
+    "/sys/fs/cgroup": 61147766784
+  },
+  "memory_samples_available": true,
+  "scope": "15-second samples: lower bounds on each visible cgroup peak, not true peak or process RSS. Kernel peak counters, when present, cover cgroup lifetime. Ancestor or namespaced scopes must not be added together.",
+  "absence_means": "unavailable, never zero; consult raw memory.events and Kubernetes OOM/events evidence",
+  "command": [
+    "python3",
+    "/workspace/repo/rebuttal/compute/jisen_verify_v2/run_grade.py",
+    "--out",
+    "/results/wb-validation-followup-20261107c/reference_a"
+  ],
+  "child_return_code": 0,
+  "forwarded_signals": []
+}

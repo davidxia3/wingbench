@@ -1,0 +1,3 @@
+2026-11-08T01:46:44.063203541-08:00 ERROR 7: VSPAERO Viewer Not Found. 
+2026-11-08T01:46:44.063249082-08:00 	Expected here: /home/mdolabuser/packages/OpenVSP/python/openvsp/openvsp/vspviewer
+2026-11-08T03:12:04.107157507-08:00 {"passed": true, "kind": "original_grader_control", "grading_mode": "local", "official_sealed_grade": false, "relative_gate": 0.005, "can_launch_campaign": false, "delivered": true, "original_score": 32.05225247077079, "comparisons": [{"mach": 0.7853, "relative_errors": {"cl": 0.0, "cd": 0.0}, "within_limit": true}, {"mach": 0.8195, "relative_errors": {"cl": 0.0, "cd": 0.0}, "within_limit": true}, {"mach": 0.853, "relative_errors": {"cl": 0.0, "cd": 0.0}, "within_limit": true}], "wall_seconds": 5323.783080611378}

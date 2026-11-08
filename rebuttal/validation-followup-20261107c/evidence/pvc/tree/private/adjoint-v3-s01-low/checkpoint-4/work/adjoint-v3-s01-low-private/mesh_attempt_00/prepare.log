@@ -1,0 +1,3 @@
+[prep] adjoint-v3-s01-low-private: case=/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private
+[prep]   SA=21.79 AR=10.34 TR=0.460 kink=0.448 tcroot=0.1269
+[prep]   conditions: [(0.7853, 4.4259755152), (0.8195, 4.4259755152), (0.853, 4.4259755152)]

@@ -1,0 +1,154 @@
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.13.4, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Number of nonzeros in equality constraint Jacobian...:      123
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:        0
+
+Total number of variables............................:       41
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:       41
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        3
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0 -2.4473169e+00 3.98e-04 1.08e-01   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1 -2.4643919e+00 3.98e-05 9.84e-02  -1.0 9.46e-02    -  9.95e-01 1.00e+00f  1
+   2 -2.5064063e+00 2.17e-05 1.02e-01  -2.4 1.05e-01    -  1.00e+00 1.00e+00f  1
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Cutting back alpha due to evaluation error
+Warning: Evaluation error during soft restoration phase step.
+Warning: Evaluation error during soft restoration phase step.
+Warning: Evaluation error during soft restoration phase step.
+Sorry, things failed ?!?!
+
+Number of Iterations....: 2
+
+                                   (scaled)                 (unscaled)
+Exception of type: Eval_Error in file "../../../src/Algorithm/IpOrigIpoptNLP.cpp" at line 487:
+ Exception message: success && IsFiniteNumber(ret) evaluated false: Error evaluating the objective function
+
+Number of objective function evaluations             = 7
+Number of objective gradient evaluations             = 3
+Number of equality constraint evaluations            = 51
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 3
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 0
+Total CPU secs in IPOPT (w/o function evaluations)   =      2.710
+Total CPU secs in NLP function evaluations           =      9.255
+
+EXIT: Invalid number in NLP function or derivative detected.
+{
+  "phase": "pilot_paused",
+  "message": "Pilot allowance reached before next trial",
+  "search_attempts": 4,
+  "recorded_oracle_calls": 9,
+  "replayed_oracle_calls": 0,
+  "new_oracle_calls": 9,
+  "nomination": {
+    "geometry": [
+      21.7935967488732,
+      1.582204437245621,
+      3.520533081060368,
+      10.344342413510745,
+      0.4595901810753135,
+      0.448141268396075,
+      0.8147836757386475,
+      0.5559347989885087,
+      0.9250571487829686,
+      0.9008961987159484,
+      0.6154310879487609,
+      0.2621087620651942,
+      0.0018639280032228308,
+      -1.6478589739407514,
+      -1.0438433942586012,
+      -1.9594755421049646,
+      -0.041586477037803354,
+      0.09692740660106032,
+      0.1217280351179405,
+      0.2157311579013737,
+      0.13874489414598074,
+      0.9755719883495234,
+      -0.7959523600805686,
+      0.9829605062106482,
+      0.0787157229775841,
+      -0.04469987760918062,
+      0.45984021555418997,
+      -0.16732263760039573,
+      -0.006155363326731672,
+      -0.20794871443858126,
+      -0.06503306982010947,
+      -0.683326240635249,
+      -0.0030019446568643107,
+      0.01969433597859215,
+      -0.30135635358903246,
+      0.3563668451943085,
+      0.18937254757920707,
+      0.12685196337956697
+    ],
+    "score": 12.26078924724386,
+    "source": "search",
+    "search_attempt": 3
+  },
+  "starting_wing_returned": false,
+  "original_grader_validation_pending": true,
+  "stage_limit": 4,
+  "finished_at": "2026-11-08T19:00:31.698182+00:00"
+}

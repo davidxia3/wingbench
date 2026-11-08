@@ -1,0 +1,1869 @@
+{
+  "aggregate": {
+    "admissibility": "pass",
+    "cfd_ld_geomean": 12.251435441985432,
+    "cfd_ld_worst": 8.620047218874914,
+    "diagnostic_partial_metrics": {
+      "cfd_ld_geomean": 12.251435441985432,
+      "cfd_ld_worst": 8.620047218874914,
+      "n_valid": 3
+    },
+    "n_conditions": 3,
+    "n_inconclusive": 0,
+    "n_invalid": 0,
+    "n_valid": 3,
+    "profile_status": "complete",
+    "score_eligible": true
+  },
+  "benchmark_grade": {
+    "delivered": true,
+    "ld": 12.251435441985432,
+    "outcome": "pass",
+    "reason_codes": [
+      "complete_score_eligible"
+    ]
+  },
+  "benchmark_manifest": null,
+  "campaign_publication_preflight": null,
+  "conditions": [
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "02c59901cb27ec868d6f70ec0c6c3d042ff09d911231e00717422106a9781a6b",
+              "size_bytes": 237755
+            },
+            "conditions": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00/conds.json",
+              "present": true,
+              "sha256": "7b207985248720f412f498a0f2cfbc2398c733680469f86dfeca790637c39342",
+              "size_bytes": 97
+            },
+            "output": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00/output.json",
+              "present": true,
+              "sha256": "9ac3949e861d612a174377582b908d805a13f0e11d425c273b654b83145f7e72",
+              "size_bytes": 1044
+            },
+            "solver_script": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-08T19:27:46.287512Z",
+            "log": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q1_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "55f52bf1a491aa35945a3cf3ca0645bc04e2e81a4db0f75013cbc97b8ebbf3a3",
+              "size_bytes": 1931
+            },
+            "returncode": 0,
+            "started_at": "2026-11-08T19:01:37.732005Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 1568.555469142273
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.009131821482038257,
+            "cl": 0.1496766973421525,
+            "cl_target": 0.15,
+            "err_cl": 6.833113116166967e-07,
+            "ld": 16.390672730140153,
+            "mach": 0.7853,
+            "realized_aoa_deg": 2.976365430920146,
+            "seed_alpha0_deg": 4.4259755152,
+            "solvecl_iterations": 3,
+            "solvecl_l2convergence": 2.3615470956847614e-11,
+            "solvecl_time_seconds": 1549.8111157417297
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 8.735990640086622e-08,
+            "err_cl": 6.833113116166967e-07,
+            "err_cmz": 5.036233739763585e-07,
+            "history_rows": 982,
+            "min_ResRho": 5.083233305467578e-07,
+            "min_relative_ResRho": 8.470976035669366e-11,
+            "min_relative_totalRes": 4.997472924404712e-10,
+            "min_totalRes": 0.0029351635569715155,
+            "n_step": 1237.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 2.976365430920146,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 2.976365430920146,
+                  "available": true,
+                  "cl": 0.1496766973421525,
+                  "clalpha": 0.12455806570514891,
+                  "clstar": 0.15,
+                  "converged": true,
+                  "error": -0.00032330265784749623,
+                  "history_entries": 3,
+                  "iterations": 3,
+                  "l2convergence": 2.3615470956847614e-11,
+                  "time": 1549.8111157417297
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 8.735990640086622e-08,
+              "err_cl": 6.833113116166967e-07,
+              "err_cmz": 5.036233739763585e-07,
+              "min_ResRho": 5.083233305467578e-07,
+              "min_relative_ResRho": 8.470976035669366e-11,
+              "min_relative_totalRes": 4.997472924404712e-10,
+              "min_totalRes": 0.0029351635569715155,
+              "n_step": 1237.0,
+              "wing_cd": 0.009131821482038257,
+              "wing_cl": 0.1496766973421525,
+              "wing_cmx": 0.2499422141501608,
+              "wing_cmy": 0.002253807582910888,
+              "wing_cmz": 0.13207954467770264
+            },
+            "working_conditions": {
+              "AA": 4.4259755152,
+              "CL_targ": 0.15,
+              "M3": 0.7853,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.15,
+      "condition_id": "mach_q1",
+      "mach": 0.7853,
+      "measurements": {
+        "cd": 0.009131821482038257,
+        "cl": 0.1496766973421525,
+        "cl_target": 0.15,
+        "err_cl": 6.833113116166967e-07,
+        "ld": 16.390672730140153,
+        "mach": 0.7853,
+        "realized_aoa_deg": 2.976365430920146,
+        "seed_alpha0_deg": 4.4259755152,
+        "solvecl_iterations": 3,
+        "solvecl_l2convergence": 2.3615470956847614e-11,
+        "solvecl_time_seconds": 1549.8111157417297
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    },
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "d4a81f40d5f2e25be1b64e3d04825773f84b9bb7fb06e4836b9d3a689d6753ff",
+              "size_bytes": 270745
+            },
+            "conditions": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00/conds.json",
+              "present": true,
+              "sha256": "1c75b8d9fe696e8bb0e6cccc181894008e81729bd8dbba2adcf9c99c678cc97b",
+              "size_bytes": 97
+            },
+            "output": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00/output.json",
+              "present": true,
+              "sha256": "9ed3d3c54be1889093087916fd06fb52b18b5674d3b6d363bd5bfe0efce40b34",
+              "size_bytes": 1052
+            },
+            "solver_script": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-08T20:03:58.204749Z",
+            "log": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q2_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "6fae7a71a9ad4bb2dece93e3e0c41ea7f129701f7b41837c3897f4e74a4a502e",
+              "size_bytes": 1932
+            },
+            "returncode": 0,
+            "started_at": "2026-11-08T19:27:46.340122Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 2171.864569056779
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.01152425539186727,
+            "cl": 0.1499917520640895,
+            "cl_target": 0.15,
+            "err_cl": 1.8829426026711893e-07,
+            "ld": 13.015309619911712,
+            "mach": 0.8195,
+            "realized_aoa_deg": 2.9026306501415506,
+            "seed_alpha0_deg": 4.4259755152,
+            "solvecl_iterations": 4,
+            "solvecl_l2convergence": 8.674177080737032e-11,
+            "solvecl_time_seconds": 2152.5273139476776
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 2.4837464900756556e-08,
+            "err_cl": 1.8829426026711893e-07,
+            "err_cmz": 1.2229260912266504e-07,
+            "history_rows": 1124,
+            "min_ResRho": 1.3064963914878171e-06,
+            "min_relative_ResRho": 2.0863552750204848e-10,
+            "min_relative_totalRes": 1.8359279483905676e-09,
+            "min_totalRes": 0.011375727055404959,
+            "n_step": 1147.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 2.9026306501415506,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 2.9026306501415506,
+                  "available": true,
+                  "cl": 0.1499917520640895,
+                  "clalpha": 0.13905927398264092,
+                  "clstar": 0.15,
+                  "converged": true,
+                  "error": -8.247935910504767e-06,
+                  "history_entries": 4,
+                  "iterations": 4,
+                  "l2convergence": 8.674177080737032e-11,
+                  "time": 2152.5273139476776
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 2.4837464900756556e-08,
+              "err_cl": 1.8829426026711893e-07,
+              "err_cmz": 1.2229260912266504e-07,
+              "min_ResRho": 1.3064963914878171e-06,
+              "min_relative_ResRho": 2.0863552750204848e-10,
+              "min_relative_totalRes": 1.8359279483905676e-09,
+              "min_totalRes": 0.011375727055404959,
+              "n_step": 1147.0,
+              "wing_cd": 0.01152425539186727,
+              "wing_cl": 0.1499917520640895,
+              "wing_cmx": 0.24896251625425972,
+              "wing_cmy": -2.6070855121078557e-05,
+              "wing_cmz": 0.13622391171822143
+            },
+            "working_conditions": {
+              "AA": 4.4259755152,
+              "CL_targ": 0.15,
+              "M3": 0.8195,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.15,
+      "condition_id": "mach_q2",
+      "mach": 0.8195,
+      "measurements": {
+        "cd": 0.01152425539186727,
+        "cl": 0.1499917520640895,
+        "cl_target": 0.15,
+        "err_cl": 1.8829426026711893e-07,
+        "ld": 13.015309619911712,
+        "mach": 0.8195,
+        "realized_aoa_deg": 2.9026306501415506,
+        "seed_alpha0_deg": 4.4259755152,
+        "solvecl_iterations": 4,
+        "solvecl_l2convergence": 8.674177080737032e-11,
+        "solvecl_time_seconds": 2152.5273139476776
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    },
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "700e41f3b0ed1c91cd3e8170fa20f621094480da6153ebfa595b3d183e827eda",
+              "size_bytes": 289788
+            },
+            "conditions": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00/conds.json",
+              "present": true,
+              "sha256": "87e7eea90622dc76b7454898b97660836c6d4123be125b218762e9288b562c01",
+              "size_bytes": 96
+            },
+            "output": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00/output.json",
+              "present": true,
+              "sha256": "268dbfc083138f81e28f05557fe6904814cd6c7b2a41694f205fee88d60f1a9c",
+              "size_bytes": 1041
+            },
+            "solver_script": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-08T20:44:12.706545Z",
+            "log": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mach_q3_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "578124ca41e7b55dc2f32c8c7e151db8907e5a96a3dc58d2190e33959db803bc",
+              "size_bytes": 1932
+            },
+            "returncode": 0,
+            "started_at": "2026-11-08T20:03:58.224843Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 2414.4816700555384
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.0173930095964807,
+            "cl": 0.14992856400000815,
+            "cl_target": 0.15,
+            "err_cl": 7.923846843393978e-07,
+            "ld": 8.620047218874914,
+            "mach": 0.853,
+            "realized_aoa_deg": 2.7904749341967543,
+            "seed_alpha0_deg": 4.4259755152,
+            "solvecl_iterations": 4,
+            "solvecl_l2convergence": 9.893905567637664e-11,
+            "solvecl_time_seconds": 2395.45716047287
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 8.919187177020005e-08,
+            "err_cl": 7.923846843393978e-07,
+            "err_cmz": 6.107581105585513e-07,
+            "history_rows": 1212,
+            "min_ResRho": 1.6047918908992873e-06,
+            "min_relative_ResRho": 2.462060369454299e-10,
+            "min_relative_totalRes": 2.0944270703927753e-09,
+            "min_totalRes": 0.013656767703167497,
+            "n_step": 883.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 2.7904749341967543,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 2.7904749341967543,
+                  "available": true,
+                  "cl": 0.14992856400000815,
+                  "clalpha": 0.17010281193710444,
+                  "clstar": 0.15,
+                  "converged": true,
+                  "error": -7.143599999184791e-05,
+                  "history_entries": 4,
+                  "iterations": 4,
+                  "l2convergence": 9.893905567637664e-11,
+                  "time": 2395.45716047287
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 8.919187177020005e-08,
+              "err_cl": 7.923846843393978e-07,
+              "err_cmz": 6.107581105585513e-07,
+              "min_ResRho": 1.6047918908992873e-06,
+              "min_relative_ResRho": 2.462060369454299e-10,
+              "min_relative_totalRes": 2.0944270703927753e-09,
+              "min_totalRes": 0.013656767703167497,
+              "n_step": 883.0,
+              "wing_cd": 0.0173930095964807,
+              "wing_cl": 0.14992856400000815,
+              "wing_cmx": 0.24385704987617524,
+              "wing_cmy": -0.00832498981017118,
+              "wing_cmz": 0.1414600545361772
+            },
+            "working_conditions": {
+              "AA": 4.4259755152,
+              "CL_targ": 0.15,
+              "M3": 0.853,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.15,
+      "condition_id": "mach_q3",
+      "mach": 0.853,
+      "measurements": {
+        "cd": 0.0173930095964807,
+        "cl": 0.14992856400000815,
+        "cl_target": 0.15,
+        "err_cl": 7.923846843393978e-07,
+        "ld": 8.620047218874914,
+        "mach": 0.853,
+        "realized_aoa_deg": 2.7904749341967543,
+        "seed_alpha0_deg": 4.4259755152,
+        "solvecl_iterations": 4,
+        "solvecl_l2convergence": 9.893905567637664e-11,
+        "solvecl_time_seconds": 2395.45716047287
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    }
+  ],
+  "execution_authorization": null,
+  "geometry": {
+    "canonical_source": null,
+    "geom_38d": [
+      21.7935967488732,
+      1.582204437245621,
+      3.520533081060368,
+      10.344342413510745,
+      0.4595901810753135,
+      0.448141268396075,
+      0.8147836757386475,
+      0.5559347989885087,
+      0.9250571487829686,
+      0.9008961987159484,
+      0.6154310879487609,
+      0.2621087620651942,
+      0.0018639280032228308,
+      -1.6478589739407514,
+      -1.0438433942586012,
+      -1.9594755421049646,
+      -0.041586477037803354,
+      0.09692740660106032,
+      0.1217280351179405,
+      0.2157311579013737,
+      0.13874489414598074,
+      0.9755719883495234,
+      -0.7959523600805686,
+      0.9829605062106482,
+      0.0787157229775841,
+      -0.04469987760918062,
+      0.45984021555418997,
+      -0.16732263760039573,
+      -0.006155363326731672,
+      -0.20794871443858126,
+      -0.06503306982010947,
+      -0.683326240635249,
+      -0.0030019446568643107,
+      0.01969433597859215,
+      -0.30135635358903246,
+      0.3563668451943085,
+      0.18937254757920707,
+      0.12685196337956697
+    ],
+    "hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+    "manifest_provenance": null,
+    "schema": "superwing-38d-v1",
+    "sha256": "4dd1258df8f8a5e3377df1bc140895fbaa41c180174aed8f1ecb4e57c6e4f0ec"
+  },
+  "grading_mode": "local",
+  "legacy_evidence_used_for_verdict": false,
+  "local_grading": {
+    "adapter": "benchmark/grade_local.py",
+    "runtime_probe": {
+      "detail": "the runtime fingerprint differs from the campaign's: runtime fingerprint mismatch: expected 60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d, observed ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+      "expected_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+      "matches_campaign": false,
+      "probe_error": null,
+      "probed": true,
+      "report_file": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/runtime_fingerprint_adjoint-v3-s01-low-private_1794164432.json",
+      "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3"
+    },
+    "skipped_steps": [
+      "benchmark_manifest",
+      "execution_authorization",
+      "runtime_attestation",
+      "campaign_publication_preflight",
+      "publication_journal",
+      "release_lock",
+      "worker_lock",
+      "runtime_fingerprint_match",
+      "validate_result"
+    ],
+    "task_id": "superwing-load-low-cl015"
+  },
+  "mesh": {
+    "attempt_index": 0,
+    "attempts": [
+      {
+        "attempt_index": 0,
+        "case_directory": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private",
+        "execution": {
+          "command": [
+            "mpirun",
+            "-np",
+            "16",
+            "-x",
+            "ADFLOW_NK_SWITCH",
+            "-x",
+            "ADFLOW_USE_ANK",
+            "-x",
+            "ADFLOW_USE_NK",
+            "-x",
+            "MKL_NUM_THREADS",
+            "-x",
+            "OMP_NUM_THREADS",
+            "-x",
+            "OPENBLAS_NUM_THREADS",
+            "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+            "gen-mesh.py"
+          ],
+          "cwd": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private",
+          "effective_child_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "AFLR_ARCH": "Linux-x86-64",
+            "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+            "CASARCH": ".",
+            "CASREV": "7.7",
+            "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+            "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+            "COMPILERS": "gcc",
+            "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+            "EFCOMP": "gfortran",
+            "ESP_ARCH": "LINUX64",
+            "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+            "HOME": "/home/mdolabuser",
+            "HOMEDIR": "/home/mdolabuser",
+            "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+            "LC_CTYPE": "C.UTF-8",
+            "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+            "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+            "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+            "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+            "MKL_NUM_THREADS": "1",
+            "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+            "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "PETSC_ARCH": "real-opt-gcc-3.15.5",
+            "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+            "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+            "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+            "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+            "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+            "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+            "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+            "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+          },
+          "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+          "error": null,
+          "finished_at": "2026-11-08T19:01:36.402251Z",
+          "log": {
+            "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/grade_mesh.log",
+            "present": true,
+            "sha256": "db2f223a3d18c9c3739531d32cd5f5bb2f8606f18d435ac28d7a3fc2e60e8709",
+            "size_bytes": 2824
+          },
+          "returncode": 0,
+          "started_at": "2026-11-08T19:00:36.347451Z",
+          "termination_reason": "completed",
+          "timeout_seconds": 1800,
+          "wall_seconds": 60.054773116484284
+        },
+        "generated_artifacts": {
+          "gen-mesh.py": {
+            "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/gen-mesh.py",
+            "present": true,
+            "sha256": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+            "size_bytes": 17502
+          },
+          "input.before_mesh.json": {
+            "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/input.before_mesh.json",
+            "present": true,
+            "sha256": "a175153e2edd1e2d5873a6fb522ce0374e9a72bcadd3c61f2653736b77d2baa5",
+            "size_bytes": 1100
+          },
+          "original_tip.xyz": {
+            "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/original_tip.xyz",
+            "present": true,
+            "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+            "size_bytes": 219899
+          },
+          "run-adflow.py": {
+            "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/run-adflow.py",
+            "present": true,
+            "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+            "size_bytes": 8909
+          },
+          "single-point.py": {
+            "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/single-point.py",
+            "present": true,
+            "sha256": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976",
+            "size_bytes": 4123
+          }
+        },
+        "input_after_mesh_artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/input.json",
+          "present": true,
+          "sha256": "3e91a8420e218ed8d65838e76553d0f9f4d2a98d23d38a4fa73bb68c144cd34d",
+          "size_bytes": 1119
+        },
+        "input_after_mesh_error": null,
+        "mesh_info_artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mesh_info.json",
+          "present": true,
+          "sha256": "71963fe96cafc23bc5bd71d7b55f00ca184c397c359d0d382c058ea82f261b3c",
+          "size_bytes": 103
+        },
+        "mesh_validation_artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mesh_validation.json",
+          "present": true,
+          "sha256": "c7f32c09d57b985f01abe9f9d90d6149fe37056e887322d22cc6ceacc854ae86",
+          "size_bytes": 1275
+        },
+        "min_quality": 0.35671,
+        "min_volume": 2.22e-14,
+        "outcome": "valid",
+        "output_error": null,
+        "raw_input_after_mesh": {
+          "AA": [
+            4.4259755152,
+            4.4259755152,
+            4.4259755152
+          ],
+          "AR": 10.344342413510745,
+          "DA": 1.582204437245621,
+          "DA_kink": 3.520533081060368,
+          "M3": [
+            0.7853,
+            0.8195,
+            0.853
+          ],
+          "SA": 21.7935967488732,
+          "TR": 0.4595901810753135,
+          "cambers": [
+            0.6154310879487609,
+            0.2621087620651942,
+            0.0018639280032228308
+          ],
+          "cst_l": [
+            -0.16732263760039573,
+            -0.006155363326731672,
+            -0.20794871443858126,
+            -0.06503306982010947,
+            -0.683326240635249,
+            -0.0030019446568643107,
+            0.01969433597859215,
+            -0.30135635358903246,
+            0.3563668451943085,
+            0.18937254757920707
+          ],
+          "cst_u": [
+            0.09692740660106032,
+            0.1217280351179405,
+            0.2157311579013737,
+            0.13874489414598074,
+            0.9755719883495234,
+            -0.7959523600805686,
+            0.9829605062106482,
+            0.0787157229775841,
+            -0.04469987760918062,
+            0.45984021555418997
+          ],
+          "half_span": 3.7746251541102986,
+          "kink": 0.448141268396075,
+          "ref_area": 2.754702906089642,
+          "rootadj": 0.8147836757386475,
+          "rtcs": [
+            0.5559347989885087,
+            0.9250571487829686,
+            0.9008961987159484
+          ],
+          "rtctip": 0.4633052035802046,
+          "surface_area": 2.568011723468495,
+          "tcroot": 0.12685196337956697,
+          "twists": [
+            -1.6478589739407514,
+            -1.0438433942586012,
+            -1.9594755421049646,
+            -0.041586477037803354
+          ]
+        },
+        "raw_input_before_mesh": {
+          "AA": [
+            4.4259755152,
+            4.4259755152,
+            4.4259755152
+          ],
+          "AR": 10.344342413510745,
+          "DA": 1.582204437245621,
+          "DA_kink": 3.520533081060368,
+          "M3": [
+            0.7853,
+            0.8195,
+            0.853
+          ],
+          "SA": 21.7935967488732,
+          "TR": 0.4595901810753135,
+          "cambers": [
+            0.6154310879487609,
+            0.2621087620651942,
+            0.0018639280032228308
+          ],
+          "cst_l": [
+            -0.16732263760039573,
+            -0.006155363326731672,
+            -0.20794871443858126,
+            -0.06503306982010947,
+            -0.683326240635249,
+            -0.0030019446568643107,
+            0.01969433597859215,
+            -0.30135635358903246,
+            0.3563668451943085,
+            0.18937254757920707
+          ],
+          "cst_u": [
+            0.09692740660106032,
+            0.1217280351179405,
+            0.2157311579013737,
+            0.13874489414598074,
+            0.9755719883495234,
+            -0.7959523600805686,
+            0.9829605062106482,
+            0.0787157229775841,
+            -0.04469987760918062,
+            0.45984021555418997
+          ],
+          "kink": 0.448141268396075,
+          "rootadj": 0.8147836757386475,
+          "rtcs": [
+            0.5559347989885087,
+            0.9250571487829686,
+            0.9008961987159484
+          ],
+          "tcroot": 0.12685196337956697,
+          "twists": [
+            -1.6478589739407514,
+            -1.0438433942586012,
+            -1.9594755421049646,
+            -0.041586477037803354
+          ]
+        },
+        "raw_mesh_info": {
+          "actual_ds": 1.24e-06,
+          "min_Quality": 0.35671,
+          "min_Vol": 2.22e-14,
+          "target_ds": 1.66919523397364e-06
+        },
+        "raw_mesh_validation": {
+          "post_mesh_input": {
+            "artifact": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/input.json",
+              "present": true,
+              "regular_file": true,
+              "sha256": "3e91a8420e218ed8d65838e76553d0f9f4d2a98d23d38a4fa73bb68c144cd34d",
+              "size_bytes": 1119
+            },
+            "geometry": {
+              "half_span": 3.7746251541102986,
+              "ref_area": 2.754702906089642,
+              "surface_area": 2.568011723468495
+            },
+            "invalid_fields": [],
+            "validation_state": "valid"
+          },
+          "reason_codes": [],
+          "schema_version": "wingbench-cfd-mesh-artifact-validation-v1",
+          "valid": true,
+          "volume_grid": {
+            "artifact": {
+              "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/wing_vol.cgns",
+              "present": true,
+              "regular_file": true,
+              "sha256": "f509acdd1b9089b4d78991cd11a74a8245bac9db5f2327d656618f0153ec9a40",
+              "size_bytes": 88948736
+            },
+            "cell_dimension": 3,
+            "coordinates_finite": true,
+            "reader": "cgnsutilities.cgnsutilities.readGrid",
+            "total_cells": 3527680,
+            "total_nodes": 3699189,
+            "validation_state": "valid",
+            "zone_count": 13,
+            "zone_dimensions": [
+              [
+                113,
+                41,
+                81
+              ],
+              [
+                9,
+                41,
+                81
+              ],
+              [
+                113,
+                41,
+                81
+              ],
+              [
+                9,
+                41,
+                81
+              ],
+              [
+                113,
+                125,
+                81
+              ],
+              [
+                9,
+                125,
+                81
+              ],
+              [
+                113,
+                125,
+                81
+              ],
+              [
+                9,
+                125,
+                81
+              ],
+              [
+                113,
+                17,
+                81
+              ],
+              [
+                9,
+                17,
+                81
+              ],
+              [
+                113,
+                17,
+                81
+              ],
+              [
+                9,
+                17,
+                81
+              ],
+              [
+                9,
+                113,
+                81
+              ]
+            ]
+          }
+        },
+        "raw_volume_meshing_log_evidence": {
+          "actual_ds": 1.24e-06,
+          "first_grid_level": 2.0,
+          "history_rows": 80,
+          "last_grid_level": 81.0,
+          "min_Quality": 0.35671,
+          "min_Vol": 2.22e-14,
+          "schema_version": "wingbench-pyhyp-log-evidence-v1"
+        },
+        "reason_codes": [],
+        "volume_grid_artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/wing_vol.cgns",
+          "present": true,
+          "sha256": "f509acdd1b9089b4d78991cd11a74a8245bac9db5f2327d656618f0153ec9a40",
+          "size_bytes": 88948736
+        },
+        "volume_meshing_log_artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/volume_meshing.log",
+          "present": true,
+          "sha256": "f442df461214ec66a38d248112372a1295bb6f652c5a8559f48786a3bd88e484",
+          "size_bytes": 10669
+        },
+        "volume_meshing_log_evidence_error": null
+      }
+    ],
+    "case_directory": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private",
+    "execution": {
+      "command": [
+        "mpirun",
+        "-np",
+        "16",
+        "-x",
+        "ADFLOW_NK_SWITCH",
+        "-x",
+        "ADFLOW_USE_ANK",
+        "-x",
+        "ADFLOW_USE_NK",
+        "-x",
+        "MKL_NUM_THREADS",
+        "-x",
+        "OMP_NUM_THREADS",
+        "-x",
+        "OPENBLAS_NUM_THREADS",
+        "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+        "gen-mesh.py"
+      ],
+      "cwd": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private",
+      "effective_child_environment": {
+        "ADFLOW_NK_SWITCH": "1e-8",
+        "ADFLOW_USE_ANK": "1",
+        "ADFLOW_USE_NK": "1",
+        "AFLR_ARCH": "Linux-x86-64",
+        "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+        "CASARCH": ".",
+        "CASREV": "7.7",
+        "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+        "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+        "COMPILERS": "gcc",
+        "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+        "EFCOMP": "gfortran",
+        "ESP_ARCH": "LINUX64",
+        "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+        "HOME": "/home/mdolabuser",
+        "HOMEDIR": "/home/mdolabuser",
+        "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+        "LC_CTYPE": "C.UTF-8",
+        "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+        "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+        "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+        "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+        "MKL_NUM_THREADS": "1",
+        "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+        "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "PETSC_ARCH": "real-opt-gcc-3.15.5",
+        "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+        "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+        "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+        "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+        "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+        "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+        "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+        "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+      },
+      "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+      "error": null,
+      "finished_at": "2026-11-08T19:01:36.402251Z",
+      "log": {
+        "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/grade_mesh.log",
+        "present": true,
+        "sha256": "db2f223a3d18c9c3739531d32cd5f5bb2f8606f18d435ac28d7a3fc2e60e8709",
+        "size_bytes": 2824
+      },
+      "returncode": 0,
+      "started_at": "2026-11-08T19:00:36.347451Z",
+      "termination_reason": "completed",
+      "timeout_seconds": 1800,
+      "wall_seconds": 60.054773116484284
+    },
+    "generated_artifacts": {
+      "gen-mesh.py": {
+        "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/gen-mesh.py",
+        "present": true,
+        "sha256": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+        "size_bytes": 17502
+      },
+      "input.before_mesh.json": {
+        "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/input.before_mesh.json",
+        "present": true,
+        "sha256": "a175153e2edd1e2d5873a6fb522ce0374e9a72bcadd3c61f2653736b77d2baa5",
+        "size_bytes": 1100
+      },
+      "original_tip.xyz": {
+        "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/original_tip.xyz",
+        "present": true,
+        "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+        "size_bytes": 219899
+      },
+      "run-adflow.py": {
+        "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/run-adflow.py",
+        "present": true,
+        "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+        "size_bytes": 8909
+      },
+      "single-point.py": {
+        "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/single-point.py",
+        "present": true,
+        "sha256": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976",
+        "size_bytes": 4123
+      }
+    },
+    "input_after_mesh_artifact": {
+      "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/input.json",
+      "present": true,
+      "sha256": "3e91a8420e218ed8d65838e76553d0f9f4d2a98d23d38a4fa73bb68c144cd34d",
+      "size_bytes": 1119
+    },
+    "input_after_mesh_error": null,
+    "mesh_info_artifact": {
+      "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mesh_info.json",
+      "present": true,
+      "sha256": "71963fe96cafc23bc5bd71d7b55f00ca184c397c359d0d382c058ea82f261b3c",
+      "size_bytes": 103
+    },
+    "mesh_validation_artifact": {
+      "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/mesh_validation.json",
+      "present": true,
+      "sha256": "c7f32c09d57b985f01abe9f9d90d6149fe37056e887322d22cc6ceacc854ae86",
+      "size_bytes": 1275
+    },
+    "min_quality": 0.35671,
+    "min_volume": 2.22e-14,
+    "outcome": "valid",
+    "output_error": null,
+    "raw_input_after_mesh": {
+      "AA": [
+        4.4259755152,
+        4.4259755152,
+        4.4259755152
+      ],
+      "AR": 10.344342413510745,
+      "DA": 1.582204437245621,
+      "DA_kink": 3.520533081060368,
+      "M3": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "SA": 21.7935967488732,
+      "TR": 0.4595901810753135,
+      "cambers": [
+        0.6154310879487609,
+        0.2621087620651942,
+        0.0018639280032228308
+      ],
+      "cst_l": [
+        -0.16732263760039573,
+        -0.006155363326731672,
+        -0.20794871443858126,
+        -0.06503306982010947,
+        -0.683326240635249,
+        -0.0030019446568643107,
+        0.01969433597859215,
+        -0.30135635358903246,
+        0.3563668451943085,
+        0.18937254757920707
+      ],
+      "cst_u": [
+        0.09692740660106032,
+        0.1217280351179405,
+        0.2157311579013737,
+        0.13874489414598074,
+        0.9755719883495234,
+        -0.7959523600805686,
+        0.9829605062106482,
+        0.0787157229775841,
+        -0.04469987760918062,
+        0.45984021555418997
+      ],
+      "half_span": 3.7746251541102986,
+      "kink": 0.448141268396075,
+      "ref_area": 2.754702906089642,
+      "rootadj": 0.8147836757386475,
+      "rtcs": [
+        0.5559347989885087,
+        0.9250571487829686,
+        0.9008961987159484
+      ],
+      "rtctip": 0.4633052035802046,
+      "surface_area": 2.568011723468495,
+      "tcroot": 0.12685196337956697,
+      "twists": [
+        -1.6478589739407514,
+        -1.0438433942586012,
+        -1.9594755421049646,
+        -0.041586477037803354
+      ]
+    },
+    "raw_input_before_mesh": {
+      "AA": [
+        4.4259755152,
+        4.4259755152,
+        4.4259755152
+      ],
+      "AR": 10.344342413510745,
+      "DA": 1.582204437245621,
+      "DA_kink": 3.520533081060368,
+      "M3": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "SA": 21.7935967488732,
+      "TR": 0.4595901810753135,
+      "cambers": [
+        0.6154310879487609,
+        0.2621087620651942,
+        0.0018639280032228308
+      ],
+      "cst_l": [
+        -0.16732263760039573,
+        -0.006155363326731672,
+        -0.20794871443858126,
+        -0.06503306982010947,
+        -0.683326240635249,
+        -0.0030019446568643107,
+        0.01969433597859215,
+        -0.30135635358903246,
+        0.3563668451943085,
+        0.18937254757920707
+      ],
+      "cst_u": [
+        0.09692740660106032,
+        0.1217280351179405,
+        0.2157311579013737,
+        0.13874489414598074,
+        0.9755719883495234,
+        -0.7959523600805686,
+        0.9829605062106482,
+        0.0787157229775841,
+        -0.04469987760918062,
+        0.45984021555418997
+      ],
+      "kink": 0.448141268396075,
+      "rootadj": 0.8147836757386475,
+      "rtcs": [
+        0.5559347989885087,
+        0.9250571487829686,
+        0.9008961987159484
+      ],
+      "tcroot": 0.12685196337956697,
+      "twists": [
+        -1.6478589739407514,
+        -1.0438433942586012,
+        -1.9594755421049646,
+        -0.041586477037803354
+      ]
+    },
+    "raw_mesh_info": {
+      "actual_ds": 1.24e-06,
+      "min_Quality": 0.35671,
+      "min_Vol": 2.22e-14,
+      "target_ds": 1.66919523397364e-06
+    },
+    "raw_mesh_validation": {
+      "post_mesh_input": {
+        "artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/input.json",
+          "present": true,
+          "regular_file": true,
+          "sha256": "3e91a8420e218ed8d65838e76553d0f9f4d2a98d23d38a4fa73bb68c144cd34d",
+          "size_bytes": 1119
+        },
+        "geometry": {
+          "half_span": 3.7746251541102986,
+          "ref_area": 2.754702906089642,
+          "surface_area": 2.568011723468495
+        },
+        "invalid_fields": [],
+        "validation_state": "valid"
+      },
+      "reason_codes": [],
+      "schema_version": "wingbench-cfd-mesh-artifact-validation-v1",
+      "valid": true,
+      "volume_grid": {
+        "artifact": {
+          "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/wing_vol.cgns",
+          "present": true,
+          "regular_file": true,
+          "sha256": "f509acdd1b9089b4d78991cd11a74a8245bac9db5f2327d656618f0153ec9a40",
+          "size_bytes": 88948736
+        },
+        "cell_dimension": 3,
+        "coordinates_finite": true,
+        "reader": "cgnsutilities.cgnsutilities.readGrid",
+        "total_cells": 3527680,
+        "total_nodes": 3699189,
+        "validation_state": "valid",
+        "zone_count": 13,
+        "zone_dimensions": [
+          [
+            113,
+            41,
+            81
+          ],
+          [
+            9,
+            41,
+            81
+          ],
+          [
+            113,
+            41,
+            81
+          ],
+          [
+            9,
+            41,
+            81
+          ],
+          [
+            113,
+            125,
+            81
+          ],
+          [
+            9,
+            125,
+            81
+          ],
+          [
+            113,
+            125,
+            81
+          ],
+          [
+            9,
+            125,
+            81
+          ],
+          [
+            113,
+            17,
+            81
+          ],
+          [
+            9,
+            17,
+            81
+          ],
+          [
+            113,
+            17,
+            81
+          ],
+          [
+            9,
+            17,
+            81
+          ],
+          [
+            9,
+            113,
+            81
+          ]
+        ]
+      }
+    },
+    "raw_volume_meshing_log_evidence": {
+      "actual_ds": 1.24e-06,
+      "first_grid_level": 2.0,
+      "history_rows": 80,
+      "last_grid_level": 81.0,
+      "min_Quality": 0.35671,
+      "min_Vol": 2.22e-14,
+      "schema_version": "wingbench-pyhyp-log-evidence-v1"
+    },
+    "reason_codes": [],
+    "volume_grid_artifact": {
+      "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/wing_vol.cgns",
+      "present": true,
+      "sha256": "f509acdd1b9089b4d78991cd11a74a8245bac9db5f2327d656618f0153ec9a40",
+      "size_bytes": 88948736
+    },
+    "volume_meshing_log_artifact": {
+      "path": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/adjoint-v3-s01-low-private/mesh_attempt_00/adjoint-v3-s01-low-private/volume_meshing.log",
+      "present": true,
+      "sha256": "f442df461214ec66a38d248112372a1295bb6f652c5a8559f48786a3bd88e484",
+      "size_bytes": 10669
+    },
+    "volume_meshing_log_evidence_error": null
+  },
+  "official": false,
+  "protocol": {
+    "canonical_sha256": "7ba78aef369fc85c68707b92023699cf8b0288b153b120ad5516a383a2f4a0a9",
+    "protocol_id": "superwing-load-low-cl015-qualification-v1",
+    "protocol_status": "qualification_required",
+    "snapshot": {
+      "aggregation": {
+        "admissibility_fail": "any_conclusive_condition_invalid_or_unmeshable",
+        "admissibility_pass": "all_conditions_valid",
+        "admissibility_undetermined": "no_conclusive_invalidity_and_any_inconclusive_evidence",
+        "diagnostic_partial_metrics_allowed": true,
+        "required_valid_conditions": 3,
+        "score": "geometric_mean_ld",
+        "score_requires_complete_pass": true
+      },
+      "benchmark_release_id": null,
+      "condition_execution_order": [
+        0,
+        1,
+        2
+      ],
+      "condition_gates": {
+        "aeroproblem_fatal_fail_must_equal": false,
+        "aeroproblem_solve_failed_must_equal": false,
+        "aoa_deg_inclusive": [
+          -10.0,
+          25.0
+        ],
+        "cl_match_abs_less_than_or_equal": 0.02,
+        "err_cl_strictly_less_than": 0.0005,
+        "positive_cd_required": true,
+        "positive_cl_required": true,
+        "positive_ld_required": true,
+        "process_returncode_zero_required": true,
+        "solvecl_converged_required": true,
+        "solvecl_result_required": true
+      },
+      "condition_output_order": [
+        0,
+        1,
+        2
+      ],
+      "conditions": [
+        {
+          "cl_target": 0.15,
+          "condition_id": "mach_q1",
+          "mach": 0.7853
+        },
+        {
+          "cl_target": 0.15,
+          "condition_id": "mach_q2",
+          "mach": 0.8195
+        },
+        {
+          "cl_target": 0.15,
+          "condition_id": "mach_q3",
+          "mach": 0.853
+        }
+      ],
+      "environment": {
+        "cst_modeling3d_commit": "9500b19a732463c26b32f6860ac6c517c7d212a5",
+        "expected_runtime_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+        "final_child_image_linux_amd64_digest": "sha256:53a214a5c6ea52287b08656da5e370411323aca64b60e7ab0b13992eb21f8c44",
+        "final_child_image_manifest_digest": "sha256:53a214a5c6ea52287b08656da5e370411323aca64b60e7ab0b13992eb21f8c44",
+        "forbidden_parent_names": [
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "MKL_NUM_THREADS"
+        ],
+        "forbidden_parent_prefixes": [
+          "ADFLOW_"
+        ],
+        "mdolab_base_image_linux_amd64_digest": "sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd",
+        "mdolab_base_image_manifest_digest": "sha256:68393a976907d6306f8b2d87ba95365a8720c3b2a5e55ae431f3cb05d5198223",
+        "require_non_root": true,
+        "required_child_environment": {
+          "ADFLOW_NK_SWITCH": "1e-8",
+          "ADFLOW_USE_ANK": "1",
+          "ADFLOW_USE_NK": "1",
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        }
+      },
+      "execution": {
+        "early_stall_abort": false,
+        "fail_fast_conditions": false,
+        "fresh_attempt_directory": true,
+        "host_lock_path": "/workspace/.wingbench-locks/np16.lock",
+        "infrastructure_retries": 0,
+        "mesh_timeout_seconds": 1800,
+        "mkl_num_threads": 1,
+        "mpi_ranks": 16,
+        "omp_num_threads": 1,
+        "openblas_num_threads": 1,
+        "solve_timeout_seconds_per_attempt": 7200,
+        "timeout_is_scientific_failure": false
+      },
+      "flow": {
+        "area_ref_source": "generated_wing_surface_area",
+        "chord_ref": 1.0,
+        "reynolds": 20000000.0,
+        "reynolds_length": 1.0,
+        "temperature_k": 300.0,
+        "x_ref": 0.25
+      },
+      "generated_case_file_sha256": {
+        "gen-mesh.py": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+        "original_tip.xyz": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+        "run-adflow.py": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+        "single-point.py": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976"
+      },
+      "mesh": {
+        "marginal_quality_if": "0<q<0.05",
+        "min_quality_valid_if": ">0",
+        "min_volume_valid_if": ">0",
+        "missing_or_malformed_evidence": "inconclusive",
+        "recipe": "superwing-dataset-default-v1",
+        "robust_mesh": false
+      },
+      "official_grading_enabled": false,
+      "outcome_policy": {
+        "completed_solvecl_nonconvergence": "invalid_solver_nonconvergence",
+        "malformed_output": "inconclusive_output_failure",
+        "missing_convergence_evidence": "inconclusive_output_failure",
+        "missing_output": "inconclusive_output_failure",
+        "process_error": "inconclusive_infrastructure",
+        "timeout": "inconclusive_timeout",
+        "uninterrupted_infrastructure_failure": "terminal_inconclusive_no_retry",
+        "verified_spot_reclaim": "censored_external_reacquisition_not_scientific_attempt"
+      },
+      "protocol_id": "superwing-load-low-cl015-qualification-v1",
+      "protocol_revision": 3,
+      "protocol_status": "qualification_required",
+      "result_contract": {
+        "all_attempts_preserved": true,
+        "atomic_write_required": true,
+        "geometry_sha256_required": true,
+        "official_requires_protocol_status": "frozen",
+        "protocol_sha256_required": true,
+        "protocol_snapshot_required": true,
+        "schema_version": "wingbench-cfd-whole-wing-result-v1"
+      },
+      "schema_version": "wingbench-cfd-protocol-v1",
+      "scientific_files": [
+        {
+          "path": "scripts/cfd/grading_protocol.py",
+          "sha256": "6828daf5ce8607da33cb1ab128462a87249b2d0bf93499a3f54d771fdc9a53c4"
+        },
+        {
+          "path": "scripts/cfd/grade_schema.py",
+          "sha256": "5507c728205e0a5389bdd8119d8824013c5743a21988d16f57214042b85246e4"
+        },
+        {
+          "path": "scripts/cfd/grade_benchmark.py",
+          "sha256": "1200a150475c921a9901d4963c3a1d19c691336103ac21ef92e55c9fa5987f13"
+        },
+        {
+          "path": "scripts/cfd/runtime_probe.py",
+          "sha256": "c55799f9b0330694489f0f01cffd33cb8dd7ea4074731f26afa4c68acb23a85e"
+        },
+        {
+          "path": "scripts/cfd/validate_mesh_artifact.py",
+          "sha256": "906bcd055686151ce7711d6391ea003dee5e4b76790ca66d62d707f386d84aae"
+        },
+        {
+          "path": "scripts/cfd/raw_evidence.py",
+          "sha256": "c113f7116240f8d352f1647fefd2c2bfe855562d90fdc37ffc0deecc77638f75"
+        },
+        {
+          "path": "scripts/cfd/geometry_hash.py",
+          "sha256": "e837d52cdffa887fe0996943b57518151ae9855ec720a72c8d9d13ba0ec506a8"
+        },
+        {
+          "path": "scripts/cfd/dataset_geometry.py",
+          "sha256": "41cb445fec71d877714fa71febc67322a52f0d794362c8b4964bd7103611d765"
+        },
+        {
+          "path": "scripts/cfd/campaign_publication.py",
+          "sha256": "adf567a80a762807abf3bc411cab78c41a18b569d62372d2f7812b0e739b2f68"
+        },
+        {
+          "path": "scripts/cfd/aws_campaign_publication.py",
+          "sha256": "7a369c3478a9c4d01c73b302394aed072e1f779557d824225d575bd95e3f560e"
+        },
+        {
+          "path": "scripts/cfd/build_benchmark_regrade_manifest.py",
+          "sha256": "22253a93fd8ff918cc520fd63ced057d5a68c11f5e63eb75d97b50376ad2d736"
+        },
+        {
+          "path": "scripts/cfd/build_protocol_qualification_manifest.py",
+          "sha256": "caa03699adcc8e3fe667fa0d4162d778805a4c12e5a9fabfe782c190c8d294cf"
+        },
+        {
+          "path": "scripts/cfd/evaluate_protocol_qualification.py",
+          "sha256": "54aacc83f2783c0647d3831a4edd21d69f8941706b1845b5ff68bb1df79da09b"
+        },
+        {
+          "path": "scripts/cfd/promote_benchmark_manifest.py",
+          "sha256": "76155efed98468b9086e5b99ed09a54952ed15799015f5631a769a88ed98e2d7"
+        },
+        {
+          "path": "scripts/cfd/build_release_lock.py",
+          "sha256": "b597405ea75a236a6428d46f257b553cdd3aea8481b2deddb84b78aec4778170"
+        },
+        {
+          "path": "scripts/cfd/finalize_benchmark_regrade.py",
+          "sha256": "a27bb4c74b0328d180581876130f8794166ac2fd11ac36e7e300e2e4f7082e85"
+        },
+        {
+          "path": "scripts/cfd/derive_seed_aoa.py",
+          "sha256": "79ecab9d35de8ee01180cd19c2dee8148fd6c980ab4eacb1eecb1c422b5df816"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/gen-mesh.superwing.py",
+          "sha256": "7daf656cdb23c6de32fba1585e22bb850d1b7e86c2ad7d031239989f2d1f73b4"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/run-adflow.py",
+          "sha256": "c4f2bb3c04aa21a5a07b5c51a3612e4cd04f7bcc108894e953dd2c6506a86ad6"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/single-point.py",
+          "sha256": "3682aad55ebc051121e0aa373305d0341bbde1a57642fc3f8981b84ffbd15f27"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/original_tip.xyz",
+          "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1"
+        },
+        {
+          "path": "scripts/cfd/prepare_superwing_cases.py",
+          "sha256": "287416b5440ae43eca6c26adaba72fc6f95c0d44143f4bb5e9193424c1113655"
+        },
+        {
+          "path": "configs/cfd/publication_storage_binding_v1.json",
+          "sha256": "a7179dd4ed4218abb67984a1ac1c2befd5bdb0e447e5ca78698ff3fc5cd2bf0a"
+        },
+        {
+          "path": "configs/cfd/seed_aoa_selection_v1.json",
+          "sha256": "58a09c6e39567723836c13140fe70d805c46c2c3b410b52251d2e1efcffe432b"
+        }
+      ],
+      "scientific_scope": {
+        "dataset_geometry_convention": "dataset-index-to-configs-source-id-to-running-info-shape-v1",
+        "generated_geometry_convention": "configs-generated-v1",
+        "geometry_hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+        "geometry_schema": "superwing-38d-v1",
+        "mesh_once": true,
+        "partial_scores_official": false,
+        "serial_conditions": true,
+        "whole_wing_unit": true
+      },
+      "seed_policy": {
+        "alpha0_deg": 4.4259755152,
+        "applies_to_every_wing_and_condition": true,
+        "future_reselection_allowed": false,
+        "selection_record_path": "configs/cfd/seed_aoa_selection_load_low_v1.json",
+        "selection_rule": "exact_median_successful_cases_in_cl_0.13_0.17_no_rounding",
+        "source": "superwing-successful-target-cl-band-median-load-qualification-v1",
+        "type": "fixed_per_condition"
+      },
+      "solver": {
+        "equation_type": "RANS",
+        "l2_convergence": 1e-10,
+        "mg_cycle": "3w",
+        "n_cycles": 3000,
+        "n_cycles_coarse": 500,
+        "nk_switch_tol": 1e-08,
+        "solvecl": {
+          "auto_reset": false,
+          "clalpha_guess": null,
+          "delta": 0.5,
+          "l2_convergence_rel": null,
+          "max_iter": 20,
+          "relax_alpha": 1.0,
+          "relax_clalpha": 1.0,
+          "stop_on_stall": false,
+          "tol": 0.001,
+          "update_cutoff": 1e-16,
+          "work_unit_time": null,
+          "write_solution": true
+        },
+        "use_ank_solver": true,
+        "use_nk_solver": true
+      }
+    }
+  },
+  "protocol_id": "superwing-load-low-cl015-qualification-v1",
+  "release_lock": null,
+  "result_sha256": "3ec81acaa1485be5ea2e41c34ea9c24655f28974f574110e1a71d799c8f2279c",
+  "run_id": "adjoint-v3-s01-low-private",
+  "runtime": {
+    "aws_instance_type_observed": null,
+    "aws_lifecycle_observed": null,
+    "final_child_image_linux_amd64_digest_observed": null,
+    "finished_at": "2026-11-08T20:44:12Z",
+    "git_commit": null,
+    "hostname": null,
+    "platform": "Linux-5.15.0-176-generic-x86_64-with-glibc2.31",
+    "python": "3.9.12",
+    "runtime_attestation": {
+      "status": "not_provided_local_grading"
+    },
+    "runtime_attestation_sha256": null,
+    "solver_environment": {
+      "report_file": "/results/wb-validation-followup-20261107c/private/adjoint-v3-s01-low/checkpoint-4/work/runtime_fingerprint_adjoint-v3-s01-low-private_1794164432.json",
+      "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+      "status": "complete"
+    },
+    "solver_environment_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+    "started_at": "2026-11-08T19:00:36Z"
+  },
+  "schema_version": "wingbench-cfd-whole-wing-result-v1",
+  "timing": {
+    "core_seconds": 99439.3037019372,
+    "mpi_ranks": 16,
+    "process_wall_seconds": 6214.956481371075,
+    "wall_seconds": 6216.3923402279615
+  },
+  "wing_id": "adjoint-v3-s01-low-private"
+}

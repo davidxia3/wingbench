@@ -1,0 +1,61 @@
+{
+  "costs": {
+    "CD_adjoints": 0,
+    "CL_adjoints": 0,
+    "allocated_core_hours_estimate": 27.628588043335412,
+    "child_system_cpu_seconds": 772.535272,
+    "child_user_cpu_seconds": 98316.936214,
+    "failure_cost_note": "When no final grade exists, partial process counts remain unknown; all work/logs are retained.",
+    "joint_attempts_reserved": 1,
+    "llm_calls": 0,
+    "mach_condition_process_attempts": 3,
+    "max_single_child_rss_platform_units": 4172104,
+    "memory_note": "ru_maxrss is not aggregate MPI peak memory; scheduler/cgroup evidence is required.",
+    "mesh_process_attempts": 1,
+    "native_refinement_attempts": 0,
+    "original_grader_calls_started": 1,
+    "original_grader_results_returned": 1,
+    "reported_grade_core_hours": 27.622028806093667,
+    "reported_grader_timing": {
+      "core_seconds": 99439.3037019372,
+      "mpi_ranks": 16,
+      "process_wall_seconds": 6214.956481371075,
+      "wall_seconds": 6216.3923402279615
+    },
+    "surrogate_calls": 0,
+    "trim_iterations_by_mach": [
+      {
+        "iterations": [
+          3
+        ],
+        "mach": 0.7853
+      },
+      {
+        "iterations": [
+          4
+        ],
+        "mach": 0.8195
+      },
+      {
+        "iterations": [
+          4
+        ],
+        "mach": 0.853
+      }
+    ],
+    "wall_seconds": 6216.4323097504675
+  },
+  "delivered": true,
+  "finished_at": "2026-11-08T20:44:12.756935+00:00",
+  "improvement": 0.06084079296136502,
+  "native_original_agreement_passed": true,
+  "native_prediction": 12.26078924724386,
+  "new_CFD_calls": 1,
+  "raw_grade_sha256": "6a1e65a7c2346fbd7649c654253604505551c91504e7270868fa2f09f50a1beb",
+  "relative_native_disagreement": 0.0007634864749295069,
+  "reused_initial_grade": false,
+  "score": 12.251435441985432,
+  "search_feedback": false,
+  "stage_sha256": "be03b03f0f8ee457a27a765606f273a4c67d914447d63aeae400167e4bc6f8e2",
+  "starting_score": 11.548797447527662
+}

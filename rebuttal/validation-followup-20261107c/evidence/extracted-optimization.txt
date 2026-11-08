@@ -1,0 +1,13 @@
+#0 forward  free=True  attempt=0 status=ok wall=36.9min rank_h=9.8 native_LD_geomean=11.5488 fwd_qualified=[True, True, True] fwd_relres_max=4.463015865732407e-13
+#1 gradient free=False attempt=0 status=ok wall=43.6min rank_h=11.6 adjoint=[('cl', 1, True, '1.42e-11'), ('cd', 1, True, '2.15e-11'), ('cl', 1, True, '1.57e-11'), ('cd', 1, True, '1.91e-11'), ('cl', 1, True, '1.79e-11'), ('cd', 1, True, '1.74e-11')]
+#2 forward  free=False attempt=1 status=ok wall=36.2min rank_h=9.7 native_LD_geomean=11.5573 fwd_qualified=[True, True, True] fwd_relres_max=4.4429565157564724e-13
+#3 gradient free=False attempt=1 status=ok wall=44.0min rank_h=11.7 adjoint=[('cl', 1, True, '1.38e-11'), ('cd', 1, True, '2.20e-11'), ('cl', 1, True, '1.55e-11'), ('cd', 1, True, '2.03e-11'), ('cl', 1, True, '1.80e-11'), ('cd', 1, True, '1.75e-11')]
+#4 forward  free=False attempt=2 status=ok wall=38.1min rank_h=10.2 native_LD_geomean=11.7563 fwd_qualified=[True, True, True] fwd_relres_max=4.997409717406637e-13
+#5 gradient free=False attempt=2 status=ok wall=43.1min rank_h=11.5 adjoint=[('cl', 1, True, '1.46e-11'), ('cd', 1, True, '2.20e-11'), ('cl', 1, True, '1.60e-11'), ('cd', 1, True, '1.94e-11'), ('cl', 1, True, '1.81e-11'), ('cd', 1, True, '1.68e-11')]
+#6 forward  free=False attempt=3 status=ok wall=37.0min rank_h=9.9 native_LD_geomean=12.2608 fwd_qualified=[True, True, True] fwd_relres_max=7.07181757066348e-13
+#7 gradient free=False attempt=3 status=ok wall=42.3min rank_h=11.3 adjoint=[('cl', 1, True, '1.46e-11'), ('cd', 1, True, '2.07e-11'), ('cl', 1, True, '1.55e-11'), ('cd', 1, True, '1.94e-11'), ('cl', 1, True, '1.84e-11'), ('cd', 1, True, '1.79e-11')]
+#8 forward  free=False attempt=4 status=scientific_failure wall=31.8min rank_h=8.5 fwd_qualified=[True, False] fwd_relres_max=3.2663624233779896e-11 error={'error': 'Forward solve failed v2 qualification', 'kind': 'scientific', 'type': 'RuntimeError'}
+distinct geometries requested (incl. start): 5
+forward relative residual max over records: 3.2663624233779896e-11
+qualified adjoint relative residual range: 1.38e-11 .. 2.20e-11 (n=24)
+nominations: {'0': {'score': 11.548795697454795, 'search_attempt': 0, 'source': 'starting_wing'}, '1': {'score': 11.557295905316968, 'search_attempt': 1, 'source': 'search'}, '2': {'score': 11.756330459037102, 'search_attempt': 2, 'source': 'search'}, '4': {'score': 12.26078924724386, 'search_attempt': 3, 'source': 'search'}}

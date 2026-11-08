@@ -1,0 +1,10 @@
+{"time": "2026-11-08T09:52:36Z", "stage": "gate_v3_checks", "event": "check", "detail": "result=True"}
+{"time": "2026-11-08T09:52:36Z", "stage": "gate_controls", "event": "wait", "detail": ""}
+{"time": "2026-11-08T11:12:37Z", "stage": "gate_controls", "event": "pass", "detail": "both original-grader controls passed"}
+{"time": "2026-11-08T11:12:37Z", "stage": "initial", "event": "start", "detail": "free original-grader initialization, roster index 0"}
+{"time": "2026-11-08T13:07:03Z", "stage": "initial", "event": "end", "detail": "rc=0 delivered=True"}
+{"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+{"time": "2026-11-08T19:00:31Z", "stage": "optimization", "event": "end", "detail": "rc=0 phase=pilot_paused live_workers=0"}
+{"time": "2026-11-08T19:00:31Z", "stage": "private", "event": "start", "detail": "separate original-grader process, clean parent environment"}
+{"time": "2026-11-08T20:44:12Z", "stage": "private", "event": "end", "detail": "rc=0"}
+{"time": "2026-11-08T20:44:12Z", "stage": "pipeline", "event": "done", "detail": "all stages ran; read private/adjoint-v3-s01-low/checkpoint-4/result.json for the verdict"}

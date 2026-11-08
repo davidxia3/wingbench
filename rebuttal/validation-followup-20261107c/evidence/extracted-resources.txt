@@ -1,0 +1,6 @@
+stage | wall | sampled max memory.current (lower bound) | oom_kill | throttled periods | throttled time | CPU used
+reference_a | 1.48 h (09:43:20–11:12:04Z) | 56.9 GiB | 0 | 18108/53238 (34%) | 2.0 min | 23.6 core-h (alloc 23.7)
+reference_b | 1.45 h (09:43:16–11:10:01Z) | 57.0 GiB | 0 | 30891/52047 (59%) | 1.6 min | 23.1 core-h (alloc 23.1)
+v3-initial | 1.91 h (11:12:37–13:07:03Z) | 57.1 GiB | 0 | 20140/68664 (29%) | 2.5 min | 30.4 core-h (alloc 30.5)
+v3-optimization | 5.89 h (13:07:04–19:00:31Z) | 209.0 GiB | 0 | 68936/212077 (33%) | 9.9 min | 94.0 core-h (alloc 94.3)
+v3-private | 1.73 h (19:00:32–20:44:12Z) | 57.8 GiB | 0 | 20295/62207 (33%) | 2.1 min | 27.5 core-h (alloc 27.6)

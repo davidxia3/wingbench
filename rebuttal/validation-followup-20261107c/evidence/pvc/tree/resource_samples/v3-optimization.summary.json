@@ -1,0 +1,27 @@
+{
+  "sample_count": 1415,
+  "max_sampled_memory_current_bytes_by_cgroup": {
+    "/sys/fs/cgroup": 224363552768
+  },
+  "memory_samples_available": true,
+  "scope": "15-second samples: lower bounds on each visible cgroup peak, not true peak or process RSS. Kernel peak counters, when present, cover cgroup lifetime. Ancestor or namespaced scopes must not be added together.",
+  "absence_means": "unavailable, never zero; consult raw memory.events and Kubernetes OOM/events evidence",
+  "command": [
+    "env",
+    "OMP_NUM_THREADS=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "MKL_NUM_THREADS=1",
+    "python3",
+    "/workspace/repo/rebuttal/adjoint/campaign_v3/run.py",
+    "--initial",
+    "/results/wb-validation-followup-20261107c/initial/adjoint-v3-s01-low/initialization.json",
+    "--out",
+    "/results/wb-validation-followup-20261107c/optimization/adjoint-v3-s01-low",
+    "--release-sha256",
+    "97c2ec11bb7bd2134612e1470a5e6ffe76993078595cfba7cdbb5639a782eff4",
+    "--stage-limit",
+    "4"
+  ],
+  "child_return_code": 0,
+  "forwarded_signals": []
+}

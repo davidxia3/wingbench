@@ -1,0 +1,3 @@
+[prep] reference_b: case=/results/wb-validation-followup-20261107c/reference_b/work/reference_b/mesh_attempt_00/reference_b
+[prep]   SA=39.22 AR=12.49 TR=0.371 kink=0.350 tcroot=0.1418
+[prep]   conditions: [(0.7853, 6.6401110468), (0.8195, 6.6401110468), (0.853, 6.6401110468)]

@@ -1,0 +1,77 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wb-validation-followup-20261107c-reference-b
+  namespace: jisenli2
+  labels:
+    app.kubernetes.io/name: wingbench-jisen-validation
+    wingbench-run: wb-validation-followup-20261107c
+    wingbench-phase: original-grader-control
+    wingbench-control: reference_b
+  annotations:
+    wingbench/scope: "validation-only follow-up 2026-11-07; original-grader control; no production episodes"
+    wingbench/image-supplement: "v2 image sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e plus agents/tasks/task_documents.json sha256:396865584f718036b5bc9c3a9e500364b582eb8be59473d80e4ecd898e24a6e0"
+    wingbench/sampling: "v2 resource_sampler.py, 15 s memory.current samples are lower bounds, not true peaks"
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: wingbench-jisen-validation
+        wingbench-run: wb-validation-followup-20261107c
+        wingbench-phase: original-grader-control
+        wingbench-control: reference_b
+    spec:
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      enableServiceLinks: false
+      terminationGracePeriodSeconds: 120
+      imagePullSecrets:
+      - name: ghcr-wb-pull
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        kubernetes.io/hostname: research-common-h100-090.cloud.together.ai
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: control
+        image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:7c1fb226f1df0e7b526cad1570f22538a5935c0a33ca4d86a0d77791aaa57587
+        imagePullPolicy: IfNotPresent
+        command:
+        - /bin/bash
+        - /workspace/repo/rebuttal/container_entry.sh
+        - python3
+        - /workspace/repo/rebuttal/compute/jisen_verify_v2/resource_sampler.py
+        - --output
+        - /results/wb-validation-followup-20261107c/resource_samples/reference_b.jsonl
+        - --
+        - python3
+        - /workspace/repo/rebuttal/compute/jisen_verify_v2/run_grade.py
+        - --out
+        - /results/wb-validation-followup-20261107c/reference_b
+        resources:
+          requests: {cpu: "16", memory: 96Gi}
+          limits: {cpu: "16", memory: 96Gi}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: [ALL]
+        volumeMounts:
+        - name: results
+          mountPath: /results
+        - name: shm
+          mountPath: /dev/shm
+      volumes:
+      - name: results
+        persistentVolumeClaim:
+          claimName: wb-verify-results
+      - name: shm
+        emptyDir:
+          medium: Memory
+          sizeLimit: 2Gi

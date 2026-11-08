@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "kind": "original_grader_control",
+  "grading_mode": "local",
+  "official_sealed_grade": false,
+  "relative_gate": 0.005,
+  "can_launch_campaign": false,
+  "delivered": true,
+  "original_score": 32.05225247077079,
+  "comparisons": [
+    {
+      "mach": 0.7853,
+      "relative_errors": {
+        "cl": 0.0,
+        "cd": 0.0
+      },
+      "within_limit": true
+    },
+    {
+      "mach": 0.8195,
+      "relative_errors": {
+        "cl": 0.0,
+        "cd": 0.0
+      },
+      "within_limit": true
+    },
+    {
+      "mach": 0.853,
+      "relative_errors": {
+        "cl": 0.0,
+        "cd": 0.0
+      },
+      "within_limit": true
+    }
+  ],
+  "wall_seconds": 5323.783080611378
+}

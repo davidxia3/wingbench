@@ -1,0 +1,3 @@
+ERROR 7: VSPAERO Viewer Not Found. 
+	Expected here: /home/mdolabuser/packages/OpenVSP/python/openvsp/openvsp/vspviewer
+{"episode_id": "adjoint-v3-s01-low", "phase": "initialized", "initial_score": 11.548797447527662}

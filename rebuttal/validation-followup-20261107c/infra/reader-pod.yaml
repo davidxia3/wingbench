@@ -1,0 +1,22 @@
+# Step 5 (after the launcher exits). A read-only pod used only to copy evidence from the PVC.
+# Delete it after the copy. It does not touch the run directory: the PVC is mounted read-only.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-validation-followup-20261107c-reader
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: reader, wingbench-run: wb-validation-followup-20261107c-infra}
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-090.cloud.together.ai}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  containers:
+  - name: reader
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e
+    command: [sleep, "86400"]
+    resources: {requests: {cpu: 200m, memory: 512Mi}, limits: {cpu: "1", memory: 2Gi}}
+    volumeMounts: [{name: results, mountPath: /results, readOnly: true}]
+  volumes:
+  - {name: results, persistentVolumeClaim: {claimName: wb-verify-results, readOnly: true}}

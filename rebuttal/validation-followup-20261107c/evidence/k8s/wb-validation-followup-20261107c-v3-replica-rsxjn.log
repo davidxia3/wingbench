@@ -1,0 +1,10 @@
+2026-11-08T01:52:36.522794014-08:00 {"time": "2026-11-08T09:52:36Z", "stage": "gate_v3_checks", "event": "check", "detail": "result=True"}
+2026-11-08T01:52:36.546038874-08:00 {"time": "2026-11-08T09:52:36Z", "stage": "gate_controls", "event": "wait", "detail": ""}
+2026-11-08T03:12:37.139592540-08:00 {"time": "2026-11-08T11:12:37Z", "stage": "gate_controls", "event": "pass", "detail": "both original-grader controls passed"}
+2026-11-08T03:12:37.142507348-08:00 {"time": "2026-11-08T11:12:37Z", "stage": "initial", "event": "start", "detail": "free original-grader initialization, roster index 0"}
+2026-11-08T05:07:03.906678851-08:00 {"time": "2026-11-08T13:07:03Z", "stage": "initial", "event": "end", "detail": "rc=0 delivered=True"}
+2026-11-08T05:07:03.908999849-08:00 {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+2026-11-08T11:00:31.844389514-08:00 {"time": "2026-11-08T19:00:31Z", "stage": "optimization", "event": "end", "detail": "rc=0 phase=pilot_paused live_workers=0"}
+2026-11-08T11:00:31.846945726-08:00 {"time": "2026-11-08T19:00:31Z", "stage": "private", "event": "start", "detail": "separate original-grader process, clean parent environment"}
+2026-11-08T12:44:12.923025549-08:00 {"time": "2026-11-08T20:44:12Z", "stage": "private", "event": "end", "detail": "rc=0"}
+2026-11-08T12:44:12.926479388-08:00 {"time": "2026-11-08T20:44:12Z", "stage": "pipeline", "event": "done", "detail": "all stages ran; read private/adjoint-v3-s01-low/checkpoint-4/result.json for the verdict"}

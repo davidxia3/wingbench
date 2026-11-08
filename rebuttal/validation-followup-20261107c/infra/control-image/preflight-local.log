@@ -1,0 +1,14 @@
+uid=1000(mdolabuser) gid=1000(mdolabuser) groups=1000(mdolabuser)
+-rw-r--r-- 1 1000 1000 1704 Nov  8 04:32 /workspace/repo/agents/tasks/task_documents.json
+396865584f718036b5bc9c3a9e500364b582eb8be59473d80e4ecd898e24a6e0  /workspace/repo/agents/tasks/task_documents.json
+v2 package repo files unchanged: 157/157 OK
+uid 1000 gid 1000
+forbidden parent env: []
+task documents: /workspace/repo/agents/tasks/task_documents.json
+load_tasks ok: {'low': 0.15, 'nominal': 0.41, 'high': 0.66}
+control case: E1236 [('0.7853', '0.4100288569865937', '0.012661093112055637'), ('0.8195', '0.41001242093544216', '0.012729520316834216'), ('0.853', '0.40995782482703824', '0.012986487746186966')]
+grader constructed, child env keys: ['ADFLOW_NK_SWITCH', 'ADFLOW_USE_ANK', 'ADFLOW_USE_NK', 'AFLR_ARCH', 'CAPS_GLYPH', 'CASARCH', 'CASREV', 'CASROOT', 'CGNS_HOME', 'COMPILERS', 'COMPLEXIFY_DIR', 'EFCOMP', 'ESP_ARCH', 'ESP_ROOT', 'HOME', 'HOMEDIR', 'IPOPT_DIR', 'LC_CTYPE', 'LD_LIBRARY_PATH', 'MDOLAB_JSON_DIR', 'MDOLAB_PACKAGES_DIR', 'MDOLAB_REPO_DIR', 'MKL_NUM_THREADS', 'MPI_DIR', 'OMPI_MCA_btl_vader_single_copy_mechanism', 'OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'PATH', 'PETSC_ARCH', 'PETSC_ARCH_COMPLEX', 'PETSC_ARCH_REAL', 'PETSC_DIR', 'PKG_CONFIG_PATH', 'PYENV_ROOT', 'PYTHONINC', 'PYTHONLIB', 'PYTHONNOUSERSITE', 'PYTHONPATH', 'UDUNITS2_XML_PATH']
+runtime_status: {"probed": false, "probe_error": "runtime preflight failed with return code 2: ERROR 7: VSPAERO Viewer Not Found. \n\tExpected here: /home/mdolabuser/packages/OpenVSP/python/openvsp/openvsp/vspviewer\n", "report_sha256": null, "expected_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d", "matches_campaign": null, "detail": "the runtime probe could not complete on this machine"}
+elapsed_s 3.0
+probe report runtime_fingerprint_uid1000-preflight_1794130447.json status: incomplete
+  FAIL .mpi_smoke_test -> expected exactly one MPI marker, observed 0 | output tail: None
