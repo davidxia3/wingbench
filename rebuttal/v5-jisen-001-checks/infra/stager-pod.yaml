@@ -1,0 +1,24 @@
+# Short-lived pod that writes the v5 handoff archive and the infra scripts to the PVC. Deleted afterwards.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-v5-jisen-001-stager
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-validation, wingbench-run: wb-v5-jisen-001-infra, role: stager}
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  enableServiceLinks: false
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-059.cloud.together.ai}
+  tolerations: [{key: capacity.together.ai/pool, operator: Equal, value: single-node-only, effect: NoSchedule}]
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  containers:
+  - name: stager
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e
+    command: [sleep, "3600"]
+    resources: {requests: {cpu: 500m, memory: 1Gi}, limits: {cpu: "2", memory: 2Gi}}
+    securityContext: {allowPrivilegeEscalation: false, capabilities: {drop: [ALL]}}
+    volumeMounts: [{name: results, mountPath: /results}]
+  volumes:
+  - {name: results, persistentVolumeClaim: {claimName: wb-verify-results}}
