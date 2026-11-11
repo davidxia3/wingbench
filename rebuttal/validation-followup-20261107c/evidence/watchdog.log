@@ -1,0 +1,196 @@
+=== 2026-11-08T09:44:44Z (local 01:44)
+jobs: reference_a=running reference_b=running
+pods: reference_a:Running/restarts=0/running@research-common-h100-059 reference_b:Running/restarts=0/running@research-common-h100-090
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-reference-a-4zh2r cpu=15919m mem=1365Mi; wb-validation-followup-20261107c-reference-b-szclc cpu=15984m mem=1364Mi; 
+reference_a: running, work files=11, newest=reference_a/mesh_attempt_00/reference_a/volume_meshing.log
+reference_b: running, work files=11, newest=reference_b/mesh_attempt_00/reference_b/volume_meshing.log
+samples: 6 / 7
+=== 2026-11-08T09:53:24Z (local 01:53)
+jobs: reference_a=running reference_b=running v3-checks=complete v3-replica=running
+pods: reference_a:Running/restarts=0/running@research-common-h100-059 reference_b:Running/restarts=0/running@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-reference-a-4zh2r cpu=15968m mem=42959Mi; wb-validation-followup-20261107c-reference-b-szclc cpu=15975m mem=42966Mi; wb-validation-followup-20261107c-v3-replica-rsxjn cpu=0m mem=0Mi; 
+reference_a: running, work files=18, newest=reference_a/mesh_attempt_00/reference_a/mach_q1_attempt_00/adflow.log
+reference_b: running, work files=18, newest=reference_b/mesh_attempt_00/reference_b/mach_q1_attempt_00/adflow.log
+v3 pipeline: {"time": "2026-11-08T09:52:36Z", "stage": "gate_controls", "event": "wait", "detail": ""}
+samples: reference_a=41 reference_b=41
+=== 2026-11-08T10:14:52Z (local 02:14)
+jobs: reference_a=running reference_b=running v3-checks=complete v3-replica=running
+pods: reference_a:Running/restarts=0/running@research-common-h100-059 reference_b:Running/restarts=0/running@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-reference-a-4zh2r cpu=15988m mem=41616Mi; wb-validation-followup-20261107c-reference-b-szclc cpu=16001m mem=41901Mi; wb-validation-followup-20261107c-v3-replica-rsxjn cpu=0m mem=0Mi; 
+reference_a: running, work files=27, newest=reference_a/mesh_attempt_00/reference_a/mach_q2_attempt_00/adflow.log
+reference_b: running, work files=27, newest=reference_b/mesh_attempt_00/reference_b/mach_q2_attempt_00/adflow.log
+v3 pipeline: {"time": "2026-11-08T09:52:36Z", "stage": "gate_controls", "event": "wait", "detail": ""}
+samples: reference_a=127 reference_b=127
+=== 2026-11-08T10:44:52Z (local 02:44)
+jobs: reference_a=running reference_b=running v3-checks=complete v3-replica=running
+pods: reference_a:Running/restarts=0/running@research-common-h100-059 reference_b:Running/restarts=0/running@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-reference-a-4zh2r cpu=15982m mem=42964Mi; wb-validation-followup-20261107c-reference-b-szclc cpu=15983m mem=42973Mi; wb-validation-followup-20261107c-v3-replica-rsxjn cpu=0m mem=0Mi; 
+reference_a: running, work files=36, newest=reference_a/mesh_attempt_00/reference_a/mach_q3_attempt_00/adflow.log
+reference_b: running, work files=36, newest=reference_b/mesh_attempt_00/reference_b/mach_q3_attempt_00/adflow.log
+v3 pipeline: {"time": "2026-11-08T09:52:36Z", "stage": "gate_controls", "event": "wait", "detail": ""}
+samples: reference_a=247 reference_b=247
+=== 2026-11-08T11:14:53Z (local 03:14)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15970m mem=3634Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T11:12:37Z", "stage": "initial", "event": "start", "detail": "free original-grader initialization, roster index 0"}
+v3 initial: files=23 initialization.json=no
+samples: reference_a=356 reference_b=348 v3-initial=10
+=== 2026-11-08T11:44:53Z (local 03:44)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15955m mem=43962Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T11:12:37Z", "stage": "initial", "event": "start", "detail": "free original-grader initialization, roster index 0"}
+v3 initial: files=32 initialization.json=no
+samples: reference_a=356 reference_b=348 v3-initial=130
+=== 2026-11-08T12:15:03Z (local 04:15)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15943m mem=50259Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T11:12:37Z", "stage": "initial", "event": "start", "detail": "free original-grader initialization, roster index 0"}
+v3 initial: files=32 initialization.json=no
+samples: reference_a=356 reference_b=348 v3-initial=251
+=== 2026-11-08T12:44:59Z (local 04:44)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15967m mem=44871Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T11:12:37Z", "stage": "initial", "event": "start", "detail": "free original-grader initialization, roster index 0"}
+v3 initial: files=41 initialization.json=no
+samples: reference_a=356 reference_b=348 v3-initial=370
+=== 2026-11-08T13:15:00Z (local 05:15)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15986m mem=45295Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=1 stage04=no newest=workers/oracle-00000/worker.log
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=32
+=== 2026-11-08T13:45:00Z (local 05:45)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15977m mem=170575Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=1 stage04=no newest=workers/oracle-00000/worker.log
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=152
+=== 2026-11-08T14:15:02Z (local 06:15)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15957m mem=212300Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=1 stage04=no newest=workers/oracle-00000/worker.log
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=273
+=== 2026-11-08T14:45:12Z (local 06:45)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15943m mem=101825Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=2 stage04=no newest=workers/oracle-00002/worker.log
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=393
+=== 2026-11-08T15:14:58Z (local 07:14)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15957m mem=187310Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=2 stage04=no newest=workers/oracle-00002/worker.log
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=512
+=== 2026-11-08T15:45:01Z (local 07:45)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15980m mem=213018Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T13:07:03Z", "stage": "optimization", "event": "start", "detail": "run.py --stage-limit 4, single-threaded BLAS"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=2 stage04=no newest=workers/oracle-00002/worker.log
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=632
+=== 2026-11-08T19:58:11Z (local 11:58)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15978m mem=50547Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T19:00:31Z", "stage": "private", "event": "start", "detail": "separate original-grader process, clean parent environment"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=5 stage04=yes newest=stage-04.json
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=1415 v3-private=231
+=== 2026-11-08T20:44:02Z (local 12:44)
+jobs: reference_a=complete reference_b=complete v3-checks=complete v3-replica=running
+pods: reference_a:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 reference_b:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-090 v3-checks:Succeeded/restarts=0/terminated(exit=0,Completed)@research-common-h100-059 v3-replica:Running/restarts=0/running@research-common-h100-059
+GPU holder: dev-059-8g=Running/restarts=2/started=2026-11-03T19:15:58Z
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: wb-validation-followup-20261107c-v3-replica-rsxjn cpu=15992m mem=58123Mi; 
+reference_a: DONE passed=True score=32.05225247077079 wall_s=5324 err=None
+reference_b: DONE passed=True score=32.05225247077079 wall_s=5204 err=None
+v3 pipeline: {"time": "2026-11-08T19:00:31Z", "stage": "private", "event": "start", "detail": "separate original-grader process, clean parent environment"}
+v3 initial: files=49 initialization.json=yes
+v3 optimization: oracle_dirs=5 stage04=yes newest=stage-04.json
+samples: reference_a=356 reference_b=348 v3-initial=459 v3-optimization=1415 v3-private=415
+=== 2026-11-08T20:50:36Z DONE. v3-replica Complete 20:44:15Z (pipeline done). Controls passed; v3-checks passed; optimization pilot_paused (4 attempts, 1 scientific forward failure); private grade delivered 12.2514 (+6.08%), agreement 0.076%. Evidence collected (345 files verified, 61 bulk files listed). Pushed to davidxia3/wingbench branch jisen/validation-followup-20261107c commit 43eecbe. Cron deleted, caffeinate stopped.

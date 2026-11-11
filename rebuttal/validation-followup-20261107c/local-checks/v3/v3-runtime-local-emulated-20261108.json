@@ -1,0 +1,161 @@
+{
+  "manifests": {
+    "initial_release.json": "verified",
+    "pilot_release.json": "verified"
+  },
+  "scientific": {
+    "python": "3.9.12",
+    "executable": "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "modules": {
+      "numpy": {
+        "version": "1.21.5",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/numpy/__init__.py"
+      },
+      "scipy": {
+        "version": "1.7.3",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/scipy/__init__.py"
+      },
+      "mpi4py": {
+        "version": "3.1.5",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/mpi4py/__init__.py"
+      },
+      "petsc4py": {
+        "version": "3.15.5",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/petsc4py/__init__.py"
+      },
+      "adflow": {
+        "version": "2.12.1",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/adflow/__init__.py"
+      },
+      "idwarp": {
+        "version": "2.6.2",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/idwarp/__init__.py"
+      },
+      "pyhyp": {
+        "version": "2.6.2",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/pyhyp/__init__.py"
+      },
+      "cgnsutilities": {
+        "version": "2.8.1",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/cgnsutilities/__init__.py"
+      },
+      "baseclasses": {
+        "version": "1.8.2",
+        "path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/baseclasses/__init__.py"
+      },
+      "cst_modeling": {
+        "version": "0.2.8",
+        "path": "/workspace/runtime/cst-modeling3d/cst_modeling/__init__.py"
+      }
+    },
+    "petsc_version": [
+      3,
+      15,
+      5
+    ],
+    "petsc_version_source": "/home/mdolabuser/packages/petsc-3.15.5/include/petscversion.h",
+    "petsc_header_sha256": "fbd7d71182e04e622f99e77857c4b77813297d5c139c176e444834f6dcda8909",
+    "cst_commit": "9500b19a732463c26b32f6860ac6c517c7d212a5",
+    "mpirun_path": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/mpirun",
+    "mpirun_sha256": "54c3302b3105f9470b37bc3fd396e121104110d39028c40f4e7f89583e659294",
+    "mpirun_version": "mpirun (Open MPI) 4.1.6\n\nReport bugs to http://www.open-mpi.org/community/help/",
+    "sha256": {
+      "adflow_python": "790f3f6353fc8501d256f5d78c32c9aeb59ee522e0f92814666c4135028b8425",
+      "adflow_library": "a4c9da4969963fe397f3d8db6477ad8cf5c5b898c7b5c6b89ec52613ee91c02b",
+      "idwarp_python": "5891fb1bf66745a8b7950b6b0f4c13e9dc81f32a5cbd9697055755ab0b1b57aa",
+      "cst_math": "9d0e7b8b3106c75fa78a6d6bb1dd45dc2c7deab35836bf6f8ac7cde2dcab30c3",
+      "cst_basic": "1c5bfbcc7c1abcafd80560a8f6277133fd70caa541188fba284212182651967b",
+      "cst_section": "d7e356bbea7c3442ab0f25dab2da1a5bef079d3533193af5307f02c0ec4ce798",
+      "cst_io": "c468e624521a196ab9c1be19a6774bcfdeda5dc126d79b05837114c78cee1b8a",
+      "idwarp_binary_libidwarp.so": "136c88378cec83e8e5d663c20aa38e6e13e3ade8ef1ee1d07faac216cf07faa8",
+      "idwarp_binary_libidwarp_cs.so": "d9550f44f219d74b1d75e811a7dff6d4307f2ec38fe8ea4ece2d0c588e9c39a5"
+    },
+    "paths": {
+      "adflow_python": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/adflow/pyADflow.py",
+      "adflow_library": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/adflow/libadflow.so",
+      "idwarp_python": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/idwarp/UnstructuredMesh.py",
+      "cst_math": "/home/mdolabuser/repos/cst-modeling3d/cst_modeling/math.py",
+      "cst_basic": "/home/mdolabuser/repos/cst-modeling3d/cst_modeling/basic.py",
+      "cst_section": "/home/mdolabuser/repos/cst-modeling3d/cst_modeling/section.py",
+      "cst_io": "/home/mdolabuser/repos/cst-modeling3d/cst_modeling/io.py",
+      "idwarp_binary_libidwarp.so": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/idwarp/libidwarp.so",
+      "idwarp_binary_libidwarp_cs.so": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/idwarp/libidwarp_cs.so"
+    },
+    "binary_hash_scope": "Installed library files; preflight does not instantiate a CFD solver.",
+    "hardware": {
+      "hostname": "8758a62fa193",
+      "machine": "x86_64",
+      "platform": "Linux-7.0.12-linuxkit-x86_64-with-glibc2.31",
+      "kernel": "7.0.12-linuxkit",
+      "cpu_model": "VirtualApple @ 2.50GHz",
+      "affinity_logical_cpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "affinity_physical_core_count": 14,
+      "host_memory_bytes": 8318976000,
+      "cgroup": {
+        "records": [
+          {
+            "path": "/sys/fs/cgroup",
+            "cpu.max": "max 100000",
+            "cpu_quota_us": null,
+            "cpu_period_us": null,
+            "memory_limit": "max",
+            "cpuset": "0-13"
+          }
+        ],
+        "cpu_quota_units": null,
+        "memory_limit_bytes": null
+      },
+      "physical_core_exclusivity_verified": false,
+      "physical_core_note": "Visible topology and quota do not establish exclusive physical cores; Kubernetes CPU units may be hardware threads."
+    }
+  },
+  "optimizer": {
+    "cyipopt_version": "1.4.1",
+    "ipopt_version": [
+      3,
+      13,
+      4
+    ],
+    "numpy_version": "1.21.5",
+    "files": {
+      "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/ipopt_wrapper.cpython-39-x86_64-linux-gnu.so": "4ed7ad995f7472b6f5a02b7811e53862016a0948ec41f61ccd70c214911943a8",
+      "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/cyipopt/__init__.py": "8a9f733954dab9ea4c714f4d633c213e669ae69cace91d57c08d1ec4d29f380e",
+      "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so": "05fd7425c24e13047d399cc15983fea99863588eaa51eea50c24ba46e51dbc02",
+      "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3": "e9e5382a4e4561a1f667c64b6ca80fb1a9655e377c8625a57feecd53a5338b16",
+      "/home/mdolabuser/packages/Ipopt/lib/libipopt.so.3": "07c5b8caff5ae81c7114c9387f919ef1277b8cf8525a12c535445f04772492d8",
+      "/lib/x86_64-linux-gnu/libc.so.6": "53b909551f8e581120ddc2d24cfb5df76c52e3c2e2a5dac0d202b25638b3e902",
+      "/home/mdolabuser/packages/Ipopt/lib/libcoinmumps.so.3": "475aa47792c4a60c0c7b281c5be848e46f35fcc816d18fb1dc9d140f6618ebca",
+      "/lib/x86_64-linux-gnu/liblapack.so.3": "86ce423d6069cbbf6adddd4f89e1e4ea8ca66ca86308ecfc026ace5b85fe7d92",
+      "/lib/x86_64-linux-gnu/libblas.so.3": "41474fda3fbae6277c079257d8e236c702860a54585686d5a421c7731ad530b6",
+      "/lib/x86_64-linux-gnu/libdl.so.2": "e0d0cace80b627e50ca3f7b621b64917677c27c74077080854d57cf4e548edc6",
+      "/lib/x86_64-linux-gnu/libstdc++.so.6": "26916e7389a561537a0510661fc75538cea236139346f3dbe21bc64ba65605bf",
+      "/lib/x86_64-linux-gnu/libm.so.6": "a0e70f48f02a399e8dd37f861a99e226c285a9daf50a25d19fff7ccf18b97f9c",
+      "/lib/x86_64-linux-gnu/libgcc_s.so.1": "489803ded8a4d803e2c792763a2767c12185f5764b7bba080742d14ef2452b27",
+      "/home/mdolabuser/packages/Ipopt/lib/libcoinmetis.so.2": "fdddc6c0b7031a4fa1bb4582b56f6ec53fd1caf0f347f20b468945e0e6a27a46",
+      "/lib/x86_64-linux-gnu/libgfortran.so.5": "01fc721062fc3c2b5492202d276c5a374b7d952fc168d2d1e603fa85660cc502",
+      "/lib/x86_64-linux-gnu/libpthread.so.0": "af27ed906f6185e0143b9c0d0da287788efa7eb6b2639e44d48fb2939415fdc5",
+      "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib/libquadmath.so.0": "96973f995bad4e4b80eaa188b7bac60bd0df44b22ee67bd046b3aa4ecb9e34fd"
+    },
+    "cpu_model": "VirtualApple @ 2.50GHz",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  }
+}

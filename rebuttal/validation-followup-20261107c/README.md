@@ -175,5 +175,11 @@ The memory figures are the maximum of `memory.current` sampled every 15 s by the
 | `evidence/pvc/SHA256SUMS-cluster` | SHA256 of **every** file in the run directory (594 files, including the read-only v3 source) |
 | `evidence/pvc/EXCLUDED-bulk-files.tsv` | 61 bulk files not copied (2.9 GB: CGNS meshes and solutions, `.plt`, `.dat`, `.xyz`), with size and sha256. They remain on the PVC |
 | `evidence/k8s/` | Pod logs, Job and pod JSON, namespace events |
+| `evidence/watchdog.log` | The cron watchdog log for this run |
 | `run-b-evidence/` | Evidence package for the old numerical run `wb-adjoint-v2-20261107b`, 3.9 MB, with its own README and SHA256SUMS |
 | `infra/` | Job and pod manifests, the scripts that ran from the PVC, evidence and watchdog scripts, and the control image Dockerfile |
+| `infra/control-image/` | Also the local build and push logs and `chk/`, the local preflight scripts and the v2 image hash list they checked against |
+| `local-checks/v3/` | The laptop-side v3 check before the cluster run: `check.py`, `run.sh`, logs, `test_core.log`, the emulated runtime records and the optimizer test transcripts |
+| `input-package/` | David's handoff archive `wingbench-jisen-validation-followup-20261107.tar.gz` as received, its `.sha256`, and `JISEN_VALIDATION_FOLLOWUP_2026-11-07.md` |
+| `notes/` | The two notes sent to David for this run |
+| `SHA256SUMS` | SHA256 of every file in this directory |
