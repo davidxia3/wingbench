@@ -96,7 +96,9 @@ So at most 3 of the 6 episodes could run at once right now. The rest would have 
 | `checks/resource_samples/` | Sampler JSONL and summaries |
 | `checks-SHA256SUMS-computed-on-cluster` | SHA256 of every check file, computed on the PVC before copying (76 files) |
 | `k8s/` | Job and pod JSON, pod logs, events |
-| `infra/` | `v5-check.sh`, `resource_sampler.py`, the two Job manifests, the short-lived stager pod manifest, creation time |
+| `infra/` | `v5-check.sh`, `resource_sampler.py`, the two Job manifests, the short-lived stager pod manifest, creation time, and `SHA256SUMS-pvc-infra` (hashes of the two scripts as staged on the PVC) |
+| `input-package/` | The handoff archive `wingbench-v5-jisen-001.tar.gz` as received, with its locally computed hash |
+| `notes/` | The note sent to David with these results |
 | `SHA256SUMS` | SHA256 of every file in this package |
 
 ## Verify
