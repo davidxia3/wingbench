@@ -112,6 +112,7 @@ The frozen manifests carry no in-pod sampler. A read-only external sampler read 
 | `k8s/` | Create output; Job and pod JSON at start and end; lane pod logs; the lane 1 pod during eviction; the node 090 object (the cordoning SRE's email address in its annotation is replaced by `[redacted]`, here and in `records/incident-05`); events |
 | `launch-package/` | The launch archive as received, with its hash computed on the cluster |
 | `infra/` | `watchdog.sh`, `external-sampler.sh` (v2) and `external-sampler.v1.sh` |
+| `notes/` | The three notes sent to David during this launch: launch status, the index 0 incident, and the final results |
 | `SHA256SUMS` | SHA256 of every file in this package |
 
 ## Verify
