@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/tools/kubectl",
+    "--namespace",
+    "jisenli2",
+    "top",
+    "pods",
+    "-l",
+    "wingbench-run=wb-adjoint-v2-20261107b,wingbench-phase=workers",
+    "--no-headers"
+  ],
+  "started_at_utc": "2026-11-07T09:27:01.599078+00:00",
+  "finished_at_utc": "2026-11-07T09:27:01.686478+00:00",
+  "return_code": 0,
+  "stdout": "wb-adjoint-v2-20261107b-w00-94hcg   15977m   42410Mi   \nwb-adjoint-v2-20261107b-w01-tc9zx   15898m   44292Mi   \nwb-adjoint-v2-20261107b-w02-4nmgw   15982m   42569Mi   \nwb-adjoint-v2-20261107b-w03-2z52q   15949m   63742Mi   \nwb-adjoint-v2-20261107b-w04-77jqr   14878m   2334Mi    \nwb-adjoint-v2-20261107b-w05-dth2b   15945m   3802Mi    \nwb-adjoint-v2-20261107b-w06-xz8nv   15964m   2557Mi    \nwb-adjoint-v2-20261107b-w07-kp5dd   15955m   42952Mi   \n",
+  "stderr": ""
+}

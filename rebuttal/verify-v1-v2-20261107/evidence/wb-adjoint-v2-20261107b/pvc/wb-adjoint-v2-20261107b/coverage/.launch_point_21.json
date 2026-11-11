@@ -1,0 +1,29 @@
+{
+  "schema": "wingbench-adjoint-process-v2",
+  "mode": "point",
+  "index": 21,
+  "manifest_sha256": "43997fa22f5b4557b25db9cc612afe6c71dfb98306ff3f61f91f5b03bf6f1712",
+  "command": [
+    "mpirun",
+    "-np",
+    "16",
+    "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "/workspace/repo/rebuttal/adjoint/qualification_v2/worker.py",
+    "--manifest",
+    "/workspace/repo/rebuttal/compute/jisen_verify_v2/coverage_manifest.json",
+    "--manifest-sha256",
+    "43997fa22f5b4557b25db9cc612afe6c71dfb98306ff3f61f91f5b03bf6f1712",
+    "--out",
+    "/results/wb-adjoint-v2-20261107b/coverage",
+    "--mode",
+    "point",
+    "--index",
+    "21"
+  ],
+  "started_at_utc": "2026-11-07T10:09:25.987827+00:00",
+  "slurm_job_id": null,
+  "slurm_array_task_id": null,
+  "return_code": null,
+  "timed_out": false,
+  "preflight_only": false
+}

@@ -1,0 +1,52 @@
+{
+  "command": [
+    "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "/workspace/repo/rebuttal/adjoint/qualification_v2/run_process.py",
+    "--mode",
+    "point",
+    "--index",
+    "17",
+    "--manifest",
+    "/workspace/repo/rebuttal/compute/jisen_verify_v2/coverage_manifest.json",
+    "--manifest-sha256",
+    "43997fa22f5b4557b25db9cc612afe6c71dfb98306ff3f61f91f5b03bf6f1712",
+    "--out",
+    "/results/wb-adjoint-v2-20261107b/coverage"
+  ],
+  "return_code": 0,
+  "timed_out": false,
+  "started_at_utc": "2026-11-07T09:59:24.357047+00:00",
+  "wall_seconds": 1267.43026137352,
+  "allocated_core_hours": 5.6330233838823105,
+  "resources_before": {
+    "cgroups": [
+      {
+        "path": "/sys/fs/cgroup",
+        "measurements": {
+          "memory.current": "40665088",
+          "cpu.stat": "usage_usec 49813160521\nuser_usec 49404943099\nsystem_usec 408217422\nnr_periods 31331\nnr_throttled 11239\nthrottled_usec 67402417"
+        }
+      }
+    ]
+  },
+  "resources_after": {
+    "cgroups": [
+      {
+        "path": "/sys/fs/cgroup",
+        "measurements": {
+          "memory.current": "43663360",
+          "cpu.stat": "usage_usec 70011942370\nuser_usec 69473153756\nsystem_usec 538788614\nnr_periods 44006\nnr_throttled 16045\nthrottled_usec 93626052"
+        }
+      }
+    ]
+  },
+  "memory_note": "Cgroup peak is cumulative for this pod; per-task peaks cannot be isolated by subtraction.",
+  "task": {
+    "id": "point_17",
+    "kind": "point",
+    "index": 17,
+    "pool": null
+  },
+  "worker_id": 0,
+  "node": "research-common-h100-059.cloud.together.ai"
+}

@@ -1,0 +1,11 @@
+{
+  "worker_id": 1,
+  "processed": [
+    "anchor_2",
+    "point_23",
+    "point_31"
+  ],
+  "batch_processing_finished": true,
+  "scientific_pass": false,
+  "can_launch_campaign": false
+}

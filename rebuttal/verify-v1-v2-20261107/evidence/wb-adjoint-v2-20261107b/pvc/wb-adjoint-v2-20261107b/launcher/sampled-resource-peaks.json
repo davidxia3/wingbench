@@ -1,0 +1,46 @@
+{
+  "pods": {
+    "wb-adjoint-v2-20261107b-w00-94hcg": {
+      "samples": 24,
+      "max_sampled_cpu_units": 15.992,
+      "max_sampled_memory_bytes": 60791193600.0
+    },
+    "wb-adjoint-v2-20261107b-w01-tc9zx": {
+      "samples": 22,
+      "max_sampled_cpu_units": 15.977,
+      "max_sampled_memory_bytes": 75877056512.0
+    },
+    "wb-adjoint-v2-20261107b-w02-4nmgw": {
+      "samples": 24,
+      "max_sampled_cpu_units": 15.991,
+      "max_sampled_memory_bytes": 60791193600.0
+    },
+    "wb-adjoint-v2-20261107b-w03-2z52q": {
+      "samples": 25,
+      "max_sampled_cpu_units": 15.981,
+      "max_sampled_memory_bytes": 75881250816.0
+    },
+    "wb-adjoint-v2-20261107b-w04-77jqr": {
+      "samples": 23,
+      "max_sampled_cpu_units": 15.959,
+      "max_sampled_memory_bytes": 60800630784.0
+    },
+    "wb-adjoint-v2-20261107b-w05-dth2b": {
+      "samples": 22,
+      "max_sampled_cpu_units": 15.963,
+      "max_sampled_memory_bytes": 60798533632.0
+    },
+    "wb-adjoint-v2-20261107b-w06-xz8nv": {
+      "samples": 22,
+      "max_sampled_cpu_units": 15.964,
+      "max_sampled_memory_bytes": 60781756416.0
+    },
+    "wb-adjoint-v2-20261107b-w07-kp5dd": {
+      "samples": 25,
+      "max_sampled_cpu_units": 15.958,
+      "max_sampled_memory_bytes": 75923193856.0
+    }
+  },
+  "metrics_api_available": true,
+  "scope": "Opportunistic 5-minute samples; not true peak RSS or a memory-sufficiency certificate."
+}

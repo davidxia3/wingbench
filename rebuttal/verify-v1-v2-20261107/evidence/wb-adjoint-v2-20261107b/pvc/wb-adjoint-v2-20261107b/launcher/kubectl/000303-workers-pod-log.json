@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tools/kubectl",
+    "--namespace",
+    "jisenli2",
+    "logs",
+    "wb-adjoint-v2-20261107b-w04-77jqr",
+    "--all-containers=true",
+    "--timestamps=true"
+  ],
+  "started_at_utc": "2026-11-07T11:16:55.135539+00:00",
+  "finished_at_utc": "2026-11-07T11:16:55.215652+00:00",
+  "return_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

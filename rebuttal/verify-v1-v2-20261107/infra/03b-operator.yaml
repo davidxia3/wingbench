@@ -1,0 +1,62 @@
+# Step 3 (retry b, after run a hit the launcher JSON bug before creating any Job). The in-cluster launcher, following David's v2 command form.
+# The container waits until /tools/kubectl exists, then execs launch.py.
+# Creating the pod therefore starts nothing. Copying in the kubectl binary (step 4) IS the launch.
+# kubectl uses the in-cluster token of SA jisenli2, which has every verb the launcher needs.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-verify-operator-b
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: operator, wingbench-run: wb-adjoint-v2-20261107b}
+spec:
+  serviceAccountName: jisenli2
+  automountServiceAccountToken: true
+  restartPolicy: Never
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-090.cloud.together.ai}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  initContainers:
+  - name: own-results-root   # make the empty PVC root writable by UID 1000, the UID of the launcher and the workers
+    image: busybox:1.36
+    securityContext: {runAsUser: 0, runAsNonRoot: false}
+    command: [sh, -c, "chown 1000:1000 /results && chmod 0775 /results && ls -ld /results"]
+    volumeMounts: [{name: results, mountPath: /results}]
+    resources: {requests: {cpu: 100m, memory: 64Mi}, limits: {cpu: 500m, memory: 128Mi}}
+  containers:
+  - name: launcher
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e
+    command:
+    - /bin/bash
+    - -c
+    - 'until [ -x /tools/kubectl ]; do sleep 5; done; echo "kubectl present, launching at $(date -u +%FT%TZ)"; exec /bin/bash /workspace/repo/rebuttal/container_entry.sh python3 /workspace/repo/rebuttal/compute/jisen_verify_v2/launch.py "$@"'
+    - launcher
+    args:
+    - --image
+    - ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e
+    - --namespace
+    - jisenli2
+    - --pvc
+    - wb-verify-results
+    - --node-a
+    - research-common-h100-059.cloud.together.ai
+    - --node-b
+    - research-common-h100-090.cloud.together.ai
+    - --results-host
+    - /results
+    - --run-id
+    - wb-adjoint-v2-20261107b
+    - --workers
+    - "8"
+    - --toleration
+    - capacity.together.ai/pool=single-node-only:NoSchedule
+    - --image-pull-secret
+    - ghcr-wb-pull
+    - --kubectl
+    - /tools/kubectl
+    resources: {requests: {cpu: "1", memory: 4Gi}, limits: {cpu: "2", memory: 8Gi}}
+    volumeMounts:
+    - {name: results, mountPath: /results}
+    - {name: tools, mountPath: /tools}
+  volumes:
+  - {name: results, persistentVolumeClaim: {claimName: wb-verify-results}}
+  - {name: tools, emptyDir: {sizeLimit: 256Mi}}

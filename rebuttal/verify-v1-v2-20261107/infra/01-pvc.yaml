@@ -1,0 +1,11 @@
+# Step 1. A dedicated, empty RWX results volume. It is NOT the team-wide `shared-data` share.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wb-verify-results
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify}
+spec:
+  accessModes: [ReadWriteMany]
+  storageClassName: weka-data
+  resources: {requests: {storage: 500Gi}}

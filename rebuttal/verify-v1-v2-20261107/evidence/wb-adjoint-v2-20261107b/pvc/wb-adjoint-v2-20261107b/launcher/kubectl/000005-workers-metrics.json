@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/tools/kubectl",
+    "--namespace",
+    "jisenli2",
+    "top",
+    "pods",
+    "-l",
+    "wingbench-run=wb-adjoint-v2-20261107b,wingbench-phase=workers",
+    "--no-headers"
+  ],
+  "started_at_utc": "2026-11-07T09:06:52.658144+00:00",
+  "finished_at_utc": "2026-11-07T09:06:52.724339+00:00",
+  "return_code": 1,
+  "stdout": "",
+  "stderr": "error: metrics not available yet\n"
+}

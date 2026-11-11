@@ -1,0 +1,66 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.58kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/mdolab/public@sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd
+#2 ...
+
+#3 [auth] mdolab/public:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/mdolab/public@sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd
+#2 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/9] FROM docker.io/mdolab/public@sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd
+#5 resolve docker.io/mdolab/public@sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 131.25MB 0.9s done
+#6 DONE 0.9s
+
+#7 [2/9] WORKDIR /home/mdolabuser/repos
+#7 CACHED
+
+#8 [3/9] RUN git clone https://github.com/YangYunjia/cst-modeling3d.git cst-modeling3d  && git -C cst-modeling3d -c advice.detachedHead=false checkout 9500b19a732463c26b32f6860ac6c517c7d212a5  && test "$(git -C cst-modeling3d rev-parse HEAD)" = 9500b19a732463c26b32f6860ac6c517c7d212a5
+#8 CACHED
+
+#9 [4/9] RUN mkdir -p /workspace/runtime /workspace/.wingbench-locks       /workspace/validation-flow/V012/work/V012/mesh_attempt_00/V012       /home/mdolabuser/.openmpi  && ln -s /home/mdolabuser/repos/cst-modeling3d /workspace/runtime/cst-modeling3d  && printf '%s\n' 'hwloc_base_binding_policy = none'       > /home/mdolabuser/.openmpi/mca-params.conf  && git config --system --add safe.directory /home/mdolabuser/repos/cst-modeling3d  && chown -R 1000:1000 /workspace /home/mdolabuser/.openmpi
+#9 CACHED
+
+#10 [5/9] COPY --chown=1000:1000 repo/ /workspace/repo/
+#10 DONE 0.2s
+
+#11 [6/9] COPY --chown=1000:1000 mesh/wing_vol.cgns /workspace/validation-flow/V012/work/V012/mesh_attempt_00/V012/wing_vol.cgns
+#11 DONE 0.1s
+
+#12 [7/9] RUN chmod 0755 /workspace/repo/rebuttal/compute/jisen_verify_v2/run_worker.sh  && echo '5aaaff6ce00f95e1dfbcc6dbbcb6d0356b45688d14320cdcb3d616aa4d7d1a98  /workspace/validation-flow/V012/work/V012/mesh_attempt_00/V012/wing_vol.cgns' | sha256sum -c -
+#12 0.545 /workspace/validation-flow/V012/work/V012/mesh_attempt_00/V012/wing_vol.cgns: OK
+#12 DONE 0.6s
+
+#13 [8/9] WORKDIR /workspace/repo
+#13 DONE 0.0s
+
+#14 [9/9] RUN /bin/bash /workspace/repo/rebuttal/container_entry.sh python3 -c     'import sys, numpy, scipy, mpi4py, adflow, idwarp, pyhyp, cgnsutilities, cst_modeling; assert sys.version_info[:3] == (3, 9, 12), sys.version; print("Pinned runtime imports passed")'
+#14 4.011 ERROR 7: VSPAERO Viewer Not Found. 
+#14 4.011 	Expected here: /home/mdolabuser/packages/OpenVSP/python/openvsp/openvsp/vspviewer
+#14 4.198 Pinned runtime imports passed
+#14 DONE 4.4s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 1.8s done
+#15 exporting manifest sha256:a03a8c674a222f5eafed5ccf7bad99f20349d133fa18c0024f290a8f779e5171 done
+#15 exporting config sha256:30751527e7348307d3c9f1c36658c1cec6ca4225e5ccbb5f42076cedc3712fe9 done
+#15 exporting attestation manifest sha256:fa432d5a86f012d49e807fe96099a3c9dbbd14aade8ea5b86d2c800b9f0246d1 done
+#15 exporting manifest list sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e done
+#15 naming to ghcr.io/mtilyxuegao/wingbench-adjoint-verify:v2-20261107 done
+#15 DONE 1.9s
+docker build --platform linux/amd64 -f  -t "$T" .  0.34s user 0.67s system 9% cpu 10.741 total
+build exit 0

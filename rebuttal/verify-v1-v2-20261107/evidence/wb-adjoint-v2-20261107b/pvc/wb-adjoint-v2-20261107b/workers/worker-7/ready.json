@@ -1,0 +1,6 @@
+{
+  "worker_id": 7,
+  "node": "research-common-h100-090.cloud.together.ai",
+  "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+  "ready_at_utc": "2026-11-07T09:06:57.654682+00:00"
+}

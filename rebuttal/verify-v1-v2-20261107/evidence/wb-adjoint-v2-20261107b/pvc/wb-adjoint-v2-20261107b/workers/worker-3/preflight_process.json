@@ -1,0 +1,45 @@
+{
+  "command": [
+    "mpirun",
+    "--bind-to",
+    "none",
+    "-np",
+    "16",
+    "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "/workspace/repo/rebuttal/compute/jisen_verify_v2/preflight.py",
+    "--out",
+    "/results/wb-adjoint-v2-20261107b/workers/worker-3/preflight.json",
+    "--shared",
+    "/results/wb-adjoint-v2-20261107b",
+    "--minimum-memory-gib",
+    "96"
+  ],
+  "return_code": 0,
+  "timed_out": false,
+  "started_at_utc": "2026-11-07T09:07:15.196216+00:00",
+  "wall_seconds": 2.4411826133728027,
+  "allocated_core_hours": 0.010849700503879123,
+  "resources_before": {
+    "cgroups": [
+      {
+        "path": "/sys/fs/cgroup",
+        "measurements": {
+          "memory.current": "18595840",
+          "cpu.stat": "usage_usec 348263\nuser_usec 136277\nsystem_usec 211986\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0"
+        }
+      }
+    ]
+  },
+  "resources_after": {
+    "cgroups": [
+      {
+        "path": "/sys/fs/cgroup",
+        "measurements": {
+          "memory.current": "31727616",
+          "cpu.stat": "usage_usec 29733521\nuser_usec 19350641\nsystem_usec 10382879\nnr_periods 28\nnr_throttled 1\nthrottled_usec 3995"
+        }
+      }
+    ]
+  },
+  "memory_note": "Cgroup peak is cumulative for this pod; per-task peaks cannot be isolated by subtraction."
+}

@@ -1,0 +1,267 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "action": "Binding",
+            "apiVersion": "v1",
+            "eventTime": "2026-11-07T08:56:58.693943Z",
+            "firstTimestamp": null,
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656355",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": null,
+            "message": "Successfully assigned jisenli2/wb-verify-operator to research-common-h100-090.cloud.together.ai",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:56:58Z",
+                "name": "wb-verify-operator.18e5b7876372cc59",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656357",
+                "uid": "9c56ba53-3d75-4a81-ae08-7270d46cc929"
+            },
+            "reason": "Scheduled",
+            "reportingComponent": "default-scheduler",
+            "reportingInstance": "default-scheduler-research-common-h100-hn1.cloud.together.ai",
+            "source": {},
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:56:59Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:56:59Z",
+            "message": "AttachVolume.Attach succeeded for volume \"pvc-3b08896b-60d5-44fa-a971-1d725bb5da5d\" ",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:56:59Z",
+                "name": "wb-verify-operator.18e5b78785bd8074",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656374",
+                "uid": "0724eeeb-bc80-4213-b1d4-f4eccfa45f36"
+            },
+            "reason": "SuccessfulAttachVolume",
+            "reportingComponent": "attachdetach-controller",
+            "reportingInstance": "",
+            "source": {
+                "component": "attachdetach-controller"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:57:00Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{own-results-root}",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:57:00Z",
+            "message": "Container image \"busybox:1.36\" already present on machine",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:57:00Z",
+                "name": "wb-verify-operator.18e5b787b658fee3",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656393",
+                "uid": "76603634-727e-4e61-a8ce-6be79693fcce"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "research-common-h100-090.cloud.together.ai",
+            "source": {
+                "component": "kubelet",
+                "host": "research-common-h100-090.cloud.together.ai"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:57:00Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{own-results-root}",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:57:00Z",
+            "message": "Created container own-results-root",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:57:00Z",
+                "name": "wb-verify-operator.18e5b787b6ff2cb8",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656395",
+                "uid": "390f43b3-ded2-47e5-9090-cf1e6a3ebc9d"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "research-common-h100-090.cloud.together.ai",
+            "source": {
+                "component": "kubelet",
+                "host": "research-common-h100-090.cloud.together.ai"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:57:00Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.initContainers{own-results-root}",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:57:00Z",
+            "message": "Started container own-results-root",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:57:00Z",
+                "name": "wb-verify-operator.18e5b787bd3abc07",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656396",
+                "uid": "527fa1eb-2f27-42ea-98ef-3261ffa93d6e"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "research-common-h100-090.cloud.together.ai",
+            "source": {
+                "component": "kubelet",
+                "host": "research-common-h100-090.cloud.together.ai"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:57:00Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{launcher}",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:57:00Z",
+            "message": "Container image \"ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e\" already present on machine",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:57:00Z",
+                "name": "wb-verify-operator.18e5b787ce4c9ac0",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656415",
+                "uid": "a72265b5-96f7-4caa-801c-024fd190337c"
+            },
+            "reason": "Pulled",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "research-common-h100-090.cloud.together.ai",
+            "source": {
+                "component": "kubelet",
+                "host": "research-common-h100-090.cloud.together.ai"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:57:00Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{launcher}",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:57:00Z",
+            "message": "Created container launcher",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:57:00Z",
+                "name": "wb-verify-operator.18e5b787cef2b368",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656417",
+                "uid": "3225c508-b4fc-4c01-b6c2-ab1ad13aec69"
+            },
+            "reason": "Created",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "research-common-h100-090.cloud.together.ai",
+            "source": {
+                "component": "kubelet",
+                "host": "research-common-h100-090.cloud.together.ai"
+            },
+            "type": "Normal"
+        },
+        {
+            "apiVersion": "v1",
+            "count": 1,
+            "eventTime": null,
+            "firstTimestamp": "2026-11-07T08:57:00Z",
+            "involvedObject": {
+                "apiVersion": "v1",
+                "fieldPath": "spec.containers{launcher}",
+                "kind": "Pod",
+                "name": "wb-verify-operator",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656356",
+                "uid": "1f1a8bc4-3249-47fd-8274-73568a836d3b"
+            },
+            "kind": "Event",
+            "lastTimestamp": "2026-11-07T08:57:00Z",
+            "message": "Started container launcher",
+            "metadata": {
+                "creationTimestamp": "2026-11-07T08:57:00Z",
+                "name": "wb-verify-operator.18e5b787d50cb0e0",
+                "namespace": "jisenli2",
+                "resourceVersion": "415656420",
+                "uid": "42e91036-1bdd-4bbb-af1d-fcb749dcdf42"
+            },
+            "reason": "Started",
+            "reportingComponent": "kubelet",
+            "reportingInstance": "research-common-h100-090.cloud.together.ai",
+            "source": {
+                "component": "kubelet",
+                "host": "research-common-h100-090.cloud.together.ai"
+            },
+            "type": "Normal"
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

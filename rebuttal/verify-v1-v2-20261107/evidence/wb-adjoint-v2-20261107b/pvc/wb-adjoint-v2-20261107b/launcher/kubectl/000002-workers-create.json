@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/tools/kubectl",
+    "--namespace",
+    "jisenli2",
+    "create",
+    "-f",
+    "/results/wb-adjoint-v2-20261107b/launcher/workers-jobs.json"
+  ],
+  "started_at_utc": "2026-11-07T09:06:51.361215+00:00",
+  "finished_at_utc": "2026-11-07T09:06:52.433189+00:00",
+  "return_code": 0,
+  "stdout": "job.batch/wb-adjoint-v2-20261107b-w00 created\njob.batch/wb-adjoint-v2-20261107b-w01 created\njob.batch/wb-adjoint-v2-20261107b-w02 created\njob.batch/wb-adjoint-v2-20261107b-w03 created\njob.batch/wb-adjoint-v2-20261107b-w04 created\njob.batch/wb-adjoint-v2-20261107b-w05 created\njob.batch/wb-adjoint-v2-20261107b-w06 created\njob.batch/wb-adjoint-v2-20261107b-w07 created\n",
+  "stderr": ""
+}

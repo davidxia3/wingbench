@@ -1,0 +1,56 @@
+{
+  "schema": "wingbench-jisen-strict-host-certificate-v2",
+  "strict_host_qualification_passed": false,
+  "native_acceptance": 1.1e-09,
+  "scientific_protocol_version": 2,
+  "qualification_scope": "Known nominal control,3Mach,3directions,2steps; bounded integration only",
+  "hardware_checks_passed": false,
+  "original_grader_controls_passed": false,
+  "control_checks": [
+    {
+      "pool": "a",
+      "passed": false,
+      "error": "Control report failed"
+    },
+    {
+      "pool": "b",
+      "passed": false,
+      "error": "Control report failed"
+    }
+  ],
+  "errors": [
+    "Worker2 processed inventory differs from claims",
+    "Worker4 processed inventory differs from claims",
+    "/results/wb-adjoint-v2-20261107b/reference_a/grade.json: [Errno 2] No such file or directory: '/results/wb-adjoint-v2-20261107b/reference_a/grade.json'",
+    "/results/wb-adjoint-v2-20261107b/reference_b/grade.json: [Errno 2] No such file or directory: '/results/wb-adjoint-v2-20261107b/reference_b/grade.json'"
+  ],
+  "numerical_errors": [],
+  "process_failures": [
+    {
+      "task": "reference_a",
+      "error": "Task process failed"
+    },
+    {
+      "task": "reference_b",
+      "error": "Task process failed"
+    }
+  ],
+  "protocol_sha256": "73ef9a9cdf472b1aae26eca0c85041038b4a7d9303e6d4299547d7d33adcbed4",
+  "package_manifest_sha256": "2cf8cb0183b4ea1483fe5253961aa3724963aa29bfa131d74d61ad72acf4c071",
+  "mesh_sha256": "5aaaff6ce00f95e1dfbcc6dbbcb6d0356b45688d14320cdcb3d616aa4d7d1a98",
+  "mesh_container_path": "/workspace/validation-flow/V012/work/V012/mesh_attempt_00/V012/wing_vol.cgns",
+  "runtime_expected_sha256": {
+    "adflow_python": "790f3f6353fc8501d256f5d78c32c9aeb59ee522e0f92814666c4135028b8425",
+    "adflow_library": "a4c9da4969963fe397f3d8db6477ad8cf5c5b898c7b5c6b89ec52613ee91c02b",
+    "idwarp_python": "5891fb1bf66745a8b7950b6b0f4c13e9dc81f32a5cbd9697055755ab0b1b57aa",
+    "cst_math": "9d0e7b8b3106c75fa78a6d6bb1dd45dc2c7deab35836bf6f8ac7cde2dcab30c3",
+    "cst_basic": "1c5bfbcc7c1abcafd80560a8f6277133fd70caa541188fba284212182651967b",
+    "cst_section": "d7e356bbea7c3442ab0f25dab2da1a5bef079d3533193af5307f02c0ec4ce798",
+    "cst_io": "c468e624521a196ab9c1be19a6774bcfdeda5dc126d79b05837114c78cee1b8a",
+    "idwarp_binary_libidwarp.so": "136c88378cec83e8e5d663c20aa38e6e13e3ade8ef1ee1d07faac216cf07faa8",
+    "idwarp_binary_libidwarp_cs.so": "d9550f44f219d74b1d75e811a7dff6d4307f2ec38fe8ea4ece2d0c588e9c39a5"
+  },
+  "can_launch_campaign": false,
+  "historical_failures": "Preserved unchanged; this certificate only assesses this new host batch",
+  "unverified": "Whole-box behavior,low/high tasks,production runner,pilot regrade,sustained episode memory/concurrency"
+}

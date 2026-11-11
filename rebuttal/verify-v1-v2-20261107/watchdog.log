@@ -1,0 +1,65 @@
+=== 2026-11-07T09:10:00Z (local 01:10)
+operator: Running restarts=0 exit=
+jobs: workers: running=8
+pod problems: none
+evicted/failed pods: 
+GPU holders: dev-059-8g=Running/restarts=0/started=2026-11-03T19:15:58Z jisenli-dev-0=Running/restarts=0/started=2026-10-29T04:25:49Z 
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: 9 pods, max mem 42.8 GiB
+claims=10/41 finished=2 nonzero_rc=reference_a,reference_b, qualification= final_summary=no
+launcher last: 2026-11-07T09:06:52.561929+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "running", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-a
+=== 2026-11-07T09:27:38Z (local 01:27)
+operator: Running restarts=0 exit=
+jobs: workers: running=8
+pod problems: none
+evicted/failed pods: 
+GPU holders: dev-059-8g=Running/restarts=0/started=2026-11-03T19:15:58Z jisenli-dev-0=Running/restarts=0/started=2026-10-29T04:25:49Z 
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: 9 pods, max mem 67.0 GiB
+claims=15/41 finished=7 nonzero_rc=reference_a,reference_b, qualification= final_summary=no
+launcher last: 2026-11-07T09:06:52.561929+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "running", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-a
+=== 2026-11-07T09:57:39Z (local 01:57)
+operator: Running restarts=0 exit=
+jobs: workers: running=8
+pod problems: none
+evicted/failed pods: 
+GPU holders: dev-059-8g=Running/restarts=0/started=2026-11-03T19:15:58Z jisenli-dev-0=Running/restarts=0/started=2026-10-29T04:25:49Z 
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: 9 pods, max mem 70.7 GiB
+claims=21/41 finished=13 nonzero_rc=reference_a,reference_b, qualification= final_summary=no
+launcher last: 2026-11-07T09:06:52.561929+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "running", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-a
+=== 2026-11-07T10:27:46Z (local 02:27)
+operator: Running restarts=0 exit=
+jobs: workers: running=8
+pod problems: none
+evicted/failed pods: 
+GPU holders: dev-059-8g=Running/restarts=0/started=2026-11-03T19:15:58Z jisenli-dev-0=Running/restarts=0/started=2026-10-29T04:25:49Z 
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: 9 pods, max mem 56.6 GiB
+claims=32/41 finished=24 nonzero_rc=reference_a,reference_b, qualification= final_summary=no
+launcher last: 2026-11-07T09:06:52.561929+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "running", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-a
+=== 2026-11-07T10:57:47Z (local 02:57)
+operator: Running restarts=0 exit=
+jobs: workers: running=8
+pod problems: none
+evicted/failed pods: 
+GPU holders: dev-059-8g=Running/restarts=0/started=2026-11-03T19:15:58Z jisenli-dev-0=Running/restarts=0/started=2026-10-29T04:25:49Z 
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: 9 pods, max mem 56.6 GiB
+claims=41/41 finished=33 nonzero_rc=reference_a,reference_b, qualification= final_summary=no
+launcher last: 2026-11-07T09:06:52.561929+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "running", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-a
+=== 2026-11-07T11:27:44Z (local 03:27)
+operator: Failed restarts=0 exit=2
+jobs: workers: complete=8
+pod problems: wb-verify-operator-b:{"terminated":{"containerID":"containerd://50674637c463f2a34717e9309bd7b60542ef2dd031b0874aad460889c48b3278","exitCode":
+evicted/failed pods: pod/wb-verify-operator-b 
+GPU holders: dev-059-8g=Running/restarts=0/started=2026-11-03T19:15:58Z jisenli-dev-0=Running/restarts=0/started=2026-10-29T04:25:49Z 
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: 0 pods, max mem 0.0 GiB
+=== 2026-11-07T11:30:57Z launcher exited (exit 2, stopped_after_failed_or_incomplete_qualification). Evidence collected to evidence/wb-adjoint-v2-20261107b (765 files verified), reader pod deleted, SUMMARY.md written, watchdog cron deleted.

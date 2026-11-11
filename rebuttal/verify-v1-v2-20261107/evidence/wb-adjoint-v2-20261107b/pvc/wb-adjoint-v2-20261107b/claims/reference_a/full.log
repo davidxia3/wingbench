@@ -1,0 +1,1 @@
+{"passed": false, "kind": "original_grader_control", "grading_mode": "local", "official_sealed_grade": false, "relative_gate": 0.005, "can_launch_campaign": false, "error_type": "FileNotFoundError", "error": "[Errno 2] No such file or directory: '/workspace/repo/agents/tasks/task_documents.json'", "wall_seconds": 0.0945278201252222}

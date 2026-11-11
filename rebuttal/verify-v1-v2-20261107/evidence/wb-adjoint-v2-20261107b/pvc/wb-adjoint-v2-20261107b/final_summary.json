@@ -1,0 +1,66 @@
+{
+  "schema": "wingbench-jisen-launch-result-v2",
+  "run_id": "wb-adjoint-v2-20261107b",
+  "started_at_utc": "2026-11-07T09:06:50.075148+00:00",
+  "validation_completed": false,
+  "full_campaign_launched": false,
+  "can_launch_campaign": false,
+  "competitive_baseline_result": false,
+  "strict_host_qualification_passed": false,
+  "pilot_completed": false,
+  "independent_regrade_passed": false,
+  "protocol_sha256": "73ef9a9cdf472b1aae26eca0c85041038b4a7d9303e6d4299547d7d33adcbed4",
+  "package_manifest_sha256": "2cf8cb0183b4ea1483fe5253961aa3724963aa29bfa131d74d61ad72acf4c071",
+  "host_results": "/results/wb-adjoint-v2-20261107b",
+  "container_results": "/results/wb-adjoint-v2-20261107b",
+  "jobs_retained": true,
+  "automatic_retry": false,
+  "worker_jobs_completed_successfully": true,
+  "certify_return_code": 2,
+  "status": "stopped_after_failed_or_incomplete_qualification",
+  "finished_at_utc": "2026-11-07T11:16:56.219152+00:00",
+  "exit_code": 2,
+  "sampled_resource_peaks": {
+    "wb-adjoint-v2-20261107b-w00-94hcg": {
+      "samples": 24,
+      "max_sampled_cpu_units": 15.992,
+      "max_sampled_memory_bytes": 60791193600.0
+    },
+    "wb-adjoint-v2-20261107b-w01-tc9zx": {
+      "samples": 22,
+      "max_sampled_cpu_units": 15.977,
+      "max_sampled_memory_bytes": 75877056512.0
+    },
+    "wb-adjoint-v2-20261107b-w02-4nmgw": {
+      "samples": 24,
+      "max_sampled_cpu_units": 15.991,
+      "max_sampled_memory_bytes": 60791193600.0
+    },
+    "wb-adjoint-v2-20261107b-w03-2z52q": {
+      "samples": 25,
+      "max_sampled_cpu_units": 15.981,
+      "max_sampled_memory_bytes": 75881250816.0
+    },
+    "wb-adjoint-v2-20261107b-w04-77jqr": {
+      "samples": 23,
+      "max_sampled_cpu_units": 15.959,
+      "max_sampled_memory_bytes": 60800630784.0
+    },
+    "wb-adjoint-v2-20261107b-w05-dth2b": {
+      "samples": 22,
+      "max_sampled_cpu_units": 15.963,
+      "max_sampled_memory_bytes": 60798533632.0
+    },
+    "wb-adjoint-v2-20261107b-w06-xz8nv": {
+      "samples": 22,
+      "max_sampled_cpu_units": 15.964,
+      "max_sampled_memory_bytes": 60781756416.0
+    },
+    "wb-adjoint-v2-20261107b-w07-kp5dd": {
+      "samples": 25,
+      "max_sampled_cpu_units": 15.958,
+      "max_sampled_memory_bytes": 75923193856.0
+    }
+  },
+  "resource_metrics_scope": "Samples may miss peaks; absent metrics are unavailable, not zero usage."
+}

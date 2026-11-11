@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "workers_seen": [
+    {
+      "worker_id": 0,
+      "node": "research-common-h100-059.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:07:14.251813+00:00"
+    },
+    {
+      "worker_id": 1,
+      "node": "research-common-h100-059.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:07:14.997836+00:00"
+    },
+    {
+      "worker_id": 2,
+      "node": "research-common-h100-059.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:07:13.714779+00:00"
+    },
+    {
+      "worker_id": 3,
+      "node": "research-common-h100-059.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:07:17.641030+00:00"
+    },
+    {
+      "worker_id": 4,
+      "node": "research-common-h100-090.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:06:57.647011+00:00"
+    },
+    {
+      "worker_id": 5,
+      "node": "research-common-h100-090.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:06:57.702409+00:00"
+    },
+    {
+      "worker_id": 6,
+      "node": "research-common-h100-090.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:06:58.163724+00:00"
+    },
+    {
+      "worker_id": 7,
+      "node": "research-common-h100-090.cloud.together.ai",
+      "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+      "ready_at_utc": "2026-11-07T09:06:57.654682+00:00"
+    }
+  ],
+  "seen_at_utc": "2026-11-07T09:07:19.741470+00:00"
+}

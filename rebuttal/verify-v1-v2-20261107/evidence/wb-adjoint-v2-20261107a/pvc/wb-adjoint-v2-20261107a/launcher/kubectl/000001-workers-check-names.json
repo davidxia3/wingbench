@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/tools/kubectl",
+    "--namespace",
+    "jisenli2",
+    "get",
+    "jobs",
+    "wb-adjoint-v2-20261107a-w00",
+    "wb-adjoint-v2-20261107a-w01",
+    "wb-adjoint-v2-20261107a-w02",
+    "wb-adjoint-v2-20261107a-w03",
+    "wb-adjoint-v2-20261107a-w04",
+    "wb-adjoint-v2-20261107a-w05",
+    "wb-adjoint-v2-20261107a-w06",
+    "wb-adjoint-v2-20261107a-w07",
+    "--ignore-not-found",
+    "-o",
+    "json"
+  ],
+  "started_at_utc": "2026-11-07T09:00:00.944512+00:00",
+  "finished_at_utc": "2026-11-07T09:00:02.227410+00:00",
+  "return_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

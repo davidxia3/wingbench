@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/tools/kubectl",
+    "--namespace",
+    "jisenli2",
+    "get",
+    "jobs",
+    "wb-adjoint-v2-20261107b-w00",
+    "wb-adjoint-v2-20261107b-w01",
+    "wb-adjoint-v2-20261107b-w02",
+    "wb-adjoint-v2-20261107b-w03",
+    "wb-adjoint-v2-20261107b-w04",
+    "wb-adjoint-v2-20261107b-w05",
+    "wb-adjoint-v2-20261107b-w06",
+    "wb-adjoint-v2-20261107b-w07",
+    "--ignore-not-found",
+    "-o",
+    "json"
+  ],
+  "started_at_utc": "2026-11-07T09:06:50.075195+00:00",
+  "finished_at_utc": "2026-11-07T09:06:51.339594+00:00",
+  "return_code": 0,
+  "stdout": "{\"apiVersion\":\"v1\",\"kind\":\"List\",\"items\":[],\"metadata\":{\"resourceVersion\":\"\"}}\n",
+  "stderr": "kubectl-shim: empty --ignore-not-found JSON output replaced by an empty List\n"
+}

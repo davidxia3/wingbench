@@ -1,0 +1,88 @@
+# Infrastructure objects for the WingBench verification batch, outside David's frozen package.
+# Cluster: research-common-h100, namespace jisenli2. IMAGE_DIGEST is filled in after the push.
+---
+# 1. Dedicated RWX results volume. It is fresh and empty, and it is NOT the team-wide `shared-data` share.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wb-verify-results
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify}
+spec:
+  accessModes: [ReadWriteMany]
+  storageClassName: weka-data
+  resources: {requests: {storage: 500Gi}}
+---
+# 2. Operator pod on node B. It runs launch.py plus certify.py with the image's own Python 3.9.12.
+#    It uses the in-cluster kubectl identity of SA jisenli2, which is the same identity as the laptop.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-verify-operator
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: operator}
+spec:
+  serviceAccountName: jisenli2
+  automountServiceAccountToken: true
+  restartPolicy: Never
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-090.cloud.together.ai}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  initContainers:
+  - name: own-results-root          # make the empty PVC root writable by UID 1000 (the workers' UID)
+    image: busybox:1.36
+    securityContext: {runAsUser: 0, runAsNonRoot: false}
+    command: [sh, -c, "chown 1000:1000 /results && chmod 0775 /results && ls -ld /results"]
+    volumeMounts: [{name: results, mountPath: /results}]
+    resources: {requests: {cpu: 100m, memory: 64Mi}, limits: {cpu: 500m, memory: 128Mi}}
+  containers:
+  - name: operator
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:9c961d727934f5f3e77f381af688b4ac9443629cb12972b0fbd708c5593a4508
+    command: [sleep, infinity]       # the launcher is started by exec, with nohup
+    resources: {requests: {cpu: "1", memory: 4Gi}, limits: {cpu: "2", memory: 8Gi}}
+    volumeMounts:
+    - {name: results, mountPath: /results}
+    - {name: tools, mountPath: /tools}   # kubectl v1.27 static binary is copied here
+  volumes:
+  - {name: results, persistentVolumeClaim: {claimName: wb-verify-results}}
+  - {name: tools, emptyDir: {}}
+---
+# 3. Pre-pull pods, one per node. They warm the ~2.8 GB image so that all 8 workers reach the
+#    10-minute barrier together. Each exits immediately and is deleted afterwards.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-verify-prepull-059
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: prepull}
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-059.cloud.together.ai}
+  tolerations:
+  - {key: capacity.together.ai/pool, operator: Equal, value: single-node-only, effect: NoSchedule}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  containers:
+  - name: prepull
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:9c961d727934f5f3e77f381af688b4ac9443629cb12972b0fbd708c5593a4508
+    command: ["/bin/true"]
+    resources: {requests: {cpu: 100m, memory: 128Mi}, limits: {cpu: 500m, memory: 256Mi}}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-verify-prepull-090
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: prepull}
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-090.cloud.together.ai}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  containers:
+  - name: prepull
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:9c961d727934f5f3e77f381af688b4ac9443629cb12972b0fbd708c5593a4508
+    command: ["/bin/true"]
+    resources: {requests: {cpu: 100m, memory: 128Mi}, limits: {cpu: 500m, memory: 256Mi}}

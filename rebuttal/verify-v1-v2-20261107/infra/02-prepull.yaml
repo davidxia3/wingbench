@@ -1,0 +1,39 @@
+# Step 2. Warm the v2 image on both nodes so all 8 workers reach the 10-minute barrier together.
+# Each pod exits at once. Delete both pods after they reach Completed.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-verify-prepull-059
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: prepull}
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-059.cloud.together.ai}
+  tolerations:
+  - {key: capacity.together.ai/pool, operator: Equal, value: single-node-only, effect: NoSchedule}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  containers:
+  - name: prepull
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e
+    command: ["/bin/true"]
+    resources: {requests: {cpu: 100m, memory: 128Mi}, limits: {cpu: 500m, memory: 256Mi}}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wb-verify-prepull-090
+  namespace: jisenli2
+  labels: {app.kubernetes.io/name: wingbench-jisen-verify, role: prepull}
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  nodeSelector: {kubernetes.io/hostname: research-common-h100-090.cloud.together.ai}
+  imagePullSecrets: [{name: ghcr-wb-pull}]
+  securityContext: {runAsUser: 1000, runAsGroup: 1000, runAsNonRoot: true}
+  containers:
+  - name: prepull
+    image: ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e
+    command: ["/bin/true"]
+    resources: {requests: {cpu: 100m, memory: 128Mi}, limits: {cpu: 500m, memory: 256Mi}}

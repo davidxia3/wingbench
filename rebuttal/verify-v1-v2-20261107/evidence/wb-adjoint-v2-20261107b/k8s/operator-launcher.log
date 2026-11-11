@@ -1,0 +1,77 @@
+2026-11-07T01:06:49.803981593-08:00 kubectl present, launching at 2026-11-07T09:06:49Z
+2026-11-07T01:06:50.075294967-08:00 Starting one frozen verification batch. It may run overnight; keep this launcher alive. No baseline campaign or automatic retries will run. Results: /results/wb-adjoint-v2-20261107b
+2026-11-07T01:06:52.562084548-08:00 2026-11-07T09:06:52.561929+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "running", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-adjoint-v2-20261107b-w06": "running", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T02:59:45.871035801-08:00 2026-11-07T10:59:45.870851+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-adjoint-v2-20261107b-w06": "running", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:01:47.140794816-08:00 2026-11-07T11:01:47.140621+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "running", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:02:47.831842478-08:00 2026-11-07T11:02:47.831655+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "running", "wb-adjoint-v2-20261107b-w05": "complete", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:03:18.274546572-08:00 2026-11-07T11:03:18.274388+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "running", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "complete", "wb-adjoint-v2-20261107b-w05": "complete", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:08:20.525785396-08:00 2026-11-07T11:08:20.525567+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "complete", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "running", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "complete", "wb-adjoint-v2-20261107b-w05": "complete", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:09:21.023105044-08:00 2026-11-07T11:09:21.022918+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "complete", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "complete", "wb-adjoint-v2-20261107b-w03": "running", "wb-adjoint-v2-20261107b-w04": "complete", "wb-adjoint-v2-20261107b-w05": "complete", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:14:53.457276607-08:00 2026-11-07T11:14:53.457121+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "complete", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "complete", "wb-adjoint-v2-20261107b-w03": "complete", "wb-adjoint-v2-20261107b-w04": "complete", "wb-adjoint-v2-20261107b-w05": "complete", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "running"}
+2026-11-07T03:16:54.322997438-08:00 2026-11-07T11:16:54.322847+00:00 workers: {"wb-adjoint-v2-20261107b-w00": "complete", "wb-adjoint-v2-20261107b-w01": "complete", "wb-adjoint-v2-20261107b-w02": "complete", "wb-adjoint-v2-20261107b-w03": "complete", "wb-adjoint-v2-20261107b-w04": "complete", "wb-adjoint-v2-20261107b-w05": "complete", "wb-adjoint-v2-20261107b-w06": "complete", "wb-adjoint-v2-20261107b-w07": "complete"}
+2026-11-07T03:16:56.225240809-08:00 {
+2026-11-07T03:16:56.225275920-08:00   "schema": "wingbench-jisen-launch-result-v2",
+2026-11-07T03:16:56.225280820-08:00   "run_id": "wb-adjoint-v2-20261107b",
+2026-11-07T03:16:56.225286020-08:00   "started_at_utc": "2026-11-07T09:06:50.075148+00:00",
+2026-11-07T03:16:56.225290770-08:00   "validation_completed": false,
+2026-11-07T03:16:56.225295250-08:00   "full_campaign_launched": false,
+2026-11-07T03:16:56.225299930-08:00   "can_launch_campaign": false,
+2026-11-07T03:16:56.225303940-08:00   "competitive_baseline_result": false,
+2026-11-07T03:16:56.225308250-08:00   "strict_host_qualification_passed": false,
+2026-11-07T03:16:56.225313480-08:00   "pilot_completed": false,
+2026-11-07T03:16:56.225318150-08:00   "independent_regrade_passed": false,
+2026-11-07T03:16:56.225322820-08:00   "protocol_sha256": "73ef9a9cdf472b1aae26eca0c85041038b4a7d9303e6d4299547d7d33adcbed4",
+2026-11-07T03:16:56.225327200-08:00   "package_manifest_sha256": "2cf8cb0183b4ea1483fe5253961aa3724963aa29bfa131d74d61ad72acf4c071",
+2026-11-07T03:16:56.225331071-08:00   "host_results": "/results/wb-adjoint-v2-20261107b",
+2026-11-07T03:16:56.225335571-08:00   "container_results": "/results/wb-adjoint-v2-20261107b",
+2026-11-07T03:16:56.225340561-08:00   "jobs_retained": true,
+2026-11-07T03:16:56.225344591-08:00   "automatic_retry": false,
+2026-11-07T03:16:56.225348721-08:00   "worker_jobs_completed_successfully": true,
+2026-11-07T03:16:56.225352771-08:00   "certify_return_code": 2,
+2026-11-07T03:16:56.225358011-08:00   "status": "stopped_after_failed_or_incomplete_qualification",
+2026-11-07T03:16:56.225366531-08:00   "finished_at_utc": "2026-11-07T11:16:56.219152+00:00",
+2026-11-07T03:16:56.225370891-08:00   "exit_code": 2,
+2026-11-07T03:16:56.225375181-08:00   "sampled_resource_peaks": {
+2026-11-07T03:16:56.225379251-08:00     "wb-adjoint-v2-20261107b-w00-94hcg": {
+2026-11-07T03:16:56.225383201-08:00       "samples": 24,
+2026-11-07T03:16:56.225386992-08:00       "max_sampled_cpu_units": 15.992,
+2026-11-07T03:16:56.225391001-08:00       "max_sampled_memory_bytes": 60791193600.0
+2026-11-07T03:16:56.225395152-08:00     },
+2026-11-07T03:16:56.225399142-08:00     "wb-adjoint-v2-20261107b-w01-tc9zx": {
+2026-11-07T03:16:56.225403252-08:00       "samples": 22,
+2026-11-07T03:16:56.225407282-08:00       "max_sampled_cpu_units": 15.977,
+2026-11-07T03:16:56.225411262-08:00       "max_sampled_memory_bytes": 75877056512.0
+2026-11-07T03:16:56.225415302-08:00     },
+2026-11-07T03:16:56.225419412-08:00     "wb-adjoint-v2-20261107b-w02-4nmgw": {
+2026-11-07T03:16:56.225423492-08:00       "samples": 24,
+2026-11-07T03:16:56.225427472-08:00       "max_sampled_cpu_units": 15.991,
+2026-11-07T03:16:56.225431462-08:00       "max_sampled_memory_bytes": 60791193600.0
+2026-11-07T03:16:56.225435322-08:00     },
+2026-11-07T03:16:56.225439462-08:00     "wb-adjoint-v2-20261107b-w03-2z52q": {
+2026-11-07T03:16:56.225443533-08:00       "samples": 25,
+2026-11-07T03:16:56.225447433-08:00       "max_sampled_cpu_units": 15.981,
+2026-11-07T03:16:56.225451193-08:00       "max_sampled_memory_bytes": 75881250816.0
+2026-11-07T03:16:56.225454983-08:00     },
+2026-11-07T03:16:56.225458843-08:00     "wb-adjoint-v2-20261107b-w04-77jqr": {
+2026-11-07T03:16:56.225462613-08:00       "samples": 23,
+2026-11-07T03:16:56.225466493-08:00       "max_sampled_cpu_units": 15.959,
+2026-11-07T03:16:56.225470593-08:00       "max_sampled_memory_bytes": 60800630784.0
+2026-11-07T03:16:56.225474673-08:00     },
+2026-11-07T03:16:56.225478473-08:00     "wb-adjoint-v2-20261107b-w05-dth2b": {
+2026-11-07T03:16:56.225482483-08:00       "samples": 22,
+2026-11-07T03:16:56.225498254-08:00       "max_sampled_cpu_units": 15.963,
+2026-11-07T03:16:56.225502163-08:00       "max_sampled_memory_bytes": 60798533632.0
+2026-11-07T03:16:56.225506254-08:00     },
+2026-11-07T03:16:56.225512794-08:00     "wb-adjoint-v2-20261107b-w06-xz8nv": {
+2026-11-07T03:16:56.225517084-08:00       "samples": 22,
+2026-11-07T03:16:56.225520904-08:00       "max_sampled_cpu_units": 15.964,
+2026-11-07T03:16:56.225524764-08:00       "max_sampled_memory_bytes": 60781756416.0
+2026-11-07T03:16:56.225528854-08:00     },
+2026-11-07T03:16:56.225532654-08:00     "wb-adjoint-v2-20261107b-w07-kp5dd": {
+2026-11-07T03:16:56.225536804-08:00       "samples": 25,
+2026-11-07T03:16:56.225540814-08:00       "max_sampled_cpu_units": 15.958,
+2026-11-07T03:16:56.225544994-08:00       "max_sampled_memory_bytes": 75923193856.0
+2026-11-07T03:16:56.225548934-08:00     }
+2026-11-07T03:16:56.225552764-08:00   },
+2026-11-07T03:16:56.225557284-08:00   "resource_metrics_scope": "Samples may miss peaks; absent metrics are unavailable, not zero usage."
+2026-11-07T03:16:56.225561264-08:00 }

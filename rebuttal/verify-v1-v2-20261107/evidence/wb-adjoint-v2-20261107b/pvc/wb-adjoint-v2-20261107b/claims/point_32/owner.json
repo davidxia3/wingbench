@@ -1,0 +1,10 @@
+{
+  "worker_id": 0,
+  "node": "research-common-h100-059.cloud.together.ai",
+  "task": {
+    "id": "point_32",
+    "kind": "point",
+    "index": 32,
+    "pool": null
+  }
+}

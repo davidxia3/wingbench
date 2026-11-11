@@ -1,0 +1,14 @@
+{
+  "worker_id": 4,
+  "processed": [
+    "reference_b",
+    "point_1",
+    "point_9",
+    "point_14",
+    "point_22",
+    "point_30"
+  ],
+  "batch_processing_finished": true,
+  "scientific_pass": false,
+  "can_launch_campaign": false
+}

@@ -1,0 +1,27 @@
+2026-11-07T01:00:00.659435941-08:00 kubectl present, launching at 2026-11-07T09:00:00Z
+2026-11-07T01:00:00.944595395-08:00 Starting one frozen verification batch. It may run overnight; keep this launcher alive. No baseline campaign or automatic retries will run. Results: /results/wb-adjoint-v2-20261107a
+2026-11-07T01:00:02.244336767-08:00 {
+2026-11-07T01:00:02.244371367-08:00   "schema": "wingbench-jisen-launch-result-v2",
+2026-11-07T01:00:02.244374998-08:00   "run_id": "wb-adjoint-v2-20261107a",
+2026-11-07T01:00:02.244378747-08:00   "started_at_utc": "2026-11-07T09:00:00.944474+00:00",
+2026-11-07T01:00:02.244382518-08:00   "validation_completed": false,
+2026-11-07T01:00:02.244390018-08:00   "full_campaign_launched": false,
+2026-11-07T01:00:02.244393268-08:00   "can_launch_campaign": false,
+2026-11-07T01:00:02.244396808-08:00   "competitive_baseline_result": false,
+2026-11-07T01:00:02.244399968-08:00   "strict_host_qualification_passed": false,
+2026-11-07T01:00:02.244402838-08:00   "pilot_completed": false,
+2026-11-07T01:00:02.244405718-08:00   "independent_regrade_passed": false,
+2026-11-07T01:00:02.244409368-08:00   "protocol_sha256": "73ef9a9cdf472b1aae26eca0c85041038b4a7d9303e6d4299547d7d33adcbed4",
+2026-11-07T01:00:02.244412368-08:00   "package_manifest_sha256": "2cf8cb0183b4ea1483fe5253961aa3724963aa29bfa131d74d61ad72acf4c071",
+2026-11-07T01:00:02.244415458-08:00   "host_results": "/results/wb-adjoint-v2-20261107a",
+2026-11-07T01:00:02.244418288-08:00   "container_results": "/results/wb-adjoint-v2-20261107a",
+2026-11-07T01:00:02.244422048-08:00   "jobs_retained": true,
+2026-11-07T01:00:02.244425008-08:00   "automatic_retry": false,
+2026-11-07T01:00:02.244427788-08:00   "status": "launcher_or_infrastructure_failure",
+2026-11-07T01:00:02.244431058-08:00   "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+2026-11-07T01:00:02.244434608-08:00   "active_jobs_note": "Submitted Jobs are retained and may still be running; no cancellation or retry was performed.",
+2026-11-07T01:00:02.244437698-08:00   "finished_at_utc": "2026-11-07T09:00:02.237762+00:00",
+2026-11-07T01:00:02.244440459-08:00   "exit_code": 2,
+2026-11-07T01:00:02.244443328-08:00   "sampled_resource_peaks": {},
+2026-11-07T01:00:02.244446908-08:00   "resource_metrics_scope": "Samples may miss peaks; absent metrics are unavailable, not zero usage."
+2026-11-07T01:00:02.244449728-08:00 }
