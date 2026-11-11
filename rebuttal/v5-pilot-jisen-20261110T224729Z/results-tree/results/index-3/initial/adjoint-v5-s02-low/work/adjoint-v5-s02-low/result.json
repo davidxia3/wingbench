@@ -1,0 +1,1869 @@
+{
+  "aggregate": {
+    "admissibility": "pass",
+    "cfd_ld_geomean": 16.50832956725999,
+    "cfd_ld_worst": 16.083046878722627,
+    "diagnostic_partial_metrics": {
+      "cfd_ld_geomean": 16.50832956725999,
+      "cfd_ld_worst": 16.083046878722627,
+      "n_valid": 3
+    },
+    "n_conditions": 3,
+    "n_inconclusive": 0,
+    "n_invalid": 0,
+    "n_valid": 3,
+    "profile_status": "complete",
+    "score_eligible": true
+  },
+  "benchmark_grade": {
+    "delivered": true,
+    "ld": 16.50832956725999,
+    "outcome": "pass",
+    "reason_codes": [
+      "complete_score_eligible"
+    ]
+  },
+  "benchmark_manifest": null,
+  "campaign_publication_preflight": null,
+  "conditions": [
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "1e5198cfe5eab39044feb25c45fe432c902172c61fe1b4c05158cd853740f1da",
+              "size_bytes": 295531
+            },
+            "conditions": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00/conds.json",
+              "present": true,
+              "sha256": "7b207985248720f412f498a0f2cfbc2398c733680469f86dfeca790637c39342",
+              "size_bytes": 97
+            },
+            "output": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00/output.json",
+              "present": true,
+              "sha256": "8ac4096c3ee3611edd4e396469cbcd40efca335ba84cca418707adb9a9355663",
+              "size_bytes": 1047
+            },
+            "solver_script": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-11T06:41:30.252177Z",
+            "log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q1_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "10ce1607c3b75bdbdbd3b5699f9bac2252f4c6ba54fee6870fddee3321fab466",
+              "size_bytes": 1931
+            },
+            "returncode": 0,
+            "started_at": "2026-11-11T06:13:33.133175Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 1677.1189654879272
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.008936055581666299,
+            "cl": 0.15003504341206886,
+            "cl_target": 0.15,
+            "err_cl": 2.1805504268890274e-07,
+            "ld": 16.789851186678938,
+            "mach": 0.7853,
+            "realized_aoa_deg": 4.014437478380605,
+            "seed_alpha0_deg": 4.4259755152,
+            "solvecl_iterations": 3,
+            "solvecl_l2convergence": 6.721292811190695e-11,
+            "solvecl_time_seconds": 1646.8160634040833
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 5.0645316600206325e-08,
+            "err_cl": 2.1805504268890274e-07,
+            "err_cmz": 3.6646894341352265e-07,
+            "history_rows": 1241,
+            "min_ResRho": 1.004410697542243e-06,
+            "min_relative_ResRho": 1.5979515918480573e-10,
+            "min_relative_totalRes": 1.4462914579010905e-09,
+            "min_totalRes": 0.008891322267742925,
+            "n_step": 842.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 4.014437478380605,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 4.014437478380605,
+                  "available": true,
+                  "cl": 0.15003504341206886,
+                  "clalpha": 0.10732724338381998,
+                  "clstar": 0.15,
+                  "converged": true,
+                  "error": 3.504341206886363e-05,
+                  "history_entries": 3,
+                  "iterations": 3,
+                  "l2convergence": 6.721292811190695e-11,
+                  "time": 1646.8160634040833
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 5.0645316600206325e-08,
+              "err_cl": 2.1805504268890274e-07,
+              "err_cmz": 3.6646894341352265e-07,
+              "min_ResRho": 1.004410697542243e-06,
+              "min_relative_ResRho": 1.5979515918480573e-10,
+              "min_relative_totalRes": 1.4462914579010905e-09,
+              "min_totalRes": 0.008891322267742925,
+              "n_step": 842.0,
+              "wing_cd": 0.008936055581666299,
+              "wing_cl": 0.15003504341206886,
+              "wing_cmx": 0.24650374367990693,
+              "wing_cmy": 0.005443780702081999,
+              "wing_cmz": 0.26464289530386215
+            },
+            "working_conditions": {
+              "AA": 4.4259755152,
+              "CL_targ": 0.15,
+              "M3": 0.7853,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.15,
+      "condition_id": "mach_q1",
+      "mach": 0.7853,
+      "measurements": {
+        "cd": 0.008936055581666299,
+        "cl": 0.15003504341206886,
+        "cl_target": 0.15,
+        "err_cl": 2.1805504268890274e-07,
+        "ld": 16.789851186678938,
+        "mach": 0.7853,
+        "realized_aoa_deg": 4.014437478380605,
+        "seed_alpha0_deg": 4.4259755152,
+        "solvecl_iterations": 3,
+        "solvecl_l2convergence": 6.721292811190695e-11,
+        "solvecl_time_seconds": 1646.8160634040833
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    },
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "97b08520fac17d277136408442e3349bc158b8dfa06be4e69e2ecdca03681fbf",
+              "size_bytes": 307748
+            },
+            "conditions": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00/conds.json",
+              "present": true,
+              "sha256": "1c75b8d9fe696e8bb0e6cccc181894008e81729bd8dbba2adcf9c99c678cc97b",
+              "size_bytes": 97
+            },
+            "output": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00/output.json",
+              "present": true,
+              "sha256": "c038a5d38a53318f98ede5f050216c1aa5e6c27003661f02d19a51bc4b499eac",
+              "size_bytes": 1043
+            },
+            "solver_script": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-11T07:14:38.556468Z",
+            "log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q2_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "2bd171ba1aa5f01dcb9af581d928d23abb3c5d2d8ca37d7fadb4b6693b68599b",
+              "size_bytes": 1931
+            },
+            "returncode": 0,
+            "started_at": "2026-11-11T06:41:30.276154Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 1988.2802813667804
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.009005027775532665,
+            "cl": 0.1500304021091232,
+            "cl_target": 0.15,
+            "err_cl": 4.3643338756838013e-07,
+            "ld": 16.660737295754604,
+            "mach": 0.8195,
+            "realized_aoa_deg": 3.982586984970986,
+            "seed_alpha0_deg": 4.4259755152,
+            "solvecl_iterations": 3,
+            "solvecl_l2convergence": 9.35516464083331e-11,
+            "solvecl_time_seconds": 1957.6819369792938
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 1.0971319885401398e-07,
+            "err_cl": 4.3643338756838013e-07,
+            "err_cmz": 6.095403947137257e-07,
+            "history_rows": 1296,
+            "min_ResRho": 1.4997374740531242e-06,
+            "min_relative_ResRho": 2.2864103219684593e-10,
+            "min_relative_totalRes": 2.0132924099088054e-09,
+            "min_totalRes": 0.013057105443531222,
+            "n_step": 812.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 3.982586984970986,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 3.982586984970986,
+                  "available": true,
+                  "cl": 0.1500304021091232,
+                  "clalpha": 0.11330650916944118,
+                  "clstar": 0.15,
+                  "converged": true,
+                  "error": 3.040210912319541e-05,
+                  "history_entries": 3,
+                  "iterations": 3,
+                  "l2convergence": 9.35516464083331e-11,
+                  "time": 1957.6819369792938
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 1.0971319885401398e-07,
+              "err_cl": 4.3643338756838013e-07,
+              "err_cmz": 6.095403947137257e-07,
+              "min_ResRho": 1.4997374740531242e-06,
+              "min_relative_ResRho": 2.2864103219684593e-10,
+              "min_relative_totalRes": 2.0132924099088054e-09,
+              "min_totalRes": 0.013057105443531222,
+              "n_step": 812.0,
+              "wing_cd": 0.009005027775532665,
+              "wing_cl": 0.1500304021091232,
+              "wing_cmx": 0.2455182590384895,
+              "wing_cmy": 0.0066073701721571275,
+              "wing_cmz": 0.2662536779927875
+            },
+            "working_conditions": {
+              "AA": 4.4259755152,
+              "CL_targ": 0.15,
+              "M3": 0.8195,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.15,
+      "condition_id": "mach_q2",
+      "mach": 0.8195,
+      "measurements": {
+        "cd": 0.009005027775532665,
+        "cl": 0.1500304021091232,
+        "cl_target": 0.15,
+        "err_cl": 4.3643338756838013e-07,
+        "ld": 16.660737295754604,
+        "mach": 0.8195,
+        "realized_aoa_deg": 3.982586984970986,
+        "seed_alpha0_deg": 4.4259755152,
+        "solvecl_iterations": 3,
+        "solvecl_l2convergence": 9.35516464083331e-11,
+        "solvecl_time_seconds": 1957.6819369792938
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    },
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "c9293fa5b2a9ea0c7c1a47da9d36ec848d7a1a5356b85f663fb6d6d834e540bd",
+              "size_bytes": 315820
+            },
+            "conditions": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00/conds.json",
+              "present": true,
+              "sha256": "87e7eea90622dc76b7454898b97660836c6d4123be125b218762e9288b562c01",
+              "size_bytes": 96
+            },
+            "output": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00/output.json",
+              "present": true,
+              "sha256": "9c2b6e0ea9e26a8532772f33caa3a7db18a21bcea1658251be7b8cb972372b92",
+              "size_bytes": 1038
+            },
+            "solver_script": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-11T07:42:30.767567Z",
+            "log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mach_q3_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "0f288d0c5bfac70615a7c9a824c0d64d44d027781cf192cc31ce342f9acab19c",
+              "size_bytes": 1931
+            },
+            "returncode": 0,
+            "started_at": "2026-11-11T07:14:38.598740Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 1672.1687957979739
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.009327455851043465,
+            "cl": 0.1500139097115477,
+            "cl_target": 0.15,
+            "err_cl": 2.0382616050529379e-07,
+            "ld": 16.083046878722627,
+            "mach": 0.853,
+            "realized_aoa_deg": 3.938162909107252,
+            "seed_alpha0_deg": 4.4259755152,
+            "solvecl_iterations": 3,
+            "solvecl_l2convergence": 9.70780452930856e-11,
+            "solvecl_time_seconds": 1642.8478744029999
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 4.659725178456087e-08,
+            "err_cl": 2.0382616050529379e-07,
+            "err_cmz": 2.636803185795955e-07,
+            "history_rows": 1335,
+            "min_ResRho": 1.7254071435215332e-06,
+            "min_relative_ResRho": 2.527146664631752e-10,
+            "min_relative_totalRes": 2.0894225864226363e-09,
+            "min_totalRes": 0.01425981473448846,
+            "n_step": 863.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 3.938162909107252,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 3.938162909107252,
+                  "available": true,
+                  "cl": 0.1500139097115477,
+                  "clalpha": 0.12357608167215534,
+                  "clstar": 0.15,
+                  "converged": true,
+                  "error": 1.390971154771603e-05,
+                  "history_entries": 3,
+                  "iterations": 3,
+                  "l2convergence": 9.70780452930856e-11,
+                  "time": 1642.8478744029999
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 4.659725178456087e-08,
+              "err_cl": 2.0382616050529379e-07,
+              "err_cmz": 2.636803185795955e-07,
+              "min_ResRho": 1.7254071435215332e-06,
+              "min_relative_ResRho": 2.527146664631752e-10,
+              "min_relative_totalRes": 2.0894225864226363e-09,
+              "min_totalRes": 0.01425981473448846,
+              "n_step": 863.0,
+              "wing_cd": 0.009327455851043465,
+              "wing_cl": 0.1500139097115477,
+              "wing_cmx": 0.2428891872348317,
+              "wing_cmy": 0.007874390033401919,
+              "wing_cmz": 0.2677984023489272
+            },
+            "working_conditions": {
+              "AA": 4.4259755152,
+              "CL_targ": 0.15,
+              "M3": 0.853,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.15,
+      "condition_id": "mach_q3",
+      "mach": 0.853,
+      "measurements": {
+        "cd": 0.009327455851043465,
+        "cl": 0.1500139097115477,
+        "cl_target": 0.15,
+        "err_cl": 2.0382616050529379e-07,
+        "ld": 16.083046878722627,
+        "mach": 0.853,
+        "realized_aoa_deg": 3.938162909107252,
+        "seed_alpha0_deg": 4.4259755152,
+        "solvecl_iterations": 3,
+        "solvecl_l2convergence": 9.70780452930856e-11,
+        "solvecl_time_seconds": 1642.8478744029999
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    }
+  ],
+  "execution_authorization": null,
+  "geometry": {
+    "canonical_source": null,
+    "geom_38d": [
+      39.875585963540075,
+      5.673374984829633,
+      5.630673118613036,
+      10.689565343318506,
+      0.3731868312620372,
+      0.3952437421420192,
+      0.681815010237965,
+      0.6291096218448339,
+      0.9523321551577637,
+      0.9517906331941708,
+      0.30569391717661326,
+      0.6025800178523594,
+      0.32599804539688665,
+      -2.8357520425525644,
+      -2.5959324940101522,
+      -1.169764964636455,
+      -2.402131125078224,
+      0.10174282822427451,
+      0.10379089063832377,
+      0.27366347985150197,
+      -0.20460317338143347,
+      0.8950171171748305,
+      -0.6911410845884081,
+      0.7831214807465705,
+      0.024465920060364077,
+      0.34665726725059204,
+      0.21850358245257506,
+      -0.15620447497369194,
+      -0.045072965590916114,
+      -0.25227304438343434,
+      0.056553238257218585,
+      -0.36446803145277734,
+      0.018989581651308707,
+      -0.1995071264619107,
+      -0.1029654291032091,
+      0.0546824022411011,
+      0.31568911952848056,
+      0.15192015488756686
+    ],
+    "hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+    "manifest_provenance": null,
+    "schema": "superwing-38d-v1",
+    "sha256": "c69d5012e11569279cfff26b0b1a55b8d3ef5ac8e6b12f7e4e5b716d51409532"
+  },
+  "grading_mode": "local",
+  "legacy_evidence_used_for_verdict": false,
+  "local_grading": {
+    "adapter": "benchmark/grade_local.py",
+    "runtime_probe": {
+      "detail": "the runtime fingerprint differs from the campaign's: runtime fingerprint mismatch: expected 60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d, observed ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+      "expected_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+      "matches_campaign": false,
+      "probe_error": null,
+      "probed": true,
+      "report_file": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/runtime_fingerprint_adjoint-v5-s02-low_1794377444.json",
+      "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3"
+    },
+    "skipped_steps": [
+      "benchmark_manifest",
+      "execution_authorization",
+      "runtime_attestation",
+      "campaign_publication_preflight",
+      "publication_journal",
+      "release_lock",
+      "worker_lock",
+      "runtime_fingerprint_match",
+      "validate_result"
+    ],
+    "task_id": "superwing-load-low-cl015"
+  },
+  "mesh": {
+    "attempt_index": 0,
+    "attempts": [
+      {
+        "attempt_index": 0,
+        "case_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low",
+        "execution": {
+          "command": [
+            "mpirun",
+            "-np",
+            "16",
+            "-x",
+            "ADFLOW_NK_SWITCH",
+            "-x",
+            "ADFLOW_USE_ANK",
+            "-x",
+            "ADFLOW_USE_NK",
+            "-x",
+            "MKL_NUM_THREADS",
+            "-x",
+            "OMP_NUM_THREADS",
+            "-x",
+            "OPENBLAS_NUM_THREADS",
+            "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+            "gen-mesh.py"
+          ],
+          "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low",
+          "effective_child_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "AFLR_ARCH": "Linux-x86-64",
+            "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+            "CASARCH": ".",
+            "CASREV": "7.7",
+            "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+            "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+            "COMPILERS": "gcc",
+            "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+            "EFCOMP": "gfortran",
+            "ESP_ARCH": "LINUX64",
+            "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+            "HOME": "/home/mdolabuser",
+            "HOMEDIR": "/home/mdolabuser",
+            "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+            "LC_CTYPE": "C.UTF-8",
+            "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+            "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+            "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+            "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+            "MKL_NUM_THREADS": "1",
+            "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+            "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "PETSC_ARCH": "real-opt-gcc-3.15.5",
+            "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+            "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+            "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+            "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+            "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+            "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+            "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+            "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+          },
+          "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+          "error": null,
+          "finished_at": "2026-11-11T06:13:31.879659Z",
+          "log": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/grade_mesh.log",
+            "present": true,
+            "sha256": "553430f351675b3a2d333644cc15282dfc1f590b1f7cd1af9b22a35ba31c8a7e",
+            "size_bytes": 2825
+          },
+          "returncode": 0,
+          "started_at": "2026-11-11T06:10:48.293573Z",
+          "termination_reason": "completed",
+          "timeout_seconds": 1800,
+          "wall_seconds": 163.586058748886
+        },
+        "generated_artifacts": {
+          "gen-mesh.py": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/gen-mesh.py",
+            "present": true,
+            "sha256": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+            "size_bytes": 17502
+          },
+          "input.before_mesh.json": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/input.before_mesh.json",
+            "present": true,
+            "sha256": "6688312d68e3b9c7a4f3a0c433c578a5e8b3d412aff31e49573bffc13e5b340c",
+            "size_bytes": 1100
+          },
+          "original_tip.xyz": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/original_tip.xyz",
+            "present": true,
+            "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+            "size_bytes": 219899
+          },
+          "run-adflow.py": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/run-adflow.py",
+            "present": true,
+            "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+            "size_bytes": 8909
+          },
+          "single-point.py": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/single-point.py",
+            "present": true,
+            "sha256": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976",
+            "size_bytes": 4123
+          }
+        },
+        "input_after_mesh_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/input.json",
+          "present": true,
+          "sha256": "1e3235d68b30428e555dd0df8243ef7db17b272ee0e4dc009f69b49848246fb2",
+          "size_bytes": 1120
+        },
+        "input_after_mesh_error": null,
+        "mesh_info_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mesh_info.json",
+          "present": true,
+          "sha256": "addf3e32d626d2ce22855ebd9294e8aa4f4366cb685f089025ed77f43195b40c",
+          "size_bytes": 103
+        },
+        "mesh_validation_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mesh_validation.json",
+          "present": true,
+          "sha256": "f271df1009dff6f759f7aacfae568c0499618a93fab4da544e879a01701e4444",
+          "size_bytes": 1266
+        },
+        "min_quality": 0.01748,
+        "min_volume": 1.55e-14,
+        "outcome": "marginal",
+        "output_error": null,
+        "raw_input_after_mesh": {
+          "AA": [
+            4.4259755152,
+            4.4259755152,
+            4.4259755152
+          ],
+          "AR": 10.689565343318506,
+          "DA": 5.673374984829633,
+          "DA_kink": 5.630673118613036,
+          "M3": [
+            0.7853,
+            0.8195,
+            0.853
+          ],
+          "SA": 39.875585963540075,
+          "TR": 0.3731868312620372,
+          "cambers": [
+            0.30569391717661326,
+            0.6025800178523594,
+            0.32599804539688665
+          ],
+          "cst_l": [
+            -0.15620447497369194,
+            -0.045072965590916114,
+            -0.25227304438343434,
+            0.056553238257218585,
+            -0.36446803145277734,
+            0.018989581651308707,
+            -0.1995071264619107,
+            -0.1029654291032091,
+            0.0546824022411011,
+            0.31568911952848056
+          ],
+          "cst_u": [
+            0.10174282822427451,
+            0.10379089063832377,
+            0.27366347985150197,
+            -0.20460317338143347,
+            0.8950171171748305,
+            -0.6911410845884081,
+            0.7831214807465705,
+            0.024465920060364077,
+            0.34665726725059204,
+            0.21850358245257506
+          ],
+          "half_span": 3.6696925903400075,
+          "kink": 0.3952437421420192,
+          "ref_area": 2.519586769917386,
+          "rootadj": 0.681815010237965,
+          "rtcs": [
+            0.6291096218448339,
+            0.9523321551577637,
+            0.9517906331941708
+          ],
+          "rtctip": 0.5702380625135651,
+          "surface_area": 2.4300785751262826,
+          "tcroot": 0.15192015488756686,
+          "twists": [
+            -2.8357520425525644,
+            -2.5959324940101522,
+            -1.169764964636455,
+            -2.402131125078224
+          ]
+        },
+        "raw_input_before_mesh": {
+          "AA": [
+            4.4259755152,
+            4.4259755152,
+            4.4259755152
+          ],
+          "AR": 10.689565343318506,
+          "DA": 5.673374984829633,
+          "DA_kink": 5.630673118613036,
+          "M3": [
+            0.7853,
+            0.8195,
+            0.853
+          ],
+          "SA": 39.875585963540075,
+          "TR": 0.3731868312620372,
+          "cambers": [
+            0.30569391717661326,
+            0.6025800178523594,
+            0.32599804539688665
+          ],
+          "cst_l": [
+            -0.15620447497369194,
+            -0.045072965590916114,
+            -0.25227304438343434,
+            0.056553238257218585,
+            -0.36446803145277734,
+            0.018989581651308707,
+            -0.1995071264619107,
+            -0.1029654291032091,
+            0.0546824022411011,
+            0.31568911952848056
+          ],
+          "cst_u": [
+            0.10174282822427451,
+            0.10379089063832377,
+            0.27366347985150197,
+            -0.20460317338143347,
+            0.8950171171748305,
+            -0.6911410845884081,
+            0.7831214807465705,
+            0.024465920060364077,
+            0.34665726725059204,
+            0.21850358245257506
+          ],
+          "kink": 0.3952437421420192,
+          "rootadj": 0.681815010237965,
+          "rtcs": [
+            0.6291096218448339,
+            0.9523321551577637,
+            0.9517906331941708
+          ],
+          "tcroot": 0.15192015488756686,
+          "twists": [
+            -2.8357520425525644,
+            -2.5959324940101522,
+            -1.169764964636455,
+            -2.402131125078224
+          ]
+        },
+        "raw_mesh_info": {
+          "actual_ds": 1.24e-06,
+          "min_Quality": 0.01748,
+          "min_Vol": 1.55e-14,
+          "target_ds": 1.66919523397364e-06
+        },
+        "raw_mesh_validation": {
+          "post_mesh_input": {
+            "artifact": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/input.json",
+              "present": true,
+              "regular_file": true,
+              "sha256": "1e3235d68b30428e555dd0df8243ef7db17b272ee0e4dc009f69b49848246fb2",
+              "size_bytes": 1120
+            },
+            "geometry": {
+              "half_span": 3.6696925903400075,
+              "ref_area": 2.519586769917386,
+              "surface_area": 2.4300785751262826
+            },
+            "invalid_fields": [],
+            "validation_state": "valid"
+          },
+          "reason_codes": [],
+          "schema_version": "wingbench-cfd-mesh-artifact-validation-v1",
+          "valid": true,
+          "volume_grid": {
+            "artifact": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/wing_vol.cgns",
+              "present": true,
+              "regular_file": true,
+              "sha256": "485f241dccba34a678d7cb07b4032ebdbaa35191db2b64df8d7ac5d660c26bd7",
+              "size_bytes": 88948736
+            },
+            "cell_dimension": 3,
+            "coordinates_finite": true,
+            "reader": "cgnsutilities.cgnsutilities.readGrid",
+            "total_cells": 3527680,
+            "total_nodes": 3699189,
+            "validation_state": "valid",
+            "zone_count": 13,
+            "zone_dimensions": [
+              [
+                113,
+                41,
+                81
+              ],
+              [
+                9,
+                41,
+                81
+              ],
+              [
+                113,
+                41,
+                81
+              ],
+              [
+                9,
+                41,
+                81
+              ],
+              [
+                113,
+                125,
+                81
+              ],
+              [
+                9,
+                125,
+                81
+              ],
+              [
+                113,
+                125,
+                81
+              ],
+              [
+                9,
+                125,
+                81
+              ],
+              [
+                113,
+                17,
+                81
+              ],
+              [
+                9,
+                17,
+                81
+              ],
+              [
+                113,
+                17,
+                81
+              ],
+              [
+                9,
+                17,
+                81
+              ],
+              [
+                9,
+                113,
+                81
+              ]
+            ]
+          }
+        },
+        "raw_volume_meshing_log_evidence": {
+          "actual_ds": 1.24e-06,
+          "first_grid_level": 2.0,
+          "history_rows": 80,
+          "last_grid_level": 81.0,
+          "min_Quality": 0.01748,
+          "min_Vol": 1.55e-14,
+          "schema_version": "wingbench-pyhyp-log-evidence-v1"
+        },
+        "reason_codes": [],
+        "volume_grid_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/wing_vol.cgns",
+          "present": true,
+          "sha256": "485f241dccba34a678d7cb07b4032ebdbaa35191db2b64df8d7ac5d660c26bd7",
+          "size_bytes": 88948736
+        },
+        "volume_meshing_log_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/volume_meshing.log",
+          "present": true,
+          "sha256": "d7767fc79cba8615dac76d56d30445efd1baa3646f8dc770974b7e21ddd386fe",
+          "size_bytes": 10669
+        },
+        "volume_meshing_log_evidence_error": null
+      }
+    ],
+    "case_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low",
+    "execution": {
+      "command": [
+        "mpirun",
+        "-np",
+        "16",
+        "-x",
+        "ADFLOW_NK_SWITCH",
+        "-x",
+        "ADFLOW_USE_ANK",
+        "-x",
+        "ADFLOW_USE_NK",
+        "-x",
+        "MKL_NUM_THREADS",
+        "-x",
+        "OMP_NUM_THREADS",
+        "-x",
+        "OPENBLAS_NUM_THREADS",
+        "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+        "gen-mesh.py"
+      ],
+      "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low",
+      "effective_child_environment": {
+        "ADFLOW_NK_SWITCH": "1e-8",
+        "ADFLOW_USE_ANK": "1",
+        "ADFLOW_USE_NK": "1",
+        "AFLR_ARCH": "Linux-x86-64",
+        "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+        "CASARCH": ".",
+        "CASREV": "7.7",
+        "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+        "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+        "COMPILERS": "gcc",
+        "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+        "EFCOMP": "gfortran",
+        "ESP_ARCH": "LINUX64",
+        "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+        "HOME": "/home/mdolabuser",
+        "HOMEDIR": "/home/mdolabuser",
+        "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+        "LC_CTYPE": "C.UTF-8",
+        "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+        "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+        "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+        "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+        "MKL_NUM_THREADS": "1",
+        "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+        "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "PETSC_ARCH": "real-opt-gcc-3.15.5",
+        "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+        "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+        "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+        "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+        "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+        "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+        "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+        "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+      },
+      "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+      "error": null,
+      "finished_at": "2026-11-11T06:13:31.879659Z",
+      "log": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/grade_mesh.log",
+        "present": true,
+        "sha256": "553430f351675b3a2d333644cc15282dfc1f590b1f7cd1af9b22a35ba31c8a7e",
+        "size_bytes": 2825
+      },
+      "returncode": 0,
+      "started_at": "2026-11-11T06:10:48.293573Z",
+      "termination_reason": "completed",
+      "timeout_seconds": 1800,
+      "wall_seconds": 163.586058748886
+    },
+    "generated_artifacts": {
+      "gen-mesh.py": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/gen-mesh.py",
+        "present": true,
+        "sha256": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+        "size_bytes": 17502
+      },
+      "input.before_mesh.json": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/input.before_mesh.json",
+        "present": true,
+        "sha256": "6688312d68e3b9c7a4f3a0c433c578a5e8b3d412aff31e49573bffc13e5b340c",
+        "size_bytes": 1100
+      },
+      "original_tip.xyz": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/original_tip.xyz",
+        "present": true,
+        "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+        "size_bytes": 219899
+      },
+      "run-adflow.py": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/run-adflow.py",
+        "present": true,
+        "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+        "size_bytes": 8909
+      },
+      "single-point.py": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/single-point.py",
+        "present": true,
+        "sha256": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976",
+        "size_bytes": 4123
+      }
+    },
+    "input_after_mesh_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/input.json",
+      "present": true,
+      "sha256": "1e3235d68b30428e555dd0df8243ef7db17b272ee0e4dc009f69b49848246fb2",
+      "size_bytes": 1120
+    },
+    "input_after_mesh_error": null,
+    "mesh_info_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mesh_info.json",
+      "present": true,
+      "sha256": "addf3e32d626d2ce22855ebd9294e8aa4f4366cb685f089025ed77f43195b40c",
+      "size_bytes": 103
+    },
+    "mesh_validation_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/mesh_validation.json",
+      "present": true,
+      "sha256": "f271df1009dff6f759f7aacfae568c0499618a93fab4da544e879a01701e4444",
+      "size_bytes": 1266
+    },
+    "min_quality": 0.01748,
+    "min_volume": 1.55e-14,
+    "outcome": "marginal",
+    "output_error": null,
+    "raw_input_after_mesh": {
+      "AA": [
+        4.4259755152,
+        4.4259755152,
+        4.4259755152
+      ],
+      "AR": 10.689565343318506,
+      "DA": 5.673374984829633,
+      "DA_kink": 5.630673118613036,
+      "M3": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "SA": 39.875585963540075,
+      "TR": 0.3731868312620372,
+      "cambers": [
+        0.30569391717661326,
+        0.6025800178523594,
+        0.32599804539688665
+      ],
+      "cst_l": [
+        -0.15620447497369194,
+        -0.045072965590916114,
+        -0.25227304438343434,
+        0.056553238257218585,
+        -0.36446803145277734,
+        0.018989581651308707,
+        -0.1995071264619107,
+        -0.1029654291032091,
+        0.0546824022411011,
+        0.31568911952848056
+      ],
+      "cst_u": [
+        0.10174282822427451,
+        0.10379089063832377,
+        0.27366347985150197,
+        -0.20460317338143347,
+        0.8950171171748305,
+        -0.6911410845884081,
+        0.7831214807465705,
+        0.024465920060364077,
+        0.34665726725059204,
+        0.21850358245257506
+      ],
+      "half_span": 3.6696925903400075,
+      "kink": 0.3952437421420192,
+      "ref_area": 2.519586769917386,
+      "rootadj": 0.681815010237965,
+      "rtcs": [
+        0.6291096218448339,
+        0.9523321551577637,
+        0.9517906331941708
+      ],
+      "rtctip": 0.5702380625135651,
+      "surface_area": 2.4300785751262826,
+      "tcroot": 0.15192015488756686,
+      "twists": [
+        -2.8357520425525644,
+        -2.5959324940101522,
+        -1.169764964636455,
+        -2.402131125078224
+      ]
+    },
+    "raw_input_before_mesh": {
+      "AA": [
+        4.4259755152,
+        4.4259755152,
+        4.4259755152
+      ],
+      "AR": 10.689565343318506,
+      "DA": 5.673374984829633,
+      "DA_kink": 5.630673118613036,
+      "M3": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "SA": 39.875585963540075,
+      "TR": 0.3731868312620372,
+      "cambers": [
+        0.30569391717661326,
+        0.6025800178523594,
+        0.32599804539688665
+      ],
+      "cst_l": [
+        -0.15620447497369194,
+        -0.045072965590916114,
+        -0.25227304438343434,
+        0.056553238257218585,
+        -0.36446803145277734,
+        0.018989581651308707,
+        -0.1995071264619107,
+        -0.1029654291032091,
+        0.0546824022411011,
+        0.31568911952848056
+      ],
+      "cst_u": [
+        0.10174282822427451,
+        0.10379089063832377,
+        0.27366347985150197,
+        -0.20460317338143347,
+        0.8950171171748305,
+        -0.6911410845884081,
+        0.7831214807465705,
+        0.024465920060364077,
+        0.34665726725059204,
+        0.21850358245257506
+      ],
+      "kink": 0.3952437421420192,
+      "rootadj": 0.681815010237965,
+      "rtcs": [
+        0.6291096218448339,
+        0.9523321551577637,
+        0.9517906331941708
+      ],
+      "tcroot": 0.15192015488756686,
+      "twists": [
+        -2.8357520425525644,
+        -2.5959324940101522,
+        -1.169764964636455,
+        -2.402131125078224
+      ]
+    },
+    "raw_mesh_info": {
+      "actual_ds": 1.24e-06,
+      "min_Quality": 0.01748,
+      "min_Vol": 1.55e-14,
+      "target_ds": 1.66919523397364e-06
+    },
+    "raw_mesh_validation": {
+      "post_mesh_input": {
+        "artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/input.json",
+          "present": true,
+          "regular_file": true,
+          "sha256": "1e3235d68b30428e555dd0df8243ef7db17b272ee0e4dc009f69b49848246fb2",
+          "size_bytes": 1120
+        },
+        "geometry": {
+          "half_span": 3.6696925903400075,
+          "ref_area": 2.519586769917386,
+          "surface_area": 2.4300785751262826
+        },
+        "invalid_fields": [],
+        "validation_state": "valid"
+      },
+      "reason_codes": [],
+      "schema_version": "wingbench-cfd-mesh-artifact-validation-v1",
+      "valid": true,
+      "volume_grid": {
+        "artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/wing_vol.cgns",
+          "present": true,
+          "regular_file": true,
+          "sha256": "485f241dccba34a678d7cb07b4032ebdbaa35191db2b64df8d7ac5d660c26bd7",
+          "size_bytes": 88948736
+        },
+        "cell_dimension": 3,
+        "coordinates_finite": true,
+        "reader": "cgnsutilities.cgnsutilities.readGrid",
+        "total_cells": 3527680,
+        "total_nodes": 3699189,
+        "validation_state": "valid",
+        "zone_count": 13,
+        "zone_dimensions": [
+          [
+            113,
+            41,
+            81
+          ],
+          [
+            9,
+            41,
+            81
+          ],
+          [
+            113,
+            41,
+            81
+          ],
+          [
+            9,
+            41,
+            81
+          ],
+          [
+            113,
+            125,
+            81
+          ],
+          [
+            9,
+            125,
+            81
+          ],
+          [
+            113,
+            125,
+            81
+          ],
+          [
+            9,
+            125,
+            81
+          ],
+          [
+            113,
+            17,
+            81
+          ],
+          [
+            9,
+            17,
+            81
+          ],
+          [
+            113,
+            17,
+            81
+          ],
+          [
+            9,
+            17,
+            81
+          ],
+          [
+            9,
+            113,
+            81
+          ]
+        ]
+      }
+    },
+    "raw_volume_meshing_log_evidence": {
+      "actual_ds": 1.24e-06,
+      "first_grid_level": 2.0,
+      "history_rows": 80,
+      "last_grid_level": 81.0,
+      "min_Quality": 0.01748,
+      "min_Vol": 1.55e-14,
+      "schema_version": "wingbench-pyhyp-log-evidence-v1"
+    },
+    "reason_codes": [],
+    "volume_grid_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/wing_vol.cgns",
+      "present": true,
+      "sha256": "485f241dccba34a678d7cb07b4032ebdbaa35191db2b64df8d7ac5d660c26bd7",
+      "size_bytes": 88948736
+    },
+    "volume_meshing_log_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s02-low/volume_meshing.log",
+      "present": true,
+      "sha256": "d7767fc79cba8615dac76d56d30445efd1baa3646f8dc770974b7e21ddd386fe",
+      "size_bytes": 10669
+    },
+    "volume_meshing_log_evidence_error": null
+  },
+  "official": false,
+  "protocol": {
+    "canonical_sha256": "7ba78aef369fc85c68707b92023699cf8b0288b153b120ad5516a383a2f4a0a9",
+    "protocol_id": "superwing-load-low-cl015-qualification-v1",
+    "protocol_status": "qualification_required",
+    "snapshot": {
+      "aggregation": {
+        "admissibility_fail": "any_conclusive_condition_invalid_or_unmeshable",
+        "admissibility_pass": "all_conditions_valid",
+        "admissibility_undetermined": "no_conclusive_invalidity_and_any_inconclusive_evidence",
+        "diagnostic_partial_metrics_allowed": true,
+        "required_valid_conditions": 3,
+        "score": "geometric_mean_ld",
+        "score_requires_complete_pass": true
+      },
+      "benchmark_release_id": null,
+      "condition_execution_order": [
+        0,
+        1,
+        2
+      ],
+      "condition_gates": {
+        "aeroproblem_fatal_fail_must_equal": false,
+        "aeroproblem_solve_failed_must_equal": false,
+        "aoa_deg_inclusive": [
+          -10.0,
+          25.0
+        ],
+        "cl_match_abs_less_than_or_equal": 0.02,
+        "err_cl_strictly_less_than": 0.0005,
+        "positive_cd_required": true,
+        "positive_cl_required": true,
+        "positive_ld_required": true,
+        "process_returncode_zero_required": true,
+        "solvecl_converged_required": true,
+        "solvecl_result_required": true
+      },
+      "condition_output_order": [
+        0,
+        1,
+        2
+      ],
+      "conditions": [
+        {
+          "cl_target": 0.15,
+          "condition_id": "mach_q1",
+          "mach": 0.7853
+        },
+        {
+          "cl_target": 0.15,
+          "condition_id": "mach_q2",
+          "mach": 0.8195
+        },
+        {
+          "cl_target": 0.15,
+          "condition_id": "mach_q3",
+          "mach": 0.853
+        }
+      ],
+      "environment": {
+        "cst_modeling3d_commit": "9500b19a732463c26b32f6860ac6c517c7d212a5",
+        "expected_runtime_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+        "final_child_image_linux_amd64_digest": "sha256:53a214a5c6ea52287b08656da5e370411323aca64b60e7ab0b13992eb21f8c44",
+        "final_child_image_manifest_digest": "sha256:53a214a5c6ea52287b08656da5e370411323aca64b60e7ab0b13992eb21f8c44",
+        "forbidden_parent_names": [
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "MKL_NUM_THREADS"
+        ],
+        "forbidden_parent_prefixes": [
+          "ADFLOW_"
+        ],
+        "mdolab_base_image_linux_amd64_digest": "sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd",
+        "mdolab_base_image_manifest_digest": "sha256:68393a976907d6306f8b2d87ba95365a8720c3b2a5e55ae431f3cb05d5198223",
+        "require_non_root": true,
+        "required_child_environment": {
+          "ADFLOW_NK_SWITCH": "1e-8",
+          "ADFLOW_USE_ANK": "1",
+          "ADFLOW_USE_NK": "1",
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        }
+      },
+      "execution": {
+        "early_stall_abort": false,
+        "fail_fast_conditions": false,
+        "fresh_attempt_directory": true,
+        "host_lock_path": "/workspace/.wingbench-locks/np16.lock",
+        "infrastructure_retries": 0,
+        "mesh_timeout_seconds": 1800,
+        "mkl_num_threads": 1,
+        "mpi_ranks": 16,
+        "omp_num_threads": 1,
+        "openblas_num_threads": 1,
+        "solve_timeout_seconds_per_attempt": 7200,
+        "timeout_is_scientific_failure": false
+      },
+      "flow": {
+        "area_ref_source": "generated_wing_surface_area",
+        "chord_ref": 1.0,
+        "reynolds": 20000000.0,
+        "reynolds_length": 1.0,
+        "temperature_k": 300.0,
+        "x_ref": 0.25
+      },
+      "generated_case_file_sha256": {
+        "gen-mesh.py": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+        "original_tip.xyz": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+        "run-adflow.py": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+        "single-point.py": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976"
+      },
+      "mesh": {
+        "marginal_quality_if": "0<q<0.05",
+        "min_quality_valid_if": ">0",
+        "min_volume_valid_if": ">0",
+        "missing_or_malformed_evidence": "inconclusive",
+        "recipe": "superwing-dataset-default-v1",
+        "robust_mesh": false
+      },
+      "official_grading_enabled": false,
+      "outcome_policy": {
+        "completed_solvecl_nonconvergence": "invalid_solver_nonconvergence",
+        "malformed_output": "inconclusive_output_failure",
+        "missing_convergence_evidence": "inconclusive_output_failure",
+        "missing_output": "inconclusive_output_failure",
+        "process_error": "inconclusive_infrastructure",
+        "timeout": "inconclusive_timeout",
+        "uninterrupted_infrastructure_failure": "terminal_inconclusive_no_retry",
+        "verified_spot_reclaim": "censored_external_reacquisition_not_scientific_attempt"
+      },
+      "protocol_id": "superwing-load-low-cl015-qualification-v1",
+      "protocol_revision": 3,
+      "protocol_status": "qualification_required",
+      "result_contract": {
+        "all_attempts_preserved": true,
+        "atomic_write_required": true,
+        "geometry_sha256_required": true,
+        "official_requires_protocol_status": "frozen",
+        "protocol_sha256_required": true,
+        "protocol_snapshot_required": true,
+        "schema_version": "wingbench-cfd-whole-wing-result-v1"
+      },
+      "schema_version": "wingbench-cfd-protocol-v1",
+      "scientific_files": [
+        {
+          "path": "scripts/cfd/grading_protocol.py",
+          "sha256": "6828daf5ce8607da33cb1ab128462a87249b2d0bf93499a3f54d771fdc9a53c4"
+        },
+        {
+          "path": "scripts/cfd/grade_schema.py",
+          "sha256": "5507c728205e0a5389bdd8119d8824013c5743a21988d16f57214042b85246e4"
+        },
+        {
+          "path": "scripts/cfd/grade_benchmark.py",
+          "sha256": "1200a150475c921a9901d4963c3a1d19c691336103ac21ef92e55c9fa5987f13"
+        },
+        {
+          "path": "scripts/cfd/runtime_probe.py",
+          "sha256": "c55799f9b0330694489f0f01cffd33cb8dd7ea4074731f26afa4c68acb23a85e"
+        },
+        {
+          "path": "scripts/cfd/validate_mesh_artifact.py",
+          "sha256": "906bcd055686151ce7711d6391ea003dee5e4b76790ca66d62d707f386d84aae"
+        },
+        {
+          "path": "scripts/cfd/raw_evidence.py",
+          "sha256": "c113f7116240f8d352f1647fefd2c2bfe855562d90fdc37ffc0deecc77638f75"
+        },
+        {
+          "path": "scripts/cfd/geometry_hash.py",
+          "sha256": "e837d52cdffa887fe0996943b57518151ae9855ec720a72c8d9d13ba0ec506a8"
+        },
+        {
+          "path": "scripts/cfd/dataset_geometry.py",
+          "sha256": "41cb445fec71d877714fa71febc67322a52f0d794362c8b4964bd7103611d765"
+        },
+        {
+          "path": "scripts/cfd/campaign_publication.py",
+          "sha256": "adf567a80a762807abf3bc411cab78c41a18b569d62372d2f7812b0e739b2f68"
+        },
+        {
+          "path": "scripts/cfd/aws_campaign_publication.py",
+          "sha256": "7a369c3478a9c4d01c73b302394aed072e1f779557d824225d575bd95e3f560e"
+        },
+        {
+          "path": "scripts/cfd/build_benchmark_regrade_manifest.py",
+          "sha256": "22253a93fd8ff918cc520fd63ced057d5a68c11f5e63eb75d97b50376ad2d736"
+        },
+        {
+          "path": "scripts/cfd/build_protocol_qualification_manifest.py",
+          "sha256": "caa03699adcc8e3fe667fa0d4162d778805a4c12e5a9fabfe782c190c8d294cf"
+        },
+        {
+          "path": "scripts/cfd/evaluate_protocol_qualification.py",
+          "sha256": "54aacc83f2783c0647d3831a4edd21d69f8941706b1845b5ff68bb1df79da09b"
+        },
+        {
+          "path": "scripts/cfd/promote_benchmark_manifest.py",
+          "sha256": "76155efed98468b9086e5b99ed09a54952ed15799015f5631a769a88ed98e2d7"
+        },
+        {
+          "path": "scripts/cfd/build_release_lock.py",
+          "sha256": "b597405ea75a236a6428d46f257b553cdd3aea8481b2deddb84b78aec4778170"
+        },
+        {
+          "path": "scripts/cfd/finalize_benchmark_regrade.py",
+          "sha256": "a27bb4c74b0328d180581876130f8794166ac2fd11ac36e7e300e2e4f7082e85"
+        },
+        {
+          "path": "scripts/cfd/derive_seed_aoa.py",
+          "sha256": "79ecab9d35de8ee01180cd19c2dee8148fd6c980ab4eacb1eecb1c422b5df816"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/gen-mesh.superwing.py",
+          "sha256": "7daf656cdb23c6de32fba1585e22bb850d1b7e86c2ad7d031239989f2d1f73b4"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/run-adflow.py",
+          "sha256": "c4f2bb3c04aa21a5a07b5c51a3612e4cd04f7bcc108894e953dd2c6506a86ad6"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/single-point.py",
+          "sha256": "3682aad55ebc051121e0aa373305d0341bbde1a57642fc3f8981b84ffbd15f27"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/original_tip.xyz",
+          "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1"
+        },
+        {
+          "path": "scripts/cfd/prepare_superwing_cases.py",
+          "sha256": "287416b5440ae43eca6c26adaba72fc6f95c0d44143f4bb5e9193424c1113655"
+        },
+        {
+          "path": "configs/cfd/publication_storage_binding_v1.json",
+          "sha256": "a7179dd4ed4218abb67984a1ac1c2befd5bdb0e447e5ca78698ff3fc5cd2bf0a"
+        },
+        {
+          "path": "configs/cfd/seed_aoa_selection_v1.json",
+          "sha256": "58a09c6e39567723836c13140fe70d805c46c2c3b410b52251d2e1efcffe432b"
+        }
+      ],
+      "scientific_scope": {
+        "dataset_geometry_convention": "dataset-index-to-configs-source-id-to-running-info-shape-v1",
+        "generated_geometry_convention": "configs-generated-v1",
+        "geometry_hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+        "geometry_schema": "superwing-38d-v1",
+        "mesh_once": true,
+        "partial_scores_official": false,
+        "serial_conditions": true,
+        "whole_wing_unit": true
+      },
+      "seed_policy": {
+        "alpha0_deg": 4.4259755152,
+        "applies_to_every_wing_and_condition": true,
+        "future_reselection_allowed": false,
+        "selection_record_path": "configs/cfd/seed_aoa_selection_load_low_v1.json",
+        "selection_rule": "exact_median_successful_cases_in_cl_0.13_0.17_no_rounding",
+        "source": "superwing-successful-target-cl-band-median-load-qualification-v1",
+        "type": "fixed_per_condition"
+      },
+      "solver": {
+        "equation_type": "RANS",
+        "l2_convergence": 1e-10,
+        "mg_cycle": "3w",
+        "n_cycles": 3000,
+        "n_cycles_coarse": 500,
+        "nk_switch_tol": 1e-08,
+        "solvecl": {
+          "auto_reset": false,
+          "clalpha_guess": null,
+          "delta": 0.5,
+          "l2_convergence_rel": null,
+          "max_iter": 20,
+          "relax_alpha": 1.0,
+          "relax_clalpha": 1.0,
+          "stop_on_stall": false,
+          "tol": 0.001,
+          "update_cutoff": 1e-16,
+          "work_unit_time": null,
+          "write_solution": true
+        },
+        "use_ank_solver": true,
+        "use_nk_solver": true
+      }
+    }
+  },
+  "protocol_id": "superwing-load-low-cl015-qualification-v1",
+  "release_lock": null,
+  "result_sha256": "68d9594598ba4626d85b1c4eb5dc277c3f0d029350329139a07482714c1e4cc5",
+  "run_id": "adjoint-v5-s02-low",
+  "runtime": {
+    "aws_instance_type_observed": null,
+    "aws_lifecycle_observed": null,
+    "final_child_image_linux_amd64_digest_observed": null,
+    "finished_at": "2026-11-11T07:42:30Z",
+    "git_commit": null,
+    "hostname": null,
+    "platform": "Linux-5.15.0-176-generic-x86_64-with-glibc2.31",
+    "python": "3.9.12",
+    "runtime_attestation": {
+      "status": "not_provided_local_grading"
+    },
+    "runtime_attestation_sha256": null,
+    "solver_environment": {
+      "report_file": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/runtime_fingerprint_adjoint-v5-s02-low_1794377444.json",
+      "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+      "status": "complete"
+    },
+    "solver_environment_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+    "started_at": "2026-11-11T06:10:48Z"
+  },
+  "schema_version": "wingbench-cfd-whole-wing-result-v1",
+  "timing": {
+    "core_seconds": 88018.46562242508,
+    "mpi_ranks": 16,
+    "process_wall_seconds": 5501.1541014015675,
+    "wall_seconds": 5502.510154668242
+  },
+  "wing_id": "adjoint-v5-s02-low"
+}

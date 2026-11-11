@@ -1,0 +1,121 @@
+[
+  {
+    "call": 1,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 6.6401110468,
+    "raw_norms": [
+      142924668.9946051,
+      1710587.6478767225,
+      170.9959069573861
+    ],
+    "relative_residual": 1.1964058280508635e-06,
+    "solve_failed": true,
+    "wall_seconds": 1437.4080578647554,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 2,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 6.1401110468,
+    "raw_norms": [
+      142924668.9946051,
+      3492080.6940843854,
+      0.012980434623652715
+    ],
+    "relative_residual": 9.082011324540958e-11,
+    "solve_failed": false,
+    "wall_seconds": 828.4252121224999,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 3,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 3.628231575866641,
+    "raw_norms": [
+      142924668.9946051,
+      17622553.185975034,
+      0.004157508088527392
+    ],
+    "relative_residual": 2.9088806836308456e-11,
+    "solve_failed": false,
+    "wall_seconds": 885.6700139157474,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 4,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 3.8458739336916548,
+    "raw_norms": [
+      142924668.9946051,
+      1539361.1991931384,
+      0.004904373303217362
+    ],
+    "relative_residual": 3.4314393293452266e-11,
+    "solve_failed": false,
+    "wall_seconds": 733.9866807721555,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 5,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 3.8042321552134024,
+    "raw_norms": [
+      142924668.9946051,
+      294489.23046502174,
+      0.0036610319305855434
+    ],
+    "relative_residual": 2.561511568533865e-11,
+    "solve_failed": false,
+    "wall_seconds": 578.5364283304662,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Final benchmark trim; complete forward gate passed",
+    "cl": 0.4100499345155087,
+    "cd": 0.01517453321498879,
+    "qualified": true,
+    "input": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      3.8042321552134024
+    ]
+  }
+]

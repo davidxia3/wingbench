@@ -1,0 +1,503 @@
+{
+  "configured_mpi_ranks": 16,
+  "cst_modeling3d_commit_observed": "9500b19a732463c26b32f6860ac6c517c7d212a5",
+  "effective_probe_environment": {
+    "ADFLOW_NK_SWITCH": "1e-8",
+    "ADFLOW_USE_ANK": "1",
+    "ADFLOW_USE_NK": "1",
+    "AFLR_ARCH": "Linux-x86-64",
+    "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+    "CASARCH": ".",
+    "CASREV": "7.7",
+    "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+    "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+    "COMPILERS": "gcc",
+    "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+    "EFCOMP": "gfortran",
+    "ESP_ARCH": "LINUX64",
+    "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+    "HOME": "/home/mdolabuser",
+    "HOMEDIR": "/home/mdolabuser",
+    "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+    "LC_CTYPE": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+    "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+    "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+    "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+    "MKL_NUM_THREADS": "1",
+    "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+    "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "PETSC_ARCH": "real-opt-gcc-3.15.5",
+    "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+    "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+    "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+    "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+    "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+    "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+    "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+    "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+  },
+  "filtered_scientific_import_smoke": {
+    "effective_environment": {
+      "ADFLOW_NK_SWITCH": "1e-8",
+      "ADFLOW_USE_ANK": "1",
+      "ADFLOW_USE_NK": "1",
+      "AFLR_ARCH": "Linux-x86-64",
+      "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+      "CASARCH": ".",
+      "CASREV": "7.7",
+      "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+      "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+      "COMPILERS": "gcc",
+      "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+      "EFCOMP": "gfortran",
+      "ESP_ARCH": "LINUX64",
+      "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+      "HOME": "/home/mdolabuser",
+      "HOMEDIR": "/home/mdolabuser",
+      "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+      "LC_CTYPE": "C.UTF-8",
+      "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+      "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+      "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+      "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+      "MKL_NUM_THREADS": "1",
+      "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+      "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "PETSC_ARCH": "real-opt-gcc-3.15.5",
+      "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+      "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+      "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+      "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+      "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+      "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+      "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+      "PYTHONNOUSERSITE": "1",
+      "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+      "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+    },
+    "error": null,
+    "output": "ERROR 7: VSPAERO Viewer Not Found. \n\tExpected here: /home/mdolabuser/packages/OpenVSP/python/openvsp/openvsp/vspviewer\nSUPERWING_FILTERED_IMPORTS_OK\n",
+    "passed": true,
+    "returncode": 0
+  },
+  "inherited_environment": {
+    "AFLR_ARCH": "Linux-x86-64",
+    "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+    "CASARCH": ".",
+    "CASREV": "7.7",
+    "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+    "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+    "COMPILERS": "gcc",
+    "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+    "EFCOMP": "gfortran",
+    "ESP_ARCH": "LINUX64",
+    "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+    "HOME": "/home/mdolabuser",
+    "HOMEDIR": "/home/mdolabuser",
+    "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+    "LANG": null,
+    "LC_ALL": null,
+    "LC_CTYPE": "C.UTF-8",
+    "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+    "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+    "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+    "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+    "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+    "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+    "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "PETSC_ARCH": "real-opt-gcc-3.15.5",
+    "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+    "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+    "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+    "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+    "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+    "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+    "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+    "TMPDIR": null,
+    "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml",
+    "USER": null
+  },
+  "machine": "x86_64",
+  "modules": {
+    "adflow": {
+      "available": true,
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/mdolabuser/repos/adflow"
+      },
+      "error": null,
+      "module_file_sha256": "e177ca05e243fd066fda6dbf89dc8cc06c950e2e5731dcadf33bda3ff21f196d",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/adflow/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "2.12.1"
+    },
+    "baseclasses": {
+      "available": true,
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/mdolabuser/repos/baseclasses"
+      },
+      "error": null,
+      "module_file_sha256": "5e08dde11a819bdece0bf22a5a290c8e6a7066801826c5ade3273c9e1ec452bd",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/baseclasses/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "1.8.2"
+    },
+    "cgnsutilities": {
+      "available": true,
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/mdolabuser/repos/cgnsutilities"
+      },
+      "error": null,
+      "module_file_sha256": "1d5adcf614de56adc67825d90c5b544384b733b097b564be6880de99865f22f4",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/cgnsutilities/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "2.8.1"
+    },
+    "cst_modeling": {
+      "available": true,
+      "direct_url": null,
+      "error": null,
+      "module_file_sha256": "bae81482235d70d3fbfa09b66c287517d190d95d42636808501e15268e132c74",
+      "module_path": "/workspace/runtime/cst-modeling3d/cst_modeling/__init__.py",
+      "vcs_commit_id": "9500b19a732463c26b32f6860ac6c517c7d212a5",
+      "version": "0.2.8"
+    },
+    "mpi4py": {
+      "available": true,
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/mdolabuser/packages/mpi4py-3.1.5"
+      },
+      "error": null,
+      "module_file_sha256": "e25465aae35f33f62abdc6945d2aa06472d0c64d9c48bbd4592ffc16e2086d9f",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/mpi4py/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "3.1.5"
+    },
+    "numpy": {
+      "available": true,
+      "direct_url": null,
+      "error": null,
+      "module_file_sha256": "02e54b39a5825a5eb95c74639b22593a8af816212f9bb1fdcb78f17112a5d27f",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/numpy/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "1.21.5"
+    },
+    "petsc4py": {
+      "available": true,
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/mdolabuser/packages/petsc-3.15.5/src/binding/petsc4py"
+      },
+      "error": null,
+      "module_file_sha256": "94fe8c4e1b4f02d0b9b7f7da75f588d923d6ca65b3f344caf82c9c19ea8a0af3",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/petsc4py/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "3.15.5"
+    },
+    "pyhyp": {
+      "available": true,
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/mdolabuser/repos/pyhyp"
+      },
+      "error": null,
+      "module_file_sha256": "c1cd348be962f1e5133ae2abd7805daeecdcd21c85e9d4a899f54a7dc1955269",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/pyhyp/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "2.6.2"
+    },
+    "scipy": {
+      "available": true,
+      "direct_url": null,
+      "error": null,
+      "module_file_sha256": "bad1f68927a5a08be7a2de866172b077e73117c87f2152589b33c43b0f5909f2",
+      "module_path": "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/scipy/__init__.py",
+      "vcs_commit_id": "734d6323d8fda6998b0dcd87e8871c8bec189b72",
+      "version": "1.7.3"
+    }
+  },
+  "mpi_library_version": "Open MPI v4.1.6, package: Open MPI mdolabuser@buildkitsandbox Distribution, ident: 4.1.6, repo rev: v4.1.6, Sep 30, 2023\u0000",
+  "mpi_smoke_test": {
+    "error": null,
+    "launcher_path": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/mpirun",
+    "marker_payload": {
+      "rank_records": [
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 0,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 1,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 2,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 3,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 4,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 5,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 6,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 7,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 8,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 9,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 10,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 11,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 12,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 13,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 14,
+          "world_size": 16
+        },
+        {
+          "load_bearing_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "MKL_NUM_THREADS": "1",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1"
+          },
+          "rank": 15,
+          "world_size": 16
+        }
+      ],
+      "requested_ranks": 16,
+      "schema_version": "superwing-mpi-smoke-v1"
+    },
+    "passed": true,
+    "probe_process_load_bearing_environment": {
+      "ADFLOW_NK_SWITCH": "1e-8",
+      "ADFLOW_USE_ANK": "1",
+      "ADFLOW_USE_NK": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "program_sha256": "5511b481b8a2d792af867e92447910526eb3016114b9750b2485030f5a894f02",
+    "python_executable": "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "requested_ranks": 16,
+    "required_child_environment": {
+      "ADFLOW_NK_SWITCH": "1e-8",
+      "ADFLOW_USE_ANK": "1",
+      "ADFLOW_USE_NK": "1",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "returncode": 0,
+    "schema_version": "superwing-mpi-smoke-v1"
+  },
+  "mpirun": {
+    "error": null,
+    "path": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/mpirun",
+    "sha256": "54c3302b3105f9470b37bc3fd396e121104110d39028c40f4e7f89583e659294",
+    "version_output": "mpirun (Open MPI) 4.1.6\n\nReport bugs to http://www.open-mpi.org/community/help/"
+  },
+  "petsc_version": [
+    3,
+    15,
+    5
+  ],
+  "platform": "Linux-5.15.0-176-generic-x86_64-with-glibc2.31",
+  "process_identity": {
+    "euid": 1000,
+    "gid": 1000,
+    "uid": 1000
+  },
+  "python": {
+    "executable": "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "implementation": "CPython",
+    "version": "3.9.12"
+  },
+  "python_executable": {
+    "path": "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+    "sha256": "e9e5382a4e4561a1f667c64b6ca80fb1a9655e377c8625a57feecd53a5338b16",
+    "shared_libraries": {
+      "command": [
+        "ldd",
+        "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3"
+      ],
+      "error": null,
+      "output": "\tlinux-vdso.so.1 (0xADDR)\n\tlibpython3.9.so.1.0 => /home/mdolabuser/.pyenv/versions/3.9.12/lib/libpython3.9.so.1.0 (0xADDR)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0xADDR)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0xADDR)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0xADDR)\n\tlibutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0xADDR)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0xADDR)\n\t/lib64/ld-linux-x86-64.so.2 (0xADDR)\n",
+      "returncode": 0
+    }
+  },
+  "required_child_environment": {
+    "ADFLOW_NK_SWITCH": "1e-8",
+    "ADFLOW_USE_ANK": "1",
+    "ADFLOW_USE_NK": "1",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "schema_version": "superwing-runtime-fingerprint-v2",
+  "status": "complete"
+}

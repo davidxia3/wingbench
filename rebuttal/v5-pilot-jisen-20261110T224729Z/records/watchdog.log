@@ -1,0 +1,401 @@
+=== 2026-11-11T04:24:18Z (local 20:24)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15949m mem=1435Mi; lane-1-r9hwz cpu=15916m mem=1434Mi; lane-2-st8vt cpu=15912m mem=1445Mi; 
+index 0: files=17 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-low/work/adjoint-v5-s01-low/mesh_attempt_00/adjoint-v5-s0
+index 1: files=16 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=17 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: not started
+index 4: not started
+index 5: not started
+pvc used=3.0G free=498G
+=== 2026-11-11T04:50:28Z (local 20:50)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15985m mem=45789Mi; lane-1-r9hwz cpu=15922m mem=54576Mi; lane-2-st8vt cpu=15946m mem=44560Mi; 
+index 0: files=24 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-low/work/adjoint-v5-s01-low/mesh_attempt_00/adjoint-v5-s0
+index 1: files=23 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=24 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: not started
+index 4: not started
+index 5: not started
+pvc used=3.2G free=497G
+=== 2026-11-11T05:20:32Z (local 21:20)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15962m mem=58283Mi; lane-1-r9hwz cpu=15932m mem=50926Mi; lane-2-st8vt cpu=15939m mem=43997Mi; 
+index 0: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-low/work/adjoint-v5-s01-low/mesh_attempt_00/adjoint-v5-s0
+index 1: files=23 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: not started
+index 4: not started
+index 5: not started
+pvc used=3.6G free=497G
+=== 2026-11-11T05:50:31Z (local 21:50)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15965m mem=44925Mi; lane-1-r9hwz cpu=15922m mem=44801Mi; lane-2-st8vt cpu=15920m mem=57916Mi; 
+index 0: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-low/work/adjoint-v5-s01-low/mesh_attempt_00/adjoint-v5-s0
+index 1: files=32 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: not started
+index 4: not started
+index 5: not started
+pvc used=4.0G free=497G
+=== 2026-11-11T06:20:29Z (local 22:20)
+jobs: 
+pods: 
+GPU holder: Error from server (ServiceUnavailable): the server is currently unable to handle the request (get pods dev-059-8g)
+node 059: 
+node 090: 
+usage: 
+=== 2026-11-11T06:21:13Z (local 22:21)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15983m mem=43143Mi; lane-1-r9hwz cpu=15916m mem=50000Mi; lane-2-st8vt cpu=15934m mem=44379Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=32 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: files=24 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s0
+index 4: not started
+index 5: not started
+pvc used=4.5G free=496G
+=== 2026-11-11T06:41:46Z (local 22:41)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=14137m mem=2664Mi; lane-1-r9hwz cpu=15951m mem=44011Mi; lane-2-st8vt cpu=15929m mem=44000Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=41 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s0
+index 4: not started
+index 5: not started
+pvc used=4.9G free=496G
+=== 2026-11-11T06:50:27Z (local 22:50)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15963m mem=43147Mi; lane-1-r9hwz cpu=15927m mem=43020Mi; lane-2-st8vt cpu=15939m mem=45786Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=41 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-
+index 3: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s0
+index 4: not started
+index 5: not started
+pvc used=4.9G free=496G
+=== 2026-11-11T07:20:33Z (local 23:20)
+jobs: lane0=running lane1=running lane2=running
+pods: lane0:Running/restarts=0@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-0-plplh cpu=15986m mem=43148Mi; lane-1-r9hwz cpu=15937m mem=45750Mi; lane-2-st8vt cpu=15933m mem=1527Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=41 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-low/work/adjoint-v5-s02-low/mesh_attempt_00/adjoint-v5-s0
+index 4: not started
+index 5: files=17 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+pvc used=5.3G free=495G
+=== 2026-11-11T07:50:26Z (local 23:50)
+jobs: lane0=FAILED lane1=running lane2=running
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15929m mem=43989Mi; lane-2-st8vt cpu=15946m mem=44990Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=41 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoi
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=24 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+pvc used=5.6G free=495G
+=== 2026-11-11T08:20:32Z (local 00:20)
+jobs: lane0=FAILED lane1=running lane2=running
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15932m mem=43969Mi; lane-2-st8vt cpu=15927m mem=41281Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=63 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_0/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+pvc used=6.1G free=494G
+=== 2026-11-11T08:50:33Z (local 00:50)
+jobs: lane0=FAILED lane1=running lane2=running
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15932m mem=50565Mi; lane-2-st8vt cpu=15929m mem=44977Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=63 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_0/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=33 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+pvc used=6.1G free=494G
+=== 2026-11-11T09:20:28Z (local 01:20)
+jobs: lane0=FAILED lane1=running lane2=running
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15941m mem=101672Mi; lane-2-st8vt cpu=15934m mem=44495Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=78 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_1/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+pvc used=6.5G free=494G
+=== 2026-11-11T09:50:34Z (local 01:50)
+jobs: lane0=FAILED lane1=running lane2=running
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15945m mem=108119Mi; lane-2-st8vt cpu=15935m mem=44369Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=78 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_1/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+pvc used=6.5G free=494G
+=== 2026-11-11T10:20:26Z (local 02:20)
+jobs: lane0=FAILED lane1=running lane2=running
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15933m mem=158422Mi; lane-2-st8vt cpu=15935m mem=50597Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=92 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_2/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=42 init=no stage=none private=no process=running pipeline=running newest=initial/adjoint-v5-s02-high/work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+pvc used=6.7G free=494G
+=== 2026-11-11T10:50:37Z (local 02:50)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15928m mem=166599Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=93 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_2/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=6.9G free=494G
+=== 2026-11-11T11:20:35Z (local 03:20)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15928m mem=160858Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=93 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/mach_2/adflow.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=6.9G free=494G
+=== 2026-11-11T11:50:34Z (local 03:50)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15931m mem=227615Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=114 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T12:20:35Z (local 04:20)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15938m mem=261905Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=126 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00000/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T12:50:28Z (local 04:50)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15912m mem=43072Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=139 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00003/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T13:20:27Z (local 05:20)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15888m mem=44427Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=146 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00004/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T13:50:28Z (local 05:50)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15972m mem=114083Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=157 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00005/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T14:20:27Z (local 06:20)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15892m mem=203534Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=171 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00005/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T14:50:28Z (local 06:50)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15978m mem=261604Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=183 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00005/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T15:20:28Z (local 07:20)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15973m mem=100557Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=193 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00007/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T15:50:30Z (local 07:50)
+jobs: lane0=FAILED lane1=running lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090 lane2:Failed/restarts=0(exit=1,Error)@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15977m mem=203546Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=205 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00007/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G
+=== 2026-11-11T16:07:44Z (local 08:07)
+jobs: lane0=FAILED lane1=FAILED lane2=FAILED
+pods: lane0:Failed/restarts=0(exit=1,Error)@059 lane1:Running/restarts=0@090
+GPU holder: dev-059-8g=Running/restarts=2
+node 059: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+node 090: MemoryPressure=False DiskPressure=False PIDPressure=False Ready=True 
+usage: lane-1-r9hwz cpu=15898m mem=232581Mi; 
+index 0: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 1: files=212 init=yes stage=none private=no process=running pipeline=running newest=optimization/workers/oracle-00007/worker.log
+index 2: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 3: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+index 4: not started
+index 5: files=61 init=yes stage=stage-08.json private=no process=rc=1 pipeline=blocked err=Search blocked; do not restart newest=pipeline-status.json
+lane 0 status: {"episodes":[{"index":0,"returncode":1,"finished_at":"2026-11-11T06:10:40.162238+00:00","automatic_retry":false},{"index":3,"returncode":1,"finished_at":"2026-11-11T07:42:36.688543+00:00","automatic_r
+lane 2 status: {"episodes":[{"index":2,"returncode":1,"finished_at":"2026-11-11T07:19:23.114300+00:00","automatic_retry":false},{"index":5,"returncode":1,"finished_at":"2026-11-11T10:33:24.148359+00:00","automatic_r
+pvc used=7.1G free=493G

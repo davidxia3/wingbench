@@ -1,0 +1,132 @@
+{
+  "apiVersion": "batch/v1",
+  "kind": "Job",
+  "metadata": {
+    "annotations": {
+      "wingbench/release": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+      "wingbench/scope": "User-approved exact six v5 episodes, eight NEW attempts each; no retries"
+    },
+    "labels": {
+      "wingbench-lane": "2",
+      "wingbench-phase": "pilot",
+      "wingbench-run": "jisen-20261110t224729z"
+    },
+    "name": "wb-v5-jisen-20261110t224729z-lane-2",
+    "namespace": "jisenli2"
+  },
+  "spec": {
+    "backoffLimit": 0,
+    "template": {
+      "metadata": {
+        "labels": {
+          "wingbench-lane": "2",
+          "wingbench-phase": "pilot",
+          "wingbench-run": "jisen-20261110t224729z"
+        }
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "command": [
+              "/bin/bash",
+              "/results/v5-jisen/launches/jisen-20261110T224729Z/run-lane.sh"
+            ],
+            "env": [
+              {
+                "name": "WINGBENCH_LANE",
+                "value": "2"
+              },
+              {
+                "name": "WINGBENCH_NODE_NAME",
+                "valueFrom": {
+                  "fieldRef": {
+                    "fieldPath": "spec.nodeName"
+                  }
+                }
+              },
+              {
+                "name": "WINGBENCH_RUN_ID",
+                "value": "wb-v5-jisen-20261110t224729z-lane-2"
+              }
+            ],
+            "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "pilot",
+            "resources": {
+              "limits": {
+                "cpu": "16",
+                "memory": "384Gi"
+              },
+              "requests": {
+                "cpu": "16",
+                "memory": "384Gi"
+              }
+            },
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "volumeMounts": [
+              {
+                "mountPath": "/results",
+                "name": "results"
+              },
+              {
+                "mountPath": "/workspace/repo",
+                "name": "results",
+                "readOnly": true,
+                "subPath": "v5-jisen/handoff/wingbench-v5-jisen-001/repo"
+              },
+              {
+                "mountPath": "/dev/shm",
+                "name": "shm"
+              }
+            ]
+          }
+        ],
+        "enableServiceLinks": false,
+        "imagePullSecrets": [
+          {
+            "name": "ghcr-wb-pull"
+          }
+        ],
+        "nodeSelector": {
+          "kubernetes.io/arch": "amd64",
+          "kubernetes.io/hostname": "research-common-h100-090.cloud.together.ai"
+        },
+        "restartPolicy": "Never",
+        "securityContext": {
+          "fsGroup": 1000,
+          "fsGroupChangePolicy": "OnRootMismatch",
+          "runAsGroup": 1000,
+          "runAsNonRoot": true,
+          "runAsUser": 1000,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "terminationGracePeriodSeconds": 120,
+        "volumes": [
+          {
+            "name": "results",
+            "persistentVolumeClaim": {
+              "claimName": "wb-verify-results"
+            }
+          },
+          {
+            "emptyDir": {
+              "medium": "Memory",
+              "sizeLimit": "2Gi"
+            },
+            "name": "shm"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+ERROR 7: VSPAERO Viewer Not Found. 
+	Expected here: /home/mdolabuser/packages/OpenVSP/python/openvsp/openvsp/vspviewer
+{"episode_id": "adjoint-v5-s01-low", "phase": "initialized", "initial_score": 18.93438473394857}
+{
+  "phase": "blocked",
+  "message": "{'error': 'Initial benchmark protocol changed', 'kind': 'execution', 'type': 'ValueError'}",
+  "search_attempts": 0,
+  "recorded_oracle_calls": 1,
+  "pending_reservation": null,
+  "search_attempts_reserved": 0,
+  "replayed_oracle_calls": 0,
+  "new_oracle_calls": 1,
+  "nomination": {
+    "geometry": [
+      39.528044144627486,
+      5.721442673495564,
+      3.634704437785373,
+      10.797316542821129,
+      0.5235136133157512,
+      0.3318910971948777,
+      0.23064716339747887,
+      0.5546847709072034,
+      0.8636622443496041,
+      0.8835602015868708,
+      0.19753865643922333,
+      0.497161822827802,
+      0.23961526892971813,
+      -2.589422996280336,
+      -2.4225388500786647,
+      -1.3212750567604985,
+      -1.2010535341419288,
+      0.16587103245008872,
+      0.09858293709476636,
+      0.16065109356300813,
+      0.09080893784721467,
+      0.19607596499972552,
+      0.08968502936592204,
+      0.2474828650324497,
+      0.14568536403416998,
+      0.2492269656027023,
+      0.25907521885268775,
+      -0.12068784535152932,
+      -0.03969158704732617,
+      -0.2251536368831301,
+      0.04263254547565509,
+      -0.3098549238749417,
+      0.010869482100203609,
+      -0.18777723783942996,
+      -0.09154075769642117,
+      0.07851882694544554,
+      0.22957812036673791,
+      0.12788275756426298
+    ],
+    "score": 18.93438473394857,
+    "source": "starting_wing",
+    "search_attempt": 0
+  },
+  "starting_wing_returned": true,
+  "original_grader_validation_pending": true,
+  "stage_limit": 8,
+  "finished_at": "2026-11-11T06:10:40.089088+00:00"
+}
+Traceback (most recent call last):
+  File "/workspace/repo/rebuttal/adjoint/campaign_v5/pipeline.py", line 62, in <module>
+    p.add_argument('--release-sha256',required=True);sys.exit(main(p.parse_args()))
+  File "/workspace/repo/rebuttal/adjoint/campaign_v5/pipeline.py", line 47, in main
+    if code:raise RuntimeError('Search blocked; do not restart')
+RuntimeError: Search blocked; do not restart

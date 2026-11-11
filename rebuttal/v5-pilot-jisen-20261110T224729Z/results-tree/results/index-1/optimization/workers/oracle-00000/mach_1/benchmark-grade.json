@@ -1,0 +1,35 @@
+{
+  "execution": {
+    "termination_reason": "completed",
+    "returncode": 0,
+    "wall_seconds": 4105.634054936469
+  },
+  "outcome_class": "valid",
+  "outcome": "valid",
+  "reason_codes": [],
+  "measurements": {
+    "mach": 0.8195,
+    "cl_target": 0.41,
+    "seed_alpha0_deg": 6.6401110468,
+    "realized_aoa_deg": 3.9973844331170105,
+    "cl": 0.41000717597268166,
+    "cd": 0.014167587350575177,
+    "ld": 28.939802227937996,
+    "err_cl": 5.457169409694984e-07,
+    "solvecl_iterations": 5,
+    "solvecl_l2convergence": 7.468477543298542e-11,
+    "solvecl_time_seconds": 4083.495617866516
+  },
+  "gate_decisions": {
+    "solvecl_converged": true,
+    "solvecl_threshold_converged": true,
+    "solver_flags_clear": true,
+    "numeric": true,
+    "positive_cl": true,
+    "positive_cd": true,
+    "positive_ld": true,
+    "stationary_err_cl_strict": true,
+    "cl_on_target_inclusive": true,
+    "aoa_inclusive": true
+  }
+}

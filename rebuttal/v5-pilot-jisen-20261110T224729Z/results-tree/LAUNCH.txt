@@ -1,0 +1,53 @@
+Approved WingBench v5 pilot — operator instructions
+
+User approved six episodes (indices 0..5), same frozen starts, up to eight NEW
+candidate attempts each. Original grading follows. Scientific termination is a
+result; do not retry, replace, reroll, or extend it. All prior campaigns remain
+immutable. Frozen source and image are the exact ones that passed both nodes.
+
+This launch has NOT been submitted from the preparation machine: no cluster
+connection is available there. The authorization is valid; no further user
+approval is needed for these exact six episodes.
+
+1. Verify SHA256SUMS locally. Stage this directory unchanged at:
+/results/v5-jisen/launches/jisen-20261110T224729Z
+   on the existing wb-verify-results PVC. The frozen source already resides at
+   /results/v5-jisen/handoff/wingbench-v5-jisen-001/repo. Do not overwrite it.
+2. Confirm the two original check certificate paths remain intact. The wrapper
+   checks their hashes; the frozen pipeline rechecks the actual runtime.
+3. Review current capacity on nodes 059 and 090, without evicting other work.
+   Three jobs reserve 16 CPU / 384 GiB each. Lane 0 runs 0 then 3 on 059;
+   lanes 1 and 2 run 1 then 4, and 2 then 5 on 090. If capacity is temporarily
+   unavailable, leave jobs Pending. Do not move to unchecked nodes or change
+   the requests. Recheck capacity because the previous report was a snapshot.
+4. Use kubectl create (not replace/apply) for these three unique Job manifests:
+   kubectl create -f lane-0.job.json
+   kubectl create -f lane-1.job.json
+   kubectl create -f lane-2.job.json
+   Each has backoffLimit 0 and restartPolicy Never. Do not recreate a deleted or
+   failed job: persistent lane/index claims intentionally reject reruns.
+5. Return the create output, Job/Pod UIDs, actual image IDs, node names and logs
+   promptly so status can be recorded. Monitor jobs and individual logs.
+
+All runtime commands are already encoded in manifests. Do not invoke old
+launchers, initializers, derivative suites, or pipeline --initial overrides.
+The orchestration is new; the scientific release is unchanged. Pilot approval
+is in authorization.json and binds the exact release, indices and cap.
+
+Results per index: results/index-I (initial, optimization, private, pipeline
+status), logs/index-I.log, claims/index-I/{reservation,process-status}. Lane
+status is separate from scientific success: code 2 is initialization nondelivery,
+not a retry instruction. An operational failure is preserved and the next
+independently approved episode may run. Do not cold-restart the failed episode.
+
+Collect full raw results and logs to persistent storage, archive/hash them,
+and return the compact evidence plus Job/Pod terminal states. Retain expensive
+flow artifacts until collection requirements are confirmed. Do not delete PVCs
+or stop hosts. Completed pods release allocations; verify no live work remains.
+Record costs including initialization, repeated proposal-0 trim, failed trials,
+adjoints and private grading. Private grading never feeds search.
+
+Interpretation limitations remain: historical whole-host runtime fingerprint
+mismatch is documented; scientific pins and exact MPI16 checks passed. Episode
+1 angle finite-difference validation remains unavailable. Do not describe this
+pilot as a comprehensive new gradient certification.

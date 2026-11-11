@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-11T10:33:26Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "wb-v5-jisen-20261110t224729z-lane-2",
+        "namespace": "jisenli2",
+        "resourceVersion": "424091996",
+        "uid": "b30af4ef-9e02-4a5d-9b87-63be90d9c76f"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-11T10:33:26Z",
+      "message": "Job has reached the specified backoff limit",
+      "metadata": {
+        "creationTimestamp": "2026-11-11T10:33:26Z",
+        "name": "wb-v5-jisen-20261110t224729z-lane-2.18e6f71d587687e6",
+        "namespace": "jisenli2",
+        "resourceVersion": "424091999",
+        "uid": "7cfbe463-20b1-4aea-ab6b-14e2ba9ed270"
+      },
+      "reason": "BackoffLimitExceeded",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Warning"
+    }
+  ]
+}

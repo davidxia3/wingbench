@@ -1,0 +1,52 @@
+[
+  {
+    "function": "cl",
+    "attempt": 1,
+    "rhs_norm": 0.009281139531594257,
+    "starting_residual_norm": 0.009281139531594257,
+    "final_residual_norm": 5.434051286168319e-13,
+    "relative_residual": 5.854939760004762e-11,
+    "failed": false,
+    "solver_failed": false,
+    "native_gate": 1.1e-09,
+    "strict_native_gate": 1.1e-09,
+    "qualified": true,
+    "internal_target": 1e-12,
+    "solver_status": "accepted",
+    "status_authority": "ADflow failure flags AND recomputed finite residual gate",
+    "petsc_reason_code": null,
+    "reason_code_note": "Not exposed by pinned ADflow API; not inferred as fact",
+    "finite_norms": true,
+    "raw_norms_repr": [
+      "0.009281139531594257",
+      "0.009281139531594257",
+      "5.434051286168319e-13"
+    ],
+    "wall_seconds": 556.8644613400102
+  },
+  {
+    "function": "cd",
+    "attempt": 1,
+    "rhs_norm": 0.0017543667478578861,
+    "starting_residual_norm": 0.0017543667478578861,
+    "final_residual_norm": 4.4290287615670676e-14,
+    "relative_residual": 2.524574047573002e-11,
+    "failed": false,
+    "solver_failed": false,
+    "native_gate": 1.1e-09,
+    "strict_native_gate": 1.1e-09,
+    "qualified": true,
+    "internal_target": 1e-12,
+    "solver_status": "accepted",
+    "status_authority": "ADflow failure flags AND recomputed finite residual gate",
+    "petsc_reason_code": null,
+    "reason_code_note": "Not exposed by pinned ADflow API; not inferred as fact",
+    "finite_norms": true,
+    "raw_norms_repr": [
+      "0.0017543667478578861",
+      "0.0017543667478578861",
+      "4.4290287615670676e-14"
+    ],
+    "wall_seconds": 513.0629165396094
+  }
+]

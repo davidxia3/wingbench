@@ -1,0 +1,27 @@
+[
+  {
+    "function": "cl",
+    "attempt": 1,
+    "rhs_norm": 0.010047482231336127,
+    "starting_residual_norm": 0.010047482231336127,
+    "final_residual_norm": 4.666320131826053e-13,
+    "relative_residual": 4.644268110544864e-11,
+    "failed": false,
+    "solver_failed": false,
+    "native_gate": 1.1e-09,
+    "strict_native_gate": 1.1e-09,
+    "qualified": true,
+    "internal_target": 1e-12,
+    "solver_status": "accepted",
+    "status_authority": "ADflow failure flags AND recomputed finite residual gate",
+    "petsc_reason_code": null,
+    "reason_code_note": "Not exposed by pinned ADflow API; not inferred as fact",
+    "finite_norms": true,
+    "raw_norms_repr": [
+      "0.010047482231336127",
+      "0.010047482231336127",
+      "4.666320131826053e-13"
+    ],
+    "wall_seconds": 572.8428038489074
+  }
+]

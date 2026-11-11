@@ -1,0 +1,469 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T04:23:30Z",
+                "generateName": "wb-v5-jisen-20261110t224729z-lane-0-",
+                "labels": {
+                    "batch.kubernetes.io/controller-uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56",
+                    "batch.kubernetes.io/job-name": "wb-v5-jisen-20261110t224729z-lane-0",
+                    "controller-uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56",
+                    "job-name": "wb-v5-jisen-20261110t224729z-lane-0",
+                    "wingbench-lane": "0",
+                    "wingbench-phase": "pilot",
+                    "wingbench-run": "jisen-20261110t224729z"
+                },
+                "name": "wb-v5-jisen-20261110t224729z-lane-0-plplh",
+                "namespace": "jisenli2",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "batch/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Job",
+                        "name": "wb-v5-jisen-20261110t224729z-lane-0",
+                        "uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56"
+                    }
+                ],
+                "resourceVersion": "423843375",
+                "uid": "044ac194-1030-4264-bc91-074937e55aea"
+            },
+            "spec": {
+                "automountServiceAccountToken": false,
+                "containers": [
+                    {
+                        "command": [
+                            "/bin/bash",
+                            "/results/v5-jisen/launches/jisen-20261110T224729Z/run-lane.sh"
+                        ],
+                        "env": [
+                            {
+                                "name": "WINGBENCH_LANE",
+                                "value": "0"
+                            },
+                            {
+                                "name": "WINGBENCH_NODE_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "spec.nodeName"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "WINGBENCH_RUN_ID",
+                                "value": "wb-v5-jisen-20261110t224729z-lane-0"
+                            },
+                            {
+                                "name": "HF_HOME",
+                                "value": "/shared/huggingface"
+                            }
+                        ],
+                        "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "pilot",
+                        "resources": {
+                            "limits": {
+                                "cpu": "16",
+                                "memory": "384Gi"
+                            },
+                            "requests": {
+                                "cpu": "16",
+                                "memory": "384Gi"
+                            }
+                        },
+                        "securityContext": {
+                            "allowPrivilegeEscalation": false,
+                            "capabilities": {
+                                "drop": [
+                                    "ALL"
+                                ]
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/results",
+                                "name": "results"
+                            },
+                            {
+                                "mountPath": "/workspace/repo",
+                                "name": "results",
+                                "readOnly": true,
+                                "subPath": "v5-jisen/handoff/wingbench-v5-jisen-001/repo"
+                            },
+                            {
+                                "mountPath": "/dev/shm",
+                                "name": "shm"
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": false,
+                "imagePullSecrets": [
+                    {
+                        "name": "ghcr-wb-pull"
+                    }
+                ],
+                "nodeName": "research-common-h100-059.cloud.together.ai",
+                "nodeSelector": {
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "research-common-h100-059.cloud.together.ai",
+                    "node-group": "default"
+                },
+                "preemptionPolicy": "PreemptLowerPriority",
+                "priority": 0,
+                "priorityClassName": "normal",
+                "restartPolicy": "Never",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "fsGroup": 1000,
+                    "fsGroupChangePolicy": "OnRootMismatch",
+                    "runAsGroup": 1000,
+                    "runAsNonRoot": true,
+                    "runAsUser": 1000,
+                    "seccompProfile": {
+                        "type": "RuntimeDefault"
+                    }
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 120,
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "capacity.together.ai/pool",
+                        "operator": "Equal",
+                        "value": "single-node-only"
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "results",
+                        "persistentVolumeClaim": {
+                            "claimName": "wb-verify-results"
+                        }
+                    },
+                    {
+                        "emptyDir": {
+                            "medium": "Memory",
+                            "sizeLimit": "2Gi"
+                        },
+                        "name": "shm"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T04:23:30Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T07:42:37Z",
+                        "reason": "PodFailed",
+                        "status": "False",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T07:42:37Z",
+                        "reason": "PodFailed",
+                        "status": "False",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T04:23:30Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://ede989b501f79eff75edcac582b677fca9bd75459df3a1fa9dd9ea73b038c4e2",
+                        "image": "sha256:30751527e7348307d3c9f1c36658c1cec6ca4225e5ccbb5f42076cedc3712fe9",
+                        "imageID": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                        "lastState": {},
+                        "name": "pilot",
+                        "ready": false,
+                        "restartCount": 0,
+                        "started": false,
+                        "state": {
+                            "terminated": {
+                                "containerID": "containerd://ede989b501f79eff75edcac582b677fca9bd75459df3a1fa9dd9ea73b038c4e2",
+                                "exitCode": 1,
+                                "finishedAt": "2026-11-11T07:42:36Z",
+                                "reason": "Error",
+                                "startedAt": "2026-11-11T04:23:38Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.229.59",
+                "phase": "Failed",
+                "podIP": "10.42.23.13",
+                "podIPs": [
+                    {
+                        "ip": "10.42.23.13"
+                    }
+                ],
+                "qosClass": "Guaranteed",
+                "startTime": "2026-11-11T04:23:30Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2026-11-11T04:23:31Z",
+                "deletionGracePeriodSeconds": 120,
+                "deletionTimestamp": "2026-11-11T16:09:01Z",
+                "generateName": "wb-v5-jisen-20261110t224729z-lane-1-",
+                "labels": {
+                    "batch.kubernetes.io/controller-uid": "d46da6bd-8269-4749-acbb-07e95a238a1d",
+                    "batch.kubernetes.io/job-name": "wb-v5-jisen-20261110t224729z-lane-1",
+                    "controller-uid": "d46da6bd-8269-4749-acbb-07e95a238a1d",
+                    "job-name": "wb-v5-jisen-20261110t224729z-lane-1",
+                    "wingbench-lane": "1",
+                    "wingbench-phase": "pilot",
+                    "wingbench-run": "jisen-20261110t224729z"
+                },
+                "name": "wb-v5-jisen-20261110t224729z-lane-1-r9hwz",
+                "namespace": "jisenli2",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "batch/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "Job",
+                        "name": "wb-v5-jisen-20261110t224729z-lane-1",
+                        "uid": "d46da6bd-8269-4749-acbb-07e95a238a1d"
+                    }
+                ],
+                "resourceVersion": "424587785",
+                "uid": "83401488-49b9-47c0-9977-3188d7db89fa"
+            },
+            "spec": {
+                "automountServiceAccountToken": false,
+                "containers": [
+                    {
+                        "command": [
+                            "/bin/bash",
+                            "/results/v5-jisen/launches/jisen-20261110T224729Z/run-lane.sh"
+                        ],
+                        "env": [
+                            {
+                                "name": "WINGBENCH_LANE",
+                                "value": "1"
+                            },
+                            {
+                                "name": "WINGBENCH_NODE_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "spec.nodeName"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "WINGBENCH_RUN_ID",
+                                "value": "wb-v5-jisen-20261110t224729z-lane-1"
+                            },
+                            {
+                                "name": "HF_HOME",
+                                "value": "/shared/huggingface"
+                            }
+                        ],
+                        "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "pilot",
+                        "resources": {
+                            "limits": {
+                                "cpu": "16",
+                                "memory": "384Gi"
+                            },
+                            "requests": {
+                                "cpu": "16",
+                                "memory": "384Gi"
+                            }
+                        },
+                        "securityContext": {
+                            "allowPrivilegeEscalation": false,
+                            "capabilities": {
+                                "drop": [
+                                    "ALL"
+                                ]
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/results",
+                                "name": "results"
+                            },
+                            {
+                                "mountPath": "/workspace/repo",
+                                "name": "results",
+                                "readOnly": true,
+                                "subPath": "v5-jisen/handoff/wingbench-v5-jisen-001/repo"
+                            },
+                            {
+                                "mountPath": "/dev/shm",
+                                "name": "shm"
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": false,
+                "imagePullSecrets": [
+                    {
+                        "name": "ghcr-wb-pull"
+                    }
+                ],
+                "nodeName": "research-common-h100-090.cloud.together.ai",
+                "nodeSelector": {
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "research-common-h100-090.cloud.together.ai",
+                    "node-group": "default"
+                },
+                "preemptionPolicy": "PreemptLowerPriority",
+                "priority": 0,
+                "priorityClassName": "normal",
+                "restartPolicy": "Never",
+                "schedulerName": "default-scheduler",
+                "securityContext": {
+                    "fsGroup": 1000,
+                    "fsGroupChangePolicy": "OnRootMismatch",
+                    "runAsGroup": 1000,
+                    "runAsNonRoot": true,
+                    "runAsUser": 1000,
+                    "seccompProfile": {
+                        "type": "RuntimeDefault"
+                    }
+                },
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 120,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "results",
+                        "persistentVolumeClaim": {
+                            "claimName": "wb-verify-results"
+                        }
+                    },
+                    {
+                        "emptyDir": {
+                            "medium": "Memory",
+                            "sizeLimit": "2Gi"
+                        },
+                        "name": "shm"
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T16:07:01Z",
+                        "message": "Eviction API: evicting",
+                        "reason": "EvictionByEvictionAPI",
+                        "status": "True",
+                        "type": "DisruptionTarget"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T04:23:31Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T04:23:33Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T04:23:33Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2026-11-11T04:23:31Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "containerd://6f2a5244ed0ed4b2e939ff8ff7e8747df0ddd4dbef1ea067ff1c2c6811d3697e",
+                        "image": "sha256:30751527e7348307d3c9f1c36658c1cec6ca4225e5ccbb5f42076cedc3712fe9",
+                        "imageID": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                        "lastState": {},
+                        "name": "pilot",
+                        "ready": true,
+                        "restartCount": 0,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2026-11-11T04:23:32Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.229.90",
+                "phase": "Running",
+                "podIP": "10.42.46.129",
+                "podIPs": [
+                    {
+                        "ip": "10.42.46.129"
+                    }
+                ],
+                "qosClass": "Guaranteed",
+                "startTime": "2026-11-11T04:23:31Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

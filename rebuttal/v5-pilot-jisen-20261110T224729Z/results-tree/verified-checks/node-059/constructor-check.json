@@ -1,0 +1,13 @@
+{
+  "original_grader_runtime_status": {
+    "detail": "the runtime fingerprint differs from the campaign's: runtime fingerprint mismatch: expected 60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d, observed ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+    "expected_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+    "matches_campaign": false,
+    "probe_error": null,
+    "probed": true,
+    "report_file": "/results/v5-jisen/checks/node-059-check-001/grader-constructor/runtime_fingerprint_v5-jisen-preflight_1794349842.json",
+    "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3"
+  },
+  "original_protocol_sha256": "403410fcb0daed2fbc6f46d0356e7e346adcb78b6f021edf1725cf0afc885852",
+  "runtime_fingerprint_sha256": "a688a3f84ae6b98ce1aefcd81b286373cf38f74ba6f03fe58d83ad6260fbd845"
+}

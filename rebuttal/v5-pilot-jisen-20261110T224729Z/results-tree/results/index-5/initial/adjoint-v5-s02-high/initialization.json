@@ -1,0 +1,269 @@
+{
+  "alphas": [
+    7.593408652170435,
+    7.347700736648667,
+    7.040731928862537
+  ],
+  "benchmark_trim": {
+    "conditions": [
+      {
+        "conditions": {
+          "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/mach_q1_attempt_00/conds.json",
+          "sha256": "d7177a3bbffeae3cc01f45eae7c90a27a5c4274319e676e72758bf2fe3ca2de9",
+          "size_bytes": 102
+        },
+        "mach": 0.7853,
+        "reference_cl_cd": [
+          0.6600098777240625,
+          0.020369110905509434
+        ],
+        "solver_script": {
+          "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/mach_q1_attempt_00/run-adflow.py",
+          "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+          "size_bytes": 8909
+        }
+      },
+      {
+        "conditions": {
+          "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/mach_q2_attempt_00/conds.json",
+          "sha256": "6f55219d5aa14ceb55ad5e809082d68db0b7f88c04de475d166622f125ce228f",
+          "size_bytes": 102
+        },
+        "mach": 0.8195,
+        "reference_cl_cd": [
+          0.6596173051443358,
+          0.02045400833869526
+        ],
+        "solver_script": {
+          "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/mach_q2_attempt_00/run-adflow.py",
+          "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+          "size_bytes": 8909
+        }
+      },
+      {
+        "conditions": {
+          "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/mach_q3_attempt_00/conds.json",
+          "sha256": "2524df48347281effcf7920d2c4a49a898af83bf112247b1ccfbe7670d6c90cd",
+          "size_bytes": 101
+        },
+        "mach": 0.853,
+        "reference_cl_cd": [
+          0.6599508965199312,
+          0.02145905573757569
+        ],
+        "solver_script": {
+          "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/mach_q3_attempt_00/run-adflow.py",
+          "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+          "size_bytes": 8909
+        }
+      }
+    ],
+    "input": {
+      "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/input.json",
+      "sha256": "197174e6db876bec9dfcb78a6eecc31df0a8bd4f2321cb4337c9a0bd3e0dfe9a",
+      "size_bytes": 1128
+    }
+  },
+  "costs": {
+    "CD_adjoints": 0,
+    "CL_adjoints": 0,
+    "allocated_core_hours_estimate": 51.66481507670548,
+    "child_system_cpu_seconds": 990.101513,
+    "child_user_cpu_seconds": 184037.185056,
+    "failure_cost_note": "When no final grade exists, partial process counts remain unknown; all work/logs are retained.",
+    "free_initialization_calls": 1,
+    "joint_attempts_reserved": 0,
+    "llm_calls": 0,
+    "mach_condition_process_attempts": 3,
+    "max_single_child_rss_platform_units": 4293560,
+    "memory_note": "ru_maxrss is not aggregate MPI peak memory; scheduler/cgroup evidence is required.",
+    "mesh_process_attempts": 1,
+    "native_refinement_attempts": 0,
+    "original_grader_calls_started": 1,
+    "original_grader_results_returned": 1,
+    "reported_grade_core_hours": 51.65513612593214,
+    "reported_grader_timing": {
+      "core_seconds": 185958.4900533557,
+      "mpi_ranks": 16,
+      "process_wall_seconds": 11622.40562833473,
+      "wall_seconds": 11624.307960698381
+    },
+    "surrogate_calls": 0,
+    "trim_iterations_by_mach": [
+      {
+        "iterations": [
+          4
+        ],
+        "mach": 0.7853
+      },
+      {
+        "iterations": [
+          4
+        ],
+        "mach": 0.8195
+      },
+      {
+        "iterations": [
+          5
+        ],
+        "mach": 0.853
+      }
+    ],
+    "wall_seconds": 11624.583392258734
+  },
+  "delivered": true,
+  "episode_id": "adjoint-v5-s02-high",
+  "episode_index": 5,
+  "finished_at": "2026-11-11T10:33:17.267643+00:00",
+  "geometry": [
+    37.814774899554344,
+    7.248091618605926,
+    -1.2156622084827375,
+    12.492773600025266,
+    0.34262408703970204,
+    0.32997762007390335,
+    0.20679653727766095,
+    0.5486856848363325,
+    1.0043365571410465,
+    0.944961838341601,
+    0.816473409338979,
+    0.7365383150176497,
+    0.27851520572105,
+    -3.4163921839357423,
+    -1.028355224294227,
+    -1.4359288221946769,
+    -1.863046695119393,
+    0.16802406149214053,
+    0.16225239589805676,
+    0.2570432693080926,
+    0.03691669530950886,
+    0.3090252093366483,
+    0.21209685979768822,
+    -0.09592656681439832,
+    0.6215655997252008,
+    -0.06704062229602167,
+    0.5210992666221246,
+    -0.19009433761252179,
+    -0.12668636163928443,
+    -0.31861804401653626,
+    0.1924150731869762,
+    -0.4674156992542524,
+    0.3628797279737405,
+    -0.5360249887611148,
+    -0.010095874020021434,
+    0.3660996308385578,
+    0.17976773758187203,
+    0.12632898401760373
+  ],
+  "geometry_sha256": "1df9c1066ba6ee87dc99347cf9be97b8b198f693d6a3aa7c8435439ee4d644d0",
+  "grade_sha256": "1c605517b975bb78924523ee59a38620c767c1a7938c736de44fa0e655b2f232",
+  "historical_ld": 31.792962418145876,
+  "historical_proof": {
+    "conditions": [
+      {
+        "cd": "0.020369110905509434",
+        "cl": "0.6600098777240625",
+        "cl_target": "0.66",
+        "condition": "mach_q1",
+        "episode": "B020",
+        "err_cl": "6.156394232181839e-07",
+        "evaluation": "E2078",
+        "ld": "32.40248829641077",
+        "mach": "0.7853",
+        "mesh_outcome": "valid",
+        "method": "CMA-ES no feedback",
+        "outcome": "valid",
+        "realized_aoa_deg": "7.593408652170435",
+        "reasons": "",
+        "seed_alpha0_deg": "8.924059800550001",
+        "solvecl_iterations": "4.0",
+        "solvecl_l2convergence": "9.433179696309921e-11",
+        "solvecl_time_seconds": "4134.607736587524",
+        "study": "baseline",
+        "task": "high"
+      },
+      {
+        "cd": "0.02045400833869526",
+        "cl": "0.6596173051443358",
+        "cl_target": "0.66",
+        "condition": "mach_q2",
+        "episode": "B020",
+        "err_cl": "1.4137088875099124e-06",
+        "evaluation": "E2078",
+        "ld": "32.24880396164013",
+        "mach": "0.8195",
+        "mesh_outcome": "valid",
+        "method": "CMA-ES no feedback",
+        "outcome": "valid",
+        "realized_aoa_deg": "7.347700736648667",
+        "reasons": "",
+        "seed_alpha0_deg": "8.924059800550001",
+        "solvecl_iterations": "4.0",
+        "solvecl_l2convergence": "2.210071547531301e-11",
+        "solvecl_time_seconds": "3860.736916542053",
+        "study": "baseline",
+        "task": "high"
+      },
+      {
+        "cd": "0.02145905573757569",
+        "cl": "0.6599508965199312",
+        "cl_target": "0.66",
+        "condition": "mach_q3",
+        "episode": "B020",
+        "err_cl": "1.4126590858198895e-06",
+        "evaluation": "E2078",
+        "ld": "30.753957890343237",
+        "mach": "0.853",
+        "mesh_outcome": "valid",
+        "method": "CMA-ES no feedback",
+        "outcome": "valid",
+        "realized_aoa_deg": "7.040731928862537",
+        "reasons": "",
+        "seed_alpha0_deg": "8.924059800550001",
+        "solvecl_iterations": "5.0",
+        "solvecl_l2convergence": "7.503457645008593e-11",
+        "solvecl_time_seconds": "5964.8622035980225",
+        "study": "baseline",
+        "task": "high"
+      }
+    ],
+    "evaluation": {
+      "checkpoint": "",
+      "delivered": "True",
+      "episode": "B020",
+      "evaluation": "E2078",
+      "kind": "online",
+      "ld": "31.792962418145876",
+      "method": "CMA-ES no feedback",
+      "original_id": "p5-e020-online-20-a58713a3e3a5",
+      "outcome": "pass",
+      "query": "20",
+      "reasons": "complete_score_eligible",
+      "recorded_at": "2026-08-20T17:22:56.898217Z",
+      "seed": "6201",
+      "study": "baseline",
+      "task": "high",
+      "wing": "1df9c1066ba6ee87dc99347cf9be97b8b198f693d6a3aa7c8435439ee4d644d0"
+    }
+  },
+  "initial_score": 31.792962418145876,
+  "initialization_free": true,
+  "mach": [
+    0.7853,
+    0.8195,
+    0.853
+  ],
+  "mesh": {
+    "relative_path": "work/adjoint-v5-s02-high/mesh_attempt_00/adjoint-v5-s02-high/wing_vol.cgns",
+    "sha256": "61f8a555d7e7af3de3a3efb7fb5efd836020815a9a7a9ba7b1d25c68e03c21ea",
+    "size_bytes": 88948736
+  },
+  "original_protocol_sha256": "99f5ff27a3ce61605763f5dbe91fb5f852b432a6bf08314d8e469ecca339b4b0",
+  "phase": "initialized",
+  "release_sha256": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+  "remaining_search_attempts": 8,
+  "roster_sha256": "77111e8ba2c521d428f216a3f00d3158638abc35eaa2e7dddb2baacf32855bb7",
+  "search_attempts_consumed": 0,
+  "target_cl": 0.66,
+  "task": "high"
+}

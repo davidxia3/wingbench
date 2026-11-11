@@ -1,0 +1,12 @@
+{
+  "checksums_verified": 89,
+  "cluster_checksums_verified": 76,
+  "historical_runtime_fingerprint_difference_preserved": true,
+  "nodes": [
+    "059",
+    "090"
+  ],
+  "release_sha256": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+  "return_commit": "e693a08a018080b13e30ec400fcc1aba155a920e",
+  "scientific_runtime_pins_passed": true
+}

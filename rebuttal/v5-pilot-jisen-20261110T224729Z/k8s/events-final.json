@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-11T16:07:01Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "fieldPath": "spec.containers{pilot}",
+        "kind": "Pod",
+        "name": "wb-v5-jisen-20261110t224729z-lane-1-r9hwz",
+        "namespace": "jisenli2",
+        "resourceVersion": "423535885",
+        "uid": "83401488-49b9-47c0-9977-3188d7db89fa"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-11T16:07:01Z",
+      "message": "Stopping container pilot",
+      "metadata": {
+        "creationTimestamp": "2026-11-11T16:07:01Z",
+        "name": "wb-v5-jisen-20261110t224729z-lane-1-r9hwz.18e709516290078b",
+        "namespace": "jisenli2",
+        "resourceVersion": "424587729",
+        "uid": "f53f3699-a0b6-4dba-9776-a3b148aa02b0"
+      },
+      "reason": "Killing",
+      "reportingComponent": "kubelet",
+      "reportingInstance": "research-common-h100-090.cloud.together.ai",
+      "source": {
+        "component": "kubelet",
+        "host": "research-common-h100-090.cloud.together.ai"
+      },
+      "type": "Normal"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-11T16:07:02Z",
+      "involvedObject": {
+        "apiVersion": "batch/v1",
+        "kind": "Job",
+        "name": "wb-v5-jisen-20261110t224729z-lane-1",
+        "namespace": "jisenli2",
+        "resourceVersion": "424587784",
+        "uid": "d46da6bd-8269-4749-acbb-07e95a238a1d"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-11T16:07:02Z",
+      "message": "Job has reached the specified backoff limit",
+      "metadata": {
+        "creationTimestamp": "2026-11-11T16:07:02Z",
+        "name": "wb-v5-jisen-20261110t224729z-lane-1.18e70951a3de0b0c",
+        "namespace": "jisenli2",
+        "resourceVersion": "424587789",
+        "uid": "3da2d40a-bcd3-41a3-9049-14adff9e131b"
+      },
+      "reason": "BackoffLimitExceeded",
+      "reportingComponent": "job-controller",
+      "reportingInstance": "",
+      "source": {
+        "component": "job-controller"
+      },
+      "type": "Warning"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "aoa_seed_deg": 8.924059800550001,
+  "base_protocol_binding": {
+    "canonical_sha256": "403410fcb0daed2fbc6f46d0356e7e346adcb78b6f021edf1725cf0afc885852",
+    "file_sha256": "f840ebd87a4f3c0fbbc53fe4faac0953eeaf9b48c976cc82eea64db70021c4eb",
+    "path": "configs/cfd/final_protocol_candidate_v2.json"
+  },
+  "cl_target": 0.66,
+  "development_only": true,
+  "instance_id": "superwing-load-high-cl066",
+  "mach_grid": [
+    0.7853,
+    0.8195,
+    0.853
+  ],
+  "official": false,
+  "only_scientific_differences_from_base": [
+    "common_cl_target",
+    "fixed_aoa_seed"
+  ],
+  "purpose": "Load instance of the CFD grading protocol, written by benchmark/grade_local.py. Only the lift target and its angle of attack seed differ from the base protocol.",
+  "schema_version": "wingbench-v2-load-instance-qualification-v1",
+  "sealed": false,
+  "seed_selection_binding": {
+    "file_sha256": "005766deddfe78e327f681d875091275fa2d67d86a1502c4d722a416e9cc4bb5",
+    "path": "configs/cfd/seed_aoa_selection_load_high_v1.json"
+  }
+}

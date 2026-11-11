@@ -1,0 +1,77 @@
+[
+  {
+    "call": 1,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 6.6401110468,
+    "raw_norms": [
+      135797247.3990315,
+      1718346.7013210068,
+      0.008875497424034455
+    ],
+    "relative_residual": 6.535844867278035e-11,
+    "solve_failed": false,
+    "wall_seconds": 843.9228465091437,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 2,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 6.1401110468,
+    "raw_norms": [
+      135797247.3990315,
+      3396402.087278423,
+      0.007844277645286016
+    ],
+    "relative_residual": 5.776462922135756e-11,
+    "solve_failed": false,
+    "wall_seconds": 763.4288268405944,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 3,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 3.8255896354535093,
+    "raw_norms": [
+      135797247.3990315,
+      15788418.247934256,
+      0.010062772088410697
+    ],
+    "relative_residual": 7.410144374165322e-11,
+    "solve_failed": false,
+    "wall_seconds": 902.5206836443394,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 4,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 4.019462340133627,
+    "raw_norms": [
+      135797247.3990315,
+      1329875.3658554754,
+      0.00882786779477572
+    ],
+    "relative_residual": 6.500770791646165e-11,
+    "solve_failed": false,
+    "wall_seconds": 677.7174572106451,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  },
+  {
+    "call": 5,
+    "label": "proposal-zero-benchmark-trim",
+    "alpha": 3.9973844331170105,
+    "raw_norms": [
+      135797247.3990315,
+      151453.08190097293,
+      0.01014198692641423
+    ],
+    "relative_residual": 7.468477543298542e-11,
+    "solve_failed": false,
+    "wall_seconds": 895.8701880052686,
+    "forward_gate": 1e-10,
+    "measurement_scope": "Intermediate trim residual/flags; final coefficients checked separately"
+  }
+]

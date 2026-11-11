@@ -1,0 +1,39 @@
+{
+  "initial_geometry_sha256": "61a1259651af585450c8c64e19760a234b8c91be01f8837a73188eb59ec14875",
+  "initialization_sha256": "26348121fad6262cb15effe3a02b43061fdb65b1d330a2191d545e64020a1a60",
+  "optimizer_runtime": {
+    "cpu_model": "AMD EPYC 9534 64-Core Processor",
+    "cyipopt_version": "1.4.1",
+    "files": {
+      "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3": "e9e5382a4e4561a1f667c64b6ca80fb1a9655e377c8625a57feecd53a5338b16",
+      "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/cyipopt/__init__.py": "8a9f733954dab9ea4c714f4d633c213e669ae69cace91d57c08d1ec4d29f380e",
+      "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/ipopt_wrapper.cpython-39-x86_64-linux-gnu.so": "4ed7ad995f7472b6f5a02b7811e53862016a0948ec41f61ccd70c214911943a8",
+      "/home/mdolabuser/.pyenv/versions/3.9.12/lib/python3.9/site-packages/numpy/core/_multiarray_umath.cpython-39-x86_64-linux-gnu.so": "05fd7425c24e13047d399cc15983fea99863588eaa51eea50c24ba46e51dbc02",
+      "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib/libquadmath.so.0": "96973f995bad4e4b80eaa188b7bac60bd0df44b22ee67bd046b3aa4ecb9e34fd",
+      "/home/mdolabuser/packages/Ipopt/lib/libcoinmetis.so.2": "fdddc6c0b7031a4fa1bb4582b56f6ec53fd1caf0f347f20b468945e0e6a27a46",
+      "/home/mdolabuser/packages/Ipopt/lib/libcoinmumps.so.3": "475aa47792c4a60c0c7b281c5be848e46f35fcc816d18fb1dc9d140f6618ebca",
+      "/home/mdolabuser/packages/Ipopt/lib/libipopt.so.3": "07c5b8caff5ae81c7114c9387f919ef1277b8cf8525a12c535445f04772492d8",
+      "/lib/x86_64-linux-gnu/libblas.so.3": "41474fda3fbae6277c079257d8e236c702860a54585686d5a421c7731ad530b6",
+      "/lib/x86_64-linux-gnu/libc.so.6": "53b909551f8e581120ddc2d24cfb5df76c52e3c2e2a5dac0d202b25638b3e902",
+      "/lib/x86_64-linux-gnu/libdl.so.2": "e0d0cace80b627e50ca3f7b621b64917677c27c74077080854d57cf4e548edc6",
+      "/lib/x86_64-linux-gnu/libgcc_s.so.1": "489803ded8a4d803e2c792763a2767c12185f5764b7bba080742d14ef2452b27",
+      "/lib/x86_64-linux-gnu/libgfortran.so.5": "01fc721062fc3c2b5492202d276c5a374b7d952fc168d2d1e603fa85660cc502",
+      "/lib/x86_64-linux-gnu/liblapack.so.3": "86ce423d6069cbbf6adddd4f89e1e4ea8ca66ca86308ecfc026ace5b85fe7d92",
+      "/lib/x86_64-linux-gnu/libm.so.6": "a0e70f48f02a399e8dd37f861a99e226c285a9daf50a25d19fff7ccf18b97f9c",
+      "/lib/x86_64-linux-gnu/libpthread.so.0": "af27ed906f6185e0143b9c0d0da287788efa7eb6b2639e44d48fb2939415fdc5",
+      "/lib/x86_64-linux-gnu/libstdc++.so.6": "26916e7389a561537a0510661fc75538cea236139346f3dbe21bc64ba65605bf"
+    },
+    "ipopt_version": [
+      3,
+      13,
+      4
+    ],
+    "numpy_version": "1.21.5",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "pilot_release_sha256": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca"
+}

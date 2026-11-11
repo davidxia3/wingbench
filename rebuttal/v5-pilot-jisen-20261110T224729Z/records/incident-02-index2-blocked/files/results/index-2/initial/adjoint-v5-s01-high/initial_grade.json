@@ -1,0 +1,1870 @@
+{
+  "aggregate": {
+    "admissibility": "pass",
+    "cfd_ld_geomean": 31.873332291653366,
+    "cfd_ld_worst": 30.850824278801866,
+    "diagnostic_partial_metrics": {
+      "cfd_ld_geomean": 31.873332291653366,
+      "cfd_ld_worst": 30.850824278801866,
+      "n_valid": 3
+    },
+    "n_conditions": 3,
+    "n_inconclusive": 0,
+    "n_invalid": 0,
+    "n_valid": 3,
+    "profile_status": "complete",
+    "score_eligible": true
+  },
+  "benchmark_grade": {
+    "delivered": true,
+    "ld": 31.873332291653366,
+    "outcome": "pass",
+    "reason_codes": [
+      "complete_score_eligible"
+    ]
+  },
+  "benchmark_manifest": null,
+  "campaign_publication_preflight": null,
+  "conditions": [
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "ac8f6408ce337d044ed89da31128447f589c9c2d7f1eef771e9273699c0be4ad",
+              "size_bytes": 264271
+            },
+            "conditions": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00/conds.json",
+              "present": true,
+              "sha256": "d7177a3bbffeae3cc01f45eae7c90a27a5c4274319e676e72758bf2fe3ca2de9",
+              "size_bytes": 102
+            },
+            "output": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00/output.json",
+              "present": true,
+              "sha256": "e12687c6e0e0abe7b6ff6ed1fbd4d7a24e48486e8857bd1062ded556981c812e",
+              "size_bytes": 1041
+            },
+            "solver_script": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-11T05:03:07.016695Z",
+            "log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q1_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "c8d24a379dbb2cabc840275e9d76b833479a45efe8d3f17a1306a749ba007b26",
+              "size_bytes": 1930
+            },
+            "returncode": 0,
+            "started_at": "2026-11-11T04:27:36.568168Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 2130.448489340022
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.02026201993428173,
+            "cl": 0.6603864586495787,
+            "cl_target": 0.66,
+            "err_cl": 8.626786837107048e-07,
+            "ld": 32.59233091229257,
+            "mach": 0.7853,
+            "realized_aoa_deg": 8.10555464883927,
+            "seed_alpha0_deg": 8.924059800550001,
+            "solvecl_iterations": 3,
+            "solvecl_l2convergence": 3.3217157055744745e-11,
+            "solvecl_time_seconds": 2097.0604145526886
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 1.6730289567265522e-07,
+            "err_cl": 8.626786837107048e-07,
+            "err_cmz": 9.855729353747122e-07,
+            "history_rows": 1102,
+            "min_ResRho": 5.134222225893661e-07,
+            "min_relative_ResRho": 8.248778310982015e-11,
+            "min_relative_totalRes": 7.127490387826635e-10,
+            "min_totalRes": 0.004339906227047748,
+            "n_step": 1203.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 8.10555464883927,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 8.10555464883927,
+                  "available": true,
+                  "cl": 0.6603864586495787,
+                  "clalpha": 0.10683772413269281,
+                  "clstar": 0.66,
+                  "converged": true,
+                  "error": 0.00038645864957864706,
+                  "history_entries": 3,
+                  "iterations": 3,
+                  "l2convergence": 3.3217157055744745e-11,
+                  "time": 2097.0604145526886
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 1.6730289567265522e-07,
+              "err_cl": 8.626786837107048e-07,
+              "err_cmz": 9.855729353747122e-07,
+              "min_ResRho": 5.134222225893661e-07,
+              "min_relative_ResRho": 8.248778310982015e-11,
+              "min_relative_totalRes": 7.127490387826635e-10,
+              "min_totalRes": 0.004339906227047748,
+              "n_step": 1203.0,
+              "wing_cd": 0.02026201993428173,
+              "wing_cl": 0.6603864586495787,
+              "wing_cmx": 1.2565930669774157,
+              "wing_cmy": 0.10586084427138806,
+              "wing_cmz": 0.98456253009036
+            },
+            "working_conditions": {
+              "AA": 8.924059800550001,
+              "CL_targ": 0.66,
+              "M3": 0.7853,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.66,
+      "condition_id": "mach_q1",
+      "mach": 0.7853,
+      "measurements": {
+        "cd": 0.02026201993428173,
+        "cl": 0.6603864586495787,
+        "cl_target": 0.66,
+        "err_cl": 8.626786837107048e-07,
+        "ld": 32.59233091229257,
+        "mach": 0.7853,
+        "realized_aoa_deg": 8.10555464883927,
+        "seed_alpha0_deg": 8.924059800550001,
+        "solvecl_iterations": 3,
+        "solvecl_l2convergence": 3.3217157055744745e-11,
+        "solvecl_time_seconds": 2097.0604145526886
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    },
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "d177d51d45b1fb4553efe105c6b75257568e0fec655610305f14182ebf64e2ad",
+              "size_bytes": 315894
+            },
+            "conditions": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00/conds.json",
+              "present": true,
+              "sha256": "6f55219d5aa14ceb55ad5e809082d68db0b7f88c04de475d166622f125ce228f",
+              "size_bytes": 102
+            },
+            "output": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00/output.json",
+              "present": true,
+              "sha256": "8588ca9e5e9a3c6c8c07f4fd2dffe4c9989370a08edc7dadc4b421c0dcedfd16",
+              "size_bytes": 1043
+            },
+            "solver_script": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-11T06:05:52.365983Z",
+            "log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q2_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "fcf1fbaa05a3fb2e8bc5f4759eed3361583514aeccb9c3eca74023b37cd97046",
+              "size_bytes": 1930
+            },
+            "returncode": 0,
+            "started_at": "2026-11-11T05:03:07.060251Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 3765.3056733869016
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.020496413574726327,
+            "cl": 0.6600519125342528,
+            "cl_target": 0.66,
+            "err_cl": 1.1099350760712667e-07,
+            "ld": 32.20328815711194,
+            "mach": 0.8195,
+            "realized_aoa_deg": 7.84447396622874,
+            "seed_alpha0_deg": 8.924059800550001,
+            "solvecl_iterations": 4,
+            "solvecl_l2convergence": 8.971723387543445e-11,
+            "solvecl_time_seconds": 3732.4836931228638
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 1.543090853706186e-08,
+            "err_cl": 1.1099350760712667e-07,
+            "err_cmz": 1.3797537790072312e-07,
+            "history_rows": 1326,
+            "min_ResRho": 7.411022282384665e-07,
+            "min_relative_ResRho": 1.1409844564522096e-10,
+            "min_relative_totalRes": 1.9253335296757024e-09,
+            "min_totalRes": 0.01236753484974145,
+            "n_step": 1223.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 7.84447396622874,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 7.84447396622874,
+                  "available": true,
+                  "cl": 0.6600519125342528,
+                  "clalpha": 0.11835614056255289,
+                  "clstar": 0.66,
+                  "converged": true,
+                  "error": 5.191253425274045e-05,
+                  "history_entries": 4,
+                  "iterations": 4,
+                  "l2convergence": 8.971723387543445e-11,
+                  "time": 3732.4836931228638
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 1.543090853706186e-08,
+              "err_cl": 1.1099350760712667e-07,
+              "err_cmz": 1.3797537790072312e-07,
+              "min_ResRho": 7.411022282384665e-07,
+              "min_relative_ResRho": 1.1409844564522096e-10,
+              "min_relative_totalRes": 1.9253335296757024e-09,
+              "min_totalRes": 0.01236753484974145,
+              "n_step": 1223.0,
+              "wing_cd": 0.020496413574726327,
+              "wing_cl": 0.6600519125342528,
+              "wing_cmx": 1.259570079060076,
+              "wing_cmy": 0.09809705882855359,
+              "wing_cmz": 0.9888751561790339
+            },
+            "working_conditions": {
+              "AA": 8.924059800550001,
+              "CL_targ": 0.66,
+              "M3": 0.8195,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.66,
+      "condition_id": "mach_q2",
+      "mach": 0.8195,
+      "measurements": {
+        "cd": 0.020496413574726327,
+        "cl": 0.6600519125342528,
+        "cl_target": 0.66,
+        "err_cl": 1.1099350760712667e-07,
+        "ld": 32.20328815711194,
+        "mach": 0.8195,
+        "realized_aoa_deg": 7.84447396622874,
+        "seed_alpha0_deg": 8.924059800550001,
+        "solvecl_iterations": 4,
+        "solvecl_l2convergence": 8.971723387543445e-11,
+        "solvecl_time_seconds": 3732.4836931228638
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    },
+    {
+      "attempts": [
+        {
+          "adflow_log_evidence_error": null,
+          "artifacts": {
+            "adflow_log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00/adflow.log",
+              "present": true,
+              "sha256": "1f6b8839fb7607206b89aed784c9abc7d3081109356ffe5c94e7ec4e5d3d6fc9",
+              "size_bytes": 350677
+            },
+            "conditions": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00/conds.json",
+              "present": true,
+              "sha256": "2524df48347281effcf7920d2c4a49a898af83bf112247b1ccfbe7670d6c90cd",
+              "size_bytes": 101
+            },
+            "output": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00/output.json",
+              "present": true,
+              "sha256": "6fcc17e29886463e9d0be11a4dd72fe7778b6f37fc00822442b2c7b369635c5f",
+              "size_bytes": 1044
+            },
+            "solver_script": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00/run-adflow.py",
+              "present": true,
+              "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+              "size_bytes": 8909
+            }
+          },
+          "attempt_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00",
+          "attempt_index": 0,
+          "execution": {
+            "command": [
+              "mpirun",
+              "-np",
+              "16",
+              "-x",
+              "ADFLOW_NK_SWITCH",
+              "-x",
+              "ADFLOW_USE_ANK",
+              "-x",
+              "ADFLOW_USE_NK",
+              "-x",
+              "MKL_NUM_THREADS",
+              "-x",
+              "OMP_NUM_THREADS",
+              "-x",
+              "OPENBLAS_NUM_THREADS",
+              "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+              "run-adflow.py"
+            ],
+            "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00",
+            "effective_child_environment": {
+              "ADFLOW_NK_SWITCH": "1e-8",
+              "ADFLOW_USE_ANK": "1",
+              "ADFLOW_USE_NK": "1",
+              "AFLR_ARCH": "Linux-x86-64",
+              "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+              "CASARCH": ".",
+              "CASREV": "7.7",
+              "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+              "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+              "COMPILERS": "gcc",
+              "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+              "EFCOMP": "gfortran",
+              "ESP_ARCH": "LINUX64",
+              "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+              "HOME": "/home/mdolabuser",
+              "HOMEDIR": "/home/mdolabuser",
+              "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+              "LC_CTYPE": "C.UTF-8",
+              "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+              "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+              "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+              "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+              "MKL_NUM_THREADS": "1",
+              "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+              "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+              "OMP_NUM_THREADS": "1",
+              "OPENBLAS_NUM_THREADS": "1",
+              "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+              "PETSC_ARCH": "real-opt-gcc-3.15.5",
+              "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+              "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+              "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+              "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+              "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+              "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+              "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+              "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+            },
+            "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+            "error": null,
+            "finished_at": "2026-11-11T07:19:15.137670Z",
+            "log": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mach_q3_attempt_00/grade_adflow.log",
+              "present": true,
+              "sha256": "5bf876cea368f282f3a475d07564af16913e21c9537e56ddf62405737ac24f88",
+              "size_bytes": 1932
+            },
+            "returncode": 0,
+            "started_at": "2026-11-11T06:05:52.417424Z",
+            "termination_reason": "completed",
+            "timeout_seconds": 7200,
+            "wall_seconds": 4402.720195064321
+          },
+          "gate_decisions": {
+            "aoa_inclusive": true,
+            "cl_on_target_inclusive": true,
+            "numeric": true,
+            "positive_cd": true,
+            "positive_cl": true,
+            "positive_ld": true,
+            "solvecl_converged": true,
+            "solvecl_threshold_converged": true,
+            "solver_flags_clear": true,
+            "stationary_err_cl_strict": true
+          },
+          "measurements": {
+            "cd": 0.02142508625626393,
+            "cl": 0.6609815712501714,
+            "cl_target": 0.66,
+            "err_cl": 1.0477812251163954e-07,
+            "ld": 30.850824278801866,
+            "mach": 0.853,
+            "realized_aoa_deg": 7.4940615367857655,
+            "seed_alpha0_deg": 8.924059800550001,
+            "solvecl_iterations": 4,
+            "solvecl_l2convergence": 8.594805119034299e-11,
+            "solvecl_time_seconds": 4368.0192630290985
+          },
+          "outcome": "valid",
+          "outcome_class": "valid",
+          "output_error": null,
+          "raw_adflow_log_evidence": {
+            "err_cd": 7.190308872612183e-09,
+            "err_cl": 1.0477812251163954e-07,
+            "err_cmz": 1.410813712521275e-07,
+            "history_rows": 1482,
+            "min_ResRho": 1.3991595285147311e-06,
+            "min_relative_ResRho": 2.0695159134169137e-10,
+            "min_relative_totalRes": 1.844672865338447e-09,
+            "min_totalRes": 0.012469464897054956,
+            "n_step": 2231.0,
+            "schema_version": "wingbench-adflow-log-evidence-v1",
+            "tail_rows": 10
+          },
+          "raw_output": {
+            "results": {
+              "AA": 7.4940615367857655,
+              "_grading": {
+                "aeroproblem": {
+                  "fatalFail": false,
+                  "solveFailed": false
+                },
+                "contract_version": "superwing-adflow-evidence-v1",
+                "solvecl": {
+                  "alpha": 7.4940615367857655,
+                  "available": true,
+                  "cl": 0.6609815712501714,
+                  "clalpha": 0.13648241828527577,
+                  "clstar": 0.66,
+                  "converged": true,
+                  "error": 0.000981571250171398,
+                  "history_entries": 4,
+                  "iterations": 4,
+                  "l2convergence": 8.594805119034299e-11,
+                  "time": 4368.0192630290985
+                },
+                "solvecl_requested": true
+              },
+              "err_cd": 7.190308872612183e-09,
+              "err_cl": 1.0477812251163954e-07,
+              "err_cmz": 1.410813712521275e-07,
+              "min_ResRho": 1.3991595285147311e-06,
+              "min_relative_ResRho": 2.0695159134169137e-10,
+              "min_relative_totalRes": 1.844672865338447e-09,
+              "min_totalRes": 0.012469464897054956,
+              "n_step": 2231.0,
+              "wing_cd": 0.02142508625626393,
+              "wing_cl": 0.6609815712501714,
+              "wing_cmx": 1.2639759509002662,
+              "wing_cmy": 0.0861716119621652,
+              "wing_cmz": 0.9981084568502201
+            },
+            "working_conditions": {
+              "AA": 8.924059800550001,
+              "CL_targ": 0.66,
+              "M3": 0.853,
+              "re": 20000000.0,
+              "temp": 300.0
+            }
+          },
+          "reason_codes": []
+        }
+      ],
+      "cl_target": 0.66,
+      "condition_id": "mach_q3",
+      "mach": 0.853,
+      "measurements": {
+        "cd": 0.02142508625626393,
+        "cl": 0.6609815712501714,
+        "cl_target": 0.66,
+        "err_cl": 1.0477812251163954e-07,
+        "ld": 30.850824278801866,
+        "mach": 0.853,
+        "realized_aoa_deg": 7.4940615367857655,
+        "seed_alpha0_deg": 8.924059800550001,
+        "solvecl_iterations": 4,
+        "solvecl_l2convergence": 8.594805119034299e-11,
+        "solvecl_time_seconds": 4368.0192630290985
+      },
+      "outcome": "valid",
+      "outcome_class": "valid",
+      "reason_codes": []
+    }
+  ],
+  "execution_authorization": null,
+  "geometry": {
+    "canonical_source": null,
+    "geom_38d": [
+      37.56602045431809,
+      7.120736957489902,
+      1.5845110274735146,
+      12.48747989147036,
+      0.25335682974438317,
+      0.3309790963610191,
+      0.20842108751260766,
+      0.5487139103653609,
+      0.9953008707506275,
+      0.8958387709326716,
+      0.4208771374387214,
+      0.6145833194776502,
+      0.47132267113764376,
+      -3.113316706607579,
+      -1.0188602917398875,
+      -1.8188340543721457,
+      -2.427834104764832,
+      0.14706732418291277,
+      0.19149158855236625,
+      0.1839929568728331,
+      0.19015299541099584,
+      0.21151363133722395,
+      0.19694142642653012,
+      0.19880253336151493,
+      0.34881200248438304,
+      0.1193090138498874,
+      0.5562910085367316,
+      -0.14564147544230396,
+      -0.0870093111924149,
+      -0.3026042463579925,
+      0.15516731978080062,
+      -0.38010141253739926,
+      -0.0008093029679023811,
+      0.16108220127168515,
+      -0.1971106396996315,
+      -0.027261473848754325,
+      0.13969938151369948,
+      0.1262421954611449
+    ],
+    "hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+    "manifest_provenance": null,
+    "schema": "superwing-38d-v1",
+    "sha256": "61a1259651af585450c8c64e19760a234b8c91be01f8837a73188eb59ec14875"
+  },
+  "grading_mode": "local",
+  "legacy_evidence_used_for_verdict": false,
+  "local_grading": {
+    "adapter": "benchmark/grade_local.py",
+    "runtime_probe": {
+      "detail": "the runtime fingerprint differs from the campaign's: runtime fingerprint mismatch: expected 60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d, observed ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+      "expected_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+      "matches_campaign": false,
+      "probe_error": null,
+      "probed": true,
+      "report_file": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/runtime_fingerprint_adjoint-v5-s01-high_1794371017.json",
+      "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3"
+    },
+    "skipped_steps": [
+      "benchmark_manifest",
+      "execution_authorization",
+      "runtime_attestation",
+      "campaign_publication_preflight",
+      "publication_journal",
+      "release_lock",
+      "worker_lock",
+      "runtime_fingerprint_match",
+      "validate_result"
+    ],
+    "task_id": "superwing-load-high-cl066"
+  },
+  "mesh": {
+    "attempt_index": 0,
+    "attempts": [
+      {
+        "attempt_index": 0,
+        "case_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high",
+        "execution": {
+          "command": [
+            "mpirun",
+            "-np",
+            "16",
+            "-x",
+            "ADFLOW_NK_SWITCH",
+            "-x",
+            "ADFLOW_USE_ANK",
+            "-x",
+            "ADFLOW_USE_NK",
+            "-x",
+            "MKL_NUM_THREADS",
+            "-x",
+            "OMP_NUM_THREADS",
+            "-x",
+            "OPENBLAS_NUM_THREADS",
+            "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+            "gen-mesh.py"
+          ],
+          "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high",
+          "effective_child_environment": {
+            "ADFLOW_NK_SWITCH": "1e-8",
+            "ADFLOW_USE_ANK": "1",
+            "ADFLOW_USE_NK": "1",
+            "AFLR_ARCH": "Linux-x86-64",
+            "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+            "CASARCH": ".",
+            "CASREV": "7.7",
+            "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+            "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+            "COMPILERS": "gcc",
+            "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+            "EFCOMP": "gfortran",
+            "ESP_ARCH": "LINUX64",
+            "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+            "HOME": "/home/mdolabuser",
+            "HOMEDIR": "/home/mdolabuser",
+            "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+            "LC_CTYPE": "C.UTF-8",
+            "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+            "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+            "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+            "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+            "MKL_NUM_THREADS": "1",
+            "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+            "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "PETSC_ARCH": "real-opt-gcc-3.15.5",
+            "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+            "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+            "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+            "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+            "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+            "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+            "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+            "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+          },
+          "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+          "error": null,
+          "finished_at": "2026-11-11T04:27:35.114361Z",
+          "log": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/grade_mesh.log",
+            "present": true,
+            "sha256": "d155795e38adf772113cbeea6f8f725a6009101d684bd2c1edbc901fd6720d77",
+            "size_bytes": 2823
+          },
+          "returncode": 0,
+          "started_at": "2026-11-11T04:23:41.998508Z",
+          "termination_reason": "completed",
+          "timeout_seconds": 1800,
+          "wall_seconds": 233.1158202122897
+        },
+        "generated_artifacts": {
+          "gen-mesh.py": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/gen-mesh.py",
+            "present": true,
+            "sha256": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+            "size_bytes": 17502
+          },
+          "input.before_mesh.json": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/input.before_mesh.json",
+            "present": true,
+            "sha256": "a31dbee8d89b3337875871c73888654388c698667636cec3479f32310549b9ad",
+            "size_bytes": 1113
+          },
+          "original_tip.xyz": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/original_tip.xyz",
+            "present": true,
+            "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+            "size_bytes": 219899
+          },
+          "run-adflow.py": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/run-adflow.py",
+            "present": true,
+            "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+            "size_bytes": 8909
+          },
+          "single-point.py": {
+            "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/single-point.py",
+            "present": true,
+            "sha256": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976",
+            "size_bytes": 4123
+          }
+        },
+        "input_after_mesh_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/input.json",
+          "present": true,
+          "sha256": "8a1e276e5c8cee99d6ddd0c27a1b6083d6f23009d45f85940dd8f0ba6309fdde",
+          "size_bytes": 1132
+        },
+        "input_after_mesh_error": null,
+        "mesh_info_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mesh_info.json",
+          "present": true,
+          "sha256": "573abba4a8805d01eef915adf6f8fa1f53e83abda9076046484cbceed6ffddb3",
+          "size_bytes": 103
+        },
+        "mesh_validation_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mesh_validation.json",
+          "present": true,
+          "sha256": "370b1a274a24f454ba0013a9b2f28bf91f1867854f836e4df6b053a41caebf21",
+          "size_bytes": 1271
+        },
+        "min_quality": 0.10561,
+        "min_volume": 3.91e-15,
+        "outcome": "valid",
+        "output_error": null,
+        "raw_input_after_mesh": {
+          "AA": [
+            8.924059800550001,
+            8.924059800550001,
+            8.924059800550001
+          ],
+          "AR": 12.48747989147036,
+          "DA": 7.120736957489902,
+          "DA_kink": 1.5845110274735146,
+          "M3": [
+            0.7853,
+            0.8195,
+            0.853
+          ],
+          "SA": 37.56602045431809,
+          "TR": 0.25335682974438317,
+          "cambers": [
+            0.4208771374387214,
+            0.6145833194776502,
+            0.47132267113764376
+          ],
+          "cst_l": [
+            -0.14564147544230396,
+            -0.0870093111924149,
+            -0.3026042463579925,
+            0.15516731978080062,
+            -0.38010141253739926,
+            -0.0008093029679023811,
+            0.16108220127168515,
+            -0.1971106396996315,
+            -0.027261473848754325,
+            0.13969938151369948
+          ],
+          "cst_u": [
+            0.14706732418291277,
+            0.19149158855236625,
+            0.1839929568728331,
+            0.19015299541099584,
+            0.21151363133722395,
+            0.19694142642653012,
+            0.19880253336151493,
+            0.34881200248438304,
+            0.1193090138498874,
+            0.5562910085367316
+          ],
+          "half_span": 3.912817052067506,
+          "kink": 0.3309790963610191,
+          "ref_area": 2.452077987874546,
+          "rootadj": 0.20842108751260766,
+          "rtcs": [
+            0.5487139103653609,
+            0.9953008707506275,
+            0.8958387709326716
+          ],
+          "rtctip": 0.4892492950586914,
+          "surface_area": 2.1246324385420006,
+          "tcroot": 0.1262421954611449,
+          "twists": [
+            -3.113316706607579,
+            -1.0188602917398875,
+            -1.8188340543721457,
+            -2.427834104764832
+          ]
+        },
+        "raw_input_before_mesh": {
+          "AA": [
+            8.924059800550001,
+            8.924059800550001,
+            8.924059800550001
+          ],
+          "AR": 12.48747989147036,
+          "DA": 7.120736957489902,
+          "DA_kink": 1.5845110274735146,
+          "M3": [
+            0.7853,
+            0.8195,
+            0.853
+          ],
+          "SA": 37.56602045431809,
+          "TR": 0.25335682974438317,
+          "cambers": [
+            0.4208771374387214,
+            0.6145833194776502,
+            0.47132267113764376
+          ],
+          "cst_l": [
+            -0.14564147544230396,
+            -0.0870093111924149,
+            -0.3026042463579925,
+            0.15516731978080062,
+            -0.38010141253739926,
+            -0.0008093029679023811,
+            0.16108220127168515,
+            -0.1971106396996315,
+            -0.027261473848754325,
+            0.13969938151369948
+          ],
+          "cst_u": [
+            0.14706732418291277,
+            0.19149158855236625,
+            0.1839929568728331,
+            0.19015299541099584,
+            0.21151363133722395,
+            0.19694142642653012,
+            0.19880253336151493,
+            0.34881200248438304,
+            0.1193090138498874,
+            0.5562910085367316
+          ],
+          "kink": 0.3309790963610191,
+          "rootadj": 0.20842108751260766,
+          "rtcs": [
+            0.5487139103653609,
+            0.9953008707506275,
+            0.8958387709326716
+          ],
+          "tcroot": 0.1262421954611449,
+          "twists": [
+            -3.113316706607579,
+            -1.0188602917398875,
+            -1.8188340543721457,
+            -2.427834104764832
+          ]
+        },
+        "raw_mesh_info": {
+          "actual_ds": 1.24e-06,
+          "min_Quality": 0.10561,
+          "min_Vol": 3.91e-15,
+          "target_ds": 1.66919523397364e-06
+        },
+        "raw_mesh_validation": {
+          "post_mesh_input": {
+            "artifact": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/input.json",
+              "present": true,
+              "regular_file": true,
+              "sha256": "8a1e276e5c8cee99d6ddd0c27a1b6083d6f23009d45f85940dd8f0ba6309fdde",
+              "size_bytes": 1132
+            },
+            "geometry": {
+              "half_span": 3.912817052067506,
+              "ref_area": 2.452077987874546,
+              "surface_area": 2.1246324385420006
+            },
+            "invalid_fields": [],
+            "validation_state": "valid"
+          },
+          "reason_codes": [],
+          "schema_version": "wingbench-cfd-mesh-artifact-validation-v1",
+          "valid": true,
+          "volume_grid": {
+            "artifact": {
+              "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/wing_vol.cgns",
+              "present": true,
+              "regular_file": true,
+              "sha256": "494c7207d34459ae0a19929fac1393c5fbe96e5241b4dcfa4bc0eb77e927688c",
+              "size_bytes": 88948736
+            },
+            "cell_dimension": 3,
+            "coordinates_finite": true,
+            "reader": "cgnsutilities.cgnsutilities.readGrid",
+            "total_cells": 3527680,
+            "total_nodes": 3699189,
+            "validation_state": "valid",
+            "zone_count": 13,
+            "zone_dimensions": [
+              [
+                113,
+                41,
+                81
+              ],
+              [
+                9,
+                41,
+                81
+              ],
+              [
+                113,
+                41,
+                81
+              ],
+              [
+                9,
+                41,
+                81
+              ],
+              [
+                113,
+                125,
+                81
+              ],
+              [
+                9,
+                125,
+                81
+              ],
+              [
+                113,
+                125,
+                81
+              ],
+              [
+                9,
+                125,
+                81
+              ],
+              [
+                113,
+                17,
+                81
+              ],
+              [
+                9,
+                17,
+                81
+              ],
+              [
+                113,
+                17,
+                81
+              ],
+              [
+                9,
+                17,
+                81
+              ],
+              [
+                9,
+                113,
+                81
+              ]
+            ]
+          }
+        },
+        "raw_volume_meshing_log_evidence": {
+          "actual_ds": 1.24e-06,
+          "first_grid_level": 2.0,
+          "history_rows": 80,
+          "last_grid_level": 81.0,
+          "min_Quality": 0.10561,
+          "min_Vol": 3.91e-15,
+          "schema_version": "wingbench-pyhyp-log-evidence-v1"
+        },
+        "reason_codes": [],
+        "volume_grid_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/wing_vol.cgns",
+          "present": true,
+          "sha256": "494c7207d34459ae0a19929fac1393c5fbe96e5241b4dcfa4bc0eb77e927688c",
+          "size_bytes": 88948736
+        },
+        "volume_meshing_log_artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/volume_meshing.log",
+          "present": true,
+          "sha256": "5b3196c391534b10d42e8c6188638cc77ef5324382e249075cf65085e10872c5",
+          "size_bytes": 10669
+        },
+        "volume_meshing_log_evidence_error": null
+      }
+    ],
+    "case_directory": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high",
+    "execution": {
+      "command": [
+        "mpirun",
+        "-np",
+        "16",
+        "-x",
+        "ADFLOW_NK_SWITCH",
+        "-x",
+        "ADFLOW_USE_ANK",
+        "-x",
+        "ADFLOW_USE_NK",
+        "-x",
+        "MKL_NUM_THREADS",
+        "-x",
+        "OMP_NUM_THREADS",
+        "-x",
+        "OPENBLAS_NUM_THREADS",
+        "/home/mdolabuser/.pyenv/versions/3.9.12/bin/python3",
+        "gen-mesh.py"
+      ],
+      "cwd": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high",
+      "effective_child_environment": {
+        "ADFLOW_NK_SWITCH": "1e-8",
+        "ADFLOW_USE_ANK": "1",
+        "ADFLOW_USE_NK": "1",
+        "AFLR_ARCH": "Linux-x86-64",
+        "CAPS_GLYPH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/aim/pointwise/glyph",
+        "CASARCH": ".",
+        "CASREV": "7.7",
+        "CASROOT": "/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0",
+        "CGNS_HOME": "/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc",
+        "COMPILERS": "gcc",
+        "COMPLEXIFY_DIR": "/home/mdolabuser/repos/complexify/opt-gcc",
+        "EFCOMP": "gfortran",
+        "ESP_ARCH": "LINUX64",
+        "ESP_ROOT": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad",
+        "HOME": "/home/mdolabuser",
+        "HOMEDIR": "/home/mdolabuser",
+        "IPOPT_DIR": "/home/mdolabuser/packages/Ipopt",
+        "LC_CTYPE": "C.UTF-8",
+        "LD_LIBRARY_PATH": "/home/mdolabuser/repos/complexify/opt-gcc/lib:/home/mdolabuser/packages/ESP123_amd64/OpenCASCADE-7.7.0/./lib:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/lib:/home/mdolabuser/packages/Ipopt/lib:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/lib:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/lib",
+        "MDOLAB_JSON_DIR": "/home/mdolabuser/jsonfiles",
+        "MDOLAB_PACKAGES_DIR": "/home/mdolabuser/packages",
+        "MDOLAB_REPO_DIR": "/home/mdolabuser/repos",
+        "MKL_NUM_THREADS": "1",
+        "MPI_DIR": "/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc",
+        "OMPI_MCA_btl_vader_single_copy_mechanism": "none",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PATH": "/home/mdolabuser/.pyenv/versions/3.9.12/bin:/home/mdolabuser/.pyenv/libexec:/home/mdolabuser/.pyenv/plugins/python-build/bin:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/bin:/home/mdolabuser/packages/CGNS-4.2.0/opt-gcc/bin/:/home/mdolabuser/.pyenv/shims:/home/mdolabuser/.pyenv/bin:/home/mdolabuser/packages/openmpi-4.1.6/opt-gcc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "PETSC_ARCH": "real-opt-gcc-3.15.5",
+        "PETSC_ARCH_COMPLEX": "complex-opt-gcc-3.15.5",
+        "PETSC_ARCH_REAL": "real-opt-gcc-3.15.5",
+        "PETSC_DIR": "/home/mdolabuser/packages/petsc-3.15.5",
+        "PKG_CONFIG_PATH": "/home/mdolabuser/packages/Ipopt/lib/pkgconfig",
+        "PYENV_ROOT": "/home/mdolabuser/.pyenv",
+        "PYTHONINC": "/home/mdolabuser/.pyenv/versions/3.9.12/include/python3.9",
+        "PYTHONLIB": "-L/home/mdolabuser/.pyenv/versions/3.9.12/lib -lpython3.9",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONPATH": "/workspace/repo:/workspace/runtime/cst-modeling3d:/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/pyESP:/home/mdolabuser/packages/paropt/",
+        "UDUNITS2_XML_PATH": "/home/mdolabuser/packages/ESP123_amd64/EngSketchPad/src/CAPS/udunits/udunits2.xml"
+      },
+      "effective_child_environment_sha256": "20abe034c8a9261abf60fe0e5b1c16acd8dc29d762fef99abcb0003eb480029a",
+      "error": null,
+      "finished_at": "2026-11-11T04:27:35.114361Z",
+      "log": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/grade_mesh.log",
+        "present": true,
+        "sha256": "d155795e38adf772113cbeea6f8f725a6009101d684bd2c1edbc901fd6720d77",
+        "size_bytes": 2823
+      },
+      "returncode": 0,
+      "started_at": "2026-11-11T04:23:41.998508Z",
+      "termination_reason": "completed",
+      "timeout_seconds": 1800,
+      "wall_seconds": 233.1158202122897
+    },
+    "generated_artifacts": {
+      "gen-mesh.py": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/gen-mesh.py",
+        "present": true,
+        "sha256": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+        "size_bytes": 17502
+      },
+      "input.before_mesh.json": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/input.before_mesh.json",
+        "present": true,
+        "sha256": "a31dbee8d89b3337875871c73888654388c698667636cec3479f32310549b9ad",
+        "size_bytes": 1113
+      },
+      "original_tip.xyz": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/original_tip.xyz",
+        "present": true,
+        "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+        "size_bytes": 219899
+      },
+      "run-adflow.py": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/run-adflow.py",
+        "present": true,
+        "sha256": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+        "size_bytes": 8909
+      },
+      "single-point.py": {
+        "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/single-point.py",
+        "present": true,
+        "sha256": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976",
+        "size_bytes": 4123
+      }
+    },
+    "input_after_mesh_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/input.json",
+      "present": true,
+      "sha256": "8a1e276e5c8cee99d6ddd0c27a1b6083d6f23009d45f85940dd8f0ba6309fdde",
+      "size_bytes": 1132
+    },
+    "input_after_mesh_error": null,
+    "mesh_info_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mesh_info.json",
+      "present": true,
+      "sha256": "573abba4a8805d01eef915adf6f8fa1f53e83abda9076046484cbceed6ffddb3",
+      "size_bytes": 103
+    },
+    "mesh_validation_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/mesh_validation.json",
+      "present": true,
+      "sha256": "370b1a274a24f454ba0013a9b2f28bf91f1867854f836e4df6b053a41caebf21",
+      "size_bytes": 1271
+    },
+    "min_quality": 0.10561,
+    "min_volume": 3.91e-15,
+    "outcome": "valid",
+    "output_error": null,
+    "raw_input_after_mesh": {
+      "AA": [
+        8.924059800550001,
+        8.924059800550001,
+        8.924059800550001
+      ],
+      "AR": 12.48747989147036,
+      "DA": 7.120736957489902,
+      "DA_kink": 1.5845110274735146,
+      "M3": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "SA": 37.56602045431809,
+      "TR": 0.25335682974438317,
+      "cambers": [
+        0.4208771374387214,
+        0.6145833194776502,
+        0.47132267113764376
+      ],
+      "cst_l": [
+        -0.14564147544230396,
+        -0.0870093111924149,
+        -0.3026042463579925,
+        0.15516731978080062,
+        -0.38010141253739926,
+        -0.0008093029679023811,
+        0.16108220127168515,
+        -0.1971106396996315,
+        -0.027261473848754325,
+        0.13969938151369948
+      ],
+      "cst_u": [
+        0.14706732418291277,
+        0.19149158855236625,
+        0.1839929568728331,
+        0.19015299541099584,
+        0.21151363133722395,
+        0.19694142642653012,
+        0.19880253336151493,
+        0.34881200248438304,
+        0.1193090138498874,
+        0.5562910085367316
+      ],
+      "half_span": 3.912817052067506,
+      "kink": 0.3309790963610191,
+      "ref_area": 2.452077987874546,
+      "rootadj": 0.20842108751260766,
+      "rtcs": [
+        0.5487139103653609,
+        0.9953008707506275,
+        0.8958387709326716
+      ],
+      "rtctip": 0.4892492950586914,
+      "surface_area": 2.1246324385420006,
+      "tcroot": 0.1262421954611449,
+      "twists": [
+        -3.113316706607579,
+        -1.0188602917398875,
+        -1.8188340543721457,
+        -2.427834104764832
+      ]
+    },
+    "raw_input_before_mesh": {
+      "AA": [
+        8.924059800550001,
+        8.924059800550001,
+        8.924059800550001
+      ],
+      "AR": 12.48747989147036,
+      "DA": 7.120736957489902,
+      "DA_kink": 1.5845110274735146,
+      "M3": [
+        0.7853,
+        0.8195,
+        0.853
+      ],
+      "SA": 37.56602045431809,
+      "TR": 0.25335682974438317,
+      "cambers": [
+        0.4208771374387214,
+        0.6145833194776502,
+        0.47132267113764376
+      ],
+      "cst_l": [
+        -0.14564147544230396,
+        -0.0870093111924149,
+        -0.3026042463579925,
+        0.15516731978080062,
+        -0.38010141253739926,
+        -0.0008093029679023811,
+        0.16108220127168515,
+        -0.1971106396996315,
+        -0.027261473848754325,
+        0.13969938151369948
+      ],
+      "cst_u": [
+        0.14706732418291277,
+        0.19149158855236625,
+        0.1839929568728331,
+        0.19015299541099584,
+        0.21151363133722395,
+        0.19694142642653012,
+        0.19880253336151493,
+        0.34881200248438304,
+        0.1193090138498874,
+        0.5562910085367316
+      ],
+      "kink": 0.3309790963610191,
+      "rootadj": 0.20842108751260766,
+      "rtcs": [
+        0.5487139103653609,
+        0.9953008707506275,
+        0.8958387709326716
+      ],
+      "tcroot": 0.1262421954611449,
+      "twists": [
+        -3.113316706607579,
+        -1.0188602917398875,
+        -1.8188340543721457,
+        -2.427834104764832
+      ]
+    },
+    "raw_mesh_info": {
+      "actual_ds": 1.24e-06,
+      "min_Quality": 0.10561,
+      "min_Vol": 3.91e-15,
+      "target_ds": 1.66919523397364e-06
+    },
+    "raw_mesh_validation": {
+      "post_mesh_input": {
+        "artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/input.json",
+          "present": true,
+          "regular_file": true,
+          "sha256": "8a1e276e5c8cee99d6ddd0c27a1b6083d6f23009d45f85940dd8f0ba6309fdde",
+          "size_bytes": 1132
+        },
+        "geometry": {
+          "half_span": 3.912817052067506,
+          "ref_area": 2.452077987874546,
+          "surface_area": 2.1246324385420006
+        },
+        "invalid_fields": [],
+        "validation_state": "valid"
+      },
+      "reason_codes": [],
+      "schema_version": "wingbench-cfd-mesh-artifact-validation-v1",
+      "valid": true,
+      "volume_grid": {
+        "artifact": {
+          "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/wing_vol.cgns",
+          "present": true,
+          "regular_file": true,
+          "sha256": "494c7207d34459ae0a19929fac1393c5fbe96e5241b4dcfa4bc0eb77e927688c",
+          "size_bytes": 88948736
+        },
+        "cell_dimension": 3,
+        "coordinates_finite": true,
+        "reader": "cgnsutilities.cgnsutilities.readGrid",
+        "total_cells": 3527680,
+        "total_nodes": 3699189,
+        "validation_state": "valid",
+        "zone_count": 13,
+        "zone_dimensions": [
+          [
+            113,
+            41,
+            81
+          ],
+          [
+            9,
+            41,
+            81
+          ],
+          [
+            113,
+            41,
+            81
+          ],
+          [
+            9,
+            41,
+            81
+          ],
+          [
+            113,
+            125,
+            81
+          ],
+          [
+            9,
+            125,
+            81
+          ],
+          [
+            113,
+            125,
+            81
+          ],
+          [
+            9,
+            125,
+            81
+          ],
+          [
+            113,
+            17,
+            81
+          ],
+          [
+            9,
+            17,
+            81
+          ],
+          [
+            113,
+            17,
+            81
+          ],
+          [
+            9,
+            17,
+            81
+          ],
+          [
+            9,
+            113,
+            81
+          ]
+        ]
+      }
+    },
+    "raw_volume_meshing_log_evidence": {
+      "actual_ds": 1.24e-06,
+      "first_grid_level": 2.0,
+      "history_rows": 80,
+      "last_grid_level": 81.0,
+      "min_Quality": 0.10561,
+      "min_Vol": 3.91e-15,
+      "schema_version": "wingbench-pyhyp-log-evidence-v1"
+    },
+    "reason_codes": [],
+    "volume_grid_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/wing_vol.cgns",
+      "present": true,
+      "sha256": "494c7207d34459ae0a19929fac1393c5fbe96e5241b4dcfa4bc0eb77e927688c",
+      "size_bytes": 88948736
+    },
+    "volume_meshing_log_artifact": {
+      "path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high/volume_meshing.log",
+      "present": true,
+      "sha256": "5b3196c391534b10d42e8c6188638cc77ef5324382e249075cf65085e10872c5",
+      "size_bytes": 10669
+    },
+    "volume_meshing_log_evidence_error": null
+  },
+  "official": false,
+  "protocol": {
+    "canonical_sha256": "99f5ff27a3ce61605763f5dbe91fb5f852b432a6bf08314d8e469ecca339b4b0",
+    "protocol_id": "superwing-load-high-cl066-qualification-v1",
+    "protocol_status": "qualification_required",
+    "snapshot": {
+      "aggregation": {
+        "admissibility_fail": "any_conclusive_condition_invalid_or_unmeshable",
+        "admissibility_pass": "all_conditions_valid",
+        "admissibility_undetermined": "no_conclusive_invalidity_and_any_inconclusive_evidence",
+        "diagnostic_partial_metrics_allowed": true,
+        "required_valid_conditions": 3,
+        "score": "geometric_mean_ld",
+        "score_requires_complete_pass": true
+      },
+      "benchmark_release_id": null,
+      "condition_execution_order": [
+        0,
+        1,
+        2
+      ],
+      "condition_gates": {
+        "aeroproblem_fatal_fail_must_equal": false,
+        "aeroproblem_solve_failed_must_equal": false,
+        "aoa_deg_inclusive": [
+          -10.0,
+          25.0
+        ],
+        "cl_match_abs_less_than_or_equal": 0.02,
+        "err_cl_strictly_less_than": 0.0005,
+        "positive_cd_required": true,
+        "positive_cl_required": true,
+        "positive_ld_required": true,
+        "process_returncode_zero_required": true,
+        "solvecl_converged_required": true,
+        "solvecl_result_required": true
+      },
+      "condition_output_order": [
+        0,
+        1,
+        2
+      ],
+      "conditions": [
+        {
+          "cl_target": 0.66,
+          "condition_id": "mach_q1",
+          "mach": 0.7853
+        },
+        {
+          "cl_target": 0.66,
+          "condition_id": "mach_q2",
+          "mach": 0.8195
+        },
+        {
+          "cl_target": 0.66,
+          "condition_id": "mach_q3",
+          "mach": 0.853
+        }
+      ],
+      "environment": {
+        "cst_modeling3d_commit": "9500b19a732463c26b32f6860ac6c517c7d212a5",
+        "expected_runtime_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+        "final_child_image_linux_amd64_digest": "sha256:53a214a5c6ea52287b08656da5e370411323aca64b60e7ab0b13992eb21f8c44",
+        "final_child_image_manifest_digest": "sha256:53a214a5c6ea52287b08656da5e370411323aca64b60e7ab0b13992eb21f8c44",
+        "forbidden_parent_names": [
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "MKL_NUM_THREADS"
+        ],
+        "forbidden_parent_prefixes": [
+          "ADFLOW_"
+        ],
+        "mdolab_base_image_linux_amd64_digest": "sha256:fb6d20250ad192b6034c3e61286e6179f4854eb58e3fdb25d98dd5844fcb42fd",
+        "mdolab_base_image_manifest_digest": "sha256:68393a976907d6306f8b2d87ba95365a8720c3b2a5e55ae431f3cb05d5198223",
+        "require_non_root": true,
+        "required_child_environment": {
+          "ADFLOW_NK_SWITCH": "1e-8",
+          "ADFLOW_USE_ANK": "1",
+          "ADFLOW_USE_NK": "1",
+          "MKL_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        }
+      },
+      "execution": {
+        "early_stall_abort": false,
+        "fail_fast_conditions": false,
+        "fresh_attempt_directory": true,
+        "host_lock_path": "/workspace/.wingbench-locks/np16.lock",
+        "infrastructure_retries": 0,
+        "mesh_timeout_seconds": 1800,
+        "mkl_num_threads": 1,
+        "mpi_ranks": 16,
+        "omp_num_threads": 1,
+        "openblas_num_threads": 1,
+        "solve_timeout_seconds_per_attempt": 7200,
+        "timeout_is_scientific_failure": false
+      },
+      "flow": {
+        "area_ref_source": "generated_wing_surface_area",
+        "chord_ref": 1.0,
+        "reynolds": 20000000.0,
+        "reynolds_length": 1.0,
+        "temperature_k": 300.0,
+        "x_ref": 0.25
+      },
+      "generated_case_file_sha256": {
+        "gen-mesh.py": "8eb7d505c85b891a1ac1c547189b3399b38cb2a504ebac1a5b8fa97152ea2997",
+        "original_tip.xyz": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1",
+        "run-adflow.py": "6c41807d95cec2b46841d5a5e8466f36004f4474177402641df884e6db7e986b",
+        "single-point.py": "eee1888640c6947dd8886a31d30a8a39628a74c0353ea455d9b581c306434976"
+      },
+      "mesh": {
+        "marginal_quality_if": "0<q<0.05",
+        "min_quality_valid_if": ">0",
+        "min_volume_valid_if": ">0",
+        "missing_or_malformed_evidence": "inconclusive",
+        "recipe": "superwing-dataset-default-v1",
+        "robust_mesh": false
+      },
+      "official_grading_enabled": false,
+      "outcome_policy": {
+        "completed_solvecl_nonconvergence": "invalid_solver_nonconvergence",
+        "malformed_output": "inconclusive_output_failure",
+        "missing_convergence_evidence": "inconclusive_output_failure",
+        "missing_output": "inconclusive_output_failure",
+        "process_error": "inconclusive_infrastructure",
+        "timeout": "inconclusive_timeout",
+        "uninterrupted_infrastructure_failure": "terminal_inconclusive_no_retry",
+        "verified_spot_reclaim": "censored_external_reacquisition_not_scientific_attempt"
+      },
+      "protocol_id": "superwing-load-high-cl066-qualification-v1",
+      "protocol_revision": 3,
+      "protocol_status": "qualification_required",
+      "result_contract": {
+        "all_attempts_preserved": true,
+        "atomic_write_required": true,
+        "geometry_sha256_required": true,
+        "official_requires_protocol_status": "frozen",
+        "protocol_sha256_required": true,
+        "protocol_snapshot_required": true,
+        "schema_version": "wingbench-cfd-whole-wing-result-v1"
+      },
+      "schema_version": "wingbench-cfd-protocol-v1",
+      "scientific_files": [
+        {
+          "path": "scripts/cfd/grading_protocol.py",
+          "sha256": "6828daf5ce8607da33cb1ab128462a87249b2d0bf93499a3f54d771fdc9a53c4"
+        },
+        {
+          "path": "scripts/cfd/grade_schema.py",
+          "sha256": "5507c728205e0a5389bdd8119d8824013c5743a21988d16f57214042b85246e4"
+        },
+        {
+          "path": "scripts/cfd/grade_benchmark.py",
+          "sha256": "1200a150475c921a9901d4963c3a1d19c691336103ac21ef92e55c9fa5987f13"
+        },
+        {
+          "path": "scripts/cfd/runtime_probe.py",
+          "sha256": "c55799f9b0330694489f0f01cffd33cb8dd7ea4074731f26afa4c68acb23a85e"
+        },
+        {
+          "path": "scripts/cfd/validate_mesh_artifact.py",
+          "sha256": "906bcd055686151ce7711d6391ea003dee5e4b76790ca66d62d707f386d84aae"
+        },
+        {
+          "path": "scripts/cfd/raw_evidence.py",
+          "sha256": "c113f7116240f8d352f1647fefd2c2bfe855562d90fdc37ffc0deecc77638f75"
+        },
+        {
+          "path": "scripts/cfd/geometry_hash.py",
+          "sha256": "e837d52cdffa887fe0996943b57518151ae9855ec720a72c8d9d13ba0ec506a8"
+        },
+        {
+          "path": "scripts/cfd/dataset_geometry.py",
+          "sha256": "41cb445fec71d877714fa71febc67322a52f0d794362c8b4964bd7103611d765"
+        },
+        {
+          "path": "scripts/cfd/campaign_publication.py",
+          "sha256": "adf567a80a762807abf3bc411cab78c41a18b569d62372d2f7812b0e739b2f68"
+        },
+        {
+          "path": "scripts/cfd/aws_campaign_publication.py",
+          "sha256": "7a369c3478a9c4d01c73b302394aed072e1f779557d824225d575bd95e3f560e"
+        },
+        {
+          "path": "scripts/cfd/build_benchmark_regrade_manifest.py",
+          "sha256": "22253a93fd8ff918cc520fd63ced057d5a68c11f5e63eb75d97b50376ad2d736"
+        },
+        {
+          "path": "scripts/cfd/build_protocol_qualification_manifest.py",
+          "sha256": "caa03699adcc8e3fe667fa0d4162d778805a4c12e5a9fabfe782c190c8d294cf"
+        },
+        {
+          "path": "scripts/cfd/evaluate_protocol_qualification.py",
+          "sha256": "54aacc83f2783c0647d3831a4edd21d69f8941706b1845b5ff68bb1df79da09b"
+        },
+        {
+          "path": "scripts/cfd/promote_benchmark_manifest.py",
+          "sha256": "76155efed98468b9086e5b99ed09a54952ed15799015f5631a769a88ed98e2d7"
+        },
+        {
+          "path": "scripts/cfd/build_release_lock.py",
+          "sha256": "b597405ea75a236a6428d46f257b553cdd3aea8481b2deddb84b78aec4778170"
+        },
+        {
+          "path": "scripts/cfd/finalize_benchmark_regrade.py",
+          "sha256": "a27bb4c74b0328d180581876130f8794166ac2fd11ac36e7e300e2e4f7082e85"
+        },
+        {
+          "path": "scripts/cfd/derive_seed_aoa.py",
+          "sha256": "79ecab9d35de8ee01180cd19c2dee8148fd6c980ab4eacb1eecb1c422b5df816"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/gen-mesh.superwing.py",
+          "sha256": "7daf656cdb23c6de32fba1585e22bb850d1b7e86c2ad7d031239989f2d1f73b4"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/run-adflow.py",
+          "sha256": "c4f2bb3c04aa21a5a07b5c51a3612e4cd04f7bcc108894e953dd2c6506a86ad6"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/single-point.py",
+          "sha256": "3682aad55ebc051121e0aa373305d0341bbde1a57642fc3f8981b84ffbd15f27"
+        },
+        {
+          "path": "scripts/cfd/aerotransformer/original_tip.xyz",
+          "sha256": "c93c1e2c74da73c9610d5c77e81b2f1d9bc0af53df04e1d608aaa61cda3e7db1"
+        },
+        {
+          "path": "scripts/cfd/prepare_superwing_cases.py",
+          "sha256": "287416b5440ae43eca6c26adaba72fc6f95c0d44143f4bb5e9193424c1113655"
+        },
+        {
+          "path": "configs/cfd/publication_storage_binding_v1.json",
+          "sha256": "a7179dd4ed4218abb67984a1ac1c2befd5bdb0e447e5ca78698ff3fc5cd2bf0a"
+        },
+        {
+          "path": "configs/cfd/seed_aoa_selection_v1.json",
+          "sha256": "58a09c6e39567723836c13140fe70d805c46c2c3b410b52251d2e1efcffe432b"
+        }
+      ],
+      "scientific_scope": {
+        "dataset_geometry_convention": "dataset-index-to-configs-source-id-to-running-info-shape-v1",
+        "generated_geometry_convention": "configs-generated-v1",
+        "geometry_hash_algorithm": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)",
+        "geometry_schema": "superwing-38d-v1",
+        "mesh_once": true,
+        "partial_scores_official": false,
+        "serial_conditions": true,
+        "whole_wing_unit": true
+      },
+      "seed_policy": {
+        "alpha0_deg": 8.924059800550001,
+        "applies_to_every_wing_and_condition": true,
+        "future_reselection_allowed": false,
+        "selection_record_path": "configs/cfd/seed_aoa_selection_load_high_v1.json",
+        "selection_rule": "exact_median_successful_cases_in_cl_0.64_0.68_no_rounding",
+        "source": "superwing-successful-target-cl-band-median-load-qualification-v1",
+        "type": "fixed_per_condition"
+      },
+      "solver": {
+        "equation_type": "RANS",
+        "l2_convergence": 1e-10,
+        "mg_cycle": "3w",
+        "n_cycles": 3000,
+        "n_cycles_coarse": 500,
+        "nk_switch_tol": 1e-08,
+        "solvecl": {
+          "auto_reset": false,
+          "clalpha_guess": null,
+          "delta": 0.5,
+          "l2_convergence_rel": null,
+          "max_iter": 20,
+          "relax_alpha": 1.0,
+          "relax_clalpha": 1.0,
+          "stop_on_stall": false,
+          "tol": 0.001,
+          "update_cutoff": 1e-16,
+          "work_unit_time": null,
+          "write_solution": true
+        },
+        "use_ank_solver": true,
+        "use_nk_solver": true
+      }
+    }
+  },
+  "protocol_id": "superwing-load-high-cl066-qualification-v1",
+  "release_lock": null,
+  "result_path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/result.json",
+  "result_sha256": "06b0fd541f6ebbf746c51831e69bc8db6a57d2244ea3af4af8b9b8a6b79456dd",
+  "run_id": "adjoint-v5-s01-high",
+  "runtime": {
+    "aws_instance_type_observed": null,
+    "aws_lifecycle_observed": null,
+    "final_child_image_linux_amd64_digest_observed": null,
+    "finished_at": "2026-11-11T07:19:16Z",
+    "git_commit": null,
+    "hostname": null,
+    "platform": "Linux-5.15.0-176-generic-x86_64-with-glibc2.31",
+    "python": "3.9.12",
+    "runtime_attestation": {
+      "status": "not_provided_local_grading"
+    },
+    "runtime_attestation_sha256": null,
+    "solver_environment": {
+      "report_file": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/runtime_fingerprint_adjoint-v5-s01-high_1794371017.json",
+      "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+      "status": "complete"
+    },
+    "solver_environment_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+    "started_at": "2026-11-11T04:23:41Z"
+  },
+  "schema_version": "wingbench-cfd-whole-wing-result-v1",
+  "timing": {
+    "core_seconds": 168505.44284805655,
+    "mpi_ranks": 16,
+    "process_wall_seconds": 10531.590178003535,
+    "wall_seconds": 10534.130601976067
+  },
+  "wing_id": "adjoint-v5-s01-high"
+}

@@ -1,0 +1,3 @@
+[prep] adjoint-v5-s01-high: case=/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-2/initial/adjoint-v5-s01-high/work/adjoint-v5-s01-high/mesh_attempt_00/adjoint-v5-s01-high
+[prep]   SA=37.57 AR=12.49 TR=0.253 kink=0.331 tcroot=0.1262
+[prep]   conditions: [(0.7853, 8.924059800550001), (0.8195, 8.924059800550001), (0.853, 8.924059800550001)]

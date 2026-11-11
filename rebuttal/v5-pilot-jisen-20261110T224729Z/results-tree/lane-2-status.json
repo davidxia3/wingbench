@@ -1,0 +1,17 @@
+{
+  "episodes": [
+    {
+      "index": 2,
+      "returncode": 1,
+      "finished_at": "2026-11-11T07:19:23.114300+00:00",
+      "automatic_retry": false
+    },
+    {
+      "index": 5,
+      "returncode": 1,
+      "finished_at": "2026-11-11T10:33:24.148359+00:00",
+      "automatic_retry": false
+    }
+  ],
+  "finished_at": "2026-11-11T10:33:24.152664+00:00"
+}

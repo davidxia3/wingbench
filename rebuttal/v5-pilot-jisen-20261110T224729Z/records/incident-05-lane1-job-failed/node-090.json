@@ -1,0 +1,876 @@
+{
+    "apiVersion": "v1",
+    "kind": "Node",
+    "metadata": {
+        "annotations": {
+            "ask-pablo-dont-remove-reason": "SRE-10111: cluster downsize, node emptied of GPU jobs; tainted 2026-11-11 by [redacted]",
+            "cordon-reason": "SRE-10111: cluster downsize, node returned per Pablo (idle holders released). Cordoned 2026-11-11 by [redacted]",
+            "csi.volume.kubernetes.io/nodeid": "{\"csi.weka.io\":\"research-common-h100-090.cloud.together.ai\"}",
+            "flannel.alpha.coreos.com/backend-data": "{\"VNI\":1,\"VtepMAC\":\"5e:65:be:60:ad:97\"}",
+            "flannel.alpha.coreos.com/backend-type": "vxlan",
+            "flannel.alpha.coreos.com/kube-subnet-manager": "true",
+            "flannel.alpha.coreos.com/public-ip": "192.168.229.90",
+            "k3s.io/hostname": "research-common-h100-090.cloud.together.ai",
+            "k3s.io/internal-ip": "192.168.229.90",
+            "k3s.io/node-args": "[\"agent\"]",
+            "k3s.io/node-config-hash": "D6Z2IM673XTNR2AX47TXSKHIOTA6Q3IWDGPEJDVKVTO2ZMA5S2BA====",
+            "k3s.io/node-env": "{\"K3S_DATA_DIR\":\"/var/lib/rancher/k3s/data/3dfc950bd39d2e2b435291ab8c1333aa6051fcaf46325aee898819f3b99d4b21\",\"K3S_TOKEN\":\"********\",\"K3S_URL\":\"https://192.168.229.211:6443\"}",
+            "nfd.node.kubernetes.io/feature-labels": "cpu-cpuid.ADX,cpu-cpuid.AESNI,cpu-cpuid.AMXFP8,cpu-cpuid.AVX,cpu-cpuid.AVX2,cpu-cpuid.AVX512BF16,cpu-cpuid.AVX512BITALG,cpu-cpuid.AVX512BW,cpu-cpuid.AVX512CD,cpu-cpuid.AVX512DQ,cpu-cpuid.AVX512F,cpu-cpuid.AVX512IFMA,cpu-cpuid.AVX512VBMI,cpu-cpuid.AVX512VBMI2,cpu-cpuid.AVX512VL,cpu-cpuid.AVX512VNNI,cpu-cpuid.AVX512VPOPCNTDQ,cpu-cpuid.CETSS,cpu-cpuid.CLZERO,cpu-cpuid.CMPXCHG8,cpu-cpuid.CPBOOST,cpu-cpuid.CPPC,cpu-cpuid.EFER_LMSLE_UNS,cpu-cpuid.FLUSH_L1D,cpu-cpuid.FMA3,cpu-cpuid.FP256,cpu-cpuid.FSRM,cpu-cpuid.FXSR,cpu-cpuid.FXSROPT,cpu-cpuid.GFNI,cpu-cpuid.IBPB,cpu-cpuid.IBRS,cpu-cpuid.IBRS_PREFERRED,cpu-cpuid.IBRS_PROVIDES_SMP,cpu-cpuid.IBS,cpu-cpuid.IBSBRNTRGT,cpu-cpuid.IBSFETCHSAM,cpu-cpuid.IBSFFV,cpu-cpuid.IBSOPCNT,cpu-cpuid.IBSOPCNTEXT,cpu-cpuid.IBSOPSAM,cpu-cpuid.IBSRDWROPCNT,cpu-cpuid.IBSRIPINVALIDCHK,cpu-cpuid.IBS_FETCH_CTLX,cpu-cpuid.IBS_OPFUSE,cpu-cpuid.IBS_PREVENTHOST,cpu-cpuid.IBS_ZEN4,cpu-cpuid.INT_WBINVD,cpu-cpuid.INVLPGB,cpu-cpuid.LAHF,cpu-cpuid.LBRVIRT,cpu-cpuid.MCAOVERFLOW,cpu-cpuid.MOVBE,cpu-cpuid.MOVU,cpu-cpuid.MSRIRC,cpu-cpuid.NRIPS,cpu-cpuid.OSXSAVE,cpu-cpuid.PPIN,cpu-cpuid.PSFD,cpu-cpuid.RDPRU,cpu-cpuid.SEV,cpu-cpuid.SEV_64BIT,cpu-cpuid.SEV_ALTERNATIVE,cpu-cpuid.SEV_DEBUGSWAP,cpu-cpuid.SEV_ES,cpu-cpuid.SEV_RESTRICTED,cpu-cpuid.SEV_SNP,cpu-cpuid.SHA,cpu-cpuid.SME,cpu-cpuid.SME_COHERENT,cpu-cpuid.SPEC_CTRL_SSBD,cpu-cpuid.SSE4A,cpu-cpuid.STIBP,cpu-cpuid.STIBP_ALWAYSON,cpu-cpuid.SUCCOR,cpu-cpuid.SVM,cpu-cpuid.SVMDA,cpu-cpuid.SVMFBASID,cpu-cpuid.SVML,cpu-cpuid.SVMNP,cpu-cpuid.SVMPF,cpu-cpuid.SVMPFT,cpu-cpuid.SYSCALL,cpu-cpuid.SYSEE,cpu-cpuid.TLB_FLUSH_NESTED,cpu-cpuid.TOPEXT,cpu-cpuid.TSCRATEMSR,cpu-cpuid.VAES,cpu-cpuid.VMCBCLEAN,cpu-cpuid.VMPL,cpu-cpuid.VMSA_REGPROT,cpu-cpuid.VPCLMULQDQ,cpu-cpuid.VTE,cpu-cpuid.WBNOINVD,cpu-cpuid.X87,cpu-cpuid.XGETBV1,cpu-cpuid.XSAVE,cpu-cpuid.XSAVEC,cpu-cpuid.XSAVEOPT,cpu-cpuid.XSAVES,cpu-hardware_multithreading,cpu-model.family,cpu-model.hypervisor,cpu-model.id,cpu-model.vendor_id,kernel-config.NO_HZ,kernel-config.NO_HZ_IDLE,kernel-version.full,kernel-version.major,kernel-version.minor,kernel-version.revision,memory-numa,memory-swap,network-sriov.capable,nvidia.com/cuda.driver-version.full,nvidia.com/cuda.driver-version.major,nvidia.com/cuda.driver-version.minor,nvidia.com/cuda.driver-version.revision,nvidia.com/cuda.driver.major,nvidia.com/cuda.driver.minor,nvidia.com/cuda.driver.rev,nvidia.com/cuda.runtime-version.full,nvidia.com/cuda.runtime-version.major,nvidia.com/cuda.runtime-version.minor,nvidia.com/cuda.runtime.major,nvidia.com/cuda.runtime.minor,nvidia.com/gfd.timestamp,nvidia.com/gpu.compute.major,nvidia.com/gpu.compute.minor,nvidia.com/gpu.count,nvidia.com/gpu.family,nvidia.com/gpu.machine,nvidia.com/gpu.memory,nvidia.com/gpu.mode,nvidia.com/gpu.product,nvidia.com/gpu.replicas,nvidia.com/gpu.sharing-strategy,nvidia.com/mig.capable,nvidia.com/mig.strategy,nvidia.com/mps.capable,nvidia.com/vgpu.present,pci-10de.present,pci-10de.sriov.capable,pci-15b3.present,pci-15b3.sriov.capable,pci-1a03.present,pci-8086.present,pci-8086.sriov.capable,rdma.available,rdma.capable,storage-nonrotationaldisk,system-os_release.ID,system-os_release.VERSION_ID,system-os_release.VERSION_ID.major,system-os_release.VERSION_ID.minor,usb-ef_0b1f_03ee.present",
+            "node.alpha.kubernetes.io/ttl": "0",
+            "nvidia.com/gpu-driver-upgrade-enabled": "true",
+            "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+        },
+        "creationTimestamp": "2026-03-17T06:38:38Z",
+        "finalizers": [
+            "wrangler.cattle.io/node",
+            "wrangler.cattle.io/managed-etcd-controller"
+        ],
+        "labels": {
+            "beta.kubernetes.io/arch": "amd64",
+            "beta.kubernetes.io/instance-type": "k3s",
+            "beta.kubernetes.io/os": "linux",
+            "feature.node.kubernetes.io/cpu-cpuid.ADX": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AESNI": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AMXFP8": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX2": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512BF16": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512BITALG": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512BW": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512CD": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512DQ": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512F": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512IFMA": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512VBMI": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512VBMI2": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512VL": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512VNNI": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.AVX512VPOPCNTDQ": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.CETSS": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.CLZERO": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.CMPXCHG8": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.CPBOOST": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.CPPC": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.EFER_LMSLE_UNS": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.FLUSH_L1D": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.FMA3": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.FP256": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.FSRM": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.FXSR": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.FXSROPT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.GFNI": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBPB": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBRS": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBRS_PREFERRED": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBRS_PROVIDES_SMP": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBS": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSBRNTRGT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSFETCHSAM": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSFFV": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSOPCNT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSOPCNTEXT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSOPSAM": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSRDWROPCNT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBSRIPINVALIDCHK": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBS_FETCH_CTLX": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBS_OPFUSE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBS_PREVENTHOST": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.IBS_ZEN4": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.INT_WBINVD": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.INVLPGB": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.LAHF": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.LBRVIRT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.MCAOVERFLOW": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.MOVBE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.MOVU": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.MSRIRC": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.NRIPS": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.OSXSAVE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.PPIN": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.PSFD": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.RDPRU": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV_64BIT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV_ALTERNATIVE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV_DEBUGSWAP": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV_ES": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV_RESTRICTED": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SEV_SNP": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SHA": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SME": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SME_COHERENT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SPEC_CTRL_SSBD": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SSE4A": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.STIBP": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.STIBP_ALWAYSON": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SUCCOR": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVM": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVMDA": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVMFBASID": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVML": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVMNP": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVMPF": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SVMPFT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SYSCALL": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.SYSEE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.TLB_FLUSH_NESTED": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.TOPEXT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.TSCRATEMSR": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.VAES": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.VMCBCLEAN": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.VMPL": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.VMSA_REGPROT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.VPCLMULQDQ": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.VTE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.WBNOINVD": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.X87": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.XGETBV1": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.XSAVE": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.XSAVEC": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.XSAVEOPT": "true",
+            "feature.node.kubernetes.io/cpu-cpuid.XSAVES": "true",
+            "feature.node.kubernetes.io/cpu-hardware_multithreading": "true",
+            "feature.node.kubernetes.io/cpu-model.family": "25",
+            "feature.node.kubernetes.io/cpu-model.hypervisor": "none",
+            "feature.node.kubernetes.io/cpu-model.id": "17",
+            "feature.node.kubernetes.io/cpu-model.vendor_id": "AMD",
+            "feature.node.kubernetes.io/kernel-config.NO_HZ": "true",
+            "feature.node.kubernetes.io/kernel-config.NO_HZ_IDLE": "true",
+            "feature.node.kubernetes.io/kernel-version.full": "5.15.0-176-generic",
+            "feature.node.kubernetes.io/kernel-version.major": "5",
+            "feature.node.kubernetes.io/kernel-version.minor": "15",
+            "feature.node.kubernetes.io/kernel-version.revision": "0",
+            "feature.node.kubernetes.io/memory-numa": "true",
+            "feature.node.kubernetes.io/memory-swap": "true",
+            "feature.node.kubernetes.io/network-sriov.capable": "true",
+            "feature.node.kubernetes.io/pci-10de.present": "true",
+            "feature.node.kubernetes.io/pci-10de.sriov.capable": "true",
+            "feature.node.kubernetes.io/pci-15b3.present": "true",
+            "feature.node.kubernetes.io/pci-15b3.sriov.capable": "true",
+            "feature.node.kubernetes.io/pci-1a03.present": "true",
+            "feature.node.kubernetes.io/pci-8086.present": "true",
+            "feature.node.kubernetes.io/pci-8086.sriov.capable": "true",
+            "feature.node.kubernetes.io/rdma.available": "true",
+            "feature.node.kubernetes.io/rdma.capable": "true",
+            "feature.node.kubernetes.io/storage-nonrotationaldisk": "true",
+            "feature.node.kubernetes.io/system-os_release.ID": "ubuntu",
+            "feature.node.kubernetes.io/system-os_release.VERSION_ID": "22.04",
+            "feature.node.kubernetes.io/system-os_release.VERSION_ID.major": "22",
+            "feature.node.kubernetes.io/system-os_release.VERSION_ID.minor": "04",
+            "feature.node.kubernetes.io/usb-ef_0b1f_03ee.present": "true",
+            "ib-switch": "lea-03",
+            "k8saas.nvidia.com/uncordon-by": "weka-health-monitor",
+            "k8saas.nvidia.com/uncordon-reason": "weka-storage-node-recovered",
+            "k8saas.nvidia.com/uncordon-timestamp": "2026-07-17T02-56-40Z",
+            "kubernetes.io/arch": "amd64",
+            "kubernetes.io/hostname": "research-common-h100-090.cloud.together.ai",
+            "kubernetes.io/os": "linux",
+            "network.nvidia.com/operator.mofed.wait": "false",
+            "network.nvidia.com/operator.nic-configuration.wait": "false",
+            "node-group": "default",
+            "node-pool": "compute",
+            "node-role.kubernetes.io/worker": "true",
+            "node.kubernetes.io/instance-type": "k3s",
+            "nvidia.com/cuda-health": "ok",
+            "nvidia.com/cuda.driver-version.full": "590.48.01",
+            "nvidia.com/cuda.driver-version.major": "590",
+            "nvidia.com/cuda.driver-version.minor": "48",
+            "nvidia.com/cuda.driver-version.revision": "01",
+            "nvidia.com/cuda.driver.major": "590",
+            "nvidia.com/cuda.driver.minor": "48",
+            "nvidia.com/cuda.driver.rev": "01",
+            "nvidia.com/cuda.runtime-version.full": "13.1",
+            "nvidia.com/cuda.runtime-version.major": "13",
+            "nvidia.com/cuda.runtime-version.minor": "1",
+            "nvidia.com/cuda.runtime.major": "13",
+            "nvidia.com/cuda.runtime.minor": "1",
+            "nvidia.com/gfd.timestamp": "1784499553",
+            "nvidia.com/gpu.compute.major": "9",
+            "nvidia.com/gpu.compute.minor": "0",
+            "nvidia.com/gpu.count": "8",
+            "nvidia.com/gpu.deploy.container-toolkit": "true",
+            "nvidia.com/gpu.deploy.dcgm": "true",
+            "nvidia.com/gpu.deploy.dcgm-exporter": "true",
+            "nvidia.com/gpu.deploy.device-plugin": "true",
+            "nvidia.com/gpu.deploy.driver": "true",
+            "nvidia.com/gpu.deploy.gpu-feature-discovery": "true",
+            "nvidia.com/gpu.deploy.mig-manager": "true",
+            "nvidia.com/gpu.deploy.node-status-exporter": "true",
+            "nvidia.com/gpu.deploy.operator-validator": "true",
+            "nvidia.com/gpu.family": "hopper",
+            "nvidia.com/gpu.machine": "AS--8125GS-TNHR-1-OI021",
+            "nvidia.com/gpu.memory": "81559",
+            "nvidia.com/gpu.mode": "compute",
+            "nvidia.com/gpu.present": "true",
+            "nvidia.com/gpu.product": "NVIDIA-H100-80GB-HBM3",
+            "nvidia.com/gpu.replicas": "1",
+            "nvidia.com/gpu.sharing-strategy": "none",
+            "nvidia.com/mig.capable": "true",
+            "nvidia.com/mig.config": "all-disabled",
+            "nvidia.com/mig.config.state": "success",
+            "nvidia.com/mig.strategy": "single",
+            "nvidia.com/mps.capable": "false",
+            "nvidia.com/nccl-bench-consecutive-passes": "1",
+            "nvidia.com/vgpu.present": "false",
+            "nvsentinel.dgxc.nvidia.com/dcgm.version": "4.x",
+            "nvsentinel.dgxc.nvidia.com/driver.installed": "true",
+            "nvsentinel.dgxc.nvidia.com/kata.enabled": "false",
+            "together.ai/ft-cache-downloaded": "true",
+            "together.ai/shared-storage-ready": "false",
+            "topology.csi.weka.io/accessible": "true",
+            "topology.csi.weka.io/global": "true",
+            "topology.csi.weka.io/node": "research-common-h100-090.cloud.together.ai",
+            "topology.csi.weka.io/transport": "wekafs",
+            "topology.wekafs.csi/node": "research-common-h100-090.cloud.together.ai"
+        },
+        "name": "research-common-h100-090.cloud.together.ai",
+        "resourceVersion": "424588328",
+        "uid": "3c28d3eb-4c8c-418b-803f-6d9fb271d3e2"
+    },
+    "spec": {
+        "podCIDR": "10.42.46.0/24",
+        "podCIDRs": [
+            "10.42.46.0/24"
+        ],
+        "providerID": "k3s://research-common-h100-090.cloud.together.ai",
+        "taints": [
+            {
+                "effect": "NoSchedule",
+                "key": "ask-pablo-dont-remove",
+                "value": "true"
+            },
+            {
+                "effect": "NoSchedule",
+                "key": "node.kubernetes.io/unschedulable",
+                "timeAdded": "2026-11-11T16:01:09Z"
+            }
+        ],
+        "unschedulable": true
+    },
+    "status": {
+        "addresses": [
+            {
+                "address": "192.168.229.90",
+                "type": "InternalIP"
+            },
+            {
+                "address": "research-common-h100-090.cloud.together.ai",
+                "type": "Hostname"
+            }
+        ],
+        "allocatable": {
+            "cpu": "256",
+            "ephemeral-storage": "7238277719508",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "11Gi",
+            "memory": "1573408076Ki",
+            "nvidia.com/gpu": "8",
+            "pods": "110",
+            "rdma/infiniband": "63"
+        },
+        "capacity": {
+            "cpu": "256",
+            "ephemeral-storage": "7440663780Ki",
+            "hugepages-1Gi": "0",
+            "hugepages-2Mi": "11Gi",
+            "memory": "1584942412Ki",
+            "nvidia.com/gpu": "8",
+            "pods": "110",
+            "rdma/infiniband": "63"
+        },
+        "conditions": [
+            {
+                "lastHeartbeatTime": "2026-04-16T23:54:57Z",
+                "lastTransitionTime": "2026-04-16T08:03:08Z",
+                "message": "no link flaps detected",
+                "reason": "LinkStable",
+                "status": "False",
+                "type": "LinkFlapping"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:06:59Z",
+                "lastTransitionTime": "2026-07-19T22:18:26Z",
+                "message": "XFS has not shutdown",
+                "reason": "XfsHasNotShutDown",
+                "status": "False",
+                "type": "XfsShutdown"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:06:59Z",
+                "lastTransitionTime": "2026-07-19T22:18:26Z",
+                "message": "UEFI CPER has no fatal error",
+                "reason": "CperHardwareHasNoFatalError",
+                "status": "False",
+                "type": "CperHardwareErrorFatal"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:06:59Z",
+                "lastTransitionTime": "2026-07-19T22:18:26Z",
+                "message": "Filesystem is not read-only",
+                "reason": "FilesystemIsNotReadOnly",
+                "status": "False",
+                "type": "ReadonlyFilesystem"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:06:59Z",
+                "lastTransitionTime": "2026-07-19T22:18:26Z",
+                "message": "kernel has no deadlock",
+                "reason": "KernelHasNoDeadlock",
+                "status": "False",
+                "type": "KernelDeadlock"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:07:15Z",
+                "lastTransitionTime": "2026-09-11T08:30:23Z",
+                "message": "kubelet has sufficient memory available",
+                "reason": "KubeletHasSufficientMemory",
+                "status": "False",
+                "type": "MemoryPressure"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:07:15Z",
+                "lastTransitionTime": "2026-09-11T08:30:23Z",
+                "message": "kubelet has no disk pressure",
+                "reason": "KubeletHasNoDiskPressure",
+                "status": "False",
+                "type": "DiskPressure"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:07:15Z",
+                "lastTransitionTime": "2026-09-11T08:30:23Z",
+                "message": "kubelet has sufficient PID available",
+                "reason": "KubeletHasSufficientPID",
+                "status": "False",
+                "type": "PIDPressure"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T16:07:15Z",
+                "lastTransitionTime": "2026-10-23T02:17:08Z",
+                "message": "kubelet is posting ready status. AppArmor enabled",
+                "reason": "KubeletReady",
+                "status": "True",
+                "type": "Ready"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:18:28Z",
+                "lastTransitionTime": "2026-07-19T22:18:28Z",
+                "message": "No Health Failures",
+                "reason": "SysLogsXIDErrorIsHealthy",
+                "status": "False",
+                "type": "SysLogsXIDError"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:18:28Z",
+                "lastTransitionTime": "2026-04-10T02:47:37Z",
+                "message": "No Health Failures",
+                "reason": "SysLogsSXIDErrorIsHealthy",
+                "status": "False",
+                "type": "SysLogsSXIDError"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:18:28Z",
+                "lastTransitionTime": "2026-04-10T02:47:37Z",
+                "message": "No Health Failures",
+                "reason": "SysLogsGPUFallenOffIsHealthy",
+                "status": "False",
+                "type": "SysLogsGPUFallenOff"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-07-19T22:19:20Z",
+                "message": "No Health Failures",
+                "reason": "GpuDcgmConnectivityFailureIsHealthy",
+                "status": "False",
+                "type": "GpuDcgmConnectivityFailure"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuMcuWatchIsHealthy",
+                "status": "False",
+                "type": "GpuMcuWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-07-19T22:19:20Z",
+                "message": "No Health Failures",
+                "reason": "GpuMemWatchIsHealthy",
+                "status": "False",
+                "type": "GpuMemWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuNvlinkWatchIsHealthy",
+                "status": "False",
+                "type": "GpuNvlinkWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuNvswitchFatalWatchIsHealthy",
+                "status": "False",
+                "type": "GpuNvswitchFatalWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuPcieWatchIsHealthy",
+                "status": "False",
+                "type": "GpuPcieWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuPmuWatchIsHealthy",
+                "status": "False",
+                "type": "GpuPmuWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuDriverWatchIsHealthy",
+                "status": "False",
+                "type": "GpuDriverWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuNvswitchNonfatalWatchIsHealthy",
+                "status": "False",
+                "type": "GpuNvswitchNonfatalWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T12:59:23Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuPowerWatchIsHealthy",
+                "status": "False",
+                "type": "GpuPowerWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuSmWatchIsHealthy",
+                "status": "False",
+                "type": "GpuSmWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-11-11T12:59:08Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuThermalWatchIsHealthy",
+                "status": "False",
+                "type": "GpuThermalWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-17T21:41:12Z",
+                "message": "No Health Failures",
+                "reason": "GpuAllWatchIsHealthy",
+                "status": "False",
+                "type": "GpuAllWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-19T22:19:20Z",
+                "lastTransitionTime": "2026-04-10T03:15:49Z",
+                "message": "No Health Failures",
+                "reason": "GpuInforomWatchIsHealthy",
+                "status": "False",
+                "type": "GpuInforomWatch"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-26T06:34:10Z",
+                "lastTransitionTime": "2026-07-26T06:34:10Z",
+                "message": "NIC:mlx5_0 NIC mlx5_0 disappeared from /sys/class/infiniband/ - hardware failure Recommended Action=REPLACE_VM;",
+                "reason": "InfiniBandStateCheckIsNotHealthy",
+                "status": "True",
+                "type": "InfiniBandStateCheck"
+            },
+            {
+                "lastHeartbeatTime": "2026-07-26T06:34:10Z",
+                "lastTransitionTime": "2026-07-26T06:34:10Z",
+                "message": "NIC:mlx5_0 RoCE device mlx5_0 disappeared from sysfs Recommended Action=REPLACE_VM;",
+                "reason": "EthernetStateCheckIsNotHealthy",
+                "status": "True",
+                "type": "EthernetStateCheck"
+            }
+        ],
+        "daemonEndpoints": {
+            "kubeletEndpoint": {
+                "Port": 10250
+            }
+        },
+        "images": [
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:065d403274324cc9dec4f830ca62540e6ac586746e1aed268c98a2b347d5853f"
+                ],
+                "sizeBytes": 18364215710
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job@sha256:6f8c9650a0586e72774c2340f7141e6a67e64d69d183c83039424a814e462ac0",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job:2.0.1839"
+                ],
+                "sizeBytes": 17578822108
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job@sha256:88dad0e44ecbafe054e381fbedb7f2386989c3e50b5e19548573ea7744991777",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job:2.0.1836"
+                ],
+                "sizeBytes": 17578799942
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job@sha256:7bb000fce078ec292bc71181a4997c2669f737f3f4728e15890c5a4257db84a2",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job:2.0.1811"
+                ],
+                "sizeBytes": 17576156941
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job@sha256:ead93308afffd03d1a9190f6e3dec291490b3a4a56371f58a2f0db19d535f1d9",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job:latest"
+                ],
+                "sizeBytes": 17559545702
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job@sha256:b833374579f16f8001e7b95cd5f53ca02a89a3d0283b10b44a8b7b67bb0c7c58"
+                ],
+                "sizeBytes": 17557828702
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job@sha256:42ffb9d1bdee00001dd53d3329ac1137c61d0d39ec67ed3af16103c76f770a87",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-finetune-job:qa-e74c76e202fb4205a46f66d558d4f4673085189c"
+                ],
+                "sizeBytes": 17552723308
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:7515a1e626d22a8582ad4478d3d68b294d2b484c78a023f8b61c6867454bbf4a",
+                    "docker.io/lmsysorg/sglang:v0.5.10.post1"
+                ],
+                "sizeBytes": 17078865572
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:6d9594a421be244f2af29d726158ebffe9c3c2b3f39b5b89affd8150a106e187"
+                ],
+                "sizeBytes": 16076216673
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:dd71f27f3b6890e6898f5a663af308af3489fcd640e5d2562b8b4dd509050276",
+                    "docker.io/lmsysorg/sglang:v0.5.9-cu130"
+                ],
+                "sizeBytes": 15920766121
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:f7b2b9bdb848fc8f311dd4e26e87e716669141dd12be19844bc8aae96d04b3ad",
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev:sglang-prefix-crf-warp"
+                ],
+                "sizeBytes": 15570583287
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:b9f72a4ff76a1a1a1e1224f4dfb7f9f4f52088fae69333209597be347b3d22f8"
+                ],
+                "sizeBytes": 15570579248
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:b9b4c40d73fac9261ca5dff03e5cc0082c17a02dbc24a1b0225b35806ab510d7"
+                ],
+                "sizeBytes": 15570552192
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:b838638d361d6c815c44abf8bdbd09db36797d922d1c48971584e85fc2d69318",
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev:sglang-prefix-crf-reuse-v7diag"
+                ],
+                "sizeBytes": 15570205599
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:ae8ca129f3c2fd02b0768166d2e315300da2801fbbeb0dda4e4fce4f37b47e7f",
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev:sglang-prefix-crf-forward"
+                ],
+                "sizeBytes": 15570175568
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:369baf6f4c91c36c1e0399c03e28618865cf73cdec6d7da5604b01cc62b89855",
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev:sglang-prefix-crf-latest"
+                ],
+                "sizeBytes": 15569890003
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-shaping@sha256:68a69f335ecd9f84e4a521e518c86386579439b09c5b763f67e3101a274754eb",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-shaping:qa-71c12cd062a039940ec100109c5076a8bdc46bd4"
+                ],
+                "sizeBytes": 15544021226
+            },
+            {
+                "names": [
+                    "805380815601.dkr.ecr.us-west-2.amazonaws.com/donglin-dev@sha256:5733247083b53bb912fa61bbd5beb410c547aa22a0713952728648a60b764804"
+                ],
+                "sizeBytes": 15533744652
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/axolotl@sha256:3bc0c15c1dc6ea14c3bc1b87fdf9233425c91eaa73317286f7461847bf5fecf3",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/axolotl:dflash-H100"
+                ],
+                "sizeBytes": 15324191633
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:16aba8925507e631e1dc1e23d95d026533602591775f6a8db68b74ee99746155",
+                    "docker.io/lmsysorg/sglang:latest"
+                ],
+                "sizeBytes": 14233367621
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/tgl@sha256:cad059abe1d79d15a867fd5bfdd11b04cda6720c5ec916962f14a70fc7b359e8",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/tgl:torchspec-de-minimax-m3-ca700c83a-20260531"
+                ],
+                "sizeBytes": 13863126367
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:025d9b102b5436d4af8af58f12c6a46b7e5d16f19543b1d2cc4446bf2650b4f1",
+                    "nvcr.io/nvidia/pytorch:25.06-py3"
+                ],
+                "sizeBytes": 13723167306
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:7b6a35df9839fd593a94a1eaee82d7777f472225d9f3ad1f8a2e0cb2bd1785d0"
+                ],
+                "sizeBytes": 13535031055
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:0981807f1a51a156563e28b59dc2e7a9b5c1c7d85d1169d4965c5fd91fa38bcb",
+                    "nvcr.io/nvidia/pytorch@sha256:96990c82825613c3bdeebb66675c7c91b0123f64a5895623316dc5b824e0d7a9",
+                    "nvcr.io/nvidia/pytorch:25.01-py3"
+                ],
+                "sizeBytes": 13518567296
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:00c53fe4c31bf22d7b37537f28bbdfd924c02de13cdfb4bff7378c9c34d75ab2"
+                ],
+                "sizeBytes": 13410897428
+            },
+            {
+                "names": [
+                    "192.168.229.1:31500/sglang-smoke@sha256:dc8efb7a3405583f37879020d5b316a61327f0fcd7eeb80fa68cfef45e9bbdbd"
+                ],
+                "sizeBytes": 13235055121
+            },
+            {
+                "names": [
+                    "docker.io/lmsysorg/sglang@sha256:1c64fde976bdf0d56474a30bccbcfc19667e5b3ab34c826a534c9d6aaca41212",
+                    "docker.io/lmsysorg/sglang:v0.5.13.post1"
+                ],
+                "sizeBytes": 12850725351
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:d1eac6220dd98ef5870b1a76673cfb6f84451135a6d8a174cb92258a6bf4576d",
+                    "nvcr.io/nvidia/pytorch:25.04-py3"
+                ],
+                "sizeBytes": 12107621171
+            },
+            {
+                "names": [
+                    "docker.io/weili0234/sglang-strict-replay@sha256:70a3417003c8b64070c703a7df359763a4bdd18bb585524f7d9455deda92c138"
+                ],
+                "sizeBytes": 11878908717
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-trainer@sha256:e164cd105891b0966c4c7f9987958cd795bd6c51765b14b3b9a5c6aee11a900b",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-trainer:qa-1426d04ee04b9b43ad212dde4351c2c111dba9cb"
+                ],
+                "sizeBytes": 11850340741
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-trainer@sha256:7ad5a7400025f494d7650ea3b7aa3792bf8972b26674e5fee8abe8d53dded873",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-trainer:qa-bbd81084dd6441e012232adfe888de327f21c4e4"
+                ],
+                "sizeBytes": 11849923570
+            },
+            {
+                "names": [
+                    "docker.io/weili0234/sglang-strict-replay@sha256:9340da610d2101d15004c24f9d0d2ce0811b2f2c915cdbb300ff11f30a997409"
+                ],
+                "sizeBytes": 11821148185
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:4ff5b72c183f056b7dbb173309534b4d2d9c000cda963259b38f75f87babbb87",
+                    "nvcr.io/nvidia/pytorch:24.12-py3"
+                ],
+                "sizeBytes": 10923140965
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:afd682405d620a620f61f38cb9d9bbc6a5230817699a48e9ed193546e81fb2ee",
+                    "nvcr.io/nvidia/pytorch:24.01-py3"
+                ],
+                "sizeBytes": 10692328369
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:222d8b18e671be5c3ef91cb41727a2572a0b23f59ded6c39f373a96946f6f2ba",
+                    "nvcr.io/nvidia/pytorch:26.05-py3"
+                ],
+                "sizeBytes": 10166606922
+            },
+            {
+                "names": [
+                    "ghcr.io/sandyresearch/parcae@sha256:8a297e9171d4fbb9967b09edcd56ccb13f84535daf8f83eab5b8b6cf0ea01e48",
+                    "ghcr.io/sandyresearch/parcae:sha-5588962"
+                ],
+                "sizeBytes": 9672452798
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:bbc2b67e2533edd63ff1496bb1ed00a00338cdc1478af6c1a0bf9f4b369977e7",
+                    "nvcr.io/nvidia/pytorch:26.02-py3"
+                ],
+                "sizeBytes": 9542568105
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/nvhpc@sha256:325725d035c5eb077fbabae49e7910aae12f3a9c3e206c2f38deb7c126622ce5",
+                    "nvcr.io/nvidia/nvhpc:25.5-devel-cuda12.9-ubuntu24.04"
+                ],
+                "sizeBytes": 9238338736
+            },
+            {
+                "names": [
+                    "nvcr.io/nvidia/pytorch@sha256:417cbf33f87b5378849df37983552cd1f8bc8b62fe1ceabe004de816a55dff21",
+                    "nvcr.io/nvidia/pytorch:25.11-py3"
+                ],
+                "sizeBytes": 9208409053
+            },
+            {
+                "names": [
+                    "docker.io/vllm/vllm-openai@sha256:ffb2d59b1c059a5bd8d781320c9f5189de8293693b7d95da54befddaa54abf52",
+                    "docker.io/vllm/vllm-openai:v0.26.0"
+                ],
+                "sizeBytes": 8914087113
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:94d05eae4b6b5a6d30179c2ffcd8bcc6578d1b03ee6dc73f204bd8983595283d",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2031"
+                ],
+                "sizeBytes": 7417836684
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:f220790015e7731ef715eb9dd94f426fe9b626dc1a19157ea41a30772b824806",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2016"
+                ],
+                "sizeBytes": 7417815640
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:ef7520dc46fcd9c432623a5e2a19759c098aa0e5aa11fba5b653d034ccb2907e",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2020"
+                ],
+                "sizeBytes": 7417814820
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:52b04c5dc5791051ac414654c641c3bbce2547a49f13fdef835e1aaeb059a000",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2010"
+                ],
+                "sizeBytes": 7417767707
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:4effe8ac9defa41909d041ce018b51aff494a233c1a6b658f9ba8312272e602e",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2014"
+                ],
+                "sizeBytes": 7417767663
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:4c37cc375e6920d39c3942b7e07b662b039e6d95d945e6b9eb1774f3d1d55ea4",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2007"
+                ],
+                "sizeBytes": 7417746828
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:58335771050e348ae473e0ebda5c29ef695908a352baf63e938bc19245eaef6d",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.2008"
+                ],
+                "sizeBytes": 7417740409
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:fb369f513964fc6b63e05ac20a5d91645bee612b4b0d398f68fc9d90073bc818",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.1993"
+                ],
+                "sizeBytes": 7417701981
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:8b4ba19c9abdd31b954f4638a4bf409abe7fc87f9d77565aae17c5e7a3a3456c",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.1994"
+                ],
+                "sizeBytes": 7417693883
+            },
+            {
+                "names": [
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator@sha256:bbbee4c4d41e19d9c6c84160b5e6bb7d09ddc49f59bb117fb739d36706fe2cea",
+                    "598726163780.dkr.ecr.us-west-2.amazonaws.com/together-rl-orchestrator:2.0.1987"
+                ],
+                "sizeBytes": 7417692473
+            }
+        ],
+        "nodeInfo": {
+            "architecture": "amd64",
+            "bootID": "84525236-0497-43ed-86ca-9608cb8d4963",
+            "containerRuntimeVersion": "containerd://1.7.6-k3s1.27",
+            "kernelVersion": "5.15.0-176-generic",
+            "kubeProxyVersion": "v1.27.6+k3s1",
+            "kubeletVersion": "v1.27.6+k3s1",
+            "machineID": "fa756ca0bf454182aa96c2dccbdeeab0",
+            "operatingSystem": "linux",
+            "osImage": "Ubuntu 22.04.5 LTS",
+            "systemUUID": "2273b000-73a1-11ee-8000-7cc2555f8d69"
+        },
+        "volumesAttached": [
+            {
+                "devicePath": "",
+                "name": "kubernetes.io/csi/csi.weka.io^dir/v1/research-common-h100-data/csi-volumes/pvc-3b08896b-60d5-44fa-a971-1d725bb5da5d-73e5af005bcd4d1ead5a31f3d36f9525229ca86a"
+            }
+        ],
+        "volumesInUse": [
+            "kubernetes.io/csi/csi.weka.io^dir/v1/research-common-h100-data/csi-volumes/pvc-3b08896b-60d5-44fa-a971-1d725bb5da5d-73e5af005bcd4d1ead5a31f3d36f9525229ca86a"
+        ]
+    }
+}

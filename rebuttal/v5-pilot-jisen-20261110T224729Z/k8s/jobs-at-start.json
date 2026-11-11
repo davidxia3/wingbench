@@ -1,0 +1,503 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "batch/v1",
+            "kind": "Job",
+            "metadata": {
+                "annotations": {
+                    "batch.kubernetes.io/job-tracking": "",
+                    "wingbench/release": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+                    "wingbench/scope": "User-approved exact six v5 episodes, eight NEW attempts each; no retries"
+                },
+                "creationTimestamp": "2026-11-11T04:23:30Z",
+                "generation": 1,
+                "labels": {
+                    "wingbench-lane": "0",
+                    "wingbench-phase": "pilot",
+                    "wingbench-run": "jisen-20261110t224729z"
+                },
+                "name": "wb-v5-jisen-20261110t224729z-lane-0",
+                "namespace": "jisenli2",
+                "resourceVersion": "423536531",
+                "uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56"
+            },
+            "spec": {
+                "backoffLimit": 0,
+                "completionMode": "NonIndexed",
+                "completions": 1,
+                "parallelism": 1,
+                "selector": {
+                    "matchLabels": {
+                        "batch.kubernetes.io/controller-uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56"
+                    }
+                },
+                "suspend": false,
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "batch.kubernetes.io/controller-uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56",
+                            "batch.kubernetes.io/job-name": "wb-v5-jisen-20261110t224729z-lane-0",
+                            "controller-uid": "fdafc4f3-d6e5-4f9a-8ca8-26b01921aa56",
+                            "job-name": "wb-v5-jisen-20261110t224729z-lane-0",
+                            "wingbench-lane": "0",
+                            "wingbench-phase": "pilot",
+                            "wingbench-run": "jisen-20261110t224729z"
+                        }
+                    },
+                    "spec": {
+                        "automountServiceAccountToken": false,
+                        "containers": [
+                            {
+                                "command": [
+                                    "/bin/bash",
+                                    "/results/v5-jisen/launches/jisen-20261110T224729Z/run-lane.sh"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "WINGBENCH_LANE",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "name": "WINGBENCH_NODE_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "spec.nodeName"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "WINGBENCH_RUN_ID",
+                                        "value": "wb-v5-jisen-20261110t224729z-lane-0"
+                                    }
+                                ],
+                                "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "pilot",
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "16",
+                                        "memory": "384Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "16",
+                                        "memory": "384Gi"
+                                    }
+                                },
+                                "securityContext": {
+                                    "allowPrivilegeEscalation": false,
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/results",
+                                        "name": "results"
+                                    },
+                                    {
+                                        "mountPath": "/workspace/repo",
+                                        "name": "results",
+                                        "readOnly": true,
+                                        "subPath": "v5-jisen/handoff/wingbench-v5-jisen-001/repo"
+                                    },
+                                    {
+                                        "mountPath": "/dev/shm",
+                                        "name": "shm"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "enableServiceLinks": false,
+                        "imagePullSecrets": [
+                            {
+                                "name": "ghcr-wb-pull"
+                            }
+                        ],
+                        "nodeSelector": {
+                            "kubernetes.io/arch": "amd64",
+                            "kubernetes.io/hostname": "research-common-h100-059.cloud.together.ai"
+                        },
+                        "restartPolicy": "Never",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 1000,
+                            "fsGroupChangePolicy": "OnRootMismatch",
+                            "runAsGroup": 1000,
+                            "runAsNonRoot": true,
+                            "runAsUser": 1000,
+                            "seccompProfile": {
+                                "type": "RuntimeDefault"
+                            }
+                        },
+                        "terminationGracePeriodSeconds": 120,
+                        "tolerations": [
+                            {
+                                "effect": "NoSchedule",
+                                "key": "capacity.together.ai/pool",
+                                "operator": "Equal",
+                                "value": "single-node-only"
+                            }
+                        ],
+                        "volumes": [
+                            {
+                                "name": "results",
+                                "persistentVolumeClaim": {
+                                    "claimName": "wb-verify-results"
+                                }
+                            },
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory",
+                                    "sizeLimit": "2Gi"
+                                },
+                                "name": "shm"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "active": 1,
+                "ready": 1,
+                "startTime": "2026-11-11T04:23:30Z",
+                "uncountedTerminatedPods": {}
+            }
+        },
+        {
+            "apiVersion": "batch/v1",
+            "kind": "Job",
+            "metadata": {
+                "annotations": {
+                    "batch.kubernetes.io/job-tracking": "",
+                    "wingbench/release": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+                    "wingbench/scope": "User-approved exact six v5 episodes, eight NEW attempts each; no retries"
+                },
+                "creationTimestamp": "2026-11-11T04:23:31Z",
+                "generation": 1,
+                "labels": {
+                    "wingbench-lane": "1",
+                    "wingbench-phase": "pilot",
+                    "wingbench-run": "jisen-20261110t224729z"
+                },
+                "name": "wb-v5-jisen-20261110t224729z-lane-1",
+                "namespace": "jisenli2",
+                "resourceVersion": "423535968",
+                "uid": "d46da6bd-8269-4749-acbb-07e95a238a1d"
+            },
+            "spec": {
+                "backoffLimit": 0,
+                "completionMode": "NonIndexed",
+                "completions": 1,
+                "parallelism": 1,
+                "selector": {
+                    "matchLabels": {
+                        "batch.kubernetes.io/controller-uid": "d46da6bd-8269-4749-acbb-07e95a238a1d"
+                    }
+                },
+                "suspend": false,
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "batch.kubernetes.io/controller-uid": "d46da6bd-8269-4749-acbb-07e95a238a1d",
+                            "batch.kubernetes.io/job-name": "wb-v5-jisen-20261110t224729z-lane-1",
+                            "controller-uid": "d46da6bd-8269-4749-acbb-07e95a238a1d",
+                            "job-name": "wb-v5-jisen-20261110t224729z-lane-1",
+                            "wingbench-lane": "1",
+                            "wingbench-phase": "pilot",
+                            "wingbench-run": "jisen-20261110t224729z"
+                        }
+                    },
+                    "spec": {
+                        "automountServiceAccountToken": false,
+                        "containers": [
+                            {
+                                "command": [
+                                    "/bin/bash",
+                                    "/results/v5-jisen/launches/jisen-20261110T224729Z/run-lane.sh"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "WINGBENCH_LANE",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "name": "WINGBENCH_NODE_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "spec.nodeName"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "WINGBENCH_RUN_ID",
+                                        "value": "wb-v5-jisen-20261110t224729z-lane-1"
+                                    }
+                                ],
+                                "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "pilot",
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "16",
+                                        "memory": "384Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "16",
+                                        "memory": "384Gi"
+                                    }
+                                },
+                                "securityContext": {
+                                    "allowPrivilegeEscalation": false,
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/results",
+                                        "name": "results"
+                                    },
+                                    {
+                                        "mountPath": "/workspace/repo",
+                                        "name": "results",
+                                        "readOnly": true,
+                                        "subPath": "v5-jisen/handoff/wingbench-v5-jisen-001/repo"
+                                    },
+                                    {
+                                        "mountPath": "/dev/shm",
+                                        "name": "shm"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "enableServiceLinks": false,
+                        "imagePullSecrets": [
+                            {
+                                "name": "ghcr-wb-pull"
+                            }
+                        ],
+                        "nodeSelector": {
+                            "kubernetes.io/arch": "amd64",
+                            "kubernetes.io/hostname": "research-common-h100-090.cloud.together.ai"
+                        },
+                        "restartPolicy": "Never",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 1000,
+                            "fsGroupChangePolicy": "OnRootMismatch",
+                            "runAsGroup": 1000,
+                            "runAsNonRoot": true,
+                            "runAsUser": 1000,
+                            "seccompProfile": {
+                                "type": "RuntimeDefault"
+                            }
+                        },
+                        "terminationGracePeriodSeconds": 120,
+                        "volumes": [
+                            {
+                                "name": "results",
+                                "persistentVolumeClaim": {
+                                    "claimName": "wb-verify-results"
+                                }
+                            },
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory",
+                                    "sizeLimit": "2Gi"
+                                },
+                                "name": "shm"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "active": 1,
+                "ready": 1,
+                "startTime": "2026-11-11T04:23:31Z",
+                "uncountedTerminatedPods": {}
+            }
+        },
+        {
+            "apiVersion": "batch/v1",
+            "kind": "Job",
+            "metadata": {
+                "annotations": {
+                    "batch.kubernetes.io/job-tracking": "",
+                    "wingbench/release": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+                    "wingbench/scope": "User-approved exact six v5 episodes, eight NEW attempts each; no retries"
+                },
+                "creationTimestamp": "2026-11-11T04:23:31Z",
+                "generation": 1,
+                "labels": {
+                    "wingbench-lane": "2",
+                    "wingbench-phase": "pilot",
+                    "wingbench-run": "jisen-20261110t224729z"
+                },
+                "name": "wb-v5-jisen-20261110t224729z-lane-2",
+                "namespace": "jisenli2",
+                "resourceVersion": "423535969",
+                "uid": "b30af4ef-9e02-4a5d-9b87-63be90d9c76f"
+            },
+            "spec": {
+                "backoffLimit": 0,
+                "completionMode": "NonIndexed",
+                "completions": 1,
+                "parallelism": 1,
+                "selector": {
+                    "matchLabels": {
+                        "batch.kubernetes.io/controller-uid": "b30af4ef-9e02-4a5d-9b87-63be90d9c76f"
+                    }
+                },
+                "suspend": false,
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "batch.kubernetes.io/controller-uid": "b30af4ef-9e02-4a5d-9b87-63be90d9c76f",
+                            "batch.kubernetes.io/job-name": "wb-v5-jisen-20261110t224729z-lane-2",
+                            "controller-uid": "b30af4ef-9e02-4a5d-9b87-63be90d9c76f",
+                            "job-name": "wb-v5-jisen-20261110t224729z-lane-2",
+                            "wingbench-lane": "2",
+                            "wingbench-phase": "pilot",
+                            "wingbench-run": "jisen-20261110t224729z"
+                        }
+                    },
+                    "spec": {
+                        "automountServiceAccountToken": false,
+                        "containers": [
+                            {
+                                "command": [
+                                    "/bin/bash",
+                                    "/results/v5-jisen/launches/jisen-20261110T224729Z/run-lane.sh"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "WINGBENCH_LANE",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "name": "WINGBENCH_NODE_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "spec.nodeName"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "WINGBENCH_RUN_ID",
+                                        "value": "wb-v5-jisen-20261110t224729z-lane-2"
+                                    }
+                                ],
+                                "image": "ghcr.io/mtilyxuegao/wingbench-adjoint-verify@sha256:268ddf9d46457f9c09cfb670e98256369af633319804cceae666ef9fe754286e",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "pilot",
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "16",
+                                        "memory": "384Gi"
+                                    },
+                                    "requests": {
+                                        "cpu": "16",
+                                        "memory": "384Gi"
+                                    }
+                                },
+                                "securityContext": {
+                                    "allowPrivilegeEscalation": false,
+                                    "capabilities": {
+                                        "drop": [
+                                            "ALL"
+                                        ]
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/results",
+                                        "name": "results"
+                                    },
+                                    {
+                                        "mountPath": "/workspace/repo",
+                                        "name": "results",
+                                        "readOnly": true,
+                                        "subPath": "v5-jisen/handoff/wingbench-v5-jisen-001/repo"
+                                    },
+                                    {
+                                        "mountPath": "/dev/shm",
+                                        "name": "shm"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "enableServiceLinks": false,
+                        "imagePullSecrets": [
+                            {
+                                "name": "ghcr-wb-pull"
+                            }
+                        ],
+                        "nodeSelector": {
+                            "kubernetes.io/arch": "amd64",
+                            "kubernetes.io/hostname": "research-common-h100-090.cloud.together.ai"
+                        },
+                        "restartPolicy": "Never",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {
+                            "fsGroup": 1000,
+                            "fsGroupChangePolicy": "OnRootMismatch",
+                            "runAsGroup": 1000,
+                            "runAsNonRoot": true,
+                            "runAsUser": 1000,
+                            "seccompProfile": {
+                                "type": "RuntimeDefault"
+                            }
+                        },
+                        "terminationGracePeriodSeconds": 120,
+                        "volumes": [
+                            {
+                                "name": "results",
+                                "persistentVolumeClaim": {
+                                    "claimName": "wb-verify-results"
+                                }
+                            },
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory",
+                                    "sizeLimit": "2Gi"
+                                },
+                                "name": "shm"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "active": 1,
+                "ready": 1,
+                "startTime": "2026-11-11T04:23:31Z",
+                "uncountedTerminatedPods": {}
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}

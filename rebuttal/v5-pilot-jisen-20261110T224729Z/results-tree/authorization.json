@@ -1,0 +1,19 @@
+{
+  "approved_at": "2026-11-10T22:47:29.007139+00:00",
+  "automatic_scientific_retries": false,
+  "execution_target": "jisen",
+  "launch_authorized": true,
+  "launch_id": "jisen-20261110T224729Z",
+  "pilot_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "release_sha256": "0d501cb205d5d9cfd98a2bb863981f1cf1be716b54ddd39ecd51bc69e5c455ca",
+  "search_attempt_limit": 8,
+  "starting_wings": "Exact six frozen v5 roster entries; no reroll",
+  "user_approval_reference": "User: approved. lets run the pilot on jisen's compute with the same 6 starts and 8 attempts each"
+}

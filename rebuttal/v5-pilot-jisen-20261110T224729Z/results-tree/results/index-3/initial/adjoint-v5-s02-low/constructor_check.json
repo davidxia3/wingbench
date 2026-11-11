@@ -1,0 +1,13 @@
+{
+  "original_grader_runtime_status": {
+    "detail": "the runtime fingerprint differs from the campaign's: runtime fingerprint mismatch: expected 60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d, observed ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3",
+    "expected_fingerprint_sha256": "60263209c65d73810a768021b8043ced6038a9c55b0c7feaf37c82168e73314d",
+    "matches_campaign": false,
+    "probe_error": null,
+    "probed": true,
+    "report_file": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-3/initial/adjoint-v5-s02-low/work/runtime_fingerprint_adjoint-v5-s02-low_1794377444.json",
+    "report_sha256": "ce49067865f6e586df4bbb613a133762b81364f2c1df5fea64a61c431c6847f3"
+  },
+  "original_protocol_sha256": "7ba78aef369fc85c68707b92023699cf8b0288b153b120ad5516a383a2f4a0a9",
+  "runtime_fingerprint_sha256": "a688a3f84ae6b98ce1aefcd81b286373cf38f74ba6f03fe58d83ad6260fbd845"
+}

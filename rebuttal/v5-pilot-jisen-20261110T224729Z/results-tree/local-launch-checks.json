@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "scientific_calls": 0,
+  "six_unique_indices": true,
+  "three_lanes": true,
+  "no_automatic_retries": true,
+  "shell_syntax": true,
+  "exclusive_claim_rerun_rejected": true,
+  "initial_nondelivery_does_not_replace_episode": true
+}

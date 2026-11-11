@@ -1,0 +1,8 @@
+{
+  "automatic_retry": false,
+  "episode_index": 5,
+  "error": "Search blocked; do not restart",
+  "finished_at": "2026-11-11T10:33:24.104759+00:00",
+  "initialization_path": "/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-5/initial/adjoint-v5-s02-high/initialization.json",
+  "phase": "blocked"
+}

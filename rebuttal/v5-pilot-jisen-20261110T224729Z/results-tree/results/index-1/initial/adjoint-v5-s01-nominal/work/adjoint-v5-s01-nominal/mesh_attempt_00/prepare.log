@@ -1,0 +1,3 @@
+[prep] adjoint-v5-s01-nominal: case=/results/v5-jisen/launches/jisen-20261110T224729Z/results/index-1/initial/adjoint-v5-s01-nominal/work/adjoint-v5-s01-nominal/mesh_attempt_00/adjoint-v5-s01-nominal
+[prep]   SA=30.71 AR=12.37 TR=0.524 kink=0.329 tcroot=0.1272
+[prep]   conditions: [(0.7853, 6.6401110468), (0.8195, 6.6401110468), (0.853, 6.6401110468)]
