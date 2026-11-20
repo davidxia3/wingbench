@@ -1,0 +1,120 @@
+{
+  "agent": {
+    "episodes": 90,
+    "common_handoffs": 360,
+    "adjacent_pairs": 270,
+    "after_failure": [
+      {
+        "method": "Open-ended research",
+        "transitions": 27,
+        "episodes": 21,
+        "changed_geometry": 27,
+        "next_valid": 19
+      },
+      {
+        "method": "Planning",
+        "transitions": 20,
+        "episodes": 14,
+        "changed_geometry": 18,
+        "next_valid": 10
+      },
+      {
+        "method": "Reflection",
+        "transitions": 17,
+        "episodes": 15,
+        "changed_geometry": 17,
+        "next_valid": 15
+      }
+    ],
+    "explicit_placeholder_handoffs": 20,
+    "explicit_placeholder_episodes": 7,
+    "successful_recovery_decisions_q4": 10,
+    "successful_recovery_episodes_q4": 9,
+    "recovery_episodes_q4_by_method": {
+      "Planning": 6,
+      "Reflection": 3
+    }
+  },
+  "flow": {
+    "evaluations": 3845,
+    "conditions": 11535,
+    "failed_conditions": 2403,
+    "pooled_failure_rate": 0.2083224967490247,
+    "failed_evaluations": 1226,
+    "joint_failure_rate": 0.3188556566970091,
+    "by_mach": [
+      {
+        "mach": 0.7853,
+        "total": 3845,
+        "failed": 742,
+        "failure_rate": 0.1929778933680104
+      },
+      {
+        "mach": 0.8195,
+        "total": 3845,
+        "failed": 765,
+        "failure_rate": 0.19895968790637192
+      },
+      {
+        "mach": 0.853,
+        "total": 3845,
+        "failed": 896,
+        "failure_rate": 0.2330299089726918
+      }
+    ],
+    "failure_reasons": {
+      "inconclusive_timeout": 1222,
+      "inconclusive_infrastructure": 1181
+    },
+    "failure_outcomes": {
+      "inconclusive": 2403
+    }
+  },
+  "mesh": {
+    "cohorts": [
+      {
+        "cohort": "previously-failed",
+        "profile": "upstream-default",
+        "cases": 1913,
+        "accepted": 1
+      },
+      {
+        "cohort": "previously-failed",
+        "profile": "upstream-layers129",
+        "cases": 1913,
+        "accepted": 605
+      },
+      {
+        "cohort": "source-1",
+        "profile": "benchmark-spacing",
+        "cases": 500,
+        "accepted": 499
+      },
+      {
+        "cohort": "source-1",
+        "profile": "original-spacing",
+        "cases": 500,
+        "accepted": 500
+      },
+      {
+        "cohort": "source-2",
+        "profile": "benchmark-spacing",
+        "cases": 500,
+        "accepted": 500
+      },
+      {
+        "cohort": "source-2",
+        "profile": "original-spacing",
+        "cases": 500,
+        "accepted": 500
+      }
+    ],
+    "paired_default_fail_to_129_pass": 604
+  },
+  "limitations": [
+    "Request-level flow records include reused outcomes.",
+    "The failed-geometry census covers all 1913 recoverable geometries; one additional failure request lacks an archived geometry. Source controls are selected cohorts.",
+    "Agent geometry changes do not by themselves demonstrate feedback-based reasoning.",
+    "Transitions are correlated within episodes and condition on different failures."
+  ]
+}

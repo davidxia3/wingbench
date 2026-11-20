@@ -44,7 +44,7 @@ echo
 echo "=== 13_cfd_cost: processor-core hours per CFD evaluation, both studies ==="
 python3.11 13_cfd_cost.py
 echo
-echo "=== 15_confirmatory_contrasts: the six planned baseline contrasts of Section 6.1 ==="
+echo "=== 15_confirmatory_contrasts: the six exploratory baseline contrasts of Section 6.1 ==="
 python3.11 15_confirmatory_contrasts.py
 echo
 echo "=== 16_marginal_intervals: unpaired intervals for every reported mean ==="
@@ -62,5 +62,11 @@ echo
 echo "=== 19_appendix_figures: the supplementary figures appendix, drawn in the paper style ==="
 python3.11 19_appendix_figures.py > /dev/null
 echo "wrote paper/app_fig_*.pdf"
+echo
+echo "=== 20_resource_accounting: recorded usage and comparison limits ==="
+python3.11 20_resource_accounting.py
+echo
+echo "=== 21_revision_evidence: evaluator checks and agent transition audit ==="
+python3.11 21_revision_evidence.py
 echo
 echo "=== done: tables in analysis/out/, figures in analysis/figures/, macros in analysis/out/macros/ and paper/ ==="

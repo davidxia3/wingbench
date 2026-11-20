@@ -1,0 +1,116 @@
+\section{Additional evaluator checks}
+\label{app:evaluator-checks}
+
+These checks distinguish failure to obtain a benchmark score from numerical
+nonconvergence, and implementation consistency from robustness of a mesh
+recipe. They do not change any original grade or optimizer result.
+
+\subsection{Condition-level outcomes after an accepted mesh}
+
+We audited 3{,}845 evaluation requests with accepted meshes and recoverable,
+hash-verified raw result documents. Each contains three condition attempts.
+This is a request-level audit: repeated requests and reused results remain
+included, and the subset is not a new sample of independent solver runs.
+It is separate from the aggregate classification of all 6{,}629 requests.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Failures after mesh acceptance in the audited subset. The final row
+counts evaluations with at least one failed condition, not condition attempts.}
+\label{tab:flow-audit}
+\begin{tabular}{lrrr}
+\toprule
+Unit & Failed & Total & Rate \\
+\midrule
+Mach 0.7853 & 742 & 3{,}845 & 19.3\% \\
+Mach 0.8195 & 765 & 3{,}845 & 19.9\% \\
+Mach 0.8530 & 896 & 3{,}845 & 23.3\% \\
+All condition attempts & 2{,}403 & 11{,}535 & 20.8\% \\
+Three-condition evaluations & 1{,}226 & 3{,}845 & 31.9\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 2{,}403 failed condition attempts comprise 1{,}222 timeouts and 1{,}181
+execution/infrastructure outcomes. They cannot be described as numerical
+nonconvergence alone. Requiring all three conditions to succeed raises the
+observed evaluation failure rate to 31.9\%; this is measured directly, without
+assuming independence between conditions. The condition rates remain material
+and do not establish adequacy of the solver settings or time limits.
+
+\subsection{Source-geometry controls and upstream meshing}
+
+We remeshed 1{,}000 distinct previously successful SuperWing geometries with
+the benchmark spacing and the original source spacing. The two cohorts of
+500 were separately frozen random selections from eligible source geometries;
+the second was selected after the first cohort's results. We therefore give
+descriptive combined counts, without a pooled confirmatory interval. We also
+tested all 1{,}913 distinct failed geometries recoverable from the benchmark
+records with the original, unmodified meshing script released with SuperWing
+in the AeroTransformer repository. The script is byte-for-byte identical to
+the published version pinned in Appendix~\ref{app:cfdprotocol}, and was run
+directly with its original tip-template path, without the WingBench case
+preparer or grading orchestration, under matched inputs, MPI ranks, runtime,
+and timeout settings.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Mesh acceptance in source controls and the complete recoverable
+failed-geometry census. Acceptance requires
+positive minimum cell volume and quality; marginal positive quality is accepted.
+These are mesh checks, not completed CFD evaluations.}
+\label{tab:mesh-controls}
+\begin{tabular}{llrr}
+\toprule
+Cohort & Mesh setting & Accepted & Tested \\
+\midrule
+Successful source geometries & Benchmark spacing & 999 & 1{,}000 \\
+Same source geometries & Original source spacing & 1{,}000 & 1{,}000 \\
+Previously failed geometries & Upstream default (81 layers) & 1 & 1{,}913 \\
+Same failed geometries & Diagnostic 129 layers & 605 & 1{,}913 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The failed-geometry census is complete: all 30 prespecified batches from the
+randomized ordering of 1{,}913 distinct geometries finished by 9 November 2026.
+It includes every recoverable geometry identified as mesh-blocked in either
+the released request categories or the raw evaluation records. One additional
+mesh-failure request has no archived geometry and could not be rerun.
+Under the unchanged upstream default, 408 were rejected by mesh gates,
+1{,}504 stopped inconclusively, and one produced an accepted mesh.
+Thus 1{,}912/1{,}913 remained unsuccessful.
+This supports consistency with the published procedure; it does not establish
+that the procedure is robust throughout the search box or that failed shapes
+are physically infeasible. Rebuilt environments also do not establish exact
+historical binary and hardware equivalence.
+
+The paired 129-layer diagnostic is an important qualification: it accepted
+605 meshes, including the one accepted by the default, so 604 default failures
+became mesh successes. Failures are therefore sensitive to numerical mesh
+settings. These meshes have not been used to replace benchmark grades, and
+mesh acceptance alone says nothing about subsequent convergence or $L/D$.
+Improving the recipe requires separate flow validation and a new protocol
+version. The current evidence narrows an implementation-mismatch explanation
+but does not establish a universal ground-truth feasibility evaluator.
+
+The portable tables \texttt{accepted\_mesh\_flow\_audit.csv} and
+\texttt{mesh\_validation\_checks.csv}, with source fingerprints in
+\texttt{revision\_evidence\_provenance.json}, preserve the counting units and
+cohort membership. \texttt{analysis/21\_revision\_evidence.py} reproduces the
+tables above without new CFD runs.
+
+\subsection{Surface appearance and automatic volume meshing}
+\label{app:automatic-meshing}
+
+A wing surface and a valid surrounding volume mesh are different objects.
+The published SuperWing script constructs surface blocks and uses pyHyp to
+march them toward the far field under fixed settings. Local curvature can
+make marching lines approach or cross; pyHyp documents smoothing controls
+for preventing such crossings in concave regions \citep{mdolabpyhyp}.
+This is a numerical limitation that can arise with a correctly implemented
+meshing method. A different topology, tuned settings or manual mesh construction
+could succeed on a surface for which the configured automatic recipe fails.
+Such alternatives must be validated and specified as a separate protocol;
+the benchmark does not perform unrecorded, wing-specific manual repairs.
+

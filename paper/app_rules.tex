@@ -1,84 +1,54 @@
-\section{Benchmark rules, version 1.0}
+\section{Adding methods and preserving comparable versions}
 \label{app:rules}
 
-The release contains the rules the study ran under. A result is comparable to
-the reference results only if it follows them. Later versions will carry a new
-number, and results from different versions are reported separately. This
-appendix restates the rules in full.
+The complete rules are in \texttt{benchmark/RULES.md}. The public runner
+supports a 38-parameter wing, three tasks, a 4{,}096-surrogate cap and a
+32-query CFD horizon. It records proposals, feedback and private nominations;
+\texttt{verify.py} checks the trace and \texttt{score.py} summarizes outcomes.
+The historical studies' actual access conditions and exceptions are reported
+in Section~\ref{sec:analysis} and Appendix~\ref{app:resources}; they must not be
+inferred from the public interface's maximum allowances.
 
-\paragraph{The task.} A design is a wing described by 38 numbers. The benchmark
-standardizes each number with the SuperWing dataset and searches the box from
-$-3.5$ to $3.5$ in every coordinate. A proposal may lie at most $10^{-9}$
-standardized units outside the box, which absorbs floating-point round trips
-through physical values. A wing is scored at a fixed target lift coefficient
-and at three Mach numbers, 0.7853, 0.8195, and 0.8530, with Reynolds number 20
-million. The score is the geometric mean of the three lift-to-drag ratios.
-There are three tasks. They differ only in the target lift coefficient, which
-is 0.15 (low load), 0.41 (nominal load), or 0.66 (high load). A CFD evaluation
-delivers a score only if all three conditions return a valid result, the lift
-is within 0.02 of the target, every lift-to-drag ratio is above 0 and at most
-40, and the angle of attack is between $-10$ and 25 degrees. Otherwise the
-evaluation returns a failure type and no score.
+\subsection{Integration contract}
 
-\paragraph{Budgets.} One episode is one optimization run on one task. An
-episode may use at most 4{,}096 surrogate evaluations, where one surrogate
-evaluation scores one wing at all three Mach numbers, including the
-angle-of-attack adjustment that reaches the target lift, and at most 32 online
-CFD evaluations, one at a time. The optimizer submits one wing, receives its
-score or failure type, and only then chooses the next. At the checkpoints 0,
-1, 2, 4, 8, 16, and 32 online queries, the optimizer nominates the one wing it
-would hand to a user. That wing is graded privately. The optimizer never sees
-the private grade, and the grade costs no query. A nominated wing with an
-online result reuses it.
+A new method subclasses \texttt{Optimizer} in
+\texttt{benchmark/optimizer\_api.py}. Its three decision methods are
+\texttt{propose(ctx)}, returning the next 38-coordinate wing;
+\texttt{observe(result)}, receiving the score or failure codes; and
+\texttt{recommend()}, returning its current recommendation. Optional
+\texttt{start(ctx)} initializes state. The context supplies the task, design
+box, history, remaining budgets and the surrogate query function. A method
+may maintain local state and call a language model inside this interface;
+the evaluator and private grading contract need not change.
 
-\paragraph{What an optimizer may use.} Every optimizer may use the surrogate,
-the SuperWing records, and the 62 earlier CFD results that the reference
-baselines started from. Nothing may be shared between episodes. Each track has
-two variants. In the closed variant only the information above may be used. In
-the open variant any public information may be used, including the released
-WingBench records. A submission states which variant it ran. The reference
-results are closed.
+The worked optimizer and recorded-result evaluator in
+\texttt{benchmark/README.md} exercise integration without CFD. The recorded
+backend can answer only already graded wings and cannot validate a new
+optimizer's aerodynamic performance. Fresh evaluations use the CFD backend
+and the documented container. The original distributed agent campaign
+controller is not included; reproducing that campaign's orchestration
+requires additional engineering. The released interface, prompts and tools
+support new implementations, not one-command reproduction of that controller.
 
-\paragraph{Repeated designs and failures.} A wing that was already evaluated in
-the same episode returns the recorded result again and still costs a query. A
-failure of the machine is not a failure of the wing. If a worker is lost, a
-job is killed by the system, or a result file is never written, the
-evaluation is retried and does not cost a query. Failures of the wing itself
-are outcomes and cost the query. They are a rejected geometry, a mesh
-generator that stops without a mesh, a flow condition that reaches its time
-limit, and a solver process that stops with an error.
+\subsection{Versioning and maintenance scope}
 
-\paragraph{Time limits and hardware.} Meshing has a 30-minute limit. Each flow
-condition has a two-hour limit. Both are measured in wall-clock time. The
-reference results ran one CFD job at a time on an AWS m7a.4xlarge machine with
-16 cores and 64 GB of memory, inside the released container. About one third
-of the reference nondeliveries were set by a time limit, so a slower machine
-produces more failures for the same wings. Official comparisons require an
-m7a.4xlarge or faster. A later version will replace the time limits with
-iteration limits so that results do not depend on the machine.
+The preservation policy is to retain the original records and content-pinned
+protocol, distinguish documentation corrections from evaluator changes, and
+report results under different mesh, solver, budget or outcome-policy versions
+separately. A rebuilt runtime receives its own fingerprint and protocol
+revision; it is not silently substituted for the original environment.
+The container recipe, source/weight hashes, recorded example and analysis
+scripts provide checks against dependency drift. Issues and integration
+instructions are maintained with the repository, but the release offers no
+hosted grading service or guaranteed maintenance duration. These mechanisms
+reduce dependence on a live service; they do not guarantee that dependencies
+will remain available or that future maintainers will have CFD resources.
 
-\paragraph{Recording and verification.} The runner writes an append-only trace
-of every surrogate call, online query, result, and nomination. An independent
-replay checks a trace for budget use, information leakage, and consistent
-hashes. Private grades are kept outside the optimizer's reach until the
-episode ends, and their hashes enter the trace when they are produced. A
-submission contains the trace of every episode, the records in the formats of
-the released tables, and the 38 coordinates of every evaluated wing. The
-benchmark is run on the honor system. There is no central grading service.
-
-\paragraph{Reporting.} For each task and checkpoint, a submission reports
-recommendation delivery, the share of episodes whose nominated wing received
-a valid score, and conditional quality, the mean score of the delivered
-nominations. It also reports online delivery, the share of online queries
-that returned a score. The released scorer produces these next to the six
-reference methods, the five baselines and open-ended research, with bootstrap
-intervals. A submission runs ten seeds per task. For a language-model agent a
-seed is only a label that matches its episodes with the other methods.
-
-\paragraph{Tracks.} The full track runs three tasks, ten seeds, and 32
-queries, and compares with every reference result. The lite track runs one
-task, five seeds, and 8 queries, and compares with the reference results at
-checkpoint 8. The recommendation-only track searches in any way and grades
-only the final nominated wing per episode with the container, and compares
-with the reference recommendations at checkpoint 32. Each track is run closed
-or open.
+For future submissions, the runner's closed track permits the provided
+source data and warm-start records; an open track also permits public
+benchmark records. The historical agents did not receive the 62-record
+baseline context. Agent seed labels identify episodes and do not create
+paired random draws across methods. Report actual resource use and protocol
+version alongside recommendation validity and mean $L/D$ among valid
+recommendations. A failed computation is a failure under that protocol,
+not a certificate of physical infeasibility.

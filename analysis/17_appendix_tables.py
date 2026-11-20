@@ -19,8 +19,8 @@ The tables, in the order they appear in the fragment:
                             continued episodes) are listed separately
   online_outcomes           the same online queries by outcome type
   compute                   CFD core-hours per method, from episodes.csv
-  episodes                  one row per episode as a longtable. It comes last
-                            because it runs over several pages
+  episodes                  one row per episode, retained in the CSV output
+                            without duplicating 240 rows in the PDF
 
 Rounding: L/D and rates to two decimals, core-hours per evaluation to one,
 total core-hours to whole hours. A missing value is shown as --. The CSV twins
@@ -65,7 +65,7 @@ MISSING = "--"
 
 TEXT = {
     "opener": (
-        "The tables in this appendix give the full results per method, task and episode. "
+        "The tables in this appendix give results per method and task; individual episode records remain in the accompanying CSV tables. "
         r"They are computed from the released data tables by \texttt{analysis/17\_appendix\_tables.py}."),
     "baseline_recommendations": (
         r"Table~\ref{tab:app-baseline-recommendations} gives, for every baseline method, task and "
@@ -96,10 +96,11 @@ TEXT = {
         "a rejected geometry. The SMAC3 records name the reason for each nondelivery but not the "
         "outcome type, so its type counts are empty."),
     "compute": (
-        r"Table~\ref{tab:app-compute} sums the CFD processor time of each method over the evaluations "
-        "with a recorded run time.",
-        "CFD processor time per method. A core-hour is one hour of one processor core, and each CFD "
-        "job used 16 cores. The totals cover the evaluations with a recorded run time. The SMAC3 total "
+        r"Table~\ref{tab:app-compute} sums the CFD timing attached to each method's records. These totals "
+        r"include reused outcomes and do not measure unique compute consumed (Appendix~\ref{app:resources}).",
+        "Recorded CFD timing per method. A core-hour is one hour of one processor core; mesh and "
+        "flow-attempt durations are multiplied by 16 cores. The totals cover records with timing, "
+        "including reused outcomes. The SMAC3 total "
         "includes two checkpoint-32 grades that were replaced when two SMAC3 episodes were run again."),
     "episodes": (
         r"Table~\ref{tab:app-episodes} lists all 240 episodes.",
@@ -434,7 +435,11 @@ def main() -> None:
     parts += entry("compute", compute_table(tables["compute"], "tab:app-compute", cap("compute")))
     parts += entry("online_outcomes", outcome_table(
         tables["online_outcomes"], blocks, "tab:app-online-outcomes", cap("online_outcomes")))
-    parts += entry("episodes", episode_longtable(tables["episodes"], "tab:app-episodes", cap("episodes")))
+    parts += [r"All 240 episode summaries remain in "
+              r"\texttt{analysis/out/tables/\allowbreak tab\_appendix\_episodes.csv}, "
+              r"including query counts, valid-query counts, best online $L/D$, "
+              r"and the final recommendation. This table is generated alongside "
+              r"the summaries above rather than duplicated row by row in the PDF.", ""]
     FRAGMENT.write_text("\n".join(parts).rstrip() + "\n")
 
     print(f"wrote {FRAGMENT.relative_to(WORKSPACE)}")

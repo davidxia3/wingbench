@@ -355,6 +355,27 @@ python3.11 benchmark/verify.py submissions/example
 python3.11 benchmark/score.py submissions/example --out submissions/example/score
 ```
 
+## Preservation and maintenance policy
+
+The original results and content-pinned evaluator settings are preserved as a
+reference version. Documentation corrections do not silently change those
+grades. Changes to meshing, solver settings, budgets or outcome rules require
+a new protocol version and separately reported results. A rebuilt runtime has
+its own fingerprint; it must not be presented as the historical environment.
+
+For interface changes, run the recorded integration example and trace verifier
+above. For analysis changes, regenerate the affected tables from the preserved
+records. Evaluator changes additionally need CFD validation under their new
+version; a recorded replay is not a numerical validation. Dependency recipes
+and source/weight hashes support rebuilding when services or packages change.
+Report reproducible failures with the version, environment and relevant trace
+through repository issues, without credentials or private model logs.
+
+There is no hosted grading service, guaranteed response time or guaranteed
+maintenance duration. The original distributed agent controller is not part of
+the release. An agent may call its model from the optimizer interface, but
+recreating the original campaign scheduler requires additional engineering.
+
 ## Files in this folder
 
 | File | What it is |
@@ -373,3 +394,92 @@ python3.11 benchmark/score.py submissions/example --out submissions/example/scor
 | `score.py` | the comparison with the reference methods |
 | `common.py` | shared constants and loaders |
 | `examples/retrieval_recorded.py` | the example optimizer |
+
+## Resource instrumentation for additional runs
+
+The runner writes `resources.jsonl` alongside the scientific trace. It records
+setup, decision operations, optimizer CPU measurements, surrogate batches,
+actual evaluator executions, result reuse, checkpoint nominations and grade
+availability. `CfdEvaluator` also writes `cfd/cfd_resources.jsonl` with each
+mesh and flow attempt's elapsed time, CPU measurements and termination status.
+The scientific grader, acceptance criteria and budgets are unchanged.
+
+`--stop-after-checkpoint 4` observes the four-query prefix of the original
+32-query task. The optimizer still receives the original budgets. The output
+status is `checkpoint_complete`, and the scientific trace remains partial.
+This output is not a completed 32-query benchmark submission.
+
+CPU measurements inside the optimizer host cover the process and its reaped
+children. For agents with background processes, use an exclusive Linux cgroup
+covering the entire launch. `benchmark.measure_command` records cumulative
+cgroup CPU counters before and after a command, enforces a timeout, and reports
+remaining processes. It requires a CPU-only execution environment. Its
+`usage_usec` difference is total CPU consumption; user and system counters are
+components, not additional consumption. The wrapper's small CPU overhead is
+included when it shares that cgroup. Do not sum parent and child cgroup totals.
+Allocated cores multiplied by elapsed seconds remain a separate quantity.
+
+`benchmark.instrument_agent_controller` builds a source-fingerprinted copy of
+the archived controller. It adds manager lifecycle timestamps, surrogate timing,
+launch-cgroup CPU snapshots and per-HTTP-attempt model resource events. Set
+`WINGBENCH_RESOURCE_DIR` to a manager-owned directory outside the agent's
+writable workspace. Use the new instrumentation manifest when configuring the
+pilot; do not reuse the old controller hashes. The archived source is untouched.
+The copied manager sources require the original deployment's remaining modules,
+templates and runtime configuration; this command does not deploy a campaign.
+
+The new `model_request_start` and `model_request_end` events are authoritative
+for resource reporting. They include retries and work launched in separate
+planning processes. Legacy session usage fields are retained for compatibility
+and must not be used to replace the new nullable accounting. Missing usage is
+`null`, never zero. The report provides known token totals and missing-request
+counts separately. Failed requests can consume provider resources without
+returning usage. Cached and reasoning tokens may be subsets of other token
+fields, and are not blindly added to input or output totals. Client latency and
+tokens do not establish model-server CPU/GPU consumption.
+
+Run the local checks with:
+
+```bash
+python3.11 -m unittest benchmark.tests.test_resource_logging -v
+python3.11 -m benchmark.resource_report /path/to/episode --output audit.json
+```
+
+The frozen-baseline adapter has an additional equivalence check that requires
+the original numpy 2.0.2 and cma 4.4.4 environment:
+
+```bash
+python -m unittest benchmark.tests.test_frozen_baseline_adapter -v
+```
+
+The report refuses to qualify replay-only records as live CFD validation.
+Agent runs additionally need their model logs and `--require-model`, plus
+exclusive cgroup records. An audit of one episode is not a campaign release
+decision. The pilot set must exercise real meshing and flow, surrogate charges,
+optimizer process-tree accounting, and successful live model responses in the
+actual agent deployment. A fake HTTP provider verifies logging behavior only.
+
+Elapsed episode time comes from endpoint timestamps. Surrogate execution is
+nested within decision operations, and agent/model sessions may overlap. Do
+not sum these durations to reconstruct elapsed episode time. Worker provisioning,
+queue intervals, private grades and cache reuse must be reported with their
+original scope and execution identifiers.
+
+`benchmark.resource_baseline_pilot` runs the frozen feedback-guided or
+selection-only CMA-ES adapter through a selected checkpoint. It uses the real
+surrogate in the controller environment and `benchmark.container_evaluator` to
+run each fresh grade in the digest-pinned CFD image. This keeps the CFD Python
+environment separate from the optimizer's required numpy/cma environment.
+The container calls the same `CfdEvaluator`; it does not change scientific
+settings. Record the controller Python/dependency versions and image digest.
+
+For this execution mode, wrap the controller in an exclusive cgroup with stage
+`baseline-controller` and its `--episode-id`. Each CFD container produces its
+own cgroup record with stage `CFD-container` and the same episode ID. Pass both
+scopes to `resource_report`, together with every attempt's
+`cfd/cfd_resources.jsonl`. The controller CPU total includes surrogate execution
+and transport overhead, but excludes Docker's separately placed CFD processes.
+The optimizer-operation CPU is a subset of controller CPU. Report these scopes
+separately rather than adding overlapping totals. The audit checks episode IDs,
+paired measurements, and the number of CFD containers against fresh grades.
+No language model is called by these two baseline adapters.

@@ -21,6 +21,7 @@ import os
 from pathlib import Path
 import sys
 import traceback
+import time
 from typing import Any, Sequence, TextIO
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +36,7 @@ from benchmark.optimizer_api import (  # noqa: E402
     Optimizer,
     TaskSpec,
 )
+from benchmark.resource_logging import cpu_snapshot, cpu_delta  # noqa: E402
 
 
 class Channel:
@@ -173,6 +175,16 @@ def main() -> int:
             return 0
         request_id = message.get("id")
         op = message.get("op")
+        cpu_before = cpu_snapshot()
+        operation_started = time.monotonic_ns()
+        def measured_reply(payload):
+            payload["resource_measurement"] = {
+                "operation": op,
+                "wall_seconds": (time.monotonic_ns() - operation_started) / 1e9,
+                "cpu": cpu_delta(cpu_before, cpu_snapshot()),
+                "cpu_scope": "optimizer_self_and_reaped_children; excludes runner_surrogate",
+            }
+            channel.send(payload)
         try:
             if op == "init":
                 cls = load_class(str(message["module"]), str(message["class"]))
@@ -186,7 +198,7 @@ def main() -> int:
                 identity["class"] = cls.__name__
                 result: Any = identity
             elif op == "shutdown":
-                channel.send({"id": request_id, "ok": True, "result": None})
+                measured_reply({"id": request_id, "ok": True, "result": None})
                 return 0
             else:
                 if optimizer is None or ctx is None:
@@ -204,9 +216,9 @@ def main() -> int:
                     result = geometry_list(optimizer.recommend())
                 else:
                     raise RuntimeError(f"unknown request {op!r}")
-            channel.send({"id": request_id, "ok": True, "result": result})
+            measured_reply({"id": request_id, "ok": True, "result": result})
         except BaseException as exc:  # noqa: BLE001
-            channel.send({
+            measured_reply({
                 "id": request_id,
                 "ok": False,
                 "error": f"{type(exc).__name__}: {exc}",

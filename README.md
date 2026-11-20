@@ -36,6 +36,15 @@ graded recommendation, per wing, per CFD attempt, and per flow condition, plus
 the SuperWing records used by the failure-prediction study.
 [`data/README.md`](data/README.md) explains every column.
 
+The comparisons have different resource conditions. Four surrogate-assisted
+baselines share 62 prior CFD records and final query budgets; SMAC3 is a
+CFD-only reference. The three agents share source data, model, tools and query
+caps, but not total model usage. Agent-versus-baseline results describe the
+tested configurations: they do not establish a ranking under equal prior
+information, computation or wall time. Recorded usage at query 4 and the final
+horizon is in [`analysis/out/resources/by_method.csv`](analysis/out/resources/by_method.csv).
+The paper's resource appendix defines the measurements and missing values.
+
 ## Rebuilding the numbers
 
 You need Python 3.11 and the packages in `requirements.txt`.
@@ -45,7 +54,7 @@ bash analysis/run_all.sh
 ```
 
 `analysis/run_all.sh` rebuilds the baseline analyses, the agent-study
-analyses, the CFD cost numbers, and the six planned statistical contrasts. It
+analyses, the CFD cost numbers, and the six exploratory statistical contrasts. It
 writes `analysis/out/`, `analysis/figures/`, and the number files in `paper/`,
 and it checks the counts the paper reports along the way. The files in
 `analysis/out/` are the outputs as published, so a rerun can be compared
@@ -80,3 +89,15 @@ given.
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
+
+
+## First revision
+
+The revision adds evaluator checks and an audit of agent behavior, together
+with actual resource accounting. Reproduce the new summaries with
+`python3.11 analysis/20_resource_accounting.py` and
+`python3.11 analysis/21_revision_evidence.py`. The latter reads frozen extracts
+and launches no CFD or model requests. Original grades are unchanged. Mesh
+sensitivity results are diagnostic, and the three-task statistical contrasts
+are explicitly exploratory. The adjoint comparison is in progress and is not
+included in the reported results.

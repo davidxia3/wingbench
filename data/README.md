@@ -1,8 +1,9 @@
 # Data
 
 The tables in this folder hold the CFD records behind the paper's tables and
-numbers. Claims that come from the agents' execution traces, such as the count
-of placeholder plans, are not in them. The tables link to each other through
+numbers. The revision also supplies extracted handoff rationales and bounded
+recovery records; full model reasoning streams are not distributed. Counts of
+placeholder mentions in handoffs are distinct from counts of candidate plans. The tables link to each other through
 the `episode` and `wing` columns. An episode is one
 optimization run.
 
@@ -16,6 +17,7 @@ optimization run.
 | `cfd_conditions.csv` | flow condition of an evaluation that has a result document | 18,723 |
 | `agent_nominations.csv` | wing an agent named as its current recommendation | 1,782 |
 | `agent_turns.csv` | model session of an agent episode, with its usage and cost | 1,805 |
+| `surrogate_usage.csv` | cumulative surrogate usage for one episode and checkpoint (4 or 32) | 420 |
 | `weight_sensitivity_refits.csv` | recommendation that the inconclusive-outcome weight can change | 103 |
 | `weight_sensitivity_wings.csv` | design that the weight chooses between at checkpoint 32 | 4 |
 | `regrades_after_outage.csv` | wing regraded after the study because its online request died in the grading service | 5 |
@@ -30,7 +32,7 @@ optimization run.
 | `method` | the method, named as in the paper |
 | `task` | `low`, `nominal` or `high` load |
 | `target_cl` | the target lift coefficient of the task |
-| `seed` | the random seed of a baseline episode. For an agent episode it is only a label that pairs episodes across methods and does not set the model's sampling |
+| `seed` | the random seed of a baseline episode. For an agent episode it is only an episode label that does not pair random draws across methods or set the model's sampling |
 | `online_queries` | how many CFD queries the method made: 32, or 4 in the agent comparison |
 | `cfd_core_seconds` | processor-core seconds of CFD run for the episode, which is wall time times the 16 cores of each job |
 | `timed_evaluations` | how many of the episode's evaluations that time covers |
@@ -191,6 +193,50 @@ made inside its research sessions and are counted in them.
 
 Eleven sessions have no token counts because the provider did not report them.
 
+The resource analysis sums sessions assigned to decisions through the requested
+checkpoint, including checkpoint-0 reviews, reflection, errors and retries.
+Session wall time includes tools, local code and waiting inside a session;
+it is not pure model inference time or end-to-end episode elapsed time.
+Summing sessions can also count overlapping work. Token counts are incomplete
+where the provider omitted them. Reference charges exclude CFD and hosting.
+
+## `surrogate_usage.csv`
+
+Cumulative charged candidate evaluations at query 4 for all 240 episodes and
+at query 32 for the 180 episodes that reached it. These are overlapping
+checkpoints, not independent runs. Agents' exact repeats served from the
+episode cache are free and excluded; a surrogate evaluation is not a tool-call
+count. `surrogate_usage_provenance.json` fingerprints the extract, the episode
+table and its original sources, without including machine-specific paths.
+
+| Column | Meaning |
+| --- | --- |
+| `episode` | join key to `episodes.csv` |
+| `checkpoint` | 4 or 32 online CFD results |
+| `surrogate_evaluations` | cumulative charged candidate evaluations |
+| `basis` | `trace_budget_counter` for the four surrogate baselines, `committed_ledger_charges` for agents, or `method_without_surrogate` for SMAC3 |
+| `source` | relative source identifier in the provenance file |
+
+Baseline counts are the budget counters at checkpoint nomination. Agent counts
+sum committed charges assigned to decisions q01 through qNN, checked against
+each episode's final counter. SMAC3's zero follows from its implementation,
+which has no surrogate access. The optional `analysis/extract_surrogate_usage.py`
+regenerates this file from the original archives. Those archives are not
+distributed; no archive is needed to reproduce the resource tables from this
+extract and the other released tables.
+
+`analysis/20_resource_accounting.py` writes `analysis/out/resources/per_episode.csv`
+and `by_method.csv`. The tables separate actual surrogate usage, online CFD,
+private grading, model sessions, reported tokens, reference charges, and
+available CFD timing. CFD timing uses the existing episode aggregates, which
+cover online and private records and can include reused outcomes; SMAC3's
+aggregate retains two superseded grades. It is not a measurement of unique
+physical computation. Sub-horizon CFD timing is left missing where those
+aggregates cannot separate it. Optimizer CPU/GPU time, model-server compute,
+and consistent end-to-end wall time are not available across all methods.
+Missing measurements are not treated as zero or used to infer matched-resource
+rankings.
+
 ## The weight-sensitivity tables
 
 These hold the evidence for the appendix on the inconclusive-outcome weight.
@@ -242,3 +288,27 @@ every test. To study why wings fail, start from the 4,544 wings here. The column
   cost numbers use these totals.
 - The 44 GB of raw CFD output, the optimizers' full logs, and the agents' full
   execution traces are not included.
+
+
+## Revision evidence extracts (November 10, 2026)
+
+| File | Rows | Scope |
+| --- | ---: | --- |
+| `agent_handoffs.csv` | 368 | All 360 q1–q4 handoffs in 90 episodes, plus q5–q8 for A076/A080; recorded rationale, geometry/grade join and source hash |
+| `agent_recoveries.csv` | 12 | Successful bounded schema/finalization recovery decisions across 11 episodes; ten decisions in nine episodes by q4 |
+| `accepted_mesh_flow_audit.csv` | 11,535 | Three conditions for each of 3,845 audited accepted-mesh requests, including reused outcomes; raw-result hash and failure codes |
+| `mesh_validation_checks.csv` | 5,826 | 1,000 source geometries at two spacing settings and all 1,913 recoverable failed geometries at default/129-layer settings |
+| `revision_evidence_provenance.json` | — | Source/extract fingerprints, cohort construction, random-order reporting rule and scope qualifications |
+
+The source-mesh controls are two separately frozen cohorts of 500, with the
+second selected after the first's results. The failed-geometry census covers
+all 1,913 distinct failed geometries recoverable from released request categories
+or raw evaluation records: all 30 prespecified batches are complete. One
+additional mesh-failure request lacks an archived geometry and cannot be rerun.
+Neither cohort estimates the unconditional failure rate of arbitrary wings.
+Acceptance is a mesh outcome,
+not successful CFD. The 129-layer diagnostic is not substituted for original
+grades. Handoff rationales are agent statements, not verified physical causes;
+changing a geometry does not alone demonstrate feedback-dependent reasoning.
+Full raw archives and model reasoning streams are not included. The portable
+extracts and `analysis/21_revision_evidence.py` reproduce the reported counts.

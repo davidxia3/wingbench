@@ -1,8 +1,11 @@
 # WingBench rules, version 1.0
 
-These are the rules the paper's study ran under. A result is comparable to
-the reference results only if it follows them. Later versions will carry a
-new number, and results from different versions are reported separately.
+These rules describe the public version-1.0 interface. The paper documents
+historical access differences and execution exceptions separately; the agents
+did not receive the 62-record baseline context, and their surrogate cache
+accounting differed. Following the interface alone does not equalize resources
+with every reference method. Later protocol versions carry a new number, and
+results from different versions are reported separately.
 
 ## The task
 
@@ -57,21 +60,23 @@ result again and still costs a query.
 
 A failure of the machine is not a failure of the wing. If a worker is lost,
 a job is killed by the system, or a result file is never written, the
-evaluation is retried and does not cost a query. Failures of the wing itself
-are outcomes and cost the query. They are a rejected geometry, a mesh
+evaluation is retried and does not cost a query. Failures within the evaluation pipeline
+are recorded outcomes and cost the query; they do not establish physical
+infeasibility. They are a rejected geometry, a mesh
 generator that stops without a mesh, a flow condition that reaches its time
 limit, and a solver process that stops with an error.
 
 ## Time limits and hardware
 
 Meshing has a 30-minute limit. Each flow condition has a two-hour limit. Both
-are measured in wall-clock time. The reference results ran one CFD job at a
+are measured in wall-clock time. The reference configuration runs one CFD job at a
 time on an AWS m7a.4xlarge machine with 16 cores and 64 GB of memory, inside
-the container described in `environment/`. About one third of the reference
+the container described in `environment/`. Historical runs also used cluster
+workers; identical hardware across the study is not established. About one third of the reference
 nondeliveries were set by a time limit, so a slower machine produces more
 failures for the same wings. Official comparisons require an m7a.4xlarge or a
-faster machine. A later version will replace the time limits with iteration
-limits so that results no longer depend on the machine.
+faster machine. Iteration-based limits are a possible future protocol change, requiring
+validation and separate reporting.
 
 ## Recording and verification
 
@@ -95,7 +100,7 @@ score. `score.py` produces these next to the six reference methods, the five
 baselines and open-ended research, with bootstrap intervals.
 
 Run ten seeds per task. For a language-model agent a seed is only a label
-that matches its episodes with the other methods.
+identifying an episode; it does not pair random draws across methods.
 
 ## Tracks
 

@@ -1,4 +1,6 @@
 {
+ "analysis_status": "exploratory_three_task_pool",
+ "scope_note": "Frozen plan: low/nominal core; high stress separate. No pre-results pooling amendment recovered.",
  "holm_family_size": 6,
  "familywise_alpha": 0.05,
  "bootstrap": {

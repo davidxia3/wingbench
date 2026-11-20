@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""15_confirmatory_contrasts.py — the six planned baseline contrasts in Section 6.1.
+"""15_confirmatory_contrasts.py — the six exploratory baseline contrasts in Section 6.1.
 
 Compares the checkpoint-32 recommendations of feedback-guided CMA-ES with both
 archive-only CMA-ES methods, and feedback-guided DE with selection-only CMA-ES,
@@ -9,9 +9,10 @@ for conditional L/D, each seed contributes the difference in L/D averaged over
 the tasks where both recommendations deliver, and a seed with no such task is
 left out. Each contrast gets an exact two-sided sign-flip test over its seed
 blocks and a 95% percentile interval from 10,000 seed-block bootstrap
-resamples, drawn from a fresh PCG64 generator with seed 73001 (frozen in the
-analysis plan before any result was known). Holm correction covers the six
-tests.
+resamples, drawn from a fresh PCG64 generator with seed 73001. Holm correction
+covers the six tests. The frozen plan treated low/nominal as core and high as
+a separate stress task; pooling all three is exploratory. The historical
+filename is retained for compatibility and does not imply preregistration.
 
 Input:  data/recommendations.csv
 Output: analysis/out/confirmatory_contrasts.json
@@ -116,7 +117,9 @@ def main() -> None:
             row["significant"] = bool(adjusted[key] <= FAMILYWISE_ALPHA)
 
     (OUT / "confirmatory_contrasts.json").write_text(json.dumps(
-        {"holm_family_size": len(pvals), "familywise_alpha": FAMILYWISE_ALPHA,
+        {"analysis_status": "exploratory_three_task_pool",
+         "scope_note": "Frozen plan: low/nominal core; high stress separate. No pre-results pooling amendment recovered.",
+         "holm_family_size": len(pvals), "familywise_alpha": FAMILYWISE_ALPHA,
          "bootstrap": {"replicates": BOOTSTRAP_REPLICATES, "seed": BOOTSTRAP_SEED},
          "contrasts": rows}, indent=1))
     pd.DataFrame(rows).to_csv(TABLES / "tab_confirmatory.csv", index=False)

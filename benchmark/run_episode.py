@@ -66,6 +66,7 @@ from benchmark.records import (  # noqa: E402
     write_table,
 )
 from benchmark.surrogate_local import CheapCounter, SurrogateUnavailable  # noqa: E402
+from benchmark.resource_logging import ResourceLog  # noqa: E402
 
 EPISODE_ID_PATTERN = re.compile(r"U(\d{3,})\Z")
 SUMMARY_SCHEMA = "wingbench-submission-episode-summary-v1"
@@ -79,7 +80,8 @@ class OptimizerError(RuntimeError):
 class OptimizerClient:
     """Talk to ``benchmark.optimizer_host`` running in a child process."""
 
-    def __init__(self, workspace: Path, log_path: Path) -> None:
+    def __init__(self, workspace: Path, log_path: Path, resource_log=None) -> None:
+        self.resource_log = resource_log
         env = dict(os.environ)
         env["PYTHONPATH"] = str(ROOT) + (os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else "")
         env["PYTHONUNBUFFERED"] = "1"
@@ -103,6 +105,12 @@ class OptimizerClient:
         self.process.stdin.flush()
 
     def request(self, op: str, **fields: Any) -> Any:
+        if self.resource_log is None:
+            return self._request(op, **fields)
+        with self.resource_log.span("decision", operation=op):
+            return self._request(op, **fields)
+
+    def _request(self, op: str, **fields: Any) -> Any:
         request_id = self.next_id
         self.next_id += 1
         self._send({"id": request_id, "op": op, **fields})
@@ -126,6 +134,9 @@ class OptimizerClient:
                 continue
             if message.get("id") != request_id:
                 raise OptimizerError("the optimizer process answered out of order")
+            if self.resource_log is not None:
+                self.resource_log.event("optimizer_cpu", request_id=request_id,
+                                        measurement=message.get("resource_measurement"))
             if not message.get("ok"):
                 raise OptimizerError(
                     f"the optimizer failed during {op}: {message.get('error')}\n{message.get('traceback', '')}"
@@ -162,6 +173,7 @@ class EpisodeRunner:
         optimizer_spec: str,
         optimizer_options: dict[str, Any],
         method_name: str | None,
+        stop_after_checkpoint: int | None = None,
     ) -> None:
         self.task = task
         self.box = box
@@ -174,6 +186,9 @@ class EpisodeRunner:
         self.optimizer_spec = optimizer_spec
         self.optimizer_options = optimizer_options
         self.method_name_override = method_name
+        self.stop_after_checkpoint = stop_after_checkpoint
+        if stop_after_checkpoint is not None and stop_after_checkpoint not in task.checkpoints:
+            raise ValueError("stop_after_checkpoint must be an original task checkpoint")
         self.protocol = load_episode_protocol()
         self.counter = CheapCounter(CHEAP_BUDGET)
         self.history: list[OnlineResult] = []
@@ -190,6 +205,11 @@ class EpisodeRunner:
         self.client: OptimizerClient | None = None
         self.identity: dict[str, Any] = {}
         self.surrogate_seconds = 0.0
+        self.resources = ResourceLog(episode_dir / "resources.jsonl", episode_id)
+        self.resources.event("episode_initialized", task=task.name, seed=seed,
+                             instructed_online_budget=task.online_budget,
+                             observation_checkpoint=stop_after_checkpoint,
+                             evaluator_kind=evaluator_kind)
 
     # ----------------------------------------------------------------- helpers
     def state(self) -> dict[str, Any]:
@@ -222,7 +242,9 @@ class EpisodeRunner:
         rows = [self.check_geometry(row, f"cheap_query geometry {index}") for index, row in enumerate(message["geometries"])]
         self.counter.charge(len(rows))
         started = time.perf_counter()
-        results = self.surrogate.predict(rows)
+        with self.resources.span("surrogate", requested_candidates=len(rows), charged_candidates=len(rows),
+                                 cache_hits=0, used_after_charge=self.counter.used):
+            results = self.surrogate.predict(rows)
         elapsed = time.perf_counter() - started
         self.surrogate_seconds += elapsed
         assert self.machine is not None
@@ -240,7 +262,12 @@ class EpisodeRunner:
 
     def grade(self, geometry: tuple[float, ...], label: str) -> GradeResult:
         try:
-            return self.evaluator.grade(geometry, label)
+            with self.resources.span("evaluation", label=label, evaluator_kind=self.evaluator_kind) as measured:
+                grade = self.evaluator.grade(geometry, label)
+                measured.update(delivered=grade.delivered, outcome=grade.outcome,
+                                allocated_core_seconds=grade.core_seconds,
+                                allocated_core_seconds_are_measured_cpu=False)
+                return grade
         except UngradedWingError as exc:
             raise OptimizerError(str(exc)) from exc
 
@@ -277,9 +304,11 @@ class EpisodeRunner:
         values = self.client.request("recommend", state=self.state())
         geometry = self.check_geometry(values, f"recommendation at checkpoint {checkpoint}")
         wing = geometry_sha256(geometry)
+        self.resources.event("checkpoint_nomination", checkpoint=checkpoint, wing=wing)
         self.geometries[wing] = geometry
         if wing in self.online_grades:
             grade = self.online_grades[wing]
+            self.resources.event("evaluation_reused", purpose="private", checkpoint=checkpoint, wing=wing)
             trace_grade = self.machine.checkpoint(geometry)
             graded_by = "online"
             print(f"[{self.episode_id}] checkpoint {checkpoint}: wing {wing[:12]} reuses its online result "
@@ -314,6 +343,8 @@ class EpisodeRunner:
                 },
             })
             self.seal_private_grades()
+        self.resources.event("checkpoint_grade_ready", checkpoint=checkpoint, wing=wing,
+                             delivered=grade.delivered, ld=grade.ld, graded_by=graded_by)
         self.recommendation_rows.append({
             "episode": self.episode_id,
             "study": STUDY,
@@ -341,6 +372,7 @@ class EpisodeRunner:
         self.geometries[wing] = geometry
         if wing in self.online_grades:
             grade = self.online_grades[wing]
+            self.resources.event("evaluation_reused", purpose="online", query=query, wing=wing)
             print(f"[{self.episode_id}] query {query}: wing {wing[:12]} was already queried in this episode. "
                   "The same result is returned and the query is spent.", flush=True)
         else:
@@ -371,7 +403,7 @@ class EpisodeRunner:
         self.episode_dir.mkdir(parents=True, exist_ok=True)
         workspace = self.episode_dir / "optimizer"
         workspace.mkdir(exist_ok=True)
-        self.client = OptimizerClient(workspace, workspace / "optimizer.log")
+        self.client = OptimizerClient(workspace, workspace / "optimizer.log", self.resources)
         self.client.call_handler = self.handle_call
         module_name, _, class_name = self.optimizer_spec.partition(":")
         self.identity = self.client.request(
@@ -398,10 +430,14 @@ class EpisodeRunner:
         self.machine.reset()
         self.client.request("start", state=self.state())
         self.checkpoint(0)
+        if self.stop_after_checkpoint == 0:
+            return self.finish(status="checkpoint_complete", error=None)
         for query in range(1, self.task.online_budget + 1):
             self.online_query(query)
             if query in self.task.checkpoints:
                 self.checkpoint(query)
+                if query == self.stop_after_checkpoint and query < self.task.online_budget:
+                    return self.finish(status="checkpoint_complete", error=None)
         final = self.geometries[self.checkpoints[-1]["wing"]]
         self.machine.terminal(final)
         self.machine.stop()
@@ -409,6 +445,7 @@ class EpisodeRunner:
 
     def finish(self, *, status: str, error: str | None) -> dict[str, Any]:
         assert self.machine is not None
+        self.resources.event("episode_finished", status=status, online_queries=len(self.history))
         trace_path = self.episode_dir / ("trace.json" if status == "complete" else "trace.partial.json")
         if self.machine.writer.events:
             self.machine.writer.write(trace_path)
@@ -432,6 +469,9 @@ class EpisodeRunner:
             "episode": self.episode_id,
             "study": STUDY,
             "status": status,
+            "resource_log": "resources.jsonl",
+            "observation_checkpoint": self.stop_after_checkpoint,
+            "original_online_budget": self.task.online_budget,
             "error": error,
             "task": self.task.name,
             "task_id": self.task.task_id,
@@ -512,6 +552,8 @@ def parse_arguments(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--surrogate-model-dir", type=Path, default=None, help="folder with model_config and best_model_weights")
     parser.add_argument("--flogen-root", type=Path, default=None, help="folder that contains the flowvae package, if it is not installed")
     parser.add_argument("--surrogate-device", default="cpu")
+    parser.add_argument("--stop-after-checkpoint", type=int, default=None,
+                        help="Observe a prefix of the original 32-query task; not a completed benchmark submission")
     parser.add_argument("--cfd-work", type=Path, default=None, help="work folder for CFD cases. Default is <out>/<episode>/cfd")
     parser.add_argument("--no-runtime-probe", action="store_true", help="skip the released runtime probe before CFD grading")
     parser.add_argument("--data", type=Path, default=DATA, help="folder with the released tables, for the recorded evaluator")
@@ -543,6 +585,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"{episode_dir} already exists and is not empty. Choose another --episode-id.", file=sys.stderr)
         return 2
     episode_dir.mkdir(parents=True, exist_ok=True)
+    setup_resources = ResourceLog(episode_dir / "resources.jsonl", episode_id)
+    setup_resources.event("episode_setup_start", evaluator_kind=args.evaluator,
+                          surrogate_device=args.surrogate_device,
+                          cuda_device_nodes_present=bool(list(Path("/dev").glob("nvidia[0-9]*"))))
 
     surrogate = None
     if args.surrogate_model_dir is not None:
@@ -579,6 +625,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 flush=True,
             )
 
+    setup_resources.event("episode_setup_end")
     runner = EpisodeRunner(
         task=task,
         box=box,
@@ -591,13 +638,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         optimizer_spec=args.optimizer,
         optimizer_options=options,
         method_name=args.method_name,
+        stop_after_checkpoint=args.stop_after_checkpoint,
     )
     print(f"[{episode_id}] task {task.name} (target C_L {task.target_cl}), seed {args.seed}, evaluator {args.evaluator}", flush=True)
     code = 0
     try:
         summary = runner.run()
         delivered = sum(1 for row in runner.recommendation_rows if row["delivered"])
-        print(f"[{episode_id}] complete. {summary['online_delivered']}/{summary['online_queries']} online queries delivered, "
+        print(f"[{episode_id}] {summary['status']}. {summary['online_delivered']}/{summary['online_queries']} online queries delivered, "
               f"{delivered}/{len(runner.recommendation_rows)} recommendations delivered, "
               f"{summary['private_grade_count']} private grades. Files in {episode_dir}", flush=True)
     except Exception as exc:  # noqa: BLE001

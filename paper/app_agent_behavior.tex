@@ -1,0 +1,133 @@
+\section{Agent behavior: complete transition audit and selected examples}
+\label{app:agent-behavior}
+
+We separate a descriptive audit of every common-horizon episode from selected
+examples of decision-making. The evidence is the 360 recorded handoffs in all
+90 episodes through query 4, joined by geometry hash to their CFD grades.
+\texttt{data/agent\_handoffs.csv} contains these decision rationales and the
+additional steps used below; it does not contain full model reasoning streams.
+A rationale describes the agent's stated basis for a decision, not an
+independently validated physical explanation.
+
+\subsection{Outcomes following an unsuccessful evaluation}
+
+Every four-query episode has three adjacent query pairs. Of the 270 pairs,
+64 begin with a request that returned no complete score. Table~\ref{tab:agent-transitions}
+counts what happens immediately afterward. A changed geometry is identified
+by its content hash; it does not, by itself, demonstrate that feedback caused
+the change. Query-4 failures have no successor within the common horizon.
+
+\begin{table}[htbp]
+\centering\small
+\caption{All transitions following a failed evaluation within queries 1--4.
+Counts condition on different preceding failures and are correlated within
+episodes; they are not a causal comparison of recovery strategies.}
+\label{tab:agent-transitions}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Transitions & Episodes & New geometry & Next valid \\
+\midrule
+Open-ended research & 27 & 21 & 27 & 19 \\
+Planning & 20 & 14 & 18 & 10 \\
+Reflection & 17 & 15 & 17 & 15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This shows that the traces contain both successful and unsuccessful next
+steps, rather than only successful anecdotes. It cannot attribute recovery
+to a particular heuristic or prompt. The accompanying script emits every
+transition so that alternative descriptive summaries can be checked.
+
+\subsection{Selected decisions and their observed outcomes}
+
+\textbf{A076, open-ended, low load: constrain extrapolation, then isolate a
+change.} Query 1 tested a 47.73-degree sweep wing with predicted $L/D$ 20.64
+and failed the mesh gate. Query 2 reduced sweep to 37.10 degrees and used a
+dataset-trained mesh-quality estimate; CFD returned 16.04 against a surrogate
+prediction of 18.30. Query 3 had a higher surrogate prediction, 19.08, but a
+lower CFD score, 15.74. The next steps demonstrate both a failed adjustment
+and a more controlled test (Table~\ref{tab:agent-case-a076}).
+
+\begin{table}[htbp]
+\centering\small
+\caption{A076's subsequent decisions. Queries 5--8 belong to the selected
+open-ended extension, not the common four-query comparison.}
+\label{tab:agent-case-a076}
+\begin{tabular}{cp{0.68\linewidth}r}
+\toprule
+Query & Recorded change & CFD $L/D$ \\
+\midrule
+4 & Increase q2 sweep to 38.3 degrees and reduce root thickness & timeout \\
+5 & Near-repeat of q4, with root adjustment changed by 0.002 & timeout \\
+6 & Return to q2 and change only sweep to 38.3 degrees & 16.35 \\
+7 & Add a smaller root-thickness change & 16.64 \\
+8 & Increase sweep to 39.0 degrees & 16.77 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The q6 rationale explicitly tests whether sweep or thickness contributed to
+the timeout. This is an example of using a controlled change after failure,
+not proof of the timeout's physical cause or of the heuristic's general value.
+
+\textbf{A080, open-ended, nominal load: revise a numerical optimizer's
+objective.} The agent used CMA-ES on AeroTransformer. Its first two predictions
+were 32.76 and 35.70, while CFD returned 32.06 and 33.15. It then used a
+surrogate-bias correction based on distance to the source data: the next two
+CFD scores were 33.4018 and 33.4014. The q4 rationale specifies the penalized
+objective $y-5.083d$, where $d$ is nearest-source distance in the agent's
+normalized coordinates. This illustrates optimizer orchestration and a
+feedback-dependent change, but fitting a correction from two observations is
+weak evidence for calibration, and the fourth step did not improve the score.
+
+\textbf{A006, planning, high load: add a geometric screen.} The first wing
+scored 28.52. A local refinement and then a smaller-radius refinement both
+failed meshing. The executor subsequently computed a local surface-triangle
+quality measure and screened candidates at the first wing's quality level.
+Its fourth wing scored 28.55. The tool trace records the screening computation,
+and the handoff names the threshold (0.0114), the candidate value (0.01232),
+and the earlier failed candidates' values (at most 0.0106). The gain over q1
+is only 0.03. Moreover, this episode's handoffs explicitly report substituting
+an executable procedure for placeholder plans; it demonstrates executor
+adaptation, not successful planning in isolation.
+
+\textbf{A054, reflection, nominal load: distinguish predictors.} Four valid
+scores increased from 28.79 to 31.14. On q2--q4, a supplementary predictor
+reported 34.11, 34.35 and 34.84, about 12\% above CFD, while AeroTransformer
+stayed within 0.5\%. The later rationales label the local predictor diagnostic
+only. Building another model need not provide better candidate selection;
+its disagreement should itself be tested against CFD.
+
+\textbf{A035, reflection, high load: test predictor disagreement.} The q2
+handoff prefers a candidate from the 2110 family over the higher-surrogate
+5590 family because the latter conflicts with the parent's observed
+high-Mach performance. At q4, the agent selects a 5590-family candidate as
+an explicit test of disagreement between AeroTransformer (24.85) and its
+local ensemble (22.91). CFD returns 24.89. The sequence shows how additional
+modeling can discourage a productive direction, and how a subsequent
+experiment can challenge that judgment; it does not isolate the ensemble's
+effect from the other evidence used in selection.
+
+\subsection{Implementation fidelity and limits of the lessons}
+
+Twenty of the 120 planning handoff rationales, spanning seven episodes,
+explicitly contain the word ``placeholder.'' This reproducible lexical count
+is a lower bound on explicit mentions, not a classification of all plans.
+Together with A006, it shows that valid structured output does not ensure an
+actionable plan. Execution can supply substantive reasoning omitted by planning.
+
+The campaign also used bounded schema or finalization recoveries. By query 4,
+there were ten successful recovery decisions in nine episodes (six planning,
+three reflection); the full extension adds two decisions in two open-ended
+episodes. A006 and A054 each had a q1 recovery. All episodes remain included
+in the reported outcomes. \texttt{data/agent\_recoveries.csv} identifies these
+events; recovery assistance, additional stages and differing model usage are
+part of the tested implementations, not effects isolated by randomization.
+
+The actionable hypotheses are to preserve a verified fallback, make failure
+diagnostics change candidate generation or screening, test surrogate
+disagreement with observed CFD, and validate plans for executability. These
+are motivated by the records and baseline comparisons. Demonstrating that any
+one improves agent performance requires a prospective ablation; this audit
+does not supply that causal evidence.

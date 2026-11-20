@@ -17,6 +17,13 @@
 !/submissions/README.md
 !/wingbench/
 
+# Local only, never pushed: rebuttal discussion and management, drafts and
+# exports, scratch files, and the arXiv-formatted copy of the paper.
+/rebuttal/
+/output/
+/tmp/
+/arxiv/
+
 # Python, editors, OS, secrets
 __pycache__/
 *.py[cod]
@@ -78,6 +85,9 @@ credentials.json
 !/paper/fancyhdr.sty
 !/paper/natbib.sty
 !/paper/app_limitations.tex
+!/paper/app_resources.tex
+!/paper/app_evaluator_checks.tex
+!/paper/app_agent_behavior.tex
 !/paper/app_formal.tex
 !/paper/app_rules.tex
 !/paper/app_prompts.tex
@@ -85,6 +95,7 @@ credentials.json
 !/paper/app_data_cfd.tex
 !/paper/app_gallery.tex
 !/paper/app_figures.tex
+!/paper/app_resource_followup.tex
 !/paper/fig_wing_gallery.pdf
 !/paper/app_fig_yield_by_cell.pdf
 !/paper/app_fig_online_yield_vs_index.pdf
@@ -141,6 +152,7 @@ credentials.json
 !/configs/benchmark/wingbench_multifidelity_benchmark_v1_release.json
 !/configs/benchmark/superwing_physical_normalization_v1.json
 !/configs/benchmark/wingbench_v2_phase3_pilot_plan_v1.json
+!/configs/benchmark/goldilocks_v2_phase4_analysis_plan_v1.json
 !/configs/optimizer/
 /configs/optimizer/*
 !/configs/optimizer/wingbench_v2_phase3_method_panel_v1.json
@@ -156,6 +168,13 @@ credentials.json
 !/data/cfd_conditions.csv
 !/data/agent_nominations.csv
 !/data/agent_turns.csv
+!/data/surrogate_usage.csv
+!/data/surrogate_usage_provenance.json
+!/data/agent_handoffs.csv
+!/data/agent_recoveries.csv
+!/data/accepted_mesh_flow_audit.csv
+!/data/mesh_validation_checks.csv
+!/data/revision_evidence_provenance.json
 !/data/weight_sensitivity_refits.csv
 !/data/weight_sensitivity_wings.csv
 !/data/regrades_after_outage.csv

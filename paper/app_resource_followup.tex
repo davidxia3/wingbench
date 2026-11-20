@@ -1,0 +1,78 @@
+\section{Focused resource follow-up}
+\label{app:resource-followup}
+
+This follow-up measures recommendation outcomes and resource use for selected
+configurations, separately from the original 240-episode campaign.
+Table~\ref{tab:resource-followup} lists the eight method--load groups, each
+with three seeds (2026111201--2026111203), for 24 initiated runs. Each method
+retained its 32-query search budget and 4{,}096-surrogate allowance.
+Recommendations were recorded at queries 0, 1, 2 and 4, with execution capped
+at query 4. Agents were instructed to optimize over the usual 32-query budget.
+
+\paragraph{Initial information and comparison scope.}
+The two CMA-ES methods shared 62 prior CFD records and evaluation allowances.
+Agents received SuperWing source data without that context. Actual surrogate
+use differed, and no common total-compute or wall-clock cap was imposed.
+Search budgets match the original campaign; software environments differ,
+and the model service's immutable checkpoint has not been confirmed to match
+the original deployment. Cross-family results therefore describe the tested
+configurations. This focused batch cannot rerank the full campaign under
+equal information and computation.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Follow-up recommendations after four CFD queries. Valid counts use
+all three initiated runs per group; mean $L/D$ uses valid recommendations
+only. Each time column is a separate median over runs that reached query 4:
+two for planning and three for every other row.}
+\label{tab:resource-followup}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr}
+\toprule
+Method / load & Valid/3 & Mean $L/D$ & \shortstack{Search\\CFD h} &
+\shortstack{Grading\\CFD h} & \shortstack{Local\\CPU h} \\
+\midrule
+Feedback-guided CMA-ES / low & 3/3 & 17.17 & 4.12 & 0.07 & 0.47 \\
+Open-ended / low & 3/3 & 17.35 & 10.89 & 2.62 & 1.73 \\
+Feedback-guided CMA-ES / nominal & 3/3 & 30.32 & 6.11 & 4.54 & 0.49 \\
+Selection-only CMA-ES / nominal & 1/3 & 32.87 & 0.18 & 0.18 & 3.25 \\
+Open-ended / nominal & 3/3 & 30.57 & 9.21 & 2.63 & 2.22 \\
+Planning / nominal & 2/3 & 30.87 & 10.84 & 2.32 & 2.08 \\
+Feedback-guided CMA-ES / high & 3/3 & 24.14 & 13.19 & 2.82 & 0.55 \\
+Open-ended / high & 3/3 & 30.97 & 12.74 & 2.94 & 3.06 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\paragraph{Recommendation outcomes.}
+Open-ended research and feedback-guided CMA-ES each returned valid wings in
+9/9 runs. Their mean $L/D$ was close at low and nominal load. At high load,
+open-ended research reached 30.97 versus 24.14 for feedback-guided CMA-ES,
+while using more local CPU time. Selection-only CMA-ES had the highest
+nominal mean $L/D$ among these methods but returned a valid wing in only
+1/3 runs. Its time medians include the two runs without valid recommendations.
+
+\paragraph{Evaluation and model usage.}
+The batch used 94 search CFD evaluations ($23\times4+2$) and 43 additional
+evaluations to grade recommendations. Private grading does not count toward
+the search budget. Recommendations with an existing search result reused
+that result. By query 4, feedback-guided CMA-ES used 512 surrogate evaluations
+per run and selection-only used all 4{,}096. Open-ended runs used
+643--2{,}306, and the two completed planning runs used 1{,}068--1{,}471.
+Across all 12 agent runs, we recorded 2{,}653 model calls, 397.61 million
+input tokens (including 396.02 million cached) and 2.75 million output tokens.
+Search decisions took 25--32 minutes for feedback-guided CMA-ES and
+156--248 minutes for selection-only. Agent research and review took
+76--252 minutes per run. These are recorded decision-stage durations,
+including local work and tool waits, rather than pure model-inference times.
+
+\paragraph{Resource definitions and execution.}
+CFD hours sum evaluator start-to-finish execution time, separately for search
+and grading; they are not processor-core hours. Local CPU hours sum user and
+system CPU time across the baseline controller tree, or agent research/review
+and episode-service trees, including surrogates. This is accumulated CPU time,
+not elapsed time, and excludes remote CFD and model-provider computation.
+No local GPUs were used. Model-provider usage is reported as calls and tokens.
+CFD and baselines ran on AWS m7a.4xlarge machines (16 vCPUs); agents and
+surrogates shared a CPU-only r7a.12xlarge machine. Each batch allowed up to
+12 concurrent CFD jobs.

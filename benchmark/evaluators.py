@@ -135,6 +135,20 @@ class CfdEvaluator:
 
         self.task = task
         self.grader = LocalGrader(task, Path(work_root), run_id=run_id, runtime_probe=runtime_probe)
+        from benchmark.resource_logging import ResourceLog
+        self.resource_log = ResourceLog(Path(work_root) / "cfd_resources.jsonl", run_id)
+        original_runner = self.grader.process_runner
+
+        def measured_process(command, cwd, log_path, timeout, env):
+            stage = "mesh" if any(str(arg).endswith("gen-mesh.py") for arg in command) else "flow"
+            with self.resource_log.span(stage, case=str(cwd), log_path=str(log_path),
+                                        timeout_seconds=timeout) as measured:
+                result = original_runner(command, cwd, log_path, timeout, env)
+                measured.update(process_record={key: result.get(key) for key in
+                                ("termination_reason", "returncode", "wall_seconds", "started_at", "finished_at")})
+                return result
+
+        self.grader.process_runner = measured_process
 
     @property
     def runtime_status(self) -> dict[str, Any]:
