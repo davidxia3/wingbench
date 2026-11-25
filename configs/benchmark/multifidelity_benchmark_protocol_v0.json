@@ -1,0 +1,294 @@
+{
+  "schema_version": "wingbench-multifidelity-benchmark-protocol-v0",
+  "protocol_id": "wingbench-superwing-mf-v0",
+  "protocol_revision": 0,
+  "status": "frozen_for_qualification",
+  "frozen_at": "2026-07-16",
+  "official_benchmark": false,
+  "change_control": {
+    "mutable_in_place": false,
+    "rule": "Any scientific or interface change requires a new protocol ID or revision. Qualification may accept or reject this protocol but may not silently edit it.",
+    "human_specification": "docs/benchmark/current/MULTIFIDELITY_BENCHMARK_PROTOCOL_V0.md"
+  },
+  "purpose": "Measure how well an optimizer allocates cheap AeroTransformer and expensive whole-wing CFD observations to deliver one high-L/D, CFD-valid SuperWing.",
+  "objective": {
+    "direction": "maximize",
+    "name": "three-condition fixed-CL CFD geometric-mean L/D",
+    "formula": "exp(mean(log(LD_q1), log(LD_q2), log(LD_q3)))",
+    "defined_only_if": "all three CFD conditions are valid and all three L/D values are finite and positive",
+    "weighted_sum": false
+  },
+  "design_action": {
+    "schema": "superwing-38d-v1",
+    "wire_dtype": "IEEE-754 float64",
+    "length": 38,
+    "coordinates": "physical parameters in canonical-physical-rootadj-v1 order",
+    "coordinate_bounds": null,
+    "manifold_restriction": null,
+    "geometry_gate": null,
+    "clipping_projection_or_repair": false,
+    "finite_values_required": true,
+    "malformed_action": "Wrong length, unparseable values, NaN, or positive/negative infinity are rejected before evaluation and consume no evaluator query or cost.",
+    "semantic_failure": "Any finite 38-vector is admitted. Geometry-construction, adapter, meshing, or solver failure is an evaluated outcome and consumes the applicable query and realized evaluator cost.",
+    "geometry_identity": "sha256(superwing-geom38-f64le-v1-NUL + 38xf64le)"
+  },
+  "initial_context": {
+    "enabled": true,
+    "charged_to_episode": false,
+    "record_count": 62,
+    "description": "Exactly the 50 undefended CMA-ES records plus the ungated member of each of the 12 matched-validation pairs. Gated-arm records and the legacy 69-wing trajectory are excluded.",
+    "selection_contract": {
+      "canonicalization": "UTF-8 JSON with sorted keys and separators ',' and ':'",
+      "canonical_sha256": "094ac003418da96aa92696096ac79b2134b4ef13e85ab83cd3853c1768ab8d77",
+      "payload": {
+        "schema_version": "wingbench-mf-warm-start-selection-v1",
+        "corpus50_rows": "configs/benchmark/undefended_50_wing_corpus_v1.json#/rows in stored order",
+        "matched_validation_ungated": "For each stored pair in configs/benchmark/corpus50_gate_matched_validation_results_v1.json#/pairs, pair the exact ungated result with the candidate having the same candidate_id from the two candidate manifests, preserving stored pair order."
+      },
+      "unique_geometry_count": 62,
+      "ordered_geometry_hash_list_sha256": "f7f4ae904ba50f4e2d57d86506d62df1be838f98cb32964618bfd3572aa58d86"
+    },
+    "source_files": [
+      {
+        "path": "configs/benchmark/undefended_50_wing_corpus_v1.json",
+        "file_sha256": "9f2c54b466e0a504253eb439802b9b3b832fadfc6b7ce93e76528597e331556f"
+      },
+      {
+        "path": "configs/benchmark/corpus50_gate_validation_batch1_candidates_v1.json",
+        "file_sha256": "b52950556ca8034fcdce79b87147e9fc4f2fd62067d1dfd756b5babc45d5c8b7"
+      },
+      {
+        "path": "configs/benchmark/corpus50_gate_validation_batch2_candidates_v1.json",
+        "file_sha256": "df60ca0f53457475a26bf90316b5d396a46df971db462fcbd6c08da5c1f18f8c"
+      },
+      {
+        "path": "configs/benchmark/corpus50_gate_matched_validation_results_v1.json",
+        "file_sha256": "24accc6494e48836e9631ff73396c4200f3d4cbfa3a29a7fe9715f6ffdb7cab6"
+      }
+    ],
+    "eligibility": {
+      "cheap_requery": "Returns the initial-context cheap record as an episode-local cache hit; no evaluation, query, or cost.",
+      "online_cfd_requery": "Rejected as historical_duplicate before evaluation; no online-CFD query or cost.",
+      "terminal_submission": "Ineligible. The optimizer must submit a geometry whose canonical hash is absent from the 62-record initial context."
+    }
+  },
+  "episode": {
+    "reset_returns": [
+      "this frozen problem specification",
+      "the exact 62-record initial context",
+      "an optimizer seed",
+      "empty append-only online history"
+    ],
+    "optimizer_package_frozen_before_campaign": true,
+    "within_episode_algorithmic_state_updates_allowed": true,
+    "icrl_claim_requirement": "A method described as in-context RL must keep learned policy parameters frozen and adapt only through the current-episode context. The general benchmark does not prohibit declared within-episode fitting by non-ICRL optimizers.",
+    "cross_episode_state_or_learning": false,
+    "human_intervention_after_reset": false,
+    "early_stop_allowed": true,
+    "one_cfd_query_in_flight_per_episode": true,
+    "episodes_may_run_in_parallel": true,
+    "terminal_submissions": 1
+  },
+  "actions": {
+    "cheap_query": {
+      "maximum_evaluated_geometries": 4096,
+      "adaptive": true,
+      "batching": {
+        "allowed": true,
+        "maximum_batch_size": 16,
+        "semantics": "An ordered simultaneous batch. No member may depend on another observation from the same batch. Each non-cached member counts as one cheap query; cumulative measured batch resource-time is recorded."
+      }
+    },
+    "online_cfd_query": {
+      "maximum_evaluated_geometries": 4,
+      "adaptive": true,
+      "unit": "one geometry, meshed once and evaluated at all three Mach conditions",
+      "per_condition_queries_forbidden": true
+    },
+    "submit": {
+      "may_submit_unqueried_geometry": true,
+      "ends_episode_immediately": true
+    }
+  },
+  "cheap_evaluator": {
+    "name": "AeroTransformer-L fixed-CL adapter",
+    "binding": {
+      "path": "configs/benchmark/aerotransformer_l_v1.json",
+      "file_sha256": "c18b1c9e5535ec0bf38ec1178aa16d46ab9b599cbaa71f6ce5c7eb395e6220d4"
+    },
+    "model": "ATsurf_L",
+    "device": "CPU",
+    "geometry_dtype": "float64",
+    "model_dtype": "float32",
+    "mach_grid": [
+      0.7853,
+      0.8195,
+      0.853
+    ],
+    "cl_target": 0.41,
+    "trim": {
+      "alpha0_deg": 6.6401110468,
+      "alpha1_deg": 7.1401110468,
+      "secant_updates": 2,
+      "cl_tolerance": 0.001,
+      "aoa_bounds_deg": [
+        -10.0,
+        25.0
+      ]
+    },
+    "score_requires_three_valid_conditions": true,
+    "failure_score": null,
+    "response": [
+      "canonical geometry and hash",
+      "whole-query status and reason codes",
+      "for each Mach: predicted CL, CD, L/D, trimmed AoA, and trim-valid flag when available",
+      "predicted geometric-mean L/D only for a complete 3/3-valid result",
+      "active evaluator wall-seconds and allocated-vCPU-seconds"
+    ],
+    "no_gate_before_or_after_surrogate": true
+  },
+  "cfd_evaluator": {
+    "name": "whole-wing fixed-CL ADflow oracle",
+    "binding": {
+      "path": "configs/cfd/final_protocol_candidate_v2.json",
+      "file_sha256": "f840ebd87a4f3c0fbbc53fe4faac0953eeaf9b48c976cc82eea64db70021c4eb",
+      "canonical_sha256": "403410fcb0daed2fbc6f46d0356e7e346adcb78b6f021edf1725cf0afc885852",
+      "bound_revision": 3,
+      "bound_status_at_freeze": "qualification_required"
+    },
+    "environment": "pinned mdolab u20 child image and runtime fingerprint in the bound CFD protocol",
+    "mpi_ranks": 16,
+    "memory_gib_per_slot": 64,
+    "mesh_once": true,
+    "serial_conditions": true,
+    "mach_grid": [
+      0.7853,
+      0.8195,
+      0.853
+    ],
+    "cl_target": 0.41,
+    "mesh_timeout_seconds": 1800,
+    "solve_timeout_seconds_per_condition": 7200,
+    "condition_fail_fast": false,
+    "score_requires_three_valid_conditions": true,
+    "partial_results": "Returned as diagnostics and usable by the optimizer but never form an official score.",
+    "response": [
+      "canonical geometry and hash",
+      "mesh outcome and reason codes",
+      "for each Mach: outcome, reason codes, CL, CD, L/D, and trimmed AoA when trustworthy",
+      "whole-wing pass, fail, or undetermined outcome",
+      "CFD geometric-mean L/D only for a complete 3/3-valid result",
+      "active evaluator wall-seconds and allocated-vCPU-seconds"
+    ]
+  },
+  "outcomes_and_retries": {
+    "semantic_invalidity": "Consumes one applicable query and all realized resource-time. No automatic replacement.",
+    "watchdog_timeout": "Terminal inconclusive observation for that query; consumes the query and realized resource-time. No ordinary retry.",
+    "generic_process_or_output_failure": "Terminal inconclusive observation for that query; consumes the query and realized resource-time. No ordinary retry.",
+    "verified_external_infrastructure_loss": "Censored, uncharged, and does not consume the scientific query. Resume by repeating the identical action only; no changed geometry or fidelity is permitted.",
+    "partial_cfd": "All trustworthy partial observations are returned even though no CFD score is defined.",
+    "automatic_replacement": false
+  },
+  "cache": {
+    "identity": "canonical geometry hash plus fidelity plus frozen evaluator identity",
+    "scope": "episode-local",
+    "exact_repeat": "Return the identical prior observation with status duplicate_cache_hit; perform no evaluator work, consume no additional evaluated-query quota, and add zero cost.",
+    "terminal_reuse": "If the terminal geometry has an episode-local online-CFD result, reuse it. Otherwise execute a new terminal CFD grade.",
+    "cross_episode_observation_sharing": false
+  },
+  "cost_accounting": {
+    "purpose": "Report realized evaluator/sample efficiency, not optimizer implementation efficiency.",
+    "primary_unit": "allocated_vcpu_seconds",
+    "definition": "Integral of allocated evaluator vCPUs over active evaluator wall time.",
+    "cheap_allocated_vcpus": 1,
+    "cfd_allocated_vcpus": 16,
+    "also_report": [
+      "active evaluator wall-seconds by query and fidelity",
+      "query counts by fidelity",
+      "administrative AWS runtime and dollar cost outside scientific scoring"
+    ],
+    "included": "Input validation after admission, geometry construction, model inference or mesh/flow execution, grading, and evaluator-side serialization required to produce the observation.",
+    "excluded": [
+      "optimizer compute",
+      "scheduler queue time",
+      "pod startup and provisioning",
+      "network transfer outside the evaluator",
+      "verified external infrastructure loss",
+      "terminal grade from optimizer-facing cost and query quotas"
+    ],
+    "no_scalar_total_budget": true,
+    "safety_caps_remain_binding": true
+  },
+  "terminal_grade": {
+    "meaning": "The optimizer's one final answer and the benchmark answer key.",
+    "geometry_may_be_unseen_online": true,
+    "online_cfd_quota_consumed": 0,
+    "optimizer_facing_cost": 0,
+    "actual_runtime_logged_administratively": true,
+    "benchmark_owner_pays_actual_compute": true,
+    "replacement_after_invalid_fail_or_inconclusive": false,
+    "exception": "Only a verified external infrastructure loss may repeat the identical terminal grade.",
+    "feedback_available_to_optimizer": false
+  },
+  "optimizer_feedback": {
+    "during_episode": [
+      "initial context",
+      "each requested cheap or CFD observation",
+      "query-level realized evaluator cost",
+      "cumulative counts and realized evaluator cost"
+    ],
+    "not_during_episode": [
+      "terminal grade",
+      "aggregate benchmark metrics",
+      "other episodes",
+      "hidden or gated historical outcomes"
+    ],
+    "benchmark_supplied_scalar_rl_reward": false,
+    "note": "An optimizer may internally map raw objective, validity, and cost observations to any training or decision utility. That private utility is not the benchmark score."
+  },
+  "reporting": {
+    "one_scalar_grade": false,
+    "primary_endpoints": [
+      "terminal delivery rate: fraction of episodes whose terminal wing is CFD-valid at all three conditions",
+      "terminal CFD geometric-mean L/D conditional on delivery"
+    ],
+    "primary_comparison": "Report delivery first and value conditional on delivery; do not hide their tradeoff in a weighted sum.",
+    "online_efficiency_endpoints": [
+      "best complete online-CFD L/D versus cumulative allocated-vCPU-seconds",
+      "probability of at least one complete online CFD result versus cumulative allocated-vCPU-seconds",
+      "cheap and CFD evaluated-query counts",
+      "fraction of online CFD queries that pass, fail, or are undetermined",
+      "early-stop behavior and unused quotas"
+    ],
+    "diagnostics": [
+      "selection-induced surrogate signed error, absolute error, and rank agreement only on geometries receiving CFD",
+      "surrogate completion versus CFD completion confusion table only on selected geometries",
+      "per-Mach and failure-mechanism breakdown",
+      "terminal choice provenance"
+    ],
+    "renamed_honesty_metric": "selection-induced proxy error",
+    "uncertainty": "Report seed-level raw outcomes and confidence intervals; never treat CFD conditions from one wing as independent replicates."
+  },
+  "information_policy": {
+    "allowed": [
+      "the frozen protocol and public parameter documentation",
+      "the exact 62-record initial context",
+      "the online observations in the current episode",
+      "optimizer-private pretrained weights and generic numerical tools declared before evaluation, provided their training data exclude the prohibited WingBench labels below",
+      "declared within-episode model fitting or algorithmic state updates that use only the current episode"
+    ],
+    "forbidden_during_evaluation": [
+      "gated-arm matched-validation records in raw, derived, or pretrained-weight form",
+      "the legacy 69-wing trajectory in raw, derived, or pretrained-weight form",
+      "unpublished CFD labels in raw, derived, or pretrained-weight form",
+      "observations from another benchmark episode",
+      "optimizer package mutation or state/weight sharing across benchmark episodes",
+      "human intervention after reset"
+    ]
+  },
+  "design_space_rationale": {
+    "path": "docs/benchmark/current/AEROTRANSFORMER_OFF_MANIFOLD_STRESS.md",
+    "file_sha256": "c4d891ab6f9b8c92a33fc48783fa2d730f0ff946300df2c3a6899215e4e136d2",
+    "conclusion": "Neither the old search cube nor the learned geometry gate is a principled semantic or surrogate-reliability boundary; finite unbounded proposals are therefore evaluated without either defense."
+  }
+}

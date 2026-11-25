@@ -1,0 +1,157 @@
+{
+  "schema_version": "superwing-38d-v1",
+  "geometry_convention": "canonical-physical-rootadj-v1",
+  "normalization": "unit = (physical - (mean - 3.5*population_sd)) / (7*population_sd)",
+  "source_of_names": "third_party/wingbench/analysis/render_wing.py and docs/reference/SUPERWING_PARAMETERIZATION.md",
+  "parameters": [
+    {
+      "index": 0,
+      "name": "SA",
+      "meaning": "leading-edge sweep",
+      "units": "deg"
+    },
+    {
+      "index": 1,
+      "name": "DA",
+      "meaning": "tip dihedral",
+      "units": "deg"
+    },
+    {
+      "index": 2,
+      "name": "DA_kink",
+      "meaning": "inner (kink) dihedral",
+      "units": "deg"
+    },
+    {
+      "index": 3,
+      "name": "AR",
+      "meaning": "aspect ratio",
+      "units": "dimensionless"
+    },
+    {
+      "index": 4,
+      "name": "TR",
+      "meaning": "taper ratio (tip chord / root chord)",
+      "units": "dimensionless"
+    },
+    {
+      "index": 5,
+      "name": "kink",
+      "meaning": "kink location along the span",
+      "units": "fraction of half-span"
+    },
+    {
+      "index": 6,
+      "name": "rootadj",
+      "meaning": "root chord adjustment",
+      "units": "dimensionless"
+    },
+    {
+      "index": 7,
+      "name": "rtcs_root",
+      "meaning": "thickness factor, root station (eta=0.0)",
+      "units": "dimensionless"
+    },
+    {
+      "index": 8,
+      "name": "rtcs_mid",
+      "meaning": "thickness factor, mid station (eta=0.5)",
+      "units": "dimensionless"
+    },
+    {
+      "index": 9,
+      "name": "rtcs_tip",
+      "meaning": "thickness factor, tip station (eta=1.0)",
+      "units": "dimensionless"
+    },
+    {
+      "index": 10,
+      "name": "camber_0",
+      "meaning": "camber parameter, station 0",
+      "units": "dimensionless"
+    },
+    {
+      "index": 11,
+      "name": "camber_1",
+      "meaning": "camber parameter, station 1",
+      "units": "dimensionless"
+    },
+    {
+      "index": 12,
+      "name": "camber_2",
+      "meaning": "camber parameter, station 2",
+      "units": "dimensionless"
+    },
+    {
+      "index": 13,
+      "name": "twist_0",
+      "meaning": "twist at eta=0",
+      "units": "deg"
+    },
+    {
+      "index": 14,
+      "name": "twist_1",
+      "meaning": "twist at eta=1/3",
+      "units": "deg"
+    },
+    {
+      "index": 15,
+      "name": "twist_2",
+      "meaning": "twist at eta=2/3",
+      "units": "deg"
+    },
+    {
+      "index": 16,
+      "name": "twist_3",
+      "meaning": "twist at eta=1",
+      "units": "deg"
+    },
+    {
+      "index": "17..26",
+      "name": "cst_u[0..9]",
+      "meaning": "upper-surface CST (Kulfan) weights, order 9",
+      "units": "dimensionless"
+    },
+    {
+      "index": "27..36",
+      "name": "cst_l[0..9]",
+      "meaning": "lower-surface CST (Kulfan) weights, order 9",
+      "units": "dimensionless"
+    },
+    {
+      "index": 37,
+      "name": "tcroot",
+      "meaning": "root thickness ratio; per-station thickness ~ tcroot * rtcs[station]",
+      "units": "dimensionless"
+    }
+  ],
+  "geometry_construction": "half-span is AR*(1+TR)/4 with root chord 1; thickness factors compound multiplicatively, twists compound additively, both cubic splines on the mesher station grid",
+  "bounds_rule": "unit coordinates in [0,1] correspond to physical mean +/- 3.5 population sd; submission is validated against the benchmark domain",
+  "evaluation_record": {
+    "written_to": "observations/<request_id>.json when the evaluation returns",
+    "fields": {
+      "request_id": "identifier of the evaluation request",
+      "job_id": "identifier of the run that produced it",
+      "task_id": "task identity the request was bound to",
+      "geometry_sha256": "canonical hash of the exact 38 coordinates evaluated",
+      "outcome_kind": "pass when the profile completed; undetermined when it did not",
+      "delivery": "true when an aggregate score exists",
+      "aggregate": {
+        "admissibility": "pass | undetermined",
+        "profile_status": "complete | incomplete",
+        "score_eligible": "an aggregate exists only for a complete profile",
+        "n_conditions/n_valid/n_inconclusive/n_invalid": "condition counts",
+        "cfd_ld_geomean": "geometric mean of L/D over the valid conditions, or null"
+      },
+      "mesh": "state, min_quality, min_volume, target_ds, actual_ds",
+      "conditions": "one row per flight condition: index, mach, cl_target, state, aoa_deg, cl, cd, ld, cl_error, trim_valid, n_step, final_residual_rho. A condition that did not converge reports its state and step count with null force coefficients.",
+      "reason_codes": "short machine-readable reasons for the outcome"
+    },
+    "artifacts": {
+      "written_to": "observations/<request_id>_artifacts/",
+      "solver.log": "per-condition convergence summary, plain text",
+      "residual_history.csv": "condition,mach,iteration,res_rho,res_mom,res_energy,cl,cd - the residual and force history actually produced for each condition"
+    },
+    "note": "the result file is written only after its artifacts are in place, so if observations/<request_id>.json exists its files are complete"
+  }
+}

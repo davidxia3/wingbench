@@ -1,0 +1,28 @@
+block,method,task,delivered,evaluations,rate
+baseline,CMA-ES no feedback,low,0,320,0.0
+baseline,CMA-ES no feedback,nominal,83,320,0.26
+baseline,CMA-ES no feedback,high,118,320,0.37
+baseline,CMA-ES selection only,low,0,320,0.0
+baseline,CMA-ES selection only,nominal,85,320,0.27
+baseline,CMA-ES selection only,high,112,320,0.35
+baseline,CMA-ES feedback-guided,low,14,320,0.04
+baseline,CMA-ES feedback-guided,nominal,246,320,0.77
+baseline,CMA-ES feedback-guided,high,247,320,0.77
+baseline,DE feedback-guided,low,93,320,0.29
+baseline,DE feedback-guided,nominal,200,320,0.62
+baseline,DE feedback-guided,high,199,320,0.62
+baseline,SMAC3,low,114,320,0.36
+baseline,SMAC3,nominal,88,320,0.28
+baseline,SMAC3,high,49,320,0.15
+agent_comparison,Open-ended research,low,21,40,0.53
+agent_comparison,Open-ended research,nominal,28,40,0.7
+agent_comparison,Open-ended research,high,34,40,0.85
+agent_comparison,Planning,low,31,40,0.78
+agent_comparison,Planning,nominal,30,40,0.75
+agent_comparison,Planning,high,29,40,0.72
+agent_comparison,Reflection,low,30,40,0.75
+agent_comparison,Reflection,nominal,29,40,0.72
+agent_comparison,Reflection,high,37,40,0.93
+agent_extension,Open-ended research,low,198,320,0.62
+agent_extension,Open-ended research,nominal,225,320,0.7
+agent_extension,Open-ended research,high,197,320,0.62

@@ -1,0 +1,6 @@
+wing,episode,task,queries_charged,regraded_at,machine,delivered,ld,outcome,reasons,wall_seconds
+04dce1f89ecd072208a6d64772e8820dab0be6650a498f71138904b70961c584,A068,high,17,2026-09-26T03:08Z,"m7a.4xlarge, rebuilt container",False,,conclusive_failure,not_run_unmeshable,178
+e139adb12758de1f3f91bf7ef2e056abe07f961252014fb3cc8c957d43f6b7cb,A070,low,27;28;29;30;32,2026-09-26T05:20Z,"m7a.4xlarge, rebuilt container",True,18.386494091527243,pass,complete_score_eligible,8064
+ee2ab7654b6a0f6e42d91fa68d3bb326edbcf2c06cb3127ff02fcaf25b902112,A088,nominal,26,2026-09-26T05:47Z,"m7a.4xlarge, rebuilt container",True,33.970652774830114,pass,complete_score_eligible,9654
+f263e77789c6926bac95cba79a5783d3cf4c313e7c31d28fca8fc9c28ec90ad7,A087,nominal,28;29,2026-09-26T05:48Z,"m7a.4xlarge, rebuilt container",True,30.591869902952574,pass,complete_score_eligible,9748
+9df36f38c88a69dca76444f2fb0ed752fd696a126622709f223c5bb052644735,A084,nominal,22,2026-09-26T07:39Z,"m7a.4xlarge, rebuilt container",False,,partial,inconclusive_timeout,16391

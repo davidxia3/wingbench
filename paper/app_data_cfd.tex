@@ -1,0 +1,153 @@
+\section{Released data}
+\label{app:datacard}
+
+The field-level data dictionary is \texttt{data/README.md}. Tables join on
+\texttt{episode}, \texttt{evaluation} and the geometry content hash
+\texttt{wing}. The principal files are summarized below. Missing measurements
+remain missing; a reused grade is not a new independent solver execution.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Data map, relative to \texttt{data/}. Full schemas and coverage notes
+are in the repository data dictionary.}
+\label{tab:data-overview}
+\begin{tabular}{p{0.42\linewidth}p{0.50\linewidth}}
+\toprule
+File & Content \\
+\midrule
+\texttt{episodes.csv} & 240 episodes, methods, tasks and seed labels \\
+\texttt{evaluations.csv} & 6{,}629 online/private requests, scores and failure codes \\
+\texttt{recommendations.csv}, \texttt{wings.csv} & Recommendation endpoints and recoverable 38-coordinate geometries \\
+\texttt{cfd\_attempts.csv}, \texttt{cfd\_conditions.csv} & Available attempt timings and condition-level CFD evidence \\
+\texttt{agent\_nominations.csv}, \texttt{agent\_turns.csv} & Standing recommendations and recorded model-session usage \\
+\texttt{surrogate\_usage.csv} & Charged surrogate use at the reported checkpoints \\
+\texttt{agent\_handoffs.csv}, \texttt{agent\_recoveries.csv} & Decision rationales, joined outcomes and bounded recovery events \\
+\texttt{accepted\_mesh\_flow\_audit.csv} & 11{,}535 audited condition records after accepted meshes \\
+\texttt{mesh\_validation\_checks.csv} & Source controls and paired upstream/default-layer diagnostics \\
+\texttt{regrades\_after\_outage.csv} & Separate post-study grades of the five outage wings \\
+\texttt{superwing/} & Source geometry and run records, shared with permission \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+There are 150 baseline episodes and 90 agent episodes. Online requests number
+4{,}800 for baselines, 360 at the common agent horizon, and 840 in the open-ended
+extension; 629 additional private grades complete the total. Recommendations
+that reuse an online grade do not add a request. The 6{,}629 records are thus
+neither a training-dataset target nor independent statistical replicates.
+Five evaluated geometries are unavailable. The original condition table covers
+6{,}241 result documents; the later accepted-mesh audit is a separately
+recovered subset with its own provenance, not an assertion of complete raw
+coverage. Agent seed labels do not pair model sampling across methods.
+
+\section{CFD protocol and environment}
+\label{app:cfdprotocol}
+
+The protocol is
+\texttt{configs/cfd/\allowbreak final\_protocol\_candidate\_v2.json};
+\texttt{scripts/cfd/grading\_protocol.py} verifies its source bindings.
+The local grading wrapper builds one mesh, runs three conditions serially,
+and records both aggregate eligibility and per-condition evidence. The
+configuration retains its development identity (revision 3,
+\texttt{qualification\_required}, \texttt{official\_grading\_enabled=false});
+the public local wrapper is not a hosted official grading authority.
+
+\subsection{Mesh construction}
+
+The geometry and mesher come from SuperWing's published AeroTransformer
+simulation files at commit
+\texttt{3dc350ff69e354d1451eae468c686a368bd6151f}. The case preparer copies the
+geometry inputs, adjusts the local tip-template path and MPI invocation, and
+uses the default mesh profile with \texttt{robust\_mesh=false}. The default
+volume march uses 81 layers; the optional robustness patch is not used in
+reported benchmark grades. First-cell spacing targets $y^+=1$ using the mean
+of the input Mach conditions, at 300 K and Reynolds number $2\times10^7$.
+Benchmark and source Mach conditions can therefore give different spacing for
+the same geometry. An accepted mesh must have positive minimum cell
+volume and minimum quality. Quality between 0 and 0.05 is recorded as marginal
+but accepted. Missing or malformed evidence and mesh-process stops are
+inconclusive, distinct from a completed quality-gate rejection. Meshing has
+a 1{,}800-second wall-time limit. Appendix~\ref{app:evaluator-checks}
+reports spacing controls, upstream-script checks and a separate 129-layer
+sensitivity test; those diagnostic meshes do not replace original grades.
+
+\subsection{Operating conditions, solver and acceptance}
+
+All tasks use Mach 0.7853, 0.8195 and 0.8530, Reynolds number $2\times10^7$,
+Reynolds length 1.0, temperature 300 K, generated wing surface area as the
+reference area, reference chord 1.0 and reference position 0.25. Lift targets
+are 0.15, 0.41 and 0.66. Initial angles of attack are respectively
+4.4259755152, 6.6401110468 and 8.924059800550001 degrees, fixed from source-data
+medians within 0.02 of each lift target. They are not reselected per wing.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Principal fixed solver and trim settings. The configuration and
+patched runner specify all remaining options explicitly.}
+\label{tab:cfd-solver}
+\begin{tabular}{p{0.43\linewidth}p{0.49\linewidth}}
+\toprule
+Setting & Value \\
+\midrule
+Flow model and multigrid & ADflow RANS; \texttt{3w} cycle \\
+Nonlinear solvers & Approximate Newton--Krylov and Newton--Krylov enabled \\
+NK switching tolerance & $10^{-8}$ \\
+Residual convergence target & $10^{-10}$ \\
+Iteration limits & 500 coarse-grid cycles; 3{,}000 solve cycles \\
+Lift matching (\texttt{solveCL}) & Step 0.5 degrees; tolerance 0.001; maximum 20 iterations \\
+Trim relaxation & Both lift-slope and angle relaxation 1.0; no supplied lift-slope guess \\
+Stall handling & No early stall abort; \texttt{stop\_on\_stall=false} \\
+Parallelism & 16 MPI ranks, one OpenMP/BLAS thread per rank \\
+Time limit & 7{,}200 wall seconds per condition attempt \\
+Condition order & Serial; remaining conditions run even after failure \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A condition must exit with code zero, supply a converged \texttt{solveCL}
+result, leave both ADflow failure flags false, and have lift oscillation below
+0.0005. Lift must be within 0.02 of target, angle of attack in $[-10,25]$
+degrees, and lift and drag positive. The benchmark additionally enforces
+$0<L/D\leq40$. A valid aggregate score requires all three conditions and is
+the geometric mean of their $L/D$. Partial results remain diagnostics.
+Timeouts and process errors are inconclusive computational outcomes;
+completed trim nonconvergence is a distinct invalid-solver outcome. None
+certifies physical impossibility of the design.
+
+The grader has no internal infrastructure retries. The campaign controller
+handles external worker loss separately; ten pre-CFD requests were nevertheless
+charged during the agent extension, a documented exception
+(Appendix~\ref{app:agent-comparison}). Repeated within-episode wings reuse
+recorded results while consuming a query. These accounting rules must be
+separated from counts of independent executions.
+
+\subsection{Environment and scope of reproducibility}
+
+The reference deployment assigns one wing 16 vCPUs and 64 GB on an AWS
+\texttt{m7a.4xlarge}. Historical records also identify cluster workers, so
+identical hardware is not established. Because limits are wall-clock based,
+hardware and contention affect acceptance. A wing can spend up to 6.5 hours
+in meshing and the three conditions. The grader sets the solver/thread
+variables itself, rejects conflicting parent overrides, requires a non-root
+account and serializes jobs on the reference worker.
+
+The Dockerfile and Apptainer definition in \texttt{benchmark/environment/}
+rebuild from the digest-pinned \texttt{mdolab/public} Ubuntu 20.04 image with
+Open MPI 4.1.6, Python 3.9.12 and the MDO Lab solver/mesher libraries. The
+geometry library \texttt{cst-modeling3d}, SuperWing scripts and runtime probe
+are content-pinned. \texttt{benchmark/environment/ENVIRONMENT.md} gives the
+full commits, image digests and hashes, avoiding duplicated opaque identifiers
+here. AeroTransformer ATsurf-L runs separately on CPU in float32; its weight
+fingerprints and retrieval instructions are in \texttt{benchmark/README.md}.
+
+A fresh reference-machine rebuild reproduced one nominal wing's three
+conditions and score (33.401823323619524) exactly on 25 September 2026.
+This checks one case, not mesh independence or general evaluator validity.
+The rebuild does not recreate the exact historical image digest or runtime
+fingerprint. A new probe hash requires a separate protocol revision. The
+original authorization, attestation and remote scheduling services are not
+distributed; the released local grader runs independently. Likewise, the
+agent prompts and tools are available, but the original distributed session
+controller and full reasoning streams are not. The additional checks in
+Appendix~\ref{app:evaluator-checks} address implementation consistency and
+settings sensitivity without claiming equivalence of every historical runtime.

@@ -1,0 +1,317 @@
+\section{Formal problem statement and method equations}
+\label{app:formal}
+
+This appendix states the benchmark and the reference methods in symbols. It
+adds no new claim. Every quantity is the one the released code computes, and
+Table~\ref{tab:app-settings} lists the settings.
+
+\subsection{Design space, evaluator, and score}
+
+A design is a vector $z \in \mathcal{B} = [-3.5, 3.5]^{38}$ of standardized
+coordinates. Its physical parameters are $x = \mu + \sigma \odot z$, where
+$\mu$ and $\sigma$ hold the per-coordinate mean and standard deviation of the
+SuperWing designs and $\odot$ is the coordinatewise product. A task is a target
+lift coefficient $C_L^{*} \in \{0.15, 0.41, 0.66\}$. Every design is evaluated
+at three flow conditions $c \in \{1, 2, 3\}$ with Mach numbers $0.7853$,
+$0.8195$, and $0.8530$ and Reynolds number $2 \times 10^{7}$, as in
+Section~\ref{sec:benchmark}.
+
+For one condition the evaluator meshes the wing, adjusts the angle of attack
+$\alpha$ until the computed lift coefficient matches the target, and returns
+the lift-to-drag ratio at that angle,
+\begin{equation}
+r_c(x) = \frac{C_L(x, c, \alpha_c^{*})}{C_D(x, c, \alpha_c^{*})},
+\qquad
+\bigl|C_L(x, c, \alpha_c^{*}) - C_L^{*}\bigr| \le 0.02 .
+\label{eq:condition}
+\end{equation}
+The condition is valid only if a mesh exists, the solver process exits
+normally, the solver's lift oscillation measure is below $5 \times 10^{-4}$, the
+trimmed angle lies in $[-10^{\circ}, 25^{\circ}]$, and $0 < r_c(x) \le 40$.
+Otherwise the condition returns a failure type instead of a number. The score
+is the geometric mean over the three conditions,
+\begin{equation}
+y(x) = \Bigl( \prod_{c=1}^{3} r_c(x) \Bigr)^{1/3},
+\label{eq:score}
+\end{equation}
+and it exists only when all three conditions are valid. We write
+$d(x) \in \{0, 1\}$ for this event, delivery. When $d(x) = 0$ the
+evaluation returns one of three outcome types. A conclusive failure means the
+geometry was rejected or a condition was conclusively invalid. Partial means
+some conditions returned values and none was invalid. Undetermined means no
+condition returned one. In the released records every conclusive failure is a
+rejected geometry.
+
+The surrogate $s(x)$ is the same geometric mean computed from AeroTransformer
+predictions with the same trim procedure. One surrogate evaluation takes about
+a second and returns a number for every finite $x$, including designs with
+$d(x) = 0$.
+
+\subsection{An episode}
+
+An episode is one search on one task. Let $\mathcal{H}_k$ denote everything the
+optimizer has observed after $k$ online evaluations, that is, its surrogate
+queries, the designs it submitted, and for each submitted design either the
+score or the failure type. A policy $\pi$ maps $\mathcal{H}_k$ either to a
+batch of at most 16 surrogate queries or to the next online design $x_{k+1}$.
+The budgets are
+\begin{equation}
+\text{surrogate evaluations} \le 4096, \qquad k \le 32,
+\label{eq:budgets}
+\end{equation}
+and online evaluations are strictly sequential, so $x_{k+1}$ may depend on
+$d(x_k)$ and $y(x_k)$. At each checkpoint $q \in \mathcal{Q} = \{0, 1, 2, 4, 8,
+16, 32\}$ the policy also names one recommendation $\rho_q \in \mathcal{B}$,
+the design it would hand to a user. The recommendation is graded by the same
+evaluator, the grade is never shown to the policy, and it costs no budget. If
+$\rho_q$ was already evaluated online, the grade reuses that result. A design
+submitted twice in one episode returns its recorded result and still costs a
+query.
+
+\subsection{Endpoints}
+
+For one method and one task with episodes $e = 1, \dots, n$, where $n = 10$
+seeds, write $d_q^{e} = d(\rho_q^{e})$ and $y_q^{e} = y(\rho_q^{e})$. Then
+\begin{equation}
+D_q = \frac{1}{n} \sum_{e=1}^{n} d_q^{e},
+\qquad
+Q_q = \frac{\sum_{e} d_q^{e}\, y_q^{e}}{\sum_{e} d_q^{e}},
+\qquad
+O = \frac{1}{32\, n} \sum_{e=1}^{n} \sum_{k=1}^{32} d(x_k^{e}).
+\label{eq:endpoints}
+\end{equation}
+$D_q$ is recommendation delivery, $Q_q$ is conditional quality, defined only
+when some recommendation delivers, and $O$ is online delivery. The paper
+reports $D_q$ and $Q_q$ at $q = 32$ for the baselines and at $q = 4$ for the
+agents. The delivery averaged across tasks in Section~\ref{sec:analysis} is the
+mean of $D_{32}$ over tasks.
+
+\subsection{The belief model of the surrogate-assisted baselines}
+
+The four surrogate-assisted baselines share one belief model, fitted anew in
+every episode from the 62 warm-start results and the episode's own online
+outcomes. Its feature map is
+\begin{equation}
+\phi(x) = \bigl( 1,\; z_1/3.5,\; \dots,\; z_{38}/3.5,\; \log s(x) - \log 30
+\bigr) \in \mathbb{R}^{40}.
+\label{eq:features}
+\end{equation}
+The delivery model is a weighted logistic regression with an $\ell_2$ penalty,
+\begin{equation}
+\begin{aligned}
+p(x) &= \operatorname{clip}\bigl( \sigma(w^{\top} \phi(x)),\, 0.05,\, 0.95 \bigr), \\
+w &= \arg\min_{w} \sum_{i} \omega_i\, \ell\bigl( d_i, \sigma(w^{\top} \phi(x_i)) \bigr)
++ 4\, \| w_{1:39} \|^{2} + 0.1\, w_0^{2},
+\end{aligned}
+\label{eq:delivery-model}
+\end{equation}
+where $\ell$ is the logistic loss, the label $d_i$ is 1 for a pass and 0
+otherwise, and the weight $\omega_i$ is 1 for a pass or a conclusive failure
+and $0.5$ for a partial or undetermined outcome. Appendix~\ref{app:weight}
+varies this weight. The fit runs 40 iterations. The discrepancy model is a
+ridge regression, on the delivered results, of the log ratio between the CFD
+score and the surrogate score,
+\begin{equation}
+\begin{aligned}
+\delta_i &= \log y_i - \log s(x_i), \qquad \hat{\delta}(x) = v^{\top} \phi(x), \\
+v &= \arg\min_{v} \sum_{i:\, d_i = 1} \bigl( \delta_i - v^{\top} \phi(x_i) \bigr)^{2}
++ 10\, \| v_{1:39} \|^{2} + 0.1\, v_0^{2},
+\end{aligned}
+\label{eq:discrepancy-model}
+\end{equation}
+with a predictive standard deviation $\hat{\sigma}(x)$ floored at $0.05$ and
+set to $0.25$ while no delivered result exists. The private merit of a design
+combines the two models,
+\begin{equation}
+m(x) = \log p(x) + \log s(x) + \hat{\delta}(x) + \tfrac{1}{2}\, \hat{\sigma}(x)
++ \tfrac{1}{10}\, H\bigl( p(x) \bigr),
+\qquad
+H(p) = -p \log p - (1 - p) \log (1 - p).
+\label{eq:merit}
+\end{equation}
+The first three terms are the log of the expected delivered score, the
+delivery probability times the corrected surrogate score. The last two terms
+reward uncertainty in value and delivery.
+
+\subsection{The five baseline variants}
+
+All four surrogate-assisted variants run their generator in unit coordinates
+on the box with a population of 16 and 256 generations, which is the
+4{,}096-evaluation budget, and keep an active archive of the 64 best
+cheap-valid designs. A design whose surrogate evaluation is not finite receives
+a loss of $10^{12}$.
+
+\textbf{CMA-ES, no feedback.} The objective is $s(x)$. All 256 generations run
+before the first online query. The 32 best distinct archive designs are
+queued in descending $s$, and online results change nothing.
+
+\textbf{CMA-ES, selection only.} The same search and the same archive. At online
+step $k$ the method submits $\arg\max m(x)$ over the unqueried archive designs,
+refitting $p$ and $\hat{\delta}$ after every result. The archive never
+changes, so feedback picks the next design but cannot create a new one.
+
+\textbf{Feedback-guided CMA-ES.} One continuing CMA-ES state with initial mean
+$0.5$ in unit coordinates and initial step size $\sigma_0 = 0.25$. Before each
+online query it runs eight generations, 128 surrogate evaluations, with
+objective $m(x)$, then submits the archive $\arg\max$ of $m$. Both models
+are refitted after every result, so feedback changes the selection and the
+proposal distribution.
+
+\textbf{Feedback-guided DE.} DE/rand/1/bin with $F = 0.8$ and
+$\mathit{CR} = 0.9$ replaces the CMA-ES state. A
+trial replaces its parent when its merit is at least the parent's, and a
+mutant coordinate outside the box is redrawn uniformly. Schedule and selector
+are those of feedback-guided CMA-ES.
+
+\textbf{SMAC3.} The black-box facade of SMAC 2.4.0 with its Gaussian-process
+model, 8 Sobol initial designs, 24 model-guided queries, one evaluation per
+configuration, and a common penalty value for every nondelivery. It uses no
+surrogate and no warm-start results.
+
+\textbf{Recommendation rule.} For every baseline, if any online evaluation has
+delivered by checkpoint $q$,
+\begin{equation}
+\rho_q = \arg\max_{k \le q:\; d(x_k) = 1} y(x_k),
+\label{eq:recommendation}
+\end{equation}
+which is the best delivered online design. Otherwise the recommendation is an
+untested design chosen by the method's own rule, the unqueried archive design
+with the highest $s$ for the no-feedback method, with the highest selector
+value for the selection-only method, and with the highest $m$ for the two
+feedback-guided methods, and the next proposal for SMAC3. Ties break by a
+stable candidate identifier. The checkpoint-32 recommendation is the terminal
+one.
+
+\subsection{Statistical procedures}
+
+\textbf{Seed-block contrasts for the baselines.} For two methods $A$ and $B$
+and seed $j$, the delivery effect at checkpoint 32 is the mean over the three
+tasks $t$ of $d_{A,t,j} - d_{B,t,j}$, and the quality effect is the mean of
+$y_{A,t,j} - y_{B,t,j}$ over the tasks where both recommendations deliver,
+undefined when there is none. With $n_b$ available blocks and effects
+$\Delta_1, \dots, \Delta_{n_b}$, the estimate is $\bar{\Delta}$ and the exact
+two-sided sign-flip $p$ value is
+\begin{equation}
+p = 2^{-n_b} \,\bigl| \{ \varepsilon \in \{-1, +1\}^{n_b} :
+\bigl| \tfrac{1}{n_b} \textstyle\sum_j \varepsilon_j \Delta_j \bigr| \ge
+| \bar{\Delta} | \} \bigr| .
+\label{eq:signflip}
+\end{equation}
+The 95\% interval is the 2.5th and 97.5th percentile of $\bar{\Delta}$ over
+10{,}000 resamples of the blocks with replacement, drawn from a PCG64
+generator with seed 73001. The six tests are corrected by Holm's step-down procedure. With
+ordered $p$ values $p_{(1)} \le \dots \le p_{(6)}$ the adjusted values are
+$\tilde{p}_{(i)} = \max_{j \le i} \min\{1, (7 - j)\, p_{(j)}\}$, and a
+contrast is significant when $\tilde{p} \le 0.05$. With seven blocks the
+smallest attainable $p$ in Equation~\ref{eq:signflip} is $2/128 = 0.016$,
+which is why Section~\ref{sec:results} reports the quality contrasts as
+underpowered, not null.
+
+\textbf{Analysis-plan scope.} The frozen development plan designated low and
+nominal load as the core comparison and high load as a separate stress task.
+The reported implementation pools all three. No pre-results amendment
+establishing that broader scope was recovered, so the three-task estimates,
+intervals and adjusted tests are exploratory. Their calculations are unchanged;
+the historical script filename \texttt{15\_confirmatory\_contrasts.py} does not
+confer confirmatory status. The unchanged plan is included as
+\texttt{configs/benchmark/\allowbreak goldilocks\_v2\_phase4\_analysis\_plan\_v1.json}.
+
+\textbf{Agent contrasts.} A seed label does not pair agent episodes, so the two
+methods' ten episodes are resampled independently, 10{,}000 times with the same
+generator. The quality difference is the difference between the two
+conditional means of Equation~\ref{eq:endpoints}, and each resample
+recomputes both means from its delivered recommendations.
+Table~\ref{tab:agent-contrasts} lists them.
+
+\textbf{Intervals for a single rate.} For $k$ delivered recommendations out of
+$n$, Table~\ref{tab:marginal} reports the exact Clopper--Pearson interval
+\begin{equation}
+\bigl[ B_{\alpha/2}(k,\, n - k + 1),\; B_{1 - \alpha/2}(k + 1,\, n - k) \bigr],
+\label{eq:clopper}
+\end{equation}
+where $B_{u}(a, b)$ is the $u$ quantile of the beta distribution, the ends
+are 0 when $k = 0$ and 1 when $k = n$, and $\alpha = 0.05$. Its coverage is at
+least the nominal 95\% for every $k$.
+
+\textbf{Intervals for a difference of rates.} A bootstrap of two arms that both
+deliver every recommendation has no spread, so Table~\ref{tab:agent-contrasts}
+uses Newcombe's score interval. With $\hat{p} = k / n$, $z = 1.96$, and the
+Wilson bounds
+\begin{equation}
+l, u = \frac{\hat{p} + z^{2}/2n \;\mp\; z \sqrt{\hat{p}(1 - \hat{p})/n + z^{2}/4n^{2}}}
+{1 + z^{2}/n},
+\label{eq:wilson}
+\end{equation}
+the interval for $\hat{p}_1 - \hat{p}_2$ is
+\begin{equation}
+\Bigl[ \hat{p}_1 - \hat{p}_2 - \sqrt{(\hat{p}_1 - l_1)^{2} + (u_2 - \hat{p}_2)^{2}},\;
+\hat{p}_1 - \hat{p}_2 + \sqrt{(u_1 - \hat{p}_1)^{2} + (\hat{p}_2 - l_2)^{2}} \Bigr].
+\label{eq:newcombe}
+\end{equation}
+
+\subsection{Two remarks}
+
+\textbf{Why the surrogate is optimistic where the search goes.} Write the
+surrogate score of candidate $i$ as $s_i = y_i + \epsilon_i$ with an error
+$\epsilon_i$ that has mean zero for a randomly chosen design. A search that
+screens many candidates and keeps $i^{*} = \arg\max_i s_i$ selects for large
+positive errors as much as for large true scores. This is the optimizer's
+curse of \citet{smith2006curse}. Under their assumption that the error has mean
+zero given the true score, selecting the maximum gives
+$\mathbb{E}[\, s_{i^{*}} - y_{i^{*}} \,] \ge 0$, and the gap grows with the
+number of candidates screened and with the error variance. In WingBench the error variance is
+largest away from the SuperWing data, which is where optimization pushes, and
+the same selection applies to delivery, since a design whose failure the
+surrogate does not see is favored exactly because that failure is not priced.
+Appendix~\ref{app:classifier} measures the consequence, and the agents that
+fitted their own models in Section~\ref{sec:results} met the same effect.
+
+\textbf{Why the recommendation rule is the best delivered design.} Repeated
+evaluations of the same wing agreed in 800 of 809 cases
+(Appendix~\ref{app:outcomes}), so a private regrade of an already delivered
+design returns its online score. Among the designs an optimizer has evaluated,
+Equation~\ref{eq:recommendation} therefore maximizes the delivered score with
+certainty. An untested design $x$ can only beat it in expectation when
+$p(x)\, \mathbb{E}[\, y(x) \mid d(x) = 1 \,]$ exceeds the best delivered score,
+and the baselines never take that gamble once a design has delivered. This is
+a conservative rule, chosen because the benchmark asks for a design worth
+handing to a user, not for the design with the best expected score.
+
+\begin{table}[H]
+\caption{Settings of the reference methods and of the analysis, as fixed in
+the released configurations.}
+\label{tab:app-settings}
+\centering
+\scriptsize
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+\toprule
+setting & value \\
+\midrule
+design box & $[-3.5, 3.5]^{38}$ standardized, edge tolerance $10^{-9}$ \\
+flow conditions & Mach $0.7853$, $0.8195$, $0.8530$ at $\mathrm{Re} = 2 \times 10^{7}$ \\
+lift match & $|C_L - C_L^{*}| \le 0.02$, lift oscillation $< 5 \times 10^{-4}$, $\alpha \in [-10^{\circ}, 25^{\circ}]$ \\
+score envelope & $0 < r_c \le 40$ for every condition \\
+time limits & 30 min per mesh, 2 h per flow condition, wall clock \\
+reference machine & one job at a time on an AWS m7a.4xlarge, 16 cores, 64 GB \\
+surrogate budget & 4{,}096 evaluations in batches of at most 16 \\
+online budget & 32 sequential CFD evaluations \\
+checkpoints & 0, 1, 2, 4, 8, 16, 32 \\
+warm start & the same 62 CFD results for the four surrogate-assisted baselines \\
+population, generations & 16, 256 (eight generations per online query when interleaved) \\
+active archive & 64 designs \\
+CMA-ES & initial mean $0.5$ in unit coordinates, $\sigma_0 = 0.25$, no mirrors \\
+DE & DE/rand/1/bin, $F = 0.8$, $\mathit{CR} = 0.9$ \\
+invalid surrogate value & loss $10^{12}$ \\
+delivery model & logistic, $\ell_2$ penalty 4 (intercept 0.1), 40 iterations, clip to $[0.05, 0.95]$ \\
+outcome weights & pass 1, conclusive failure 1, partial 0.5, undetermined 0.5 \\
+discrepancy model & ridge in $\log y - \log s$, penalty 10 (intercept 0.1), $\hat{\sigma} \ge 0.05$, 0.25 with no label \\
+merit & $\log p + \log s + \hat{\delta} + 0.5\, \hat{\sigma} + 0.1\, H(p)$ \\
+SMAC3 & version 2.4.0, black-box facade, 8 Sobol points, 24 model-guided queries \\
+agents & DeepSeek V4.1 Flash, maximum reasoning effort, 64 tool rounds per turn \\
+reflection & summary capped at 4{,}000 characters \\
+planning & four plans of two steps, at most three cycles per decision \\
+bootstrap & 10{,}000 resamples, PCG64 seed 73001, 95\% percentile intervals \\
+multiple comparisons & Holm over six exploratory baseline contrasts at $\alpha = 0.05$ \\
+\bottomrule
+\end{tabular*}
+\end{table}

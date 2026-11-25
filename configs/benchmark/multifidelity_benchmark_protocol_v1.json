@@ -1,0 +1,99 @@
+{
+  "schema_version": "wingbench-multifidelity-benchmark-protocol-amendment-v1",
+  "protocol_id": "wingbench-superwing-mf-v1",
+  "protocol_revision": 1,
+  "status": "frozen_for_qualification",
+  "frozen_at": "2026-07-17",
+  "official_benchmark": false,
+  "supersedes_for_prospective_qualification": "wingbench-superwing-mf-v0",
+  "base_protocol": {
+    "path": "configs/benchmark/multifidelity_benchmark_protocol_v0.json",
+    "file_sha256": "28952614a2477bbee0365522aa5b9f2eddb783c76d484b876e2ecfac8060b530",
+    "inheritance_rule": "Deep-copy the base JSON and apply every JSON-Pointer replacement in overrides exactly. Fields not named by an override are inherited byte-semantically from v0. The amendment file and its pinned base together are the complete v1 protocol."
+  },
+  "change_control": {
+    "mutable_in_place": false,
+    "rule": "Any further scientific or interface change requires a new protocol ID or revision. Qualification may accept or reject v1 but may not silently edit it.",
+    "human_specification": "docs/benchmark/current/MULTIFIDELITY_BENCHMARK_PROTOCOL_V1.md"
+  },
+  "rationale": {
+    "timing": "Frozen before any formal multi-fidelity qualification episode produced a scientific observation.",
+    "design_bounds": "Replace the unbounded finite-vector action space with the pre-existing population-standardized search cube used by the original frozen CMA-ES studies. A shared physical [-100,100] box is rejected because the 38 coordinates have different units and scales.",
+    "ld_envelope": "The pre-existing off-manifold stress test found rare near-zero predicted-drag artifacts, including an individual predicted L/D of 1368.186 and complete three-condition scores that hid individual L/D values of 96.415 or 177.218. A per-condition rather than aggregate envelope is therefore required.",
+    "evidence": {
+      "path": "docs/benchmark/current/AEROTRANSFORMER_OFF_MANIFOLD_STRESS.md",
+      "file_sha256": "c4d891ab6f9b8c92a33fc48783fa2d730f0ff946300df2c3a6899215e4e136d2"
+    }
+  },
+  "overrides": {
+    "/protocol_id": "wingbench-superwing-mf-v1",
+    "/protocol_revision": 1,
+    "/status": "frozen_for_qualification",
+    "/frozen_at": "2026-07-17",
+    "/official_benchmark": false,
+    "/change_control/human_specification": "docs/benchmark/current/MULTIFIDELITY_BENCHMARK_PROTOCOL_V1.md",
+    "/purpose": "Measure how well an optimizer allocates cheap AeroTransformer and expensive whole-wing CFD observations to deliver one high-L/D, benchmark-eligible SuperWing inside the frozen standardized design box.",
+    "/objective/defined_only_if": "all three CFD conditions satisfy the underlying CFD-validity contract, all three L/D values are finite and positive, and every per-condition L/D is at most 40.0",
+    "/objective/per_condition_ld_envelope": {
+      "lower_exclusive": 0.0,
+      "upper_inclusive": 40.0,
+      "applies_to": [
+        "cheap evaluator score eligibility",
+        "online CFD benchmark-score eligibility",
+        "terminal CFD benchmark-score eligibility"
+      ],
+      "aggregation_rule": "Apply the envelope before the three-condition geometric mean. One out-of-envelope condition makes the whole-wing benchmark score undefined even when the other conditions are in range.",
+      "raw_evidence_policy": "Never clip an L/D value to 40. Preserve and return every trustworthy raw CL, CD, and L/D value with reason code per_condition_ld_above_40.",
+      "semantics": "This is a prospectively frozen benchmark objective envelope, not a claim that every CFD solution above 40 is physically impossible."
+    },
+    "/design_action/coordinate_bounds": {
+      "kind": "population_standardized_axis_aligned_box",
+      "inclusive": true,
+      "normalization_binding": {
+        "path": "configs/benchmark/superwing_physical_normalization_v1.json",
+        "file_sha256": "28ea4089b79a78c8e41ff45d8b58296e8437c0f0c6800de181acd55c2ee1f306",
+        "normalization_id": "superwing-running-info-physical-4239-v1"
+      },
+      "standardized_lower_38d": -3.5,
+      "standardized_upper_38d": 3.5,
+      "physical_formula": "lower_i=mean_38d[i]-3.5*sd_38d[i]; upper_i=mean_38d[i]+3.5*sd_38d[i]",
+      "action_validation": "Every physical coordinate must lie inside its own inclusive physical interval."
+    },
+    "/design_action/clipping_projection_or_repair": false,
+    "/design_action/malformed_action": "Wrong length, unparseable values, NaN, positive/negative infinity, or any coordinate outside its frozen inclusive interval is rejected before evaluation and consumes no evaluator query or cost. Values are never clipped, projected, or repaired.",
+    "/design_action/semantic_failure": "Any finite in-bounds 38-vector is admitted. Geometry-construction, adapter, meshing, solver, or objective-envelope failure is an evaluated outcome and consumes the applicable query and realized evaluator cost.",
+    "/cheap_evaluator/objective_envelope": {
+      "rule": "A cheap whole-wing score exists only when all three ordinary trim-valid conditions also have finite positive L/D not exceeding 40.0.",
+      "violation_status": "objective_envelope_failure",
+      "reason_code": "per_condition_ld_above_40",
+      "query_and_realized_cost_consumed": true,
+      "automatic_replacement": false,
+      "cfd_query_of_same_geometry_still_allowed": true
+    },
+    "/cfd_evaluator/benchmark_objective_envelope": {
+      "oracle_raw_grade_unchanged": true,
+      "rule": "After preserving the complete raw CFD grade, the benchmark defines no online or terminal objective score if any trustworthy per-condition CFD L/D exceeds 40.0.",
+      "violation_status": "objective_envelope_failure",
+      "reason_code": "per_condition_ld_above_40",
+      "query_and_realized_cost_consumed": true,
+      "automatic_replacement": false,
+      "ordinary_retry": false
+    },
+    "/reporting/primary_endpoints": [
+      "terminal delivery rate: fraction of episodes whose terminal wing is CFD-valid at all three conditions and satisfies the per-condition L/D objective envelope",
+      "terminal CFD geometric-mean L/D conditional on benchmark delivery"
+    ],
+    "/reporting/diagnostics": [
+      "selection-induced surrogate signed error, absolute error, and rank agreement only on geometries receiving CFD",
+      "surrogate completion versus CFD completion confusion table only on selected geometries",
+      "per-Mach and failure-mechanism breakdown",
+      "raw and benchmark-eligible outcomes for every per-condition L/D envelope violation",
+      "terminal choice provenance"
+    ]
+  },
+  "formal_campaign_policy": {
+    "v0_formal_scientific_outcomes_eligible_for_v1": false,
+    "infrastructure_only_attempts_before_v1": "Retain as administrative evidence but never mix them into v1 scientific results.",
+    "optimizer_packages": "Every optimizer package must bind this amendment and its pinned base and must enforce the v1 action and observation semantics before formal execution."
+  }
+}

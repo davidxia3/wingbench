@@ -1,0 +1,106 @@
+study,method,task,checkpoint,episodes,delivered,mean_ld
+baseline,CMA-ES no feedback,low,0,10,0,
+baseline,CMA-ES no feedback,low,1,10,0,
+baseline,CMA-ES no feedback,low,2,10,0,
+baseline,CMA-ES no feedback,low,4,10,0,
+baseline,CMA-ES no feedback,low,8,10,0,
+baseline,CMA-ES no feedback,low,16,10,0,
+baseline,CMA-ES no feedback,low,32,10,0,
+baseline,CMA-ES selection only,low,0,10,0,
+baseline,CMA-ES selection only,low,1,10,0,
+baseline,CMA-ES selection only,low,2,10,0,
+baseline,CMA-ES selection only,low,4,10,0,
+baseline,CMA-ES selection only,low,8,10,0,
+baseline,CMA-ES selection only,low,16,10,0,
+baseline,CMA-ES selection only,low,32,10,0,
+baseline,CMA-ES feedback-guided,low,0,10,3,16.17
+baseline,CMA-ES feedback-guided,low,1,10,5,15.42
+baseline,CMA-ES feedback-guided,low,2,10,4,16.47
+baseline,CMA-ES feedback-guided,low,4,10,5,16.25
+baseline,CMA-ES feedback-guided,low,8,10,5,16.25
+baseline,CMA-ES feedback-guided,low,16,10,5,16.87
+baseline,CMA-ES feedback-guided,low,32,10,6,16.76
+baseline,DE feedback-guided,low,0,10,3,13.13
+baseline,DE feedback-guided,low,1,10,4,12.38
+baseline,DE feedback-guided,low,2,10,6,14.02
+baseline,DE feedback-guided,low,4,10,8,14.78
+baseline,DE feedback-guided,low,8,10,10,16.1
+baseline,DE feedback-guided,low,16,10,10,17.18
+baseline,DE feedback-guided,low,32,10,10,17.52
+baseline,SMAC3,low,0,10,1,6.33
+baseline,SMAC3,low,1,10,3,8.87
+baseline,SMAC3,low,2,10,3,8.87
+baseline,SMAC3,low,4,10,6,7.48
+baseline,SMAC3,low,8,10,7,9.51
+baseline,SMAC3,low,16,10,9,9.87
+baseline,SMAC3,low,32,10,9,10.56
+baseline,CMA-ES no feedback,nominal,0,10,3,33.19
+baseline,CMA-ES no feedback,nominal,1,10,3,33.19
+baseline,CMA-ES no feedback,nominal,2,10,3,33.19
+baseline,CMA-ES no feedback,nominal,4,10,3,33.22
+baseline,CMA-ES no feedback,nominal,8,10,3,33.22
+baseline,CMA-ES no feedback,nominal,16,10,4,33.19
+baseline,CMA-ES no feedback,nominal,32,10,4,33.22
+baseline,CMA-ES selection only,nominal,0,10,3,33.19
+baseline,CMA-ES selection only,nominal,1,10,4,33.14
+baseline,CMA-ES selection only,nominal,2,10,4,33.14
+baseline,CMA-ES selection only,nominal,4,10,4,33.18
+baseline,CMA-ES selection only,nominal,8,10,4,33.19
+baseline,CMA-ES selection only,nominal,16,10,4,33.21
+baseline,CMA-ES selection only,nominal,32,10,4,33.22
+baseline,CMA-ES feedback-guided,nominal,0,10,3,23.58
+baseline,CMA-ES feedback-guided,nominal,1,10,5,22.42
+baseline,CMA-ES feedback-guided,nominal,2,10,6,25.82
+baseline,CMA-ES feedback-guided,nominal,4,10,10,28.73
+baseline,CMA-ES feedback-guided,nominal,8,10,10,32.06
+baseline,CMA-ES feedback-guided,nominal,16,10,10,32.91
+baseline,CMA-ES feedback-guided,nominal,32,10,10,33.04
+baseline,DE feedback-guided,nominal,0,10,3,19.47
+baseline,DE feedback-guided,nominal,1,10,5,18.79
+baseline,DE feedback-guided,nominal,2,10,7,20.19
+baseline,DE feedback-guided,nominal,4,10,9,22.35
+baseline,DE feedback-guided,nominal,8,10,10,25.4
+baseline,DE feedback-guided,nominal,16,10,10,28.94
+baseline,DE feedback-guided,nominal,32,10,10,31.09
+baseline,SMAC3,nominal,0,10,1,10.24
+baseline,SMAC3,nominal,1,10,3,13.58
+baseline,SMAC3,nominal,2,10,3,13.58
+baseline,SMAC3,nominal,4,10,5,12.03
+baseline,SMAC3,nominal,8,10,6,15.03
+baseline,SMAC3,nominal,16,10,6,15.91
+baseline,SMAC3,nominal,32,10,7,17.0
+baseline,CMA-ES no feedback,high,0,10,4,32.03
+baseline,CMA-ES no feedback,high,1,10,4,32.03
+baseline,CMA-ES no feedback,high,2,10,4,32.03
+baseline,CMA-ES no feedback,high,4,10,5,32.04
+baseline,CMA-ES no feedback,high,8,10,5,32.08
+baseline,CMA-ES no feedback,high,16,10,5,32.1
+baseline,CMA-ES no feedback,high,32,10,5,32.12
+baseline,CMA-ES selection only,high,0,10,4,32.03
+baseline,CMA-ES selection only,high,1,10,4,32.03
+baseline,CMA-ES selection only,high,2,10,5,32.04
+baseline,CMA-ES selection only,high,4,10,5,32.07
+baseline,CMA-ES selection only,high,8,10,5,32.1
+baseline,CMA-ES selection only,high,16,10,5,32.12
+baseline,CMA-ES selection only,high,32,10,5,32.12
+baseline,CMA-ES feedback-guided,high,0,10,7,16.65
+baseline,CMA-ES feedback-guided,high,1,10,6,17.89
+baseline,CMA-ES feedback-guided,high,2,10,7,18.85
+baseline,CMA-ES feedback-guided,high,4,10,10,23.99
+baseline,CMA-ES feedback-guided,high,8,10,10,28.14
+baseline,CMA-ES feedback-guided,high,16,10,10,31.0
+baseline,CMA-ES feedback-guided,high,32,10,10,31.64
+baseline,DE feedback-guided,high,0,10,1,17.23
+baseline,DE feedback-guided,high,1,10,5,15.2
+baseline,DE feedback-guided,high,2,10,7,15.44
+baseline,DE feedback-guided,high,4,10,8,18.15
+baseline,DE feedback-guided,high,8,10,9,19.94
+baseline,DE feedback-guided,high,16,10,10,23.59
+baseline,DE feedback-guided,high,32,10,10,27.05
+baseline,SMAC3,high,0,10,1,5.66
+baseline,SMAC3,high,1,10,2,9.17
+baseline,SMAC3,high,2,10,2,9.17
+baseline,SMAC3,high,4,10,3,8.45
+baseline,SMAC3,high,8,10,4,10.43
+baseline,SMAC3,high,16,10,5,12.19
+baseline,SMAC3,high,32,10,6,12.82

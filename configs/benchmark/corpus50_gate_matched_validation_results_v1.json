@@ -1,0 +1,2014 @@
+{
+  "analysis_canonical_sha256": "3e1157a191c39fdcae829847ac14ddf778bbe8d1e22f6118729faafee5520e97",
+  "analysis_population": "all_twelve_frozen_matched_seed_pairs",
+  "batch_result_canonical_sha256s": [
+    "58428d01ec19781167befe621cc87bbbd5cbe3da4476e8d346a8323fefc7522a",
+    "f965e5cd09df2113e4a0a4834c9555d5eaac77e60a879ab8746e1a10ccdc4608"
+  ],
+  "canonical_sha256": "f05c6b856c51d5ec0ce2e151dbf50271c2bdffd7b4832c96e876b50cbe6fdca8",
+  "decision": {
+    "all_frozen_retention_criteria_passed": true,
+    "numeric_retention_rule_passed": true,
+    "selected_benchmark_branch": "aerotransformer_plus_gate",
+    "status": "complete"
+  },
+  "experiment_canonical_sha256": "20dd261891cbf79c65e4d1e42bfecd111c41dd7c4c44f8b755ab3f55d2cc12ae",
+  "mechanism_counts_by_arm": {
+    "gated": {
+      "flow_inconclusive": 3,
+      "mesh_inconclusive": 1,
+      "none_complete_pass": 8
+    },
+    "ungated": {
+      "flow_inconclusive": 3,
+      "mesh_inconclusive": 2,
+      "mesh_unmeshable": 2,
+      "none_complete_pass": 5
+    }
+  },
+  "numeric_retention_checks": {
+    "gated_mesh_usability_must_not_be_lower": {
+      "gated_observed": 11,
+      "passed": true,
+      "required": true,
+      "ungated_observed": 8
+    },
+    "gated_minus_ungated_pass_count_minimum": {
+      "observed": 3,
+      "passed": true,
+      "required": 2
+    },
+    "gated_pass_count_minimum": {
+      "observed": 8,
+      "passed": true,
+      "required": 8
+    },
+    "median_surrogate_loss_floor": {
+      "observed": 0.20639262764263933,
+      "passed": true,
+      "required": -0.5
+    }
+  },
+  "official_benchmark": false,
+  "pair_outcomes": [
+    {
+      "gated": "pass",
+      "pair_seed": 3028,
+      "ungated": "undetermined"
+    },
+    {
+      "gated": "undetermined",
+      "pair_seed": 3029,
+      "ungated": "undetermined"
+    },
+    {
+      "gated": "undetermined",
+      "pair_seed": 3030,
+      "ungated": "undetermined"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3031,
+      "ungated": "fail"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3032,
+      "ungated": "pass"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3033,
+      "ungated": "pass"
+    },
+    {
+      "gated": "undetermined",
+      "pair_seed": 3034,
+      "ungated": "undetermined"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3035,
+      "ungated": "pass"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3036,
+      "ungated": "fail"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3037,
+      "ungated": "undetermined"
+    },
+    {
+      "gated": "pass",
+      "pair_seed": 3038,
+      "ungated": "pass"
+    },
+    {
+      "gated": "undetermined",
+      "pair_seed": 3039,
+      "ungated": "pass"
+    }
+  ],
+  "paired_analysis": {
+    "both_pass": 4,
+    "exact_one_sided_mcnemar_p_value": 0.1875,
+    "gated_completion_rate": 0.6666666666666666,
+    "gated_mesh_usable_count": 11,
+    "gated_pass_count": 8,
+    "gated_win_discordances": 4,
+    "median_gated_minus_ungated_frozen_surrogate_geomean_ld": 0.20639262764263933,
+    "neither_pass": 3,
+    "pair_count": 12,
+    "paired_risk_difference": 0.25,
+    "paired_risk_difference_95pct_newcombe_method10": [
+      -0.08314392522391012,
+      0.5091681742634834
+    ],
+    "surrogate_pair_differences": [
+      -0.2888278559398927,
+      2.2947914478060163,
+      -2.0439265739103973,
+      -0.9202651157201309,
+      -0.10500602769275247,
+      2.8460712307324307,
+      0.5177912829780311,
+      1.3196901713450409,
+      -0.49848601429540906,
+      -1.9787991053999683,
+      1.5353210353587414,
+      2.247272637362311
+    ],
+    "ungated_completion_rate": 0.4166666666666667,
+    "ungated_mesh_usable_count": 8,
+    "ungated_pass_count": 5,
+    "ungated_win_discordances": 1
+  },
+  "pairs": [
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3028_g",
+        "cfd_ld_geomean": 32.62597156439961,
+        "cfd_ld_worst": 31.429671482024236,
+        "conditions": [
+          {
+            "cd": 0.012300319211371279,
+            "cl": 0.4100055267685881,
+            "condition_id": "mach_q1",
+            "ld": 33.33291760343506,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.063733793835566,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.01237181621738506,
+            "cl": 0.4101197175553788,
+            "condition_id": "mach_q2",
+            "ld": 33.14951583091514,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.902482363278485,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.01304772932137572,
+            "cl": 0.41008584615721394,
+            "condition_id": "mach_q3",
+            "ld": 31.429671482024236,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.687469807097033,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-02",
+          "result_canonical_sha256": "afcf9f279fc1e9cc246211e2f7fecae746d9aa4cd43b707a72a87d165339f8a7",
+          "result_file_sha256": "5328134a66e6ed9721884d11da2733b86e12ef5aeea154ba14bc217e00e13324",
+          "terminal_entry_sha256": "04ffe7dbeb6e6e7056fbe5c5a9b56dbaed8619c6f8a1199235642fe03d45c8bc"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.013713860422828307,
+        "geometry_sha256": "51ee547083d100c724ad1e787de8a01bcf8363d1102612ea9d25b08cb3226969",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3028",
+        "pair_seed": 3028,
+        "predicted_score_geomean_ld": 32.90872248134831,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T11:40:21.597270Z",
+          "started_at": "2026-07-16T09:02:17.971200Z",
+          "wall_seconds": 9483.62607
+        },
+        "score_eligible": true,
+        "shard_number": 2,
+        "surrogate_absolute_percentage_error": 0.8666436688041149,
+        "surrogate_minus_cfd_geomean_ld": 0.28275091694870014,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3028",
+      "pair_seed": 3028,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3028_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "inconclusive_timeout",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_timeout"
+            ]
+          },
+          {
+            "cd": 0.012386735942811863,
+            "cl": 0.41004970358158893,
+            "condition_id": "mach_q2",
+            "ld": 33.10393516699971,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.580750733318007,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012712103572409992,
+            "cl": 0.40970747669149904,
+            "condition_id": "mach_q3",
+            "ld": 32.22971511817424,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.395026821130632,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-01",
+          "result_canonical_sha256": "af6453b48b980dd179ee69ac09a6fcc1a074e1c63b57401b1d9130b1a89a83fc",
+          "result_file_sha256": "28e8ea4b7b88369164c7558558c2d4ec8b8c8f40385b5bf12957c5eacac47846",
+          "terminal_entry_sha256": "d51f2112f753d31457910185ffdb328fa95a95839353b59066bfff6ec6f7197e"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.017087015691379624,
+        "geometry_sha256": "cd99491e4b27cb16de0a4f1887c5200c92aaba97abf96c9cb9b148002dcc0df6",
+        "inconclusive_condition_count": 1,
+        "invalid_condition_count": 0,
+        "mechanism_family": "flow_inconclusive",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3028",
+        "pair_seed": 3028,
+        "predicted_score_geomean_ld": 33.197550337288206,
+        "reason_codes": [
+          "inconclusive_timeout"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T13:03:20.521826Z",
+          "started_at": "2026-07-16T09:02:15.584068Z",
+          "wall_seconds": 14464.937758
+        },
+        "score_eligible": false,
+        "shard_number": 1,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 2,
+        "whole_wing_outcome": "undetermined"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3029_g",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "inconclusive_infrastructure",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_infrastructure"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "inconclusive_infrastructure",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_infrastructure"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "inconclusive_infrastructure",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_infrastructure"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-04",
+          "result_canonical_sha256": "aa3380a1ebec41a4c40281a98c5beaeb1ec926fe950989683ed75fe7f32b75dd",
+          "result_file_sha256": "8b54040ae1f87d4e830b5bd0ddd133b6114b968c14c5f639ab34ce5d3d887897",
+          "terminal_entry_sha256": "1e5c34442bc8cc785553ee081fdbe1069da65c768ba40cae7095443bff9115d6"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.014306647397012703,
+        "geometry_sha256": "a712d12b52f8d737928256e861ea024ab8357630beb132cb4cff6cf7615ad843",
+        "inconclusive_condition_count": 3,
+        "invalid_condition_count": 0,
+        "mechanism_family": "flow_inconclusive",
+        "mesh_outcome": "marginal",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3029",
+        "pair_seed": 3029,
+        "predicted_score_geomean_ld": 32.91689661341862,
+        "reason_codes": [
+          "inconclusive_infrastructure"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T09:07:39.897701Z",
+          "started_at": "2026-07-16T09:02:21.422239Z",
+          "wall_seconds": 318.475462
+        },
+        "score_eligible": false,
+        "shard_number": 4,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "undetermined"
+      },
+      "pair_id": "gatev2_pair_s3029",
+      "pair_seed": 3029,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3029_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-03",
+          "result_canonical_sha256": "e7d75dc3bbb423c02d43e8f59c65e30a28d89fa9c6956fc41417e3e593a59332",
+          "result_file_sha256": "38e1778dcabf63cf47ab90e959116a198997ff1d407aaf9e5a6ed7140859c645",
+          "terminal_entry_sha256": "d8430ad272b49024b25edb788086a08636f0f5d44b60b93dd889f750445a649a"
+        },
+        "gate_accepts": false,
+        "gate_score": -0.017878113180081964,
+        "geometry_sha256": "461350b1bf606968f40e54d224c8509e264fd3fc9ba69ff9e25758e49b6515c2",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "mesh_inconclusive",
+        "mesh_outcome": "inconclusive",
+        "mesh_usable": false,
+        "pair_id": "gatev2_pair_s3029",
+        "pair_seed": 3029,
+        "predicted_score_geomean_ld": 30.622105165612606,
+        "reason_codes": [
+          "inconclusive_timeout",
+          "not_run_mesh_inconclusive"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T09:32:22.512179Z",
+          "started_at": "2026-07-16T09:02:20.786490Z",
+          "wall_seconds": 1801.725689
+        },
+        "score_eligible": false,
+        "shard_number": 3,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "undetermined"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3030_g",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "inconclusive_timeout",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_timeout"
+            ]
+          },
+          {
+            "cd": 0.013120206046045007,
+            "cl": 0.4097653139986098,
+            "condition_id": "mach_q2",
+            "ld": 31.23162186329617,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.215849513386908,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013713463176851223,
+            "cl": 0.41026465237116644,
+            "condition_id": "mach_q3",
+            "ld": 29.916925220152024,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.063840472535222,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-06",
+          "result_canonical_sha256": "66f957aced717cfefb6f5376f89ec4121c09f0cbb4adb620de4cb94857237404",
+          "result_file_sha256": "d62bd63c10b3918798196065d8f9f6bc1ffb84fbd02cdd2232ba59cc294e2fc7",
+          "terminal_entry_sha256": "1ba16cb60f77f7f503382519211234c39a86b2a6120511bbd499f98496ace2ba"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.01299296016804748,
+        "geometry_sha256": "81614b81abc16b8ce45de3c28a924d754087dd196cf0aec0b1f270694d0ac478",
+        "inconclusive_condition_count": 1,
+        "invalid_condition_count": 0,
+        "mechanism_family": "flow_inconclusive",
+        "mesh_outcome": "marginal",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3030",
+        "pair_seed": 3030,
+        "predicted_score_geomean_ld": 31.028647403197184,
+        "reason_codes": [
+          "inconclusive_timeout"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T12:44:46.478809Z",
+          "started_at": "2026-07-16T09:02:26.290951Z",
+          "wall_seconds": 13340.187858
+        },
+        "score_eligible": false,
+        "shard_number": 6,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 2,
+        "whole_wing_outcome": "undetermined"
+      },
+      "pair_id": "gatev2_pair_s3030",
+      "pair_seed": 3030,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3030_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-05",
+          "result_canonical_sha256": "8944763a339d66416e5f20978c2c98c670ce03949d538725eeffdf667e3d5864",
+          "result_file_sha256": "ecc937a32268cb71f4573985f8e77c60ce2f14db2e1ddb9b29d57f9c739ca0d1",
+          "terminal_entry_sha256": "a55263b14fce362155fefa2352a3886ef10ec0322b9cc9ae35d0ecbff2ca2589"
+        },
+        "gate_accepts": false,
+        "gate_score": -0.021749834005526297,
+        "geometry_sha256": "2fbed574a6864f711e997f026fa9a6ce59e7741705fca6f562fb2a89643956bf",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "mesh_inconclusive",
+        "mesh_outcome": "inconclusive",
+        "mesh_usable": false,
+        "pair_id": "gatev2_pair_s3030",
+        "pair_seed": 3030,
+        "predicted_score_geomean_ld": 33.07257397710758,
+        "reason_codes": [
+          "inconclusive_timeout",
+          "not_run_mesh_inconclusive"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T09:32:24.138831Z",
+          "started_at": "2026-07-16T09:02:22.409294Z",
+          "wall_seconds": 1801.729537
+        },
+        "score_eligible": false,
+        "shard_number": 5,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "undetermined"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3031_g",
+        "cfd_ld_geomean": 31.04487667053947,
+        "cfd_ld_worst": 30.17788819629207,
+        "conditions": [
+          {
+            "cd": 0.012996683528413997,
+            "cl": 0.41000361127797336,
+            "condition_id": "mach_q1",
+            "ld": 31.546787330906614,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.072673376380046,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013046252670933824,
+            "cl": 0.41002620991740046,
+            "condition_id": "mach_q2",
+            "ld": 31.428657734869063,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.926439453522285,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013587761366301113,
+            "cl": 0.4100499433501318,
+            "condition_id": "mach_q3",
+            "ld": 30.17788819629207,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.725606949501473,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-08",
+          "result_canonical_sha256": "2498aeb3f3d2a329f0cb3649d4dd501cc3999bf319250b933d3b9aac257c84ba",
+          "result_file_sha256": "f9747140b36c016b799cbdfd8d6e8fd9cb1a8b59e202df566a86e40145ab9f92",
+          "terminal_entry_sha256": "3976f03fddf070118840e08127ba72c43dfde28b082fdd2b0d1b7b7c2a980fb1"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.013890810265217463,
+        "geometry_sha256": "6353070ab85948a5696ac1ad4c0a594470a3431d72a970a8e2a2f1c7261f5664",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "marginal",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3031",
+        "pair_seed": 3031,
+        "predicted_score_geomean_ld": 31.53375899376581,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T11:43:07.764158Z",
+          "started_at": "2026-07-16T09:02:30.628771Z",
+          "wall_seconds": 9637.135387
+        },
+        "score_eligible": true,
+        "shard_number": 8,
+        "surrogate_absolute_percentage_error": 1.5747600752760427,
+        "surrogate_minus_cfd_geomean_ld": 0.48888232322634195,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3031",
+      "pair_seed": 3031,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3031_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "not_run_unmeshable",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_unmeshable"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "not_run_unmeshable",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_unmeshable"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "not_run_unmeshable",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_unmeshable"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-07",
+          "result_canonical_sha256": "97632218ef7f2fd2c444203c29dadf705c3427a83bbcb61d616f3cc8ad23722b",
+          "result_file_sha256": "f1cf4a0d85dbb3412fad4e16d1db8207ffb8f7f78215d5b7c5f4b3769b3b9718",
+          "terminal_entry_sha256": "0bdc7dbeda857036b4e03c170e9d2a66681fba3d7bc07c4aae25b809af108d45"
+        },
+        "gate_accepts": false,
+        "gate_score": -0.027367657200577416,
+        "geometry_sha256": "eaa9287c14953e640f1123b8fddb9f370e9c8162ff982cf38b3aef939e140e15",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "mesh_unmeshable",
+        "mesh_outcome": "unmeshable",
+        "mesh_usable": false,
+        "pair_id": "gatev2_pair_s3031",
+        "pair_seed": 3031,
+        "predicted_score_geomean_ld": 32.45402410948594,
+        "reason_codes": [
+          "invalid_mesh_nonpositive_metric",
+          "not_run_unmeshable"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T09:04:36.033479Z",
+          "started_at": "2026-07-16T09:02:28.191369Z",
+          "wall_seconds": 127.84211
+        },
+        "score_eligible": false,
+        "shard_number": 7,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "fail"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3032_g",
+        "cfd_ld_geomean": 32.46575025400536,
+        "cfd_ld_worst": 31.804348853870238,
+        "conditions": [
+          {
+            "cd": 0.012488499239283277,
+            "cl": 0.4103013754667795,
+            "condition_id": "mach_q1",
+            "ld": 32.854338027755446,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 8.178123882768764,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012541138720087306,
+            "cl": 0.41070886070321116,
+            "condition_id": "mach_q2",
+            "ld": 32.7489289346089,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 8.039195574322187,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012890486681901384,
+            "cl": 0.40997353532735986,
+            "condition_id": "mach_q3",
+            "ld": 31.804348853870238,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.853108486534012,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-10",
+          "result_canonical_sha256": "8bfd1f2a7373d6fb969206941fe29cfcb0eb996a7493ca4fef05b1775222c2d2",
+          "result_file_sha256": "e47c88a48fe267c3cb0061b4d40d55c402eac09153311e55f76c84b5ac5872a0",
+          "terminal_entry_sha256": "ff93420190f202f4ebdc2e7a535c71a3c027726616198f5d12acb3adbc16de80"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.010638189585740686,
+        "geometry_sha256": "6839bc6f2930b43148fcbec203900a41d71700bfa685691cc10f9e8c3b769509",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3032",
+        "pair_seed": 3032,
+        "predicted_score_geomean_ld": 32.418862955441064,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T12:05:21.261776Z",
+          "started_at": "2026-07-16T09:02:33.502270Z",
+          "wall_seconds": 10967.759506
+        },
+        "score_eligible": true,
+        "shard_number": 10,
+        "surrogate_absolute_percentage_error": 0.14442080715047892,
+        "surrogate_minus_cfd_geomean_ld": -0.04688729856429319,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3032",
+      "pair_seed": 3032,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3032_u",
+        "cfd_ld_geomean": 32.20010508319567,
+        "cfd_ld_worst": 31.223662767682043,
+        "conditions": [
+          {
+            "cd": 0.012499400504721307,
+            "cl": 0.409970131468186,
+            "condition_id": "mach_q1",
+            "ld": 32.79918355390972,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.945000699700458,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.0125747711315749,
+            "cl": 0.40994451067076637,
+            "condition_id": "mach_q2",
+            "ld": 32.600554426108566,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.802964795062333,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013160531974177754,
+            "cl": 0.410920012205023,
+            "condition_id": "mach_q3",
+            "ld": 31.223662767682043,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.6401110468,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-09",
+          "result_canonical_sha256": "4978229cb016b2c353265b5ef6201927181ced110ed78debb010c4bc4a42a578",
+          "result_file_sha256": "14109a5611b026e503b419a23a3559e32edebf780ab8042f7a45d49d62b89515",
+          "terminal_entry_sha256": "ed0f8f84e7ed6208fcf7e66850247c9575c4104ccad32b90f76961cc6f90ba66"
+        },
+        "gate_accepts": false,
+        "gate_score": -0.019067530445215235,
+        "geometry_sha256": "23e5355228994c35d4cb153d18e5653dd2cdb7363d4ae85fdf925560b8d4cf82",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3032",
+        "pair_seed": 3032,
+        "predicted_score_geomean_ld": 32.523868983133816,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T11:13:19.417286Z",
+          "started_at": "2026-07-16T09:02:30.392814Z",
+          "wall_seconds": 7849.024472
+        },
+        "score_eligible": true,
+        "shard_number": 9,
+        "surrogate_absolute_percentage_error": 1.0054746687988492,
+        "surrogate_minus_cfd_geomean_ld": 0.32376389993814314,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3033_g",
+        "cfd_ld_geomean": 32.71093225570275,
+        "cfd_ld_worst": 32.083601217898995,
+        "conditions": [
+          {
+            "cd": 0.012382952399087713,
+            "cl": 0.4100004931822374,
+            "condition_id": "mach_q1",
+            "ld": 33.11007585012144,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.840691377970917,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012441334809827384,
+            "cl": 0.4099231611022409,
+            "condition_id": "mach_q2",
+            "ld": 32.948487229717784,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.685401270061253,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012779487990593856,
+            "cl": 0.4100119964591426,
+            "condition_id": "mach_q3",
+            "ld": 32.083601217898995,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.497725253744485,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-12",
+          "result_canonical_sha256": "983832cd5ba786cd15567950a5ba131d8a697e5f6b26a784091417738f387cc5",
+          "result_file_sha256": "2370bacb5d7329630945f4de6b546056ca3684ae7594a9d6c663353b1a2e75a2",
+          "terminal_entry_sha256": "dcb2ad2a8ac9a788081e943dc4ef8d3fb7738d0f938de2aa0ee4a2e5289192e8"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.01605537362011891,
+        "geometry_sha256": "43ae50153b4af27a7079c083f573810b8bd68d8b85f7757de8d43d65dbb4b8ea",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3033",
+        "pair_seed": 3033,
+        "predicted_score_geomean_ld": 32.37200116718406,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T12:08:27.231625Z",
+          "started_at": "2026-07-16T09:02:36.976325Z",
+          "wall_seconds": 11150.2553
+        },
+        "score_eligible": true,
+        "shard_number": 12,
+        "surrogate_absolute_percentage_error": 1.0361401071337644,
+        "surrogate_minus_cfd_geomean_ld": -0.3389310885186916,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3033",
+      "pair_seed": 3033,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 1,
+        "candidate_id": "gatev2_b1_s3033_u",
+        "cfd_ld_geomean": 29.168985619075954,
+        "cfd_ld_worst": 27.342644235661172,
+        "conditions": [
+          {
+            "cd": 0.013360844126977082,
+            "cl": 0.41001489262798596,
+            "condition_id": "mach_q1",
+            "ld": 30.68779852016376,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.792560418419302,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013862048837491897,
+            "cl": 0.41000122824899643,
+            "condition_id": "mach_q2",
+            "ld": 29.577245979691643,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.657651019429101,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.0149880104597893,
+            "cl": 0.4098118378023873,
+            "condition_id": "mach_q3",
+            "ld": 27.342644235661172,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.444584765179283,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-1-shard-11",
+          "result_canonical_sha256": "3cf8f160e919637b6e1bd5031a380df5efe22f9d1ffe4c141f8ffc3759027b11",
+          "result_file_sha256": "e675e7e8dd0e5006dbe0c0d84ae75b0c118583323e1ea8bf48b3287dbf7be8a7",
+          "terminal_entry_sha256": "06d1679c44b273814234a9c2606110e2588ae66e8407a840315ce26425befc63"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.003458066954993683,
+        "geometry_sha256": "b18542514f418a4e5dabc5f1d6be30ac07dd8f5f47315a7f098300ed9bf5a42e",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3033",
+        "pair_seed": 3033,
+        "predicted_score_geomean_ld": 29.52592993645163,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T11:22:28.544003Z",
+          "started_at": "2026-07-16T09:02:32.267626Z",
+          "wall_seconds": 8396.276377
+        },
+        "score_eligible": true,
+        "shard_number": 11,
+        "surrogate_absolute_percentage_error": 1.2237117945652516,
+        "surrogate_minus_cfd_geomean_ld": 0.35694431737567456,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3034_g",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "not_run_mesh_inconclusive",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_mesh_inconclusive"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-02",
+          "result_canonical_sha256": "a39ed4dac9eb2bae42b9b2be2f00f227d7b9f428e363c774cd00abe711d8a219",
+          "result_file_sha256": "08c7905154979eaf734fd9cb5e0b518f7cab0bc018bdd5a54ab3f42e3f0d89c5",
+          "terminal_entry_sha256": "3274cf7817f89bb87c26d9e61f353683242ca895c43b00f4b293c741021ec4c7"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.014917899472370827,
+        "geometry_sha256": "da0f608ef7f3e3f25b5829fd931e4ca2f10f6331ab154d2dbd2964eb10e43718",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "mesh_inconclusive",
+        "mesh_outcome": "inconclusive",
+        "mesh_usable": false,
+        "pair_id": "gatev2_pair_s3034",
+        "pair_seed": 3034,
+        "predicted_score_geomean_ld": 31.41815431106324,
+        "reason_codes": [
+          "inconclusive_timeout",
+          "not_run_mesh_inconclusive"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T13:44:16.387256Z",
+          "started_at": "2026-07-16T13:14:14.658675Z",
+          "wall_seconds": 1801.728581
+        },
+        "score_eligible": false,
+        "shard_number": 2,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "undetermined"
+      },
+      "pair_id": "gatev2_pair_s3034",
+      "pair_seed": 3034,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3034_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": 0.012757204496136166,
+            "cl": 0.40994896105145434,
+            "condition_id": "mach_q1",
+            "ld": 32.13470170330949,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.6378372244613955,
+            "reason_codes": []
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "inconclusive_timeout",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_timeout"
+            ]
+          },
+          {
+            "cd": 0.013179205829152767,
+            "cl": 0.4101313352321774,
+            "condition_id": "mach_q3",
+            "ld": 31.11957886908144,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.329254243793858,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-01",
+          "result_canonical_sha256": "e8d04316f5236a3ae6ac7ac99123626163d860bb80dde4fb71072ffac8aac1bd",
+          "result_file_sha256": "42123e091658b46f201a9b3db31fcaa990ce91446c539179046e0167103302ec",
+          "terminal_entry_sha256": "4e6b150f23b8e33a791f2c4bd31065163b025f3717c50bab4fc407b5b28a71e6"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.01020964916349362,
+        "geometry_sha256": "29919beaf75b6be5969c40bff52dedffc391fdacf07147adf8a0bed97e921dc7",
+        "inconclusive_condition_count": 1,
+        "invalid_condition_count": 0,
+        "mechanism_family": "flow_inconclusive",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3034",
+        "pair_seed": 3034,
+        "predicted_score_geomean_ld": 30.90036302808521,
+        "reason_codes": [
+          "inconclusive_timeout"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T17:09:40.927350Z",
+          "started_at": "2026-07-16T13:14:16.449258Z",
+          "wall_seconds": 14124.478092
+        },
+        "score_eligible": false,
+        "shard_number": 1,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 2,
+        "whole_wing_outcome": "undetermined"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3035_g",
+        "cfd_ld_geomean": 29.938424749401577,
+        "cfd_ld_worst": 27.478453876353775,
+        "conditions": [
+          {
+            "cd": 0.012966612133735142,
+            "cl": 0.4099932357394218,
+            "condition_id": "mach_q1",
+            "ld": 31.61914858799126,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.195832353707098,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013273208556221026,
+            "cl": 0.40993999453768054,
+            "condition_id": "mach_q2",
+            "ld": 30.88477008413656,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.079451248288843,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.014931416257473533,
+            "cl": 0.4102922329396254,
+            "condition_id": "mach_q3",
+            "ld": 27.478453876353775,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.01926494774328,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-04",
+          "result_canonical_sha256": "70d5fb0b8d09d3f39c62cacbff4bab3800aafde5e30fa61a62454d649d78fe6a",
+          "result_file_sha256": "fb3b6008afd2870c98ddc175bfb639cba2f148bee25ea96d1b4a846d55dae982",
+          "terminal_entry_sha256": "24871b309fbcf1a0497044737e73183b4ede51bd597cedd88428cb378b1016f7"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.015940529557261475,
+        "geometry_sha256": "0d5b1bf634a06ee92cdd3a64e02a568515dc43d442b5ae697f19b01b8ef78663",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "marginal",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3035",
+        "pair_seed": 3035,
+        "predicted_score_geomean_ld": 31.38009500730633,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T16:00:03.687825Z",
+          "started_at": "2026-07-16T13:14:21.492300Z",
+          "wall_seconds": 9942.195525
+        },
+        "score_eligible": true,
+        "shard_number": 4,
+        "surrogate_absolute_percentage_error": 4.815451280326867,
+        "surrogate_minus_cfd_geomean_ld": 1.4416702579047538,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3035",
+      "pair_seed": 3035,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3035_u",
+        "cfd_ld_geomean": 29.88244064774218,
+        "cfd_ld_worst": 28.80773952761132,
+        "conditions": [
+          {
+            "cd": 0.013387934285410056,
+            "cl": 0.4099933452411652,
+            "condition_id": "mach_q1",
+            "ld": 30.624093045330305,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.6670325574119405,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013554310782233498,
+            "cl": 0.40997107694111884,
+            "condition_id": "mach_q2",
+            "ld": 30.246545436931704,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.5259038728019885,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.014227379824069146,
+            "cl": 0.40985865213217654,
+            "condition_id": "mach_q3",
+            "ld": 28.80773952761132,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.348230831052628,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-03",
+          "result_canonical_sha256": "fb1176dd4cddc07896bcc6c3d6da86a3087f4425607ae29e5f63ecf1d6e6b284",
+          "result_file_sha256": "6426234361a262d7def1b73046c21b08c3e4afc2ad1798dcece438626bf4c3e3",
+          "terminal_entry_sha256": "1250693133eaa6ab8136b7ab0e10e7b8e9b576ae6201eda65410de948b097255"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.0063656850551840685,
+        "geometry_sha256": "3eca038c5f75f44f368d55bedc7b6708fd2581d1824abea18cf5544041b32306",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "marginal",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3035",
+        "pair_seed": 3035,
+        "predicted_score_geomean_ld": 30.06040483596129,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T15:34:52.898519Z",
+          "started_at": "2026-07-16T13:14:19.743701Z",
+          "wall_seconds": 8433.154818
+        },
+        "score_eligible": true,
+        "shard_number": 3,
+        "surrogate_absolute_percentage_error": 0.595547700795173,
+        "surrogate_minus_cfd_geomean_ld": 0.17796418821911075,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3036_g",
+        "cfd_ld_geomean": 30.737174017083333,
+        "cfd_ld_worst": 30.170119865356,
+        "conditions": [
+          {
+            "cd": 0.013183344617082794,
+            "cl": 0.40998439032531,
+            "condition_id": "mach_q1",
+            "ld": 31.0986629139663,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.867626087814538,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013246347131772496,
+            "cl": 0.4099861510768,
+            "condition_id": "mach_q2",
+            "ld": 30.950883817125188,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.728869768965284,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.013586063263489573,
+            "cl": 0.4098931571577901,
+            "condition_id": "mach_q3",
+            "ld": 30.170119865356,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.5549168666078845,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-06",
+          "result_canonical_sha256": "3f582b5a1dc22557aa03cff6524c6e9bb93f722552307e7e50bcb9873bf553f7",
+          "result_file_sha256": "eefc54c23c5111af1e58b2a4ffe6aec6e9c09294591eead7864f383368e27788",
+          "terminal_entry_sha256": "35ea071857b05182d492a64a6214991e562861b0577e90c226961e64e51679c7"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.011659831258606188,
+        "geometry_sha256": "ef81971cdf1652c568c15f5dbf7c712e3119ede5db932b6e1b888d4f81e913b7",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3036",
+        "pair_seed": 3036,
+        "predicted_score_geomean_ld": 31.683756241826316,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T15:40:22.876208Z",
+          "started_at": "2026-07-16T13:14:26.640658Z",
+          "wall_seconds": 8756.23555
+        },
+        "score_eligible": true,
+        "shard_number": 6,
+        "surrogate_absolute_percentage_error": 3.07960069529126,
+        "surrogate_minus_cfd_geomean_ld": 0.9465822247429827,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3036",
+      "pair_seed": 3036,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3036_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "not_run_unmeshable",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_unmeshable"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "not_run_unmeshable",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_unmeshable"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "not_run_unmeshable",
+            "outcome_class": "not_run",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "not_run_unmeshable"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-05",
+          "result_canonical_sha256": "46830aff83c10109ca9adfaffaa521c002c2012f4f9908645535f56d0b06c789",
+          "result_file_sha256": "b35034621422a1158eef8aae350780d9a30db6de1134955939a8baa50ba4f5f1",
+          "terminal_entry_sha256": "a50fce22e9d02cef38406b44a6e9e7492faf4a48828d5356d3b4bcf79dbd0d2b"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.01164515487887295,
+        "geometry_sha256": "4d89637de3a46755f8598596be0c0be4f4db3182dc27403afb2f228c4f95b92d",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "mesh_unmeshable",
+        "mesh_outcome": "unmeshable",
+        "mesh_usable": false,
+        "pair_id": "gatev2_pair_s3036",
+        "pair_seed": 3036,
+        "predicted_score_geomean_ld": 32.182242256121725,
+        "reason_codes": [
+          "invalid_mesh_nonpositive_metric",
+          "not_run_unmeshable"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T13:17:57.128299Z",
+          "started_at": "2026-07-16T13:14:23.210528Z",
+          "wall_seconds": 213.917771
+        },
+        "score_eligible": false,
+        "shard_number": 5,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "fail"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3037_g",
+        "cfd_ld_geomean": 30.56199780749938,
+        "cfd_ld_worst": 29.012477071180427,
+        "conditions": [
+          {
+            "cd": 0.012954831476833718,
+            "cl": 0.40923782013535104,
+            "condition_id": "mach_q1",
+            "ld": 31.589590406263824,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.1401110468,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.01316351468015947,
+            "cl": 0.41000417371500114,
+            "condition_id": "mach_q2",
+            "ld": 31.147013823973197,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.013060260069257,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.014131860456887848,
+            "cl": 0.41000027747858003,
+            "condition_id": "mach_q3",
+            "ld": 29.012477071180427,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.874337466730523,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-08",
+          "result_canonical_sha256": "ba9f6d980226ace5cd311a73ea854e38a12d5ce47285f6514ad354c07e7887d3",
+          "result_file_sha256": "ae395bd7f1480cf06cd21602e13f6ba5fc23d680379101b2a578fb03cae89db0",
+          "terminal_entry_sha256": "5c491989b22f478261534291532f0aed9738d46a568632b5cec37deda8d62a47"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.009995148496924624,
+        "geometry_sha256": "cd5b6238c2f1e08b508126716d25a09350bc1dc8a7ce7db16e8748948b5923ba",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3037",
+        "pair_seed": 3037,
+        "predicted_score_geomean_ld": 30.649110070002248,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T15:57:16.815380Z",
+          "started_at": "2026-07-16T13:14:28.349985Z",
+          "wall_seconds": 9768.465395
+        },
+        "score_eligible": true,
+        "shard_number": 8,
+        "surrogate_absolute_percentage_error": 0.2850345813502121,
+        "surrogate_minus_cfd_geomean_ld": 0.08711226250286686,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3037",
+      "pair_seed": 3037,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3037_u",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q1",
+            "ld": null,
+            "mach": 0.7853,
+            "outcome": "inconclusive_infrastructure",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_infrastructure"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q2",
+            "ld": null,
+            "mach": 0.8195,
+            "outcome": "inconclusive_infrastructure",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_infrastructure"
+            ]
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "inconclusive_infrastructure",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_infrastructure"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-07",
+          "result_canonical_sha256": "233b508b840f3c772cc5ec8b9960decfd6e7fbf6b1e1294ed766751fc68b4e59",
+          "result_file_sha256": "13edfb2e845366429d1dd1b235f23873554881f332b23b18628e82522d501877",
+          "terminal_entry_sha256": "5cffbac28b8ee30757f4ca88da46da925808dd5639da12a440600999cc96f65f"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.014690013151133718,
+        "geometry_sha256": "f84b7cf596435167bf8a1e99a1ee37ed462577cbba83fb36ac48fa7b9e55dc12",
+        "inconclusive_condition_count": 3,
+        "invalid_condition_count": 0,
+        "mechanism_family": "flow_inconclusive",
+        "mesh_outcome": "marginal",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3037",
+        "pair_seed": 3037,
+        "predicted_score_geomean_ld": 32.627909175402216,
+        "reason_codes": [
+          "inconclusive_infrastructure"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T13:19:27.506014Z",
+          "started_at": "2026-07-16T13:14:28.424471Z",
+          "wall_seconds": 299.081543
+        },
+        "score_eligible": false,
+        "shard_number": 7,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 0,
+        "whole_wing_outcome": "undetermined"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3038_g",
+        "cfd_ld_geomean": 32.8603998115306,
+        "cfd_ld_worst": 31.871127315465035,
+        "conditions": [
+          {
+            "cd": 0.012250545109550875,
+            "cl": 0.4099922229437061,
+            "condition_id": "mach_q1",
+            "ld": 33.46726364233902,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.516943929226764,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012324161030448356,
+            "cl": 0.40997583935577453,
+            "condition_id": "mach_q2",
+            "ld": 33.266024222085285,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.3713943072957155,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012863586756045277,
+            "cl": 0.4099770112354489,
+            "condition_id": "mach_q3",
+            "ld": 31.871127315465035,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.172768995582915,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-10",
+          "result_canonical_sha256": "cc8b1090c883868c3d4ca70a619c4f4ef9f4abed477010be2e58121cea3cf425",
+          "result_file_sha256": "35ed2f667e9b75b2c79e1e271250f21f1281c1fb699a27fce30adf1a9cf94dac",
+          "terminal_entry_sha256": "caa2c3003c67cfa43f757e9bcaae2c88985deb805e6d31d2a71cc0a8b5bf5516"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.01200674177382306,
+        "geometry_sha256": "f94d6e13bd1db15ba010007cde905014453356c9aa916cb16ea10b8a14265f70",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3038",
+        "pair_seed": 3038,
+        "predicted_score_geomean_ld": 32.76400649503011,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T16:27:50.967855Z",
+          "started_at": "2026-07-16T13:14:29.391930Z",
+          "wall_seconds": 11601.575925
+        },
+        "score_eligible": true,
+        "shard_number": 10,
+        "surrogate_absolute_percentage_error": 0.29334188583629106,
+        "surrogate_minus_cfd_geomean_ld": -0.09639331650048888,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      },
+      "pair_id": "gatev2_pair_s3038",
+      "pair_seed": 3038,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3038_u",
+        "cfd_ld_geomean": 31.184355764847663,
+        "cfd_ld_worst": 29.814688035452235,
+        "conditions": [
+          {
+            "cd": 0.012785909909159246,
+            "cl": 0.40999651764544975,
+            "condition_id": "mach_q1",
+            "ld": 32.06627612413778,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.304761474929213,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.012925817046907784,
+            "cl": 0.4100053619917042,
+            "condition_id": "mach_q2",
+            "ld": 31.719879718534997,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.160960516192588,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.01374581544155835,
+            "cl": 0.40982719918296434,
+            "condition_id": "mach_q3",
+            "ld": 29.814688035452235,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 5.961137652201323,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-09",
+          "result_canonical_sha256": "4dec731047de45da374d7d719d694735d5296caf4b8513bd6afd577331f5ddc6",
+          "result_file_sha256": "987d845367b1bf1d4e6a8a73a2d20f9571c89ef6dc3a291f83961d8df6ea1e77",
+          "terminal_entry_sha256": "1102a93b424227764f649ae6b978073f55c338baacd76387fe4ba4cd2522b701"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.009499294961370584,
+        "geometry_sha256": "c85edf51c7f277e8e7ee46c7ea1b0c634e7846df70f88f630ff4fedb4fa7cffb",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3038",
+        "pair_seed": 3038,
+        "predicted_score_geomean_ld": 31.228685459671368,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T15:41:18.943198Z",
+          "started_at": "2026-07-16T13:14:30.321363Z",
+          "wall_seconds": 8808.621835
+        },
+        "score_eligible": true,
+        "shard_number": 9,
+        "surrogate_absolute_percentage_error": 0.1421536335654426,
+        "surrogate_minus_cfd_geomean_ld": 0.04432969482370552,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      }
+    },
+    {
+      "gated": {
+        "arm": "gated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3039_g",
+        "cfd_ld_geomean": null,
+        "cfd_ld_worst": null,
+        "conditions": [
+          {
+            "cd": 0.012579293836177511,
+            "cl": 0.4099744162720736,
+            "condition_id": "mach_q1",
+            "ld": 32.59121073179837,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.367613917646082,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.01266146230319996,
+            "cl": 0.40996155668022793,
+            "condition_id": "mach_q2",
+            "ld": 32.37868951176496,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.210823191163498,
+            "reason_codes": []
+          },
+          {
+            "cd": null,
+            "cl": null,
+            "condition_id": "mach_q3",
+            "ld": null,
+            "mach": 0.853,
+            "outcome": "inconclusive_timeout",
+            "outcome_class": "inconclusive",
+            "realized_aoa_deg": null,
+            "reason_codes": [
+              "inconclusive_timeout"
+            ]
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-12",
+          "result_canonical_sha256": "d07ca0c1a6f4d6232ddbaf79ea02831205cd0b66f44abd21b62936ead5329d15",
+          "result_file_sha256": "19c100d7116347ec26eea7a36c2c2a1f3b7cce4c11bf71bfe025eddd4c6e2e27",
+          "terminal_entry_sha256": "4b26e0131ccee201104b38d019cbd2c672f58bf556950ff6790742decac53e67"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.010479489341623047,
+        "geometry_sha256": "fc507f937096435e17b514d07d76c8f22948a23bf1e8c8bf378a0a306baae70a",
+        "inconclusive_condition_count": 1,
+        "invalid_condition_count": 0,
+        "mechanism_family": "flow_inconclusive",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3039",
+        "pair_seed": 3039,
+        "predicted_score_geomean_ld": 30.99188285114305,
+        "reason_codes": [
+          "inconclusive_timeout"
+        ],
+        "runtime": {
+          "finished_at": "2026-07-16T16:57:13.497372Z",
+          "started_at": "2026-07-16T13:14:37.301746Z",
+          "wall_seconds": 13356.195626
+        },
+        "score_eligible": false,
+        "shard_number": 12,
+        "surrogate_absolute_percentage_error": null,
+        "surrogate_minus_cfd_geomean_ld": null,
+        "valid_condition_count": 2,
+        "whole_wing_outcome": "undetermined"
+      },
+      "pair_id": "gatev2_pair_s3039",
+      "pair_seed": 3039,
+      "ungated": {
+        "arm": "ungated",
+        "batch": 2,
+        "candidate_id": "gatev2_b2_s3039_u",
+        "cfd_ld_geomean": 28.207495492386826,
+        "cfd_ld_worst": 26.896399866511103,
+        "conditions": [
+          {
+            "cd": 0.014130388571866019,
+            "cl": 0.4099994437477212,
+            "condition_id": "mach_q1",
+            "ld": 29.01544013899526,
+            "mach": 0.7853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 7.126619793801673,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.014256559095229873,
+            "cl": 0.41000106542988085,
+            "condition_id": "mach_q2",
+            "ld": 28.758767293789973,
+            "mach": 0.8195,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.971276278060735,
+            "reason_codes": []
+          },
+          {
+            "cd": 0.015235712566421592,
+            "cl": 0.40978581743770326,
+            "condition_id": "mach_q3",
+            "ld": 26.896399866511103,
+            "mach": 0.853,
+            "outcome": "valid",
+            "outcome_class": "valid",
+            "realized_aoa_deg": 6.784253411815499,
+            "reason_codes": []
+          }
+        ],
+        "evidence": {
+          "campaign_publication_id": "corpus50-gate-v2-matched-validation-batch-2-shard-11",
+          "result_canonical_sha256": "6f21c19e35a8a1ae6b9b6ebf9c352680c7543480340052a9ff3ade96d3658e3f",
+          "result_file_sha256": "4a85389fb1e62b28d9f153efc53f3c7d43d05ae146a802fa896907bef205d236",
+          "terminal_entry_sha256": "08835d37a6be16d415abe9bd2de9c6c934ea46b8e4b9b0008e64fd323954b5db"
+        },
+        "gate_accepts": true,
+        "gate_score": -0.014653687244105113,
+        "geometry_sha256": "2f74ee64475d3a76c7acf025c814901ebcd3a0af14fd4253ffbe9453bb19e93a",
+        "inconclusive_condition_count": 0,
+        "invalid_condition_count": 0,
+        "mechanism_family": "none_complete_pass",
+        "mesh_outcome": "valid",
+        "mesh_usable": true,
+        "pair_id": "gatev2_pair_s3039",
+        "pair_seed": 3039,
+        "predicted_score_geomean_ld": 28.74461021378074,
+        "reason_codes": [],
+        "runtime": {
+          "finished_at": "2026-07-16T15:48:58.263871Z",
+          "started_at": "2026-07-16T13:14:31.520519Z",
+          "wall_seconds": 9266.743352
+        },
+        "score_eligible": true,
+        "shard_number": 11,
+        "surrogate_absolute_percentage_error": 1.9041560124998664,
+        "surrogate_minus_cfd_geomean_ld": 0.5371147213939125,
+        "valid_condition_count": 3,
+        "whole_wing_outcome": "pass"
+      }
+    }
+  ],
+  "protocol_qualified": false,
+  "schema_version": "wingbench-corpus50-gate-matched-validation-results-v1",
+  "secondary_analysis": {
+    "complete_cfd_geomean_ld": {
+      "maximum": 32.8603998115306,
+      "median": 31.04487667053947,
+      "minimum": 28.207495492386826
+    },
+    "complete_score_count": 13,
+    "runtime_and_cost": {
+      "estimate_boundary": "result_started_at_to_finished_at_only_excludes_instance_bootstrap_shutdown_ebs_s3_and_transfer",
+      "estimated_compute_usd_per_complete_grade": 3.6799422148651075,
+      "estimated_grader_runtime_compute_usd": 47.8392487932464,
+      "hourly_rate_usd": 0.92736,
+      "instance_type": "m7a.4xlarge",
+      "purchase_option": "on_demand",
+      "summed_grader_vcpu_hours": 825.3838646177778,
+      "summed_grader_worker_hours": 51.586491538611114
+    },
+    "surrogate_minus_cfd_geomean_ld": {
+      "mean_absolute_percentage_error": 1.3051105316456626,
+      "mean_signed_error": 0.32345408488405525,
+      "median_signed_error": 0.28275091694870014
+    }
+  },
+  "status": "complete",
+  "systematic_failure_review": {
+    "canonical_sha256": "da64e4e49ffcf8b4ac1e65ef3ae4e3dcc83cebc8afc8b803706c334b1d64dc04",
+    "file_sha256": "6ed41b7c6687392ba1a5100476017073b4af5418f9d94963abd755b4bd8579ab",
+    "no_new_systematic_failure_mechanism": true,
+    "path": "configs/benchmark/corpus50_gate_systematic_failure_review_v1.json",
+    "rationale": "Across twelve candidates per arm, the gated arm had three flow-inconclusive outcomes and one mesh-inconclusive timeout. The ungated arm had the same three flow-inconclusive mechanisms, two mesh-inconclusive outcomes, and two additional unmeshable failures. No failure family was unique to or concentrated in the gated arm; gated mesh usability was 11/12 versus 8/12. The evidence therefore does not support a coherent new failure mechanism induced by gate-conditioned search.",
+    "status": "pass"
+  }
+}

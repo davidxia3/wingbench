@@ -1,0 +1,2 @@
+# Binary documents must not receive text normalization.
+*.pdf binary

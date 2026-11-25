@@ -1,0 +1,37 @@
+study,method,task,checkpoint,episodes,delivered,mean_ld
+agent,Open-ended research,low,0,10,2,16.79
+agent,Open-ended research,low,1,10,7,16.44
+agent,Open-ended research,low,2,10,8,16.95
+agent,Open-ended research,low,4,10,9,17.15
+agent,Planning,low,0,10,8,16.64
+agent,Planning,low,1,10,10,16.64
+agent,Planning,low,2,10,10,17.01
+agent,Planning,low,4,10,10,17.41
+agent,Reflection,low,0,10,6,16.47
+agent,Reflection,low,1,10,8,16.59
+agent,Reflection,low,2,10,10,16.98
+agent,Reflection,low,4,10,10,17.33
+agent,Open-ended research,nominal,0,10,7,29.12
+agent,Open-ended research,nominal,1,10,9,28.66
+agent,Open-ended research,nominal,2,10,9,29.79
+agent,Open-ended research,nominal,4,10,10,31.09
+agent,Planning,nominal,0,10,7,28.19
+agent,Planning,nominal,1,10,9,28.28
+agent,Planning,nominal,2,10,9,28.43
+agent,Planning,nominal,4,10,9,29.31
+agent,Reflection,nominal,0,10,8,28.54
+agent,Reflection,nominal,1,10,10,28.42
+agent,Reflection,nominal,2,10,10,29.05
+agent,Reflection,nominal,4,10,10,29.83
+agent,Open-ended research,high,0,10,9,25.58
+agent,Open-ended research,high,1,10,10,24.92
+agent,Open-ended research,high,2,10,10,26.2
+agent,Open-ended research,high,4,10,10,27.83
+agent,Planning,high,0,10,8,26.09
+agent,Planning,high,1,10,8,26.09
+agent,Planning,high,2,10,9,26.61
+agent,Planning,high,4,10,9,27.59
+agent,Reflection,high,0,10,9,24.42
+agent,Reflection,high,1,10,10,24.53
+agent,Reflection,high,2,10,10,25.75
+agent,Reflection,high,4,10,10,26.79

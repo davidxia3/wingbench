@@ -1,0 +1,89 @@
+{
+  "original_geometries_and_order_retained": true,
+  "representation": "Surface illustrations and front-view leading-edge profiles; not volume meshes",
+  "perspective_vertical_exaggeration": 4,
+  "front_axes": "Shared y/semispan and z_LE/semispan; plotted axes determine aspect",
+  "causal_status": "Descriptive geometry differences; dihedral-related extrusion failure is a hypothesis",
+  "geometries": [
+    {
+      "panel": "A",
+      "row": 0,
+      "geometry_sha256": "ab754cd6ddf147776d369e68ceda9a50e39d1f261759d38bfe11a80117d25508",
+      "recorded_outcome": "delivered",
+      "tip_dihedral_deg": 4.495160537128315,
+      "kink_dihedral_deg": 2.954051955472211,
+      "sweep_deg": 44.616594483375934,
+      "kink_fraction": 0.33757830611811634
+    },
+    {
+      "panel": "A",
+      "row": 1,
+      "geometry_sha256": "4beb6c0cc8eb1ab817a8a013834a8c62d3710c7f95a7c3c9b0403dcbe354e434",
+      "recorded_outcome": "not_run_unmeshable",
+      "tip_dihedral_deg": 2.5926889530910286,
+      "kink_dihedral_deg": 2.5414292185803347,
+      "sweep_deg": 47.48142342024667,
+      "kink_fraction": 0.3527543069242132
+    },
+    {
+      "panel": "B",
+      "row": 0,
+      "geometry_sha256": "279a839814de2f338647a65639dc3208f0437f454965f65fe936c22701e8f3ff",
+      "recorded_outcome": "delivered",
+      "tip_dihedral_deg": 6.714808332225441,
+      "kink_dihedral_deg": 2.937020671349138,
+      "sweep_deg": 39.72251520107625,
+      "kink_fraction": 0.33356780387798807
+    },
+    {
+      "panel": "B",
+      "row": 1,
+      "geometry_sha256": "bda7a3ae39862ff565ac450e6f068634c79e8e5e67be01fb741d740c3e8f1987",
+      "recorded_outcome": "not_run_unmeshable",
+      "tip_dihedral_deg": 9.170493031925325,
+      "kink_dihedral_deg": -0.3088615949107303,
+      "sweep_deg": 38.07622227874873,
+      "kink_fraction": 0.3313387579210185
+    },
+    {
+      "panel": "C",
+      "row": 0,
+      "geometry_sha256": "df979c19db28a5f8ebc1489e3d6edb374bef54d69f08d028e023440e12196f95",
+      "recorded_outcome": "delivered",
+      "tip_dihedral_deg": 3.4048863258504265,
+      "kink_dihedral_deg": 5.050025196649692,
+      "sweep_deg": 39.4427905120185,
+      "kink_fraction": 0.3503431356571777
+    },
+    {
+      "panel": "C",
+      "row": 1,
+      "geometry_sha256": "9e5253939f4101c511049cf0e0a8949fd75ae74c2ae7df061c58de180bd3d952",
+      "recorded_outcome": "not_run_unmeshable",
+      "tip_dihedral_deg": 4.372139902971557,
+      "kink_dihedral_deg": 9.570693422188716,
+      "sweep_deg": 43.77643685367689,
+      "kink_fraction": 0.3298231190460442
+    },
+    {
+      "panel": "D",
+      "row": 0,
+      "geometry_sha256": "a3a5a083f273ce9d9a80076f0d3396d0c67d9f1c02726c3c1e95d1249400d0b7",
+      "recorded_outcome": "delivered",
+      "tip_dihedral_deg": 7.1776762753313745,
+      "kink_dihedral_deg": -2.640347889502801,
+      "sweep_deg": 38.461200170141055,
+      "kink_fraction": 0.3299724429802707
+    },
+    {
+      "panel": "D",
+      "row": 1,
+      "geometry_sha256": "55879a15a99a16322db504c9d6502e9e24031ad2fa6b3523b8f123cd2d732789",
+      "recorded_outcome": "not_run_unmeshable",
+      "tip_dihedral_deg": 6.633738896327492,
+      "kink_dihedral_deg": -2.5795329779000817,
+      "sweep_deg": 38.616906904809895,
+      "kink_fraction": 0.3296810593175138
+    }
+  ]
+}

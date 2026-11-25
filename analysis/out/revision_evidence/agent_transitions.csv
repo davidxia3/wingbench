@@ -1,0 +1,271 @@
+episode,method,task,from_query,to_query,previous_failed,changed_geometry,next_valid
+A000,Planning,high,1,2,False,True,True
+A000,Planning,high,2,3,False,True,True
+A000,Planning,high,3,4,False,True,True
+A001,Planning,high,1,2,False,True,True
+A001,Planning,high,2,3,False,True,True
+A001,Planning,high,3,4,False,True,True
+A002,Planning,high,1,2,False,True,True
+A002,Planning,high,2,3,False,True,True
+A002,Planning,high,3,4,False,True,True
+A003,Planning,high,1,2,True,False,False
+A003,Planning,high,2,3,True,True,True
+A003,Planning,high,3,4,False,True,True
+A004,Planning,high,1,2,True,True,False
+A004,Planning,high,2,3,True,True,False
+A004,Planning,high,3,4,True,True,False
+A005,Planning,high,1,2,False,True,True
+A005,Planning,high,2,3,False,True,True
+A005,Planning,high,3,4,False,True,True
+A006,Planning,high,1,2,False,True,False
+A006,Planning,high,2,3,True,True,False
+A006,Planning,high,3,4,True,True,True
+A007,Planning,high,1,2,False,True,True
+A007,Planning,high,2,3,False,True,True
+A007,Planning,high,3,4,False,True,True
+A008,Planning,high,1,2,False,True,False
+A008,Planning,high,2,3,True,True,True
+A008,Planning,high,3,4,False,True,False
+A009,Planning,high,1,2,False,True,True
+A009,Planning,high,2,3,False,True,True
+A009,Planning,high,3,4,False,True,False
+A010,Planning,low,1,2,False,True,True
+A010,Planning,low,2,3,False,True,True
+A010,Planning,low,3,4,False,True,True
+A011,Planning,low,1,2,False,True,True
+A011,Planning,low,2,3,False,True,False
+A011,Planning,low,3,4,True,True,False
+A012,Planning,low,1,2,False,True,True
+A012,Planning,low,2,3,False,True,True
+A012,Planning,low,3,4,False,True,True
+A013,Planning,low,1,2,True,True,True
+A013,Planning,low,2,3,False,True,True
+A013,Planning,low,3,4,False,True,False
+A014,Planning,low,1,2,False,True,True
+A014,Planning,low,2,3,False,True,False
+A014,Planning,low,3,4,True,True,True
+A015,Planning,low,1,2,False,True,True
+A015,Planning,low,2,3,False,True,True
+A015,Planning,low,3,4,False,True,True
+A016,Planning,low,1,2,False,True,True
+A016,Planning,low,2,3,False,True,True
+A016,Planning,low,3,4,False,True,True
+A017,Planning,low,1,2,False,True,False
+A017,Planning,low,2,3,True,True,False
+A017,Planning,low,3,4,True,True,False
+A018,Planning,low,1,2,True,True,True
+A018,Planning,low,2,3,False,True,True
+A018,Planning,low,3,4,False,True,True
+A019,Planning,low,1,2,False,True,True
+A019,Planning,low,2,3,False,True,True
+A019,Planning,low,3,4,False,True,True
+A020,Planning,nominal,1,2,True,True,False
+A020,Planning,nominal,2,3,True,True,True
+A020,Planning,nominal,3,4,False,True,True
+A021,Planning,nominal,1,2,False,True,True
+A021,Planning,nominal,2,3,False,True,False
+A021,Planning,nominal,3,4,True,False,False
+A022,Planning,nominal,1,2,True,True,True
+A022,Planning,nominal,2,3,False,True,True
+A022,Planning,nominal,3,4,False,True,True
+A023,Planning,nominal,1,2,False,True,True
+A023,Planning,nominal,2,3,False,True,True
+A023,Planning,nominal,3,4,False,True,True
+A024,Planning,nominal,1,2,False,True,True
+A024,Planning,nominal,2,3,False,True,True
+A024,Planning,nominal,3,4,False,True,True
+A025,Planning,nominal,1,2,True,True,True
+A025,Planning,nominal,2,3,False,True,True
+A025,Planning,nominal,3,4,False,True,False
+A026,Planning,nominal,1,2,False,True,False
+A026,Planning,nominal,2,3,True,True,True
+A026,Planning,nominal,3,4,False,True,False
+A027,Planning,nominal,1,2,False,True,True
+A027,Planning,nominal,2,3,False,True,True
+A027,Planning,nominal,3,4,False,True,True
+A028,Planning,nominal,1,2,False,True,True
+A028,Planning,nominal,2,3,False,True,True
+A028,Planning,nominal,3,4,False,True,False
+A029,Planning,nominal,1,2,False,True,True
+A029,Planning,nominal,2,3,False,True,True
+A029,Planning,nominal,3,4,False,True,True
+A030,Reflection,high,1,2,True,True,True
+A030,Reflection,high,2,3,False,True,True
+A030,Reflection,high,3,4,False,True,True
+A031,Reflection,high,1,2,False,True,True
+A031,Reflection,high,2,3,False,True,True
+A031,Reflection,high,3,4,False,True,True
+A032,Reflection,high,1,2,False,True,True
+A032,Reflection,high,2,3,False,True,True
+A032,Reflection,high,3,4,False,True,True
+A033,Reflection,high,1,2,False,True,True
+A033,Reflection,high,2,3,False,True,True
+A033,Reflection,high,3,4,False,True,True
+A034,Reflection,high,1,2,False,True,True
+A034,Reflection,high,2,3,False,True,True
+A034,Reflection,high,3,4,False,True,True
+A035,Reflection,high,1,2,False,True,True
+A035,Reflection,high,2,3,False,True,False
+A035,Reflection,high,3,4,True,True,True
+A036,Reflection,high,1,2,False,True,True
+A036,Reflection,high,2,3,False,True,True
+A036,Reflection,high,3,4,False,True,True
+A037,Reflection,high,1,2,False,True,True
+A037,Reflection,high,2,3,False,True,False
+A037,Reflection,high,3,4,True,True,True
+A038,Reflection,high,1,2,False,True,True
+A038,Reflection,high,2,3,False,True,True
+A038,Reflection,high,3,4,False,True,True
+A039,Reflection,high,1,2,False,True,True
+A039,Reflection,high,2,3,False,True,True
+A039,Reflection,high,3,4,False,True,True
+A040,Reflection,low,1,2,False,True,False
+A040,Reflection,low,2,3,True,True,True
+A040,Reflection,low,3,4,False,True,True
+A041,Reflection,low,1,2,False,True,True
+A041,Reflection,low,2,3,False,True,True
+A041,Reflection,low,3,4,False,True,False
+A042,Reflection,low,1,2,False,True,True
+A042,Reflection,low,2,3,False,True,False
+A042,Reflection,low,3,4,True,True,True
+A043,Reflection,low,1,2,True,True,True
+A043,Reflection,low,2,3,False,True,True
+A043,Reflection,low,3,4,False,True,False
+A044,Reflection,low,1,2,False,True,True
+A044,Reflection,low,2,3,False,True,True
+A044,Reflection,low,3,4,False,True,True
+A045,Reflection,low,1,2,True,True,False
+A045,Reflection,low,2,3,True,True,True
+A045,Reflection,low,3,4,False,True,True
+A046,Reflection,low,1,2,False,True,True
+A046,Reflection,low,2,3,False,True,True
+A046,Reflection,low,3,4,False,True,True
+A047,Reflection,low,1,2,False,True,True
+A047,Reflection,low,2,3,False,True,True
+A047,Reflection,low,3,4,False,True,True
+A048,Reflection,low,1,2,True,True,True
+A048,Reflection,low,2,3,False,True,True
+A048,Reflection,low,3,4,False,True,False
+A049,Reflection,low,1,2,True,True,True
+A049,Reflection,low,2,3,False,True,True
+A049,Reflection,low,3,4,False,True,True
+A050,Reflection,nominal,1,2,False,True,False
+A050,Reflection,nominal,2,3,True,True,True
+A050,Reflection,nominal,3,4,False,True,False
+A051,Reflection,nominal,1,2,True,True,False
+A051,Reflection,nominal,2,3,True,True,True
+A051,Reflection,nominal,3,4,False,True,True
+A052,Reflection,nominal,1,2,False,True,False
+A052,Reflection,nominal,2,3,True,True,True
+A052,Reflection,nominal,3,4,False,True,False
+A053,Reflection,nominal,1,2,False,True,True
+A053,Reflection,nominal,2,3,False,True,True
+A053,Reflection,nominal,3,4,False,True,False
+A054,Reflection,nominal,1,2,False,True,True
+A054,Reflection,nominal,2,3,False,True,True
+A054,Reflection,nominal,3,4,False,True,True
+A055,Reflection,nominal,1,2,False,True,False
+A055,Reflection,nominal,2,3,True,True,True
+A055,Reflection,nominal,3,4,False,True,True
+A056,Reflection,nominal,1,2,False,True,True
+A056,Reflection,nominal,2,3,False,True,True
+A056,Reflection,nominal,3,4,False,True,False
+A057,Reflection,nominal,1,2,True,True,True
+A057,Reflection,nominal,2,3,False,True,True
+A057,Reflection,nominal,3,4,False,True,True
+A058,Reflection,nominal,1,2,False,True,True
+A058,Reflection,nominal,2,3,False,True,False
+A058,Reflection,nominal,3,4,True,True,True
+A059,Reflection,nominal,1,2,False,True,True
+A059,Reflection,nominal,2,3,False,True,True
+A059,Reflection,nominal,3,4,False,True,True
+A060,Open-ended research,high,1,2,False,True,True
+A060,Open-ended research,high,2,3,False,True,True
+A060,Open-ended research,high,3,4,False,True,False
+A061,Open-ended research,high,1,2,False,True,True
+A061,Open-ended research,high,2,3,False,True,True
+A061,Open-ended research,high,3,4,False,True,True
+A062,Open-ended research,high,1,2,False,True,True
+A062,Open-ended research,high,2,3,False,True,False
+A062,Open-ended research,high,3,4,True,True,True
+A063,Open-ended research,high,1,2,False,True,True
+A063,Open-ended research,high,2,3,False,True,True
+A063,Open-ended research,high,3,4,False,True,True
+A064,Open-ended research,high,1,2,True,True,True
+A064,Open-ended research,high,2,3,False,True,True
+A064,Open-ended research,high,3,4,False,True,True
+A065,Open-ended research,high,1,2,False,True,True
+A065,Open-ended research,high,2,3,False,True,False
+A065,Open-ended research,high,3,4,True,True,True
+A066,Open-ended research,high,1,2,False,True,True
+A066,Open-ended research,high,2,3,False,True,True
+A066,Open-ended research,high,3,4,False,True,True
+A067,Open-ended research,high,1,2,True,True,True
+A067,Open-ended research,high,2,3,False,True,True
+A067,Open-ended research,high,3,4,False,True,True
+A068,Open-ended research,high,1,2,False,True,False
+A068,Open-ended research,high,2,3,True,True,True
+A068,Open-ended research,high,3,4,False,True,True
+A069,Open-ended research,high,1,2,False,True,True
+A069,Open-ended research,high,2,3,False,True,True
+A069,Open-ended research,high,3,4,False,True,True
+A070,Open-ended research,low,1,2,False,True,False
+A070,Open-ended research,low,2,3,True,True,False
+A070,Open-ended research,low,3,4,True,True,True
+A071,Open-ended research,low,1,2,True,True,False
+A071,Open-ended research,low,2,3,True,True,False
+A071,Open-ended research,low,3,4,True,True,False
+A072,Open-ended research,low,1,2,True,True,True
+A072,Open-ended research,low,2,3,False,True,True
+A072,Open-ended research,low,3,4,False,True,False
+A073,Open-ended research,low,1,2,True,True,True
+A073,Open-ended research,low,2,3,False,True,True
+A073,Open-ended research,low,3,4,False,True,False
+A074,Open-ended research,low,1,2,True,True,True
+A074,Open-ended research,low,2,3,False,True,True
+A074,Open-ended research,low,3,4,False,True,False
+A075,Open-ended research,low,1,2,False,True,False
+A075,Open-ended research,low,2,3,True,True,True
+A075,Open-ended research,low,3,4,False,True,True
+A076,Open-ended research,low,1,2,True,True,True
+A076,Open-ended research,low,2,3,False,True,True
+A076,Open-ended research,low,3,4,False,True,False
+A077,Open-ended research,low,1,2,False,True,True
+A077,Open-ended research,low,2,3,False,True,False
+A077,Open-ended research,low,3,4,True,True,False
+A078,Open-ended research,low,1,2,False,True,True
+A078,Open-ended research,low,2,3,False,True,True
+A078,Open-ended research,low,3,4,False,True,True
+A079,Open-ended research,low,1,2,True,True,False
+A079,Open-ended research,low,2,3,True,True,True
+A079,Open-ended research,low,3,4,False,True,True
+A080,Open-ended research,nominal,1,2,False,True,True
+A080,Open-ended research,nominal,2,3,False,True,True
+A080,Open-ended research,nominal,3,4,False,True,True
+A081,Open-ended research,nominal,1,2,True,True,True
+A081,Open-ended research,nominal,2,3,False,True,True
+A081,Open-ended research,nominal,3,4,False,True,False
+A082,Open-ended research,nominal,1,2,True,True,True
+A082,Open-ended research,nominal,2,3,False,True,True
+A082,Open-ended research,nominal,3,4,False,True,True
+A083,Open-ended research,nominal,1,2,False,True,True
+A083,Open-ended research,nominal,2,3,False,True,True
+A083,Open-ended research,nominal,3,4,False,True,False
+A084,Open-ended research,nominal,1,2,False,True,False
+A084,Open-ended research,nominal,2,3,True,True,True
+A084,Open-ended research,nominal,3,4,False,True,True
+A085,Open-ended research,nominal,1,2,False,True,False
+A085,Open-ended research,nominal,2,3,True,True,False
+A085,Open-ended research,nominal,3,4,True,True,True
+A086,Open-ended research,nominal,1,2,False,True,True
+A086,Open-ended research,nominal,2,3,False,True,True
+A086,Open-ended research,nominal,3,4,False,True,True
+A087,Open-ended research,nominal,1,2,False,True,True
+A087,Open-ended research,nominal,2,3,False,True,False
+A087,Open-ended research,nominal,3,4,True,True,True
+A088,Open-ended research,nominal,1,2,False,True,True
+A088,Open-ended research,nominal,2,3,False,True,False
+A088,Open-ended research,nominal,3,4,True,True,True
+A089,Open-ended research,nominal,1,2,True,True,True
+A089,Open-ended research,nominal,2,3,False,True,False
+A089,Open-ended research,nominal,3,4,True,True,False

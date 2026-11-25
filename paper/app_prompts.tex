@@ -1,0 +1,40 @@
+\section{Agent prompts and task documents}
+\label{app:prompts}
+
+The complete prompt files remain in \texttt{agents/}; this appendix gives a
+compact map instead of duplicating them verbatim. All methods read the same
+objective, parameterization, source records, surrogate interface and CFD
+feedback. The original controller that launches model sessions and remote
+CFD jobs is not distributed.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Prompt and tool map, relative to \texttt{agents/}.}
+\begin{tabular}{p{0.40\linewidth}p{0.52\linewidth}}
+\toprule
+File or directory & Role \\
+\midrule
+\texttt{workspace/TASK.md}, \texttt{tasks/task\_documents.json} & Objective, task conditions, budgets and nomination contract \\
+\texttt{workspace/source/} & Parameterization, condition records, geometry and visualization helpers \\
+\texttt{workspace/campaign.py} & Surrogate calls, budget inspection, handoff and nomination \\
+\texttt{prompts/manager\_messages.md} & System prompt and messages resuming each decision \\
+\texttt{prompts/reflection/reflect.md} & Lessons from the latest result and bounded cumulative summary \\
+\texttt{prompts/planning/learner.md} & Evidence, beliefs, calibration and remaining-budget memo \\
+\texttt{prompts/planning/planner.md} & Four independently proposed two-step contingent plans \\
+\texttt{prompts/planning/evaluator.md} & Completion probabilities and $L/D$ quantiles for each plan \\
+\texttt{prompts/planning/executor.md} & Execute the selected first procedure, allowing debugging and refinement \\
+\texttt{prompts/planning/\allowbreak correction.md} & Repair a reply that fails the required JSON schema \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Open-ended research has no additional decision template. Reflection carries
+forward the latest reflection plus a summary of at most 4{,}000 characters.
+Planning uses a learner, four planners, a common evaluator and a deterministic
+selection rule (Appendix~\ref{app:agent-comparison}); the executor takes one
+step and then replans. At most three planning cycles are allowed per decision.
+The executor may debug and refine the selected procedure, so its contribution
+is substantive. Schema validity alone does not ensure executability:
+Appendix~\ref{app:agent-behavior} reports explicit placeholder mentions,
+bounded recoveries and observed corrections. These implementation details
+limit attribution of outcomes to planning or reflection as general principles.

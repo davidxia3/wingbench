@@ -1,0 +1,33 @@
+\section{Limitations}
+\label{app:limitations}
+
+WingBench focuses on transonic wing design under a fixed simulation protocol
+and computational budget. Ten seeds per method and task provide limited power
+to detect small performance differences. Delivery rates also depend on the
+computing environment: time limits account for 31\% of baseline nondeliveries,
+with their impact bounded in Appendix~\ref{app:outcomes}. Planning results
+capture the combined contributions of the selected plans and the executor's
+reasoning. Future work could extend the benchmark to other design domains,
+increase the number of independent runs, and evaluate additional search
+strategies across different computational budgets. The present study does not
+include an adjoint comparison and does not establish competitiveness with
+aerodynamic optimization practice.
+
+The evaluator records success under a particular mesh recipe, solver and
+execution limits. Upstream consistency and source-geometry checks do not
+establish mesh independence or universal feasibility. The layer sensitivity
+in Appendix~\ref{app:evaluator-checks} shows that some recorded mesh failures
+are recoverable under different numerical settings. Agent transition counts
+and selected cases motivate hypotheses, but do not isolate prompt effects;
+bounded recoveries and executable-plan substitutions also affect the tested
+implementations (Appendix~\ref{app:agent-behavior}).
+
+The cross-family comparison uses different prior CFD information and surrogate
+access. Equal online query counts do not imply equal resources: surrogate
+usage differs at intermediate checkpoints, and model calls and elapsed session
+time differ among the agents. Optimizer CPU/GPU time, model-server compute and
+consistent end-to-end wall time were not recorded across all methods
+(Appendix~\ref{app:resources}). The open-ended extension was selected after the
+four-query comparison and its best-found design need not be its recommendation.
+The records therefore support performance under the stated configurations,
+not a ranking under fully matched information and compute budgets.

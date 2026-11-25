@@ -1,0 +1,44 @@
+{
+ "superwing-load-low-cl015": {
+  "task_id": "superwing-load-low-cl015",
+  "target_cl": 0.15,
+  "aoa_seed_deg": 4.4259755152,
+  "mach_grid": [
+   0.7853,
+   0.8195,
+   0.853
+  ],
+  "objective": "maximise the geometric mean of lift-to-drag across the three flight conditions, for a wing whose evaluation completes at the target lift",
+  "score_rule": "an aggregate score exists only when all three conditions converge and trim at the target lift; an incomplete profile has no score",
+  "nominal_horizon_online_queries": 32,
+  "official_surrogate_budget": 4096
+ },
+ "superwing-load-nominal-cl041": {
+  "task_id": "superwing-load-nominal-cl041",
+  "target_cl": 0.41,
+  "aoa_seed_deg": 6.6401110468,
+  "mach_grid": [
+   0.7853,
+   0.8195,
+   0.853
+  ],
+  "objective": "maximise the geometric mean of lift-to-drag across the three flight conditions, for a wing whose evaluation completes at the target lift",
+  "score_rule": "an aggregate score exists only when all three conditions converge and trim at the target lift; an incomplete profile has no score",
+  "nominal_horizon_online_queries": 32,
+  "official_surrogate_budget": 4096
+ },
+ "superwing-load-high-cl066": {
+  "task_id": "superwing-load-high-cl066",
+  "target_cl": 0.66,
+  "aoa_seed_deg": 8.924059800550001,
+  "mach_grid": [
+   0.7853,
+   0.8195,
+   0.853
+  ],
+  "objective": "maximise the geometric mean of lift-to-drag across the three flight conditions, for a wing whose evaluation completes at the target lift",
+  "score_rule": "an aggregate score exists only when all three conditions converge and trim at the target lift; an incomplete profile has no score",
+  "nominal_horizon_online_queries": 32,
+  "official_surrogate_budget": 4096
+ }
+}

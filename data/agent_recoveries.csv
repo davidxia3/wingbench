@@ -1,0 +1,13 @@
+episode,method,task,query,mode,version
+A002,Planning,high,2,schema_only,bounded_schema_recovery_v2
+A005,Planning,high,4,schema_only,bounded_schema_recovery_v2
+A006,Planning,high,1,schema_only,bounded_schema_recovery_v2
+A008,Planning,high,1,finalization_only,bounded_recovery_v1
+A025,Planning,nominal,1,schema_only,bounded_recovery_v1
+A029,Planning,nominal,1,finalization_only,bounded_recovery_v1
+A029,Planning,nominal,4,schema_only,bounded_schema_recovery_v2
+A036,Reflection,high,1,finalization_only,bounded_recovery_v1
+A054,Reflection,nominal,1,finalization_only,bounded_recovery_v1
+A055,Reflection,nominal,1,finalization_only,bounded_recovery_v1
+A075,Open-ended research,low,6,finalization_only,bounded_recovery_v1
+A080,Open-ended research,nominal,21,finalization_only,bounded_recovery_v1

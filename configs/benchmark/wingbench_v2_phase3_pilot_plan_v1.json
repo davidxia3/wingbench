@@ -1,0 +1,185 @@
+{
+  "schema_version": "wingbench-v2-phase3-development-pilot-plan-v1",
+  "status": "phase2_output_prepared_not_authorized",
+  "phase3_started": false,
+  "official": false,
+  "sealed": false,
+  "protocol_binding": {
+    "path": "configs/benchmark/wingbench_v2_candidate_protocol_v1.json",
+    "file_sha256": "97a94347711b5b4291cda9795ecff7d24b5fa3c81198e0260409b604d0034ca7"
+  },
+  "evaluator_binding": {
+    "path": "configs/benchmark/wingbench_v2_cluster_evaluator_candidate_v1.json",
+    "evaluator_id": "wingbench-superwing-cluster-cfd-v2-candidate-1"
+  },
+  "experimental_design": {
+    "task_instances": [
+      "superwing-v1-continuity-development"
+    ],
+    "matched_seeds": [
+      4200,
+      4201,
+      4202,
+      4203,
+      4204
+    ],
+    "methods": [
+      {
+        "method_id": "static-precommitted-cmaes-v2-pilot",
+        "family": "static_multifidelity",
+        "role": "no-online-feedback control",
+        "rule": "Precommit the ordered 32-CFD nominee sequence from cheap search before any online CFD result is visible.",
+        "qualification_required": true
+      },
+      {
+        "method_id": "conventional-adaptive-cmaes-v2-pilot",
+        "family": "conventional_adaptive",
+        "role": "simple adaptive control",
+        "rule": "Use typed online CFD outcomes for conventional selection without discrepancy-model proposal steering.",
+        "qualification_required": true
+      },
+      {
+        "method_id": "fsd-cma-v1-port-v2-pilot",
+        "family": "feedback_steered",
+        "role": "strong supported optimizer candidate",
+        "rule": "Port the retained FSD-CMA v1 mechanism under a new V2 method identity and qualify it without changing the paused optimizer worktree.",
+        "qualification_required": true
+      },
+      {
+        "method_id": "checkpointed-de-feedback-v2-pilot",
+        "family": "non_cma_adaptive",
+        "role": "strong non-CMA family",
+        "rule": "Use the checkpointable DE stream with the same typed feedback and budget interface.",
+        "qualification_required": true
+      }
+    ],
+    "episode_count": 20,
+    "online_cfd_queries_per_episode": 32,
+    "maximum_online_cfd_operations": 640,
+    "checkpoint_roster": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "maximum_fresh_checkpoint_grades": 140,
+    "terminal_grade_reuses_final_checkpoint": true,
+    "maximum_total_whole_wing_grades": 780,
+    "cheap_queries_per_episode": 4096,
+    "pilot_data_namespace": "development"
+  },
+  "prospective_primary_contrasts": [
+    "fsd-cma-v1-port-v2-pilot minus conventional-adaptive-cmaes-v2-pilot",
+    "fsd-cma-v1-port-v2-pilot minus static-precommitted-cmaes-v2-pilot",
+    "checkpointed-de-feedback-v2-pilot minus conventional-adaptive-cmaes-v2-pilot"
+  ],
+  "candidate_minimum_effects_for_power_simulation": {
+    "absolute_delivery_probability_difference": 0.15,
+    "paired_conditional_ld_difference": 1.0,
+    "absolute_valid_discovery_probability_difference_by_query_16": 0.15,
+    "normalized_recommendation_curve_auc_difference": 0.05,
+    "role": "simulation inputs, not Phase 3 significance thresholds"
+  },
+  "required_measurements": [
+    "delivery and paired discordance by checkpoint",
+    "conditional L/D and paired difference variance",
+    "within-episode checkpoint correlation",
+    "curve saturation from 16 to 32 online CFD queries",
+    "frequency of reused_online_visible versus fresh_hidden checkpoint grades",
+    "cheap-query saturation",
+    "scientific failure and reason-code frequencies",
+    "infrastructure-loss frequency",
+    "per-grade wall time and evaluator CPU-seconds",
+    "scheduler wait and achieved concurrency",
+    "per-grade retained and transient storage bytes",
+    "restart, cache, and trace-verification failures"
+  ],
+  "analysis_boundary": {
+    "independent_unit": "matched (instance, seed) episode",
+    "query_rows_are_independent_replicates": false,
+    "delivery_reported_before_conditional_value": true,
+    "nondelivery_imputed_as_ld": false,
+    "episode_cluster_resampling_required": true,
+    "pilot_outcomes_may_select_sealed_winner": false,
+    "pilot_outcomes_may_be_promoted_to_sealed_evidence": false
+  },
+  "compute_and_concurrency": {
+    "cpus_per_grade": 16,
+    "current_hard_active_cpu_ceiling": 128,
+    "initial_concurrent_grade_jobs": 8,
+    "initial_active_cpus": 128,
+    "higher_concurrency_requires_unambiguous_project_capacity_record": true,
+    "maximum_fraction_of_enforceable_project_capacity": 0.75,
+    "candidate_ramp_after_capacity_and_health_gate": [
+      16,
+      32
+    ],
+    "one_unresolved_grade_per_episode": true,
+    "parallelism_across_episodes_only": true,
+    "thirty_minute_recurring_monitor_required_while_jobs_are_active": true
+  },
+  "planning_envelope": {
+    "proxy_cpu_hours_per_whole_wing_grade": 35,
+    "maximum_whole_wing_grades": 780,
+    "proxy_maximum_cpu_hours": 27300,
+    "raw_compute_hours_at_128_active_cpus": 213.28125,
+    "proxy_is_cluster_estimate": false,
+    "replace_proxy_with_phase3_measurements": true
+  },
+  "prospective_stop_go_gates": {
+    "before_submission": [
+      "separate Phase 3 authorization exists",
+      "all four method packages pass deterministic and no-leak qualification",
+      "exact source commit and immutable Cluster checkout exist",
+      "capacity ceiling and active CPU arithmetic validate",
+      "storage namespace and retention paths validate",
+      "30-minute recurring monitor is active"
+    ],
+    "after_first_8_grades": [
+      "zero credential or sealed-data exposure",
+      "all trace and replay checks pass",
+      "zero unexplained scientific or infrastructure classification",
+      "no quota, node-local staging, OpenMPI session-root, or cleanup recurrence"
+    ],
+    "before_ramp_above_8_concurrent_jobs": [
+      "an enforceable project capacity denominator is recorded",
+      "requested active CPUs are at most 75 percent of that denominator",
+      "scheduler and filesystem health measurements pass",
+      "infrastructure-loss rate is below 0.05",
+      "storage projection has at least twofold headroom"
+    ],
+    "terminal_pilot_gate": [
+      "all 20 episodes reconcile or have explicit retained dispositions",
+      "independent replay reconstructs all published quantities",
+      "power simulation inputs and uncertainty are recorded",
+      "no pilot row is labeled sealed or official",
+      "Phase 4 freeze recommendation is reviewable"
+    ]
+  },
+  "storage_and_release": {
+    "retain_for_every_grade": [
+      "request and result JSON",
+      "trace event and artifact bindings",
+      "condition-level reason codes and measurements",
+      "job record, stdout, and nonempty stderr",
+      "runtime and resource accounting",
+      "restart and cleanup evidence"
+    ],
+    "transient_large_artifacts": [
+      "mesh and solver restart files"
+    ],
+    "retention_decision_required_before_phase3": true,
+    "public_package": "canonical traces, replay summaries, raw open evidence, analysis tables, and dependency/license inventory",
+    "credentials_or_licensed_payloads_in_public_package": false
+  },
+  "authorization": {
+    "phase3_pilot_authorized": false,
+    "cluster_submission_authorized": false,
+    "cfd_authorized": false,
+    "sealed_execution_authorized": false,
+    "official_results_authorized": false
+  }
+}

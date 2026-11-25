@@ -1,0 +1,25 @@
+study,checkpoint,method,task,delivered,delivery_rate,delivery_ci_low,delivery_ci_high,mean_ld,mean_ld_ci_low,mean_ld_ci_high
+agent,4,Open-ended research,low,9,0.9,0.555,0.997,17.15,16.73,17.56
+agent,4,Open-ended research,nominal,10,1.0,0.692,1.0,31.09,30.04,32.11
+agent,4,Open-ended research,high,10,1.0,0.692,1.0,27.83,26.58,29.02
+agent,4,Planning,low,10,1.0,0.692,1.0,17.41,16.99,17.8
+agent,4,Planning,nominal,9,0.9,0.555,0.997,29.31,28.28,30.3
+agent,4,Planning,high,9,0.9,0.555,0.997,27.59,26.03,29.2
+agent,4,Reflection,low,10,1.0,0.692,1.0,17.33,17.09,17.58
+agent,4,Reflection,nominal,10,1.0,0.692,1.0,29.83,29.05,30.58
+agent,4,Reflection,high,10,1.0,0.692,1.0,26.79,26.15,27.41
+baseline,32,CMA-ES no feedback,low,0,0.0,0.0,0.308,,,
+baseline,32,CMA-ES no feedback,nominal,4,0.4,0.122,0.738,33.22,32.85,33.63
+baseline,32,CMA-ES no feedback,high,5,0.5,0.187,0.813,32.12,32.0,32.23
+baseline,32,CMA-ES selection only,low,0,0.0,0.0,0.308,,,
+baseline,32,CMA-ES selection only,nominal,4,0.4,0.122,0.738,33.22,32.87,33.63
+baseline,32,CMA-ES selection only,high,5,0.5,0.187,0.813,32.12,31.99,32.23
+baseline,32,CMA-ES feedback-guided,low,6,0.6,0.262,0.878,16.76,15.6,18.01
+baseline,32,CMA-ES feedback-guided,nominal,10,1.0,0.692,1.0,33.04,32.68,33.39
+baseline,32,CMA-ES feedback-guided,high,10,1.0,0.692,1.0,31.64,31.25,31.98
+baseline,32,DE feedback-guided,low,10,1.0,0.692,1.0,17.52,17.04,17.97
+baseline,32,DE feedback-guided,nominal,10,1.0,0.692,1.0,31.09,30.61,31.53
+baseline,32,DE feedback-guided,high,10,1.0,0.692,1.0,27.05,25.83,28.04
+baseline,32,SMAC3,low,9,0.9,0.555,0.997,10.56,7.52,13.63
+baseline,32,SMAC3,nominal,7,0.7,0.348,0.933,17.0,13.77,20.12
+baseline,32,SMAC3,high,6,0.6,0.262,0.878,12.82,8.74,16.93

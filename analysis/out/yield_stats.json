@@ -1,0 +1,27 @@
+{
+ "stamp": "snapshot serial 1 @ 2026-08-27T00:39:45Z",
+ "tentative": "Final (data snapshot 1)",
+ "overall_online_delivery": 0.36380208333333336,
+ "overall_hidden_fresh_delivery": 0.12783505154639174,
+ "online_category_counts": {
+  "mesh failed (inconclusive)": 1529,
+  "success": 1397,
+  "mesh failed (unmeshable)": 357,
+  "solver timeout": 286,
+  "no solver result": 271
+ },
+ "per_cell_online_delivery": {
+  "superwing-load-low-cl015|static-precommitted-cmaes-v2-pilot": 0.0,
+  "superwing-load-low-cl015|conventional-adaptive-cmaes-v2-pilot": 0.0,
+  "superwing-load-low-cl015|fsd-cma-v1-port-v2-pilot": 0.04375,
+  "superwing-load-low-cl015|checkpointed-de-feedback-v2-pilot": 0.290625,
+  "superwing-load-nominal-cl041|static-precommitted-cmaes-v2-pilot": 0.259375,
+  "superwing-load-nominal-cl041|conventional-adaptive-cmaes-v2-pilot": 0.265625,
+  "superwing-load-nominal-cl041|fsd-cma-v1-port-v2-pilot": 0.76875,
+  "superwing-load-nominal-cl041|checkpointed-de-feedback-v2-pilot": 0.625,
+  "superwing-load-high-cl066|static-precommitted-cmaes-v2-pilot": 0.36875,
+  "superwing-load-high-cl066|conventional-adaptive-cmaes-v2-pilot": 0.35,
+  "superwing-load-high-cl066|fsd-cma-v1-port-v2-pilot": 0.771875,
+  "superwing-load-high-cl066|checkpointed-de-feedback-v2-pilot": 0.621875
+ }
+}

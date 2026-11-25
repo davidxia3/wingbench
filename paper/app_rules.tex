@@ -1,0 +1,54 @@
+\section{Adding methods and preserving comparable versions}
+\label{app:rules}
+
+The complete rules are in \texttt{benchmark/RULES.md}. The public runner
+supports a 38-parameter wing, three tasks, a 4{,}096-surrogate cap and a
+32-query CFD horizon. It records proposals, feedback and private nominations;
+\texttt{verify.py} checks the trace and \texttt{score.py} summarizes outcomes.
+The historical studies' actual access conditions and exceptions are reported
+in Section~\ref{sec:analysis} and Appendix~\ref{app:resources}; they must not be
+inferred from the public interface's maximum allowances.
+
+\subsection{Integration contract}
+
+A new method subclasses \texttt{Optimizer} in
+\texttt{benchmark/optimizer\_api.py}. Its three decision methods are
+\texttt{propose(ctx)}, returning the next 38-coordinate wing;
+\texttt{observe(result)}, receiving the score or failure codes; and
+\texttt{recommend()}, returning its current recommendation. Optional
+\texttt{start(ctx)} initializes state. The context supplies the task, design
+box, history, remaining budgets and the surrogate query function. A method
+may maintain local state and call a language model inside this interface;
+the evaluator and private grading contract need not change.
+
+The worked optimizer and recorded-result evaluator in
+\texttt{benchmark/README.md} exercise integration without CFD. The recorded
+backend can answer only already graded wings and cannot validate a new
+optimizer's aerodynamic performance. Fresh evaluations use the CFD backend
+and the documented container. The original distributed agent campaign
+controller is not included; reproducing that campaign's orchestration
+requires additional engineering. The released interface, prompts and tools
+support new implementations, not one-command reproduction of that controller.
+
+\subsection{Versioning and maintenance scope}
+
+The preservation policy is to retain the original records and content-pinned
+protocol, distinguish documentation corrections from evaluator changes, and
+report results under different mesh, solver, budget or outcome-policy versions
+separately. A rebuilt runtime receives its own fingerprint and protocol
+revision; it is not silently substituted for the original environment.
+The container recipe, source/weight hashes, recorded example and analysis
+scripts provide checks against dependency drift. Issues and integration
+instructions are maintained with the repository, but the release offers no
+hosted grading service or guaranteed maintenance duration. These mechanisms
+reduce dependence on a live service; they do not guarantee that dependencies
+will remain available or that future maintainers will have CFD resources.
+
+For future submissions, the runner's closed track permits the provided
+source data and warm-start records; an open track also permits public
+benchmark records. The historical agents did not receive the 62-record
+baseline context. Agent seed labels identify episodes and do not create
+paired random draws across methods. Report actual resource use and protocol
+version alongside recommendation validity and mean $L/D$ among valid
+recommendations. A failed computation is a failure under that protocol,
+not a certificate of physical infeasibility.
