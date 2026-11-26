@@ -22,7 +22,6 @@
 <body>
   <a class="skip-link" href="#overview">Skip to content</a>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <symbol id="wing-mark" viewBox="0 0 36 36"><path d="M3 26 29 6l4 5-12 16-12 3Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m9 30 9-15 3 12M18 15l15-4M3 26l18 1" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
     <symbol id="paper-icon" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Zm8 0v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="code-icon" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="data-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
@@ -31,7 +30,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="WingBench home"><svg aria-hidden="true"><use href="#wing-mark"/></svg>WingBench</a>
+      <a class="brand" href="#top" aria-label="WingBench home"><img src="./assets/favicon.svg?v=3" alt="" width="29" height="29">WingBench</a>
       <nav aria-label="Main navigation">
         <a href="#overview">Overview</a>
         <a href="#results">Results</a>
@@ -85,7 +84,7 @@
         <div>
           <h3>Shape and aerodynamic efficiency</h3>
           <p>A wing produces lift, which supports an aircraft, and drag, which resists its motion. The lift-to-drag ratio, <strong>L/D</strong>, measures aerodynamic efficiency: higher values mean more lift for the same drag. Each task fixes a target lift coefficient, <strong>C<sub>L</sub></strong>, a dimensionless measure of lift.</p>
-          <p>In WingBench, a wing is a three-dimensional shape defined by <strong>38 design variables</strong>. Those numbers control the overall outline, how the wing bends and twists along its span, and the shape and thickness of its cross-sections.</p>
+          <p>In WingBench, a wing is a three-dimensional shape defined by <strong>38 design variables</strong>. Those numbers control the overall outline, how the wing bends and twists along its span, and the shape and thickness of its cross-sections. This parameterization comes from SuperWing <a href="https://doi.org/10.1038/s41597-026-07769-0" target="_blank" rel="noopener" class="paper-citation" title="SuperWing: a comprehensive transonic wing dataset for data-driven aerodynamic design">(Yang et al., 2026)</a>, the dataset we use throughout the benchmark.</p>
           <p>We test each wing at Mach 0.7853, 0.8195, and 0.8530, close to the speed of sound. Its score is the geometric mean of L/D across these three conditions.</p>
         </div>
         <div>
@@ -101,11 +100,11 @@
       <div class="section-heading">
 
         <h2 id="overview-heading">Benchmark overview</h2>
-        <p>Methods search for efficient wings within a fixed CFD query budget, including when proposed designs fail the configured mesh or flow checks.</p>
+        <p>Each optimization run is an <strong>episode</strong>: a sequence of wing proposals and CFD feedback within a fixed query budget.</p>
       </div>
       <div class="overview-content">
         <p>The benchmark combines AeroTransformer predictions <a href="https://arxiv.org/abs/2604.18062" target="_blank" rel="noopener" class="paper-citation" title="Towards a Foundation-Model Paradigm for Aerodynamic Prediction in Three-dimensional Design">(Yang et al., 2026)</a> with CFD evaluations. A method receives a score or a recorded failure type and can use that feedback in subsequent proposals.</p>
-        <p>Recommended designs are assessed at checkpoints. We report the fraction that receive a valid score and the mean lift-to-drag ratio (L/D) among those valid designs.</p>
+        <p>At checkpoints after a set number of CFD queries, the method recommends a wing for separate grading. We report the fraction that receive a valid score and the mean lift-to-drag ratio (L/D) among those valid designs.</p>
         <div class="study-stats">
           <div><strong>6,629</strong><span>CFD evaluation records</span></div>
           <div><strong>240</strong><span>search episodes</span></div>
@@ -203,7 +202,7 @@
 }</code></pre><p class="sr-only" id="copy-status" role="status"></p></div>
     </div></section>
   </main>
-  <footer class="container site-footer"><a class="brand" href="#top"><svg aria-hidden="true"><use href="#wing-mark"/></svg>WingBench</a><span>© 2026 WingBench authors</span></footer>
+  <footer class="container site-footer"><a class="brand" href="#top"><img src="./assets/favicon.svg?v=3" alt="" width="29" height="29">WingBench</a><span>© 2026 WingBench authors</span></footer>
   <noscript><div class="no-script">The paper and resources work without JavaScript. Enable JavaScript to explore recorded wing shapes and the interactive results.</div></noscript>
 </body>
 </html>
