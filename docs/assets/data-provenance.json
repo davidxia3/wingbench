@@ -1,0 +1,44 @@
+{
+  "paper": "https://arxiv.org/abs/2611.28418",
+  "code": "https://github.com/davidxia3/wingbench",
+  "geometry_source": "data/wings.csv; highest valid score per task across all 6,629 records in data/evaluations.csv and all eight methods",
+  "geometry_selection": "Maximum recorded geometric-mean L/D among complete valid scores for each task, including online queries and private grades; not restricted to final recommendations. Default: nominal load.",
+  "selected_evaluations": [
+    {
+      "task": "low",
+      "evaluation": "E0727",
+      "episode": "A071",
+      "method": "Open-ended research",
+      "kind": "online",
+      "query": "29",
+      "checkpoint": "",
+      "wing": "36b90a29bebd83a74334500a8311b1e8fef18242ee872654caa7071fa8dc3ce8",
+      "ld": "19.31263326874656"
+    },
+    {
+      "task": "nominal",
+      "evaluation": "E1170",
+      "episode": "A084",
+      "method": "Open-ended research",
+      "kind": "online",
+      "query": "32",
+      "checkpoint": "",
+      "wing": "a5a09e9e0e29f024151466dc0c31160504932e07b3234799b47f31389f13c44b",
+      "ld": "34.04911121738797"
+    },
+    {
+      "task": "high",
+      "evaluation": "E5622",
+      "episode": "B118",
+      "method": "CMA-ES feedback-guided",
+      "kind": "online",
+      "query": "31",
+      "checkpoint": "",
+      "wing": "b40ec7a45e9126d9b329efd665c7c4f66d831fbabf596fd601591c36fad539a6",
+      "ld": "32.372969111793346"
+    }
+  ],
+  "geometry_renderer": "analysis/render_wing.py, build_wing; visualization surface resolution reduced for the web",
+  "results_source": "analysis/out/tables/tab_appendix_baseline_recommendations.csv; checked against data/recommendations.csv",
+  "display_note": "Wing surfaces only, not CFD volume meshes or pressure fields. Results are recorded data, not live CFD."
+}

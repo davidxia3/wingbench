@@ -299,3 +299,22 @@
 /START_HERE.md
 /.env
 /.env.*
+
+# Public project website (GitHub Pages)
+!/docs/
+!/docs/assets/
+!/docs/.nojekyll
+!/docs/app.js
+!/docs/assets/baseline-results.csv
+!/docs/assets/best-found-wings.csv
+!/docs/assets/data-provenance.json
+!/docs/assets/favicon.svg
+!/docs/assets/fonts.css
+!/docs/assets/manrope-0.woff2
+!/docs/assets/manrope-OFL.txt
+!/docs/assets/results.json
+!/docs/assets/social-preview.png
+!/docs/assets/wing-fallback.svg
+!/docs/assets/wings.json
+!/docs/index.html
+!/docs/style.css

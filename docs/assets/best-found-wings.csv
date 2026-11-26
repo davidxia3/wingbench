@@ -1,0 +1,4 @@
+task,evaluation,episode,method,kind,query,checkpoint,wing,ld
+low,E0727,A071,Open-ended research,online,29,,36b90a29bebd83a74334500a8311b1e8fef18242ee872654caa7071fa8dc3ce8,19.31263326874656
+nominal,E1170,A084,Open-ended research,online,32,,a5a09e9e0e29f024151466dc0c31160504932e07b3234799b47f31389f13c44b,34.04911121738797
+high,E5622,B118,CMA-ES feedback-guided,online,31,,b40ec7a45e9126d9b329efd665c7c4f66d831fbabf596fd601591c36fad539a6,32.372969111793346

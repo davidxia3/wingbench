@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>WingBench — How AI agents search for better designs</title>
+  <meta name="description" content="WingBench is an open benchmark for AI agents and optimizers designing transonic wings. Explore recorded wing geometries, CFD feedback, and the balance between design quality and reliability.">
+  <meta property="og:title" content="WingBench — How AI agents search for better designs">
+  <meta property="og:description" content="A benchmark at the intersection of AI agents, engineering design, and computational fluid dynamics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidxia3.github.io/wingbench/">
+  <meta property="og:image" content="https://davidxia3.github.io/wingbench/assets/social-preview.png">
+  <link rel="canonical" href="https://davidxia3.github.io/wingbench/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/fonts.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"WingBench: Benchmarking How AI Agents Search for Better Designs","url":"https://arxiv.org/abs/2611.28418","datePublished":"2026-11-20","author":[{"@type":"Person","name":"Yiming Yang"},{"@type":"Person","name":"David Xia"},{"@type":"Person","name":"Jisen Li"},{"@type":"Person","name":"Yuqing Jian"},{"@type":"Person","name":"Yunjia Yang"},{"@type":"Person","name":"Koray Aydin"},{"@type":"Person","name":"Zhaoran Wang"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="wing-mark" viewBox="0 0 36 36"><path d="M3 26 29 6l4 5-12 16-12 3Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m9 30 9-15 3 12M18 15l15-4M3 26l18 1" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
+    <symbol id="paper-icon" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Zm8 0v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="code-icon" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="data-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="copy-icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15 8V3H3v13h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="WingBench home"><svg aria-hidden="true"><use href="#wing-mark"/></svg>WingBench</a>
+      <nav aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#results">Results</a>
+        <a class="nav-resource" href="#resources">Resources</a>
+        <a class="nav-paper" href="https://arxiv.org/abs/2611.28418" target="_blank" rel="noopener">Read the paper<svg aria-hidden="true"><use href="#paper-icon"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="hero-heading">
+      <div class="hero-copy">
+
+        <h1 id="hero-heading">WingBench</h1>
+        <p class="hero-title">Benchmarking how AI agents search for better designs</p>
+        <p class="hero-description">A benchmark for AI agents and numerical optimizers designing transonic wings with learned predictions and computational fluid dynamics (CFD).</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://arxiv.org/pdf/2611.28418" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#paper-icon"/></svg>Read paper</a>
+          <a class="button button-secondary" href="https://github.com/davidxia3/wingbench" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#code-icon"/></svg>Code &amp; data</a>
+        </div>
+        <p class="publication-note">Preprint · November 2026</p>
+      </div>
+      <div class="wing-stage" id="wing-stage">
+        <div class="stage-top"><span>Highest-scoring wing found</span><span id="wing-method">Nominal load · Open-ended research · Query 32</span></div>
+        <div class="wing-render">
+          <img class="wing-fallback" src="./assets/wing-fallback.svg" alt="Surface of the highest-scoring nominal-load wing found across all methods" width="860" height="600">
+          <canvas id="wing-canvas" tabindex="0" aria-label="Interactive recorded wing surface. Drag or use arrow keys to rotate. Use the buttons below to select another design."></canvas>
+        </div>
+        <div class="stage-readout"><span>L/D <strong id="wing-score">34.05</strong></span><span>SWEEP <strong id="wing-sweep">—</strong></span><span>ASPECT RATIO <strong id="wing-aspect">—</strong></span></div>
+        <div class="stage-controls">
+          <div class="segmented wing-tabs" role="group" aria-label="Choose a recorded wing design">
+            <button type="button" data-wing="low" aria-pressed="false">Low load</button>
+            <button type="button" data-wing="nominal" aria-pressed="true">Nominal</button>
+            <button type="button" data-wing="high" aria-pressed="false">High load</button>
+          </div>
+          <button class="motion-button" type="button" id="toggle-motion" aria-label="Play wing animation" title="Play wing animation"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6Z" fill="currentColor"/></svg></button>
+        </div>
+        <p class="stage-caption">Best found per task, across all methods · Drag to rotate</p>
+      </div>
+    </section>
+
+    <section class="authors container" aria-label="Paper authors and affiliations">
+      <p class="author-names"><span>Yiming Yang<sup>1,*</sup></span><span>David Xia<sup>2,*</sup></span><span>Jisen Li<sup>2</sup></span><span>Yuqing Jian<sup>2</sup></span><span>Yunjia Yang<sup>3</sup></span><span>Koray Aydin<sup>1</sup></span><span>Zhaoran Wang<sup>1</sup></span></p>
+      <div class="affiliations"><span><sup>1</sup> Northwestern University</span><span><sup>2</sup> University of Illinois Urbana-Champaign</span><span><sup>3</sup> Technical University of Munich</span></div>
+      <p class="equal-contribution">* Equal contribution</p>
+    </section>
+
+    <section class="overview section container" id="overview" aria-labelledby="overview-heading">
+      <div class="section-heading">
+
+        <h2 id="overview-heading">Benchmark overview</h2>
+        <p>Methods search for efficient wings within a fixed CFD query budget, including when proposed designs fail the configured mesh or flow checks.</p>
+      </div>
+      <div class="overview-content">
+        <p>The benchmark combines AeroTransformer predictions with CFD evaluations. A method receives a score or a recorded failure type and can use that feedback in subsequent proposals.</p>
+        <p>Recommended designs are assessed at checkpoints. We report the fraction that receive a valid score and the mean lift-to-drag ratio (L/D) among those valid designs.</p>
+        <div class="study-stats">
+          <div><strong>6,629</strong><span>CFD evaluation records</span></div>
+          <div><strong>240</strong><span>search episodes</span></div>
+          <div><strong>3</strong><span>load conditions</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="protocol container" aria-labelledby="protocol-heading">
+      <div class="protocol-top"><h3 id="protocol-heading">Evaluation procedure</h3><p>The meshing, solver, and grading rules are fixed.</p></div>
+      <div class="protocol-flow">
+        <article class="flow-step">
+          <div class="step-visual surrogate-visual" aria-hidden="true"><svg viewBox="0 0 160 80"><path d="M8 65C30 65 24 13 52 36S82 67 98 28s32-11 54-17"/><path d="M8 56C27 51 33 27 54 40s36 0 50-13 29-14 48-13"/><circle cx="104" cy="27" r="4"/></svg></div>
+          <h3>Propose a wing</h3><p>Methods propose wings in a 38-dimensional design space, optionally screening candidates with the surrogate.</p>
+        </article>
+        <div class="flow-connector" aria-hidden="true"><span></span></div>
+        <article class="flow-step">
+          <div class="step-visual evaluate-visual" aria-hidden="true"><span></span><span></span><span></span><svg viewBox="0 0 72 48"><path d="m8 34 45-24 11 8-25 20Z"/><path d="m19 28 25 7M30 23l18 7M41 17l13 8"/></svg></div>
+          <h3>Test against CFD</h3><p>A score requires accepted flow results at all three Mach conditions. Failed evaluations return a reason code.</p>
+        </article>
+        <div class="flow-connector" aria-hidden="true"><span></span></div>
+        <article class="flow-step">
+          <div class="step-visual recommend-visual" aria-hidden="true"><svg viewBox="0 0 110 80"><rect x="26" y="8" width="58" height="64" rx="5"/><path d="m44 30 7 7 15-16M40 49h30M40 58h21"/></svg></div>
+          <h3>Recommend a design</h3><p>The method selects a wing at each checkpoint. It receives no additional feedback from recommendation grading.</p>
+        </article>
+      </div>
+      <p class="protocol-note">Up to 4,096 surrogate evaluations and 32 online CFD queries per episode. The controlled agent comparison uses a common four-query checkpoint.</p>
+    </section>
+
+    <section class="results-section" id="results" aria-labelledby="results-heading">
+      <div class="container">
+        <div class="results-heading"><div><h2 id="results-heading">Baseline results</h2></div><p>Three CMA-ES variants use CFD feedback differently. The plots show recommendation validity and mean L/D as the query budget increases.</p></div>
+        <div class="results-explorer">
+          <div class="explorer-toolbar"><div class="segmented" role="group" aria-label="Results load condition"><button type="button" data-task="low" aria-pressed="false">Low load</button><button type="button" data-task="nominal" aria-pressed="true">Nominal load</button><button type="button" data-task="high" aria-pressed="false">High load</button></div><span class="sample-label">10 runs per method · CMA-ES variants</span></div>
+          <div class="explorer-body">
+            <div class="chart-panel">
+              <div class="chart-heading"><p id="chart-metric-label">Mean lift-to-drag ratio</p><div class="metric-tabs" role="group" aria-label="Chart metric"><button type="button" data-metric="quality" aria-pressed="true">Quality</button><button type="button" data-metric="reliability" aria-pressed="false">Reliability</button></div></div>
+              <svg id="results-chart" viewBox="0 0 620 290" role="img" aria-labelledby="chart-title chart-description"><title id="chart-title">CMA-ES recommendation quality by CFD query budget</title><desc id="chart-description">Recorded results from ten runs per method. Detailed values appear in the adjacent summary and the accessible data table below.</desc></svg>
+              <p class="chart-axis-label">Online CFD queries</p>
+              <div class="budget-control"><label for="query-budget">CFD query budget</label><output for="query-budget" id="query-output">4 CFD queries</output><input id="query-budget" type="range" min="0" max="6" step="1" value="3" aria-valuetext="4 CFD queries"><div class="range-labels" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>4</span><span>8</span><span>16</span><span>32</span></div></div>
+            </div>
+            <div class="checkpoint-panel" aria-live="polite" aria-atomic="true"><p class="checkpoint-title">At <span id="checkpoint-number">4</span> CFD queries</p><div id="method-summaries"></div><p class="checkpoint-note">L/D is averaged over valid recommendations only. Dots show valid recommendations out of 10 runs.</p></div>
+          </div>
+          <p class="result-insight" id="result-insight">At four queries, the archive methods have higher mean L/D among valid recommendations. Feedback-guided CMA-ES returns a valid wing in all ten runs.</p>
+        </div>
+        <div class="results-footnote"><p>These recorded results compare complete search policies. The methods differ in both feedback use and surrogate allocation, so the comparison does not isolate feedback’s causal effect. The plotted means do not include uncertainty bands.</p><a href="./assets/baseline-results.csv" download>Download result table</a></div>
+        <details class="accessible-data"><summary>View the data as a table</summary><div class="data-table-wrap"><table><caption id="data-table-caption">Nominal load · ten runs per method</caption><thead><tr><th scope="col">CFD queries</th><th scope="col">Method</th><th scope="col">Valid runs</th><th scope="col">Mean L/D</th></tr></thead><tbody id="data-table-body"></tbody></table></div></details>
+      </div>
+    </section>
+
+    <section class="agents-section section container" aria-labelledby="agents-heading">
+      <div class="agents-intro"><h2 id="agents-heading">Agent comparison</h2><p>Three agent configurations share the same model, tools, and query caps. The study tests whether explicit reflection or planning improves on open-ended research.</p></div>
+      <div class="agent-methods">
+        <article><div><h3>Open-ended research</h3><p>The agent chooses what to analyze and which experiment to run next.</p></div></article>
+        <article><div><h3>Explicit reflection</h3><p>The agent writes a reflection after each CFD result and receives it before the next decision.</p></div></article>
+        <article><div><h3>Contingent planning</h3><p>Four planners propose two-step procedures. A common scoring rule selects a plan, and the agent replans after the next CFD result.</p></div></article>
+      </div>
+      <div class="agent-takeaway"><span class="takeaway-label">Result</span><p>At the common four-query checkpoint, neither the tested reflection nor planning implementation consistently improved both recommendation validity and mean L/D over open-ended research across the three tasks.</p><a href="https://arxiv.org/abs/2611.28418" target="_blank" rel="noopener">Read the comparison and its limitations</a></div>
+    </section>
+
+    <section class="resources-section" id="resources" aria-labelledby="resources-heading"><div class="container">
+      <div class="resources-intro"><div><h2 id="resources-heading">Paper, code, and data</h2></div><p>The release includes the benchmark, baseline implementations, agent prompts, and analysis scripts.</p></div>
+      <div class="resource-links">
+        <a href="https://arxiv.org/abs/2611.28418" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#paper-icon"/></svg><h3>Paper</h3><p>Methods, results, and limitations.</p><span>arXiv:2611.28418</span></a>
+        <a href="https://github.com/davidxia3/wingbench/tree/main/benchmark" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#code-icon"/></svg><h3>Code &amp; benchmark</h3><p>The runner and interfaces for adding new methods.</p><span>Available on GitHub</span></a>
+        <a href="https://github.com/davidxia3/wingbench/tree/main/data" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#data-icon"/></svg><h3>Data</h3><p>Recorded evaluations and recommendation scores.</p><span>6,629 CFD evaluation records</span></a>
+      </div>
+      <div class="citation"><div class="citation-heading"><h3>Cite this work</h3><button type="button" class="copy-button" id="copy-citation"><svg aria-hidden="true"><use href="#copy-icon"/></svg><span>Copy BibTeX</span></button></div><pre><code id="bibtex">@article{yang2026wingbench,
+  title   = {WingBench: Benchmarking How AI Agents Search for Better Designs},
+  author  = {Yang, Yiming and Xia, David and Li, Jisen and Jian, Yuqing
+             and Yang, Yunjia and Aydin, Koray and Wang, Zhaoran},
+  journal = {arXiv preprint arXiv:2611.28418},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2611.28418}
+}</code></pre><p class="sr-only" id="copy-status" role="status"></p></div>
+    </div></section>
+  </main>
+  <footer class="container site-footer"><a class="brand" href="#top"><svg aria-hidden="true"><use href="#wing-mark"/></svg>WingBench</a><span>© 2026 WingBench authors</span></footer>
+  <noscript><div class="no-script">The paper and resources work without JavaScript. Enable JavaScript to explore recorded wing shapes and the interactive results.</div></noscript>
+</body>
+</html>

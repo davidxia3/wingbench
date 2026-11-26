@@ -1,5 +1,7 @@
 # WingBench
 
+[Project website](https://davidxia3.github.io/wingbench/) · [Paper](https://arxiv.org/abs/2611.28418)
+
 A benchmark for wing-design optimizers that use a cheap learned model together
 with expensive computational fluid dynamics (CFD), where the CFD often returns
 no score at all.
@@ -28,6 +30,7 @@ wingbench/           baseline optimizers, surrogate wrapper, and the episode mac
 scripts/cfd/         the CFD grader, a fetch script for the SuperWing simulation files, and its patch
 configs/             benchmark and CFD protocols, pinned to each other by fingerprint
 agents/              the prompts and task files given to the AI agents
+docs/                the public project website, served by GitHub Pages
 benchmark/           the rules, the runner, the verifier, the scorer, and the container recipe
 ```
 
