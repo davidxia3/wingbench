@@ -4,103 +4,133 @@
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const methods = [
-    {key:'CMA-ES no feedback', name:'Fixed archive', color:'#7c8790', dash:'5 5'},
-    {key:'CMA-ES selection only', name:'Archive reordering', color:'#48535d', dash:'2 4'},
-    {key:'CMA-ES feedback-guided', name:'Feedback-guided', color:'#365f80', dash:''}
-  ];
-  const checkpoints = [0,1,2,4,8,16,32];
-  const state = {task:'nominal', metric:'quality', index:3, data:null};
   const svgNS = 'http://www.w3.org/2000/svg';
   const svg = (tag, attrs = {}, text = '') => {
-    const node = document.createElementNS(svgNS,tag);
-    for (const [k,v] of Object.entries(attrs)) node.setAttribute(k,String(v));
-    if(text) node.textContent = text;
+    const node = document.createElementNS(svgNS, tag);
+    for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, String(value));
+    if (text) node.textContent = text;
     return node;
   };
 
-  function renderResults() {
-    if(!state.data) return;
-    const task = state.data[state.task];
-    const q = checkpoints[state.index];
-    const reliability = state.metric === 'reliability';
-    $('#query-output').textContent = `${q} CFD ${q === 1 ? 'query' : 'queries'}`;
-    $('#query-budget').setAttribute('aria-valuetext',`${q} CFD queries`);
-    $('#checkpoint-number').textContent = q;
-    $('#chart-metric-label').textContent = reliability ? 'Valid recommendations (%)' : 'Mean lift-to-drag ratio';
-    $('#chart-title').textContent = `CMA-ES recommendation ${state.metric}, ${state.task} load`;
-    const chart = $('#results-chart');
-    [...chart.children].filter(n => !['title','desc'].includes(n.tagName)).forEach(n => n.remove());
-    const compact=window.matchMedia('(max-width:480px)').matches;
-    const W=compact?400:620,H=compact?280:290,L=compact?42:46,R=22,T=23,B=35;
-    chart.setAttribute('viewBox',`0 0 ${W} ${H}`);
-    const qualities = methods.flatMap(m=>task[m.key].map(p=>p.quality)).filter(v=>v!==null);
-    const lo = reliability ? 0 : Math.floor(Math.min(...qualities)-.65);
-    const hi = reliability ? 100 : Math.ceil(Math.max(...qualities)+.65);
-    const px = x=>L+(W-L-R)*x/32;
-    const py = y=>H-B-(H-B-T)*(y-lo)/(hi-lo);
-    const value = p=>reliability ? p.valid/p.runs*100 : p.quality;
-    for(let i=0;i<=4;i++) {
-      const v=lo+(hi-lo)*i/4;
-      chart.append(svg('line',{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:'#dfe4e8','stroke-opacity':1,'stroke-width':1}));
-      chart.append(svg('text',{x:L-12,y:py(v)+4,'text-anchor':'end'},reliability?`${Math.round(v)}`:v.toFixed(hi-lo>10?0:1)));
-    }
-    [0,4,8,16,32].forEach(x=>chart.append(svg('text',{x:px(x),y:H-9,'text-anchor':'middle'},String(x))));
-    chart.append(svg('line',{x1:px(q),x2:px(q),y1:T-6,y2:H-B+3,stroke:'#97a5b0','stroke-opacity':.7,'stroke-dasharray':'3 5'}));
-    for(const m of methods) {
-      let path='',active=false;
-      for(const p of task[m.key]) {
-        const v=value(p);
-        if(v===null) {active=false;continue;}
-        path+=`${active?'L':'M'}${px(p.query).toFixed(2)},${py(v).toFixed(2)} `;active=true;
+  function createExplorer(selector, config) {
+    const root = $(selector);
+    const find = role => root.querySelector(`[data-role="${role}"]`);
+    const all = selector => [...root.querySelectorAll(selector)];
+    const {methods, checkpoints, ticks} = config;
+    const state = {task:'nominal', metric:'quality', index:3, data:null};
+
+    function render() {
+      if (!state.data) return;
+      const data = state.data[state.task];
+      const query = checkpoints[state.index];
+      const reliability = state.metric === 'reliability';
+      const queryText = `${query} CFD ${query === 1 ? 'query' : 'queries'}`;
+      find('query-output').textContent = queryText;
+      find('query-budget').setAttribute('aria-valuetext', queryText);
+      find('checkpoint').textContent = query;
+      find('metric-label').textContent = reliability ? 'Valid recommendations (%)' : 'Mean lift-to-drag ratio';
+      find('chart-title').textContent = `${config.label} recommendation ${state.metric}, ${state.task} load`;
+      const chart = find('chart');
+      [...chart.children].filter(n => !['title','desc'].includes(n.tagName)).forEach(n => n.remove());
+      const compact = window.matchMedia('(max-width:480px)').matches;
+      const W=compact?400:620, H=compact?280:310, L=46, R=22, T=23, B=35;
+      chart.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      const qualityValues = methods.flatMap(m => data[m.key].map(p => p.quality)).filter(Number.isFinite);
+      const lo = reliability ? 0 : qualityValues.length ? Math.floor(Math.min(...qualityValues)-.65) : 0;
+      const hi = reliability ? 100 : qualityValues.length ? Math.ceil(Math.max(...qualityValues)+.65) : 1;
+      const px = x => L+(W-L-R)*x/checkpoints[checkpoints.length-1];
+      const py = y => H-B-(H-B-T)*(y-lo)/(hi-lo);
+      const value = p => reliability ? p.valid/p.runs*100 : p.quality;
+      for (let i=0; i<=4; i++) {
+        const y=lo+(hi-lo)*i/4;
+        chart.append(svg('line',{x1:L,x2:W-R,y1:py(y),y2:py(y),stroke:'#dfe4e8','stroke-width':1}));
+        chart.append(svg('text',{x:L-12,y:py(y)+4,'text-anchor':'end'},reliability?`${Math.round(y)}`:y.toFixed(hi-lo>10?0:1)));
       }
-      chart.append(svg('path',{d:path,fill:'none',stroke:m.color,'stroke-width':2.3,'stroke-linejoin':'round','stroke-linecap':'round','stroke-dasharray':m.dash}));
-      for(const p of task[m.key]) {
-        const v=value(p);
-        if(v===null)continue;
-        chart.append(svg('circle',{cx:px(p.query),cy:py(v),r:p.query===q?5.2:2.7,fill:p.query===q?m.color:'#ffffff',stroke:m.color,'stroke-width':p.query===q?2:1.6}));
+      ticks.forEach(x => chart.append(svg('text',{x:px(x),y:H-9,'text-anchor':'middle'},String(x))));
+      chart.append(svg('line',{x1:px(query),x2:px(query),y1:T-6,y2:H-B+3,stroke:'#97a5b0','stroke-dasharray':'3 5'}));
+      for (const method of methods) {
+        let path='', active=false;
+        for (const point of data[method.key]) {
+          const y=value(point);
+          if (y===null) {active=false;continue;}
+          path+=`${active?'L':'M'}${px(point.query).toFixed(2)},${py(y).toFixed(2)} `;
+          active=true;
+        }
+        chart.append(svg('path',{d:path,fill:'none',stroke:method.color,'stroke-width':2.3,'stroke-linejoin':'round','stroke-linecap':'round','stroke-dasharray':method.dash}));
+        for (const point of data[method.key]) {
+          const y=value(point);
+          if (y===null) continue;
+          const selected=point.query===query;
+          const mark=svg('circle',{cx:px(point.query),cy:py(y),r:selected?5:2.7,fill:selected?method.color:'#fff',stroke:method.color,'stroke-width':selected?2:1.6});
+          mark.append(svg('title',{},`${method.name}: query ${point.query}, ${point.valid}/${point.runs} valid, mean L/D ${point.quality===null?'undefined':point.quality.toFixed(2)}`));
+          chart.append(mark);
+        }
+      }
+      const summaries=find('summaries');
+      summaries.replaceChildren();
+      const current=methods.map(method => ({...method,...data[method.key].find(p => p.query===query)}));
+      for (const method of current) {
+        const row=document.createElement('div');
+        row.className='method-summary';
+        row.innerHTML=`<p class="method-summary-title"><svg class="series-swatch" viewBox="0 0 28 10" aria-hidden="true"><path d="M1 5h26" stroke="${method.color}" stroke-width="2.4" stroke-dasharray="${method.dash}"/></svg>${method.name}</p><div class="summary-numbers"><span class="summary-quality">${method.quality===null?'—':method.quality.toFixed(2)}<small>L/D</small></span><span class="summary-valid">${method.valid}/${method.runs} valid</span></div>`;
+        summaries.append(row);
+      }
+      const scored=current.filter(m => m.quality!==null);
+      if (scored.length) {
+        const max=Math.max(...scored.map(m => m.quality));
+        const best=scored.filter(m => m.quality===max);
+        find('insight').textContent=best.length===1
+          ? `At ${query} ${query===1?'query':'queries'}, ${best[0].name} has the highest mean L/D (${max.toFixed(2)}), among its ${best[0].valid} valid recommendations out of 10. Compare validity alongside quality: each mean uses only that method’s successful runs.`
+          : `At ${query} ${query===1?'query':'queries'}, ${best.map(m=>m.name).join(' and ')} share the highest reported mean L/D (${max.toFixed(2)}). Each mean uses only that method’s valid recommendations.`;
+      } else {
+        find('insight').textContent='No method returned a valid recommendation at this checkpoint, so mean L/D is undefined.';
+      }
+      find('table-caption').textContent=`${state.task[0].toUpperCase()+state.task.slice(1)} load · ten runs per method`;
+      const body=find('table-body');body.replaceChildren();
+      for (const q of checkpoints) for (const method of methods) {
+        const point=data[method.key].find(p=>p.query===q), row=document.createElement('tr');
+        for (const text of [q,method.name,`${point.valid}/${point.runs}`,point.quality===null?'Undefined (no valid recommendations)':point.quality.toFixed(2)]) {
+          const cell=document.createElement('td');cell.textContent=text;row.append(cell);
+        }
+        body.append(row);
       }
     }
-    const summaries=$('#method-summaries');summaries.replaceChildren();
-    for(const m of methods) {
-      const p=task[m.key].find(p=>p.query===q);
-      const el=document.createElement('div');el.className='method-summary';el.style.setProperty('--method-color',m.color);
-      el.innerHTML=`<p class="method-summary-title"><span class="legend-line" aria-hidden="true"></span>${m.name}</p><div class="summary-numbers"><span class="summary-quality">${p.quality===null?'—':p.quality.toFixed(2)}<small>L/D</small></span><span class="summary-valid">${p.valid}/${p.runs} valid</span></div><div class="delivery-dots" aria-hidden="true">${Array.from({length:p.runs},(_,i)=>`<i class="${i<p.valid?'valid':''}"></i>`).join('')}</div>`;
-      summaries.append(el);
-    }
-    let insight;
-    if(state.task==='nominal'&&q===32) insight='By 32 queries, feedback-guided CMA-ES reaches a similar mean L/D (33.04), while delivering valid recommendations in 10/10 runs. Both archive variants deliver in 4/10 runs (mean L/D 33.22).';
-    else if(state.task==='nominal'&&q===4) insight='At four queries, the archive methods have higher mean L/D among valid recommendations (33.22 and 33.18). Feedback-guided search delivers in all ten runs, with mean L/D 28.73.';
-    else if(state.task==='low') insight='At low load, neither archive variant returns a valid recommendation at these checkpoints. Mean L/D is undefined because no recommendations received valid scores.';
-    else {
-      const feedback=task[methods[2].key][state.index];
-      insight=`At ${q} ${q===1?'query':'queries'}, feedback-guided search returns ${feedback.valid} valid recommendations out of 10. Mean L/D is computed separately for each method’s successful runs.`;
-    }
-    $('#result-insight').textContent=insight;
-    $('#data-table-caption').textContent=`${state.task[0].toUpperCase()+state.task.slice(1)} load · ten runs per method`;
-    const body=$('#data-table-body');body.replaceChildren();
-    for(const query of checkpoints)for(const m of methods){
-      const p=task[m.key].find(p=>p.query===query);const tr=document.createElement('tr');
-      for(const txt of [query,m.name,`${p.valid}/${p.runs}`,p.quality===null?'Undefined (no valid recommendations)':p.quality.toFixed(2)]){const td=document.createElement('td');td.textContent=txt;tr.append(td);}
-      body.append(tr);
-    }
+    all('[data-task]').forEach(button=>button.addEventListener('click',()=>{
+      state.task=button.dataset.task;
+      all('[data-task]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+      render();
+    }));
+    all('[data-metric]').forEach(button=>button.addEventListener('click',()=>{
+      state.metric=button.dataset.metric;
+      all('[data-metric]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+      render();
+    }));
+    find('query-budget').addEventListener('input',event=>{state.index=Number(event.target.value);render();});
+    let resizeTimer;
+    window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(render,100);});
+    fetch(config.file).then(response=>{if(!response.ok)throw new Error('Results unavailable');return response.json();}).then(data=>{state.data=data;render();}).catch(()=>{
+      find('insight').textContent='The interactive data could not load. Download the result table below to view the recorded values.';
+      find('query-budget').disabled=true;
+    });
   }
-  $$('[data-task]').forEach(button=>button.addEventListener('click',()=>{
-    state.task=button.dataset.task;
-    $$('[data-task]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    renderResults();
-  }));
-  $$('[data-metric]').forEach(button=>button.addEventListener('click',()=>{
-    state.metric=button.dataset.metric;
-    $$('[data-metric]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-    renderResults();
-  }));
-  $('#query-budget').addEventListener('input',e=>{state.index=Number(e.target.value);renderResults();});
-  let resizeTimer;
-  window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(renderResults,100);});
-  fetch('./assets/results.json').then(r=>{if(!r.ok)throw new Error('Results unavailable');return r.json();}).then(data=>{state.data=data;renderResults();}).catch(()=>{
-    $('#result-insight').textContent='The interactive data could not load. The complete result table is available from the download link below.';
-    $('#query-budget').disabled=true;
+
+  createExplorer('#results', {
+    label:'Baseline', file:'./assets/results.json', checkpoints:[0,1,2,4,8,16,32], ticks:[0,4,8,16,32],
+    methods:[
+      {key:'CMA-ES no feedback',name:'CMA-ES · fixed archive',color:'#7c8790',dash:'6 5'},
+      {key:'CMA-ES selection only',name:'CMA-ES · archive reordering',color:'#48535d',dash:'2 4'},
+      {key:'CMA-ES feedback-guided',name:'CMA-ES · feedback-guided',color:'#365f80',dash:''},
+      {key:'DE feedback-guided',name:'Differential evolution',color:'#597763',dash:'10 4'},
+      {key:'SMAC3',name:'SMAC3',color:'#986b43',dash:'9 3 2 3'}
+    ]
+  });
+  createExplorer('#agent-results', {
+    label:'Agent', file:'./assets/agent-results.json', checkpoints:[0,1,2,4], ticks:[0,1,2,4],
+    methods:[
+      {key:'Open-ended research',name:'Open-ended research',color:'#365f80',dash:''},
+      {key:'Reflection',name:'Explicit reflection',color:'#48535d',dash:'6 5'},
+      {key:'Planning',name:'Contingent planning',color:'#597763',dash:'2 4'}
+    ]
   });
 
   $('#copy-citation').addEventListener('click',async()=>{
@@ -144,8 +174,9 @@
       $('#wing-aspect').textContent=mesh.aspectRatio.toFixed(2);
       $('#wing-score').textContent=mesh.ld.toFixed(2);
       const method=mesh.method==='CMA-ES feedback-guided'?'Feedback-guided CMA-ES':mesh.method;
+      const targetCl={low:0.15,nominal:0.41,high:0.66}[task];
       $('#wing-method').textContent=`${task[0].toUpperCase()+task.slice(1)} load · ${method} · Query ${mesh.query}`;
-      canvas.setAttribute('aria-label',`Highest-scoring ${task}-load wing found across all methods. ${method}, query ${mesh.query}, L/D ${mesh.ld.toFixed(2)}. Sweep ${mesh.sweep.toFixed(1)} degrees, aspect ratio ${mesh.aspectRatio.toFixed(2)}. Drag or use arrow keys to rotate.`);
+      canvas.setAttribute('aria-label',`Highest-scoring ${task}-load wing found across all methods, target lift coefficient ${targetCl}. ${method}, query ${mesh.query}, L/D ${mesh.ld.toFixed(2)}. Sweep ${mesh.sweep.toFixed(1)} degrees, aspect ratio ${mesh.aspectRatio.toFixed(2)}. Drag or use arrow keys to rotate.`);
       dirty=true;
     }
     function resize() {

@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://davidxia3.github.io/wingbench/assets/social-preview.png">
   <link rel="canonical" href="https://davidxia3.github.io/wingbench/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/fonts.css">
   <link rel="stylesheet" href="./style.css">
   <script src="./app.js" defer></script>
@@ -63,9 +63,9 @@
         <div class="stage-readout"><span>L/D <strong id="wing-score">34.05</strong></span><span>SWEEP <strong id="wing-sweep">—</strong></span><span>ASPECT RATIO <strong id="wing-aspect">—</strong></span></div>
         <div class="stage-controls">
           <div class="segmented wing-tabs" role="group" aria-label="Choose a recorded wing design">
-            <button type="button" data-wing="low" aria-pressed="false">Low load</button>
-            <button type="button" data-wing="nominal" aria-pressed="true">Nominal</button>
-            <button type="button" data-wing="high" aria-pressed="false">High load</button>
+            <button type="button" data-wing="low" aria-pressed="false"><span>Low load</span><span class="load-value">C<sub>L</sub> = 0.15</span></button>
+            <button type="button" data-wing="nominal" aria-pressed="true"><span>Nominal</span><span class="load-value">C<sub>L</sub> = 0.41</span></button>
+            <button type="button" data-wing="high" aria-pressed="false"><span>High load</span><span class="load-value">C<sub>L</sub> = 0.66</span></button>
           </div>
           <button class="motion-button" type="button" id="toggle-motion" aria-label="Play wing animation" title="Play wing animation"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6Z" fill="currentColor"/></svg></button>
         </div>
@@ -79,6 +79,24 @@
       <p class="equal-contribution">* Equal contribution</p>
     </section>
 
+    <section class="background-section section container" id="background" aria-labelledby="background-heading">
+      <h2 id="background-heading">Wing design</h2>
+      <div class="background-columns">
+        <div>
+          <h3>Shape and aerodynamic efficiency</h3>
+          <p>A wing produces lift, which supports an aircraft, and drag, which resists its motion. The lift-to-drag ratio, <strong>L/D</strong>, measures aerodynamic efficiency: higher values mean more lift for the same drag. Each task fixes a target lift coefficient, <strong>C<sub>L</sub></strong>, a dimensionless measure of lift.</p>
+          <p>In WingBench, a wing is a three-dimensional shape defined by <strong>38 design variables</strong>. Those numbers control the overall outline, how the wing bends and twists along its span, and the shape and thickness of its cross-sections.</p>
+          <p>We test each wing at Mach 0.7853, 0.8195, and 0.8530, close to the speed of sound. Its score is the geometric mean of L/D across these three conditions.</p>
+        </div>
+        <div>
+          <h3>Why optimization is difficult</h3>
+          <p>A learned surrogate can estimate performance in about a second. Its predictions can be too optimistic, especially for shapes unlike its training data. Optimizing the prediction alone can therefore select a wing that performs poorly in CFD.</p>
+          <p>Computational fluid dynamics (CFD) solves the flow equations on a mesh: a numerical grid around the wing. Evaluating one candidate can take hours. The automatic mesher may fail to build an acceptable grid, or the flow solver may not converge within its time limit, leaving no usable score.</p>
+          <p>A method needs to choose its expensive tests carefully and recover when a test returns no score. WingBench records those failures as part of the search.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="overview section container" id="overview" aria-labelledby="overview-heading">
       <div class="section-heading">
 
@@ -86,7 +104,7 @@
         <p>Methods search for efficient wings within a fixed CFD query budget, including when proposed designs fail the configured mesh or flow checks.</p>
       </div>
       <div class="overview-content">
-        <p>The benchmark combines AeroTransformer predictions with CFD evaluations. A method receives a score or a recorded failure type and can use that feedback in subsequent proposals.</p>
+        <p>The benchmark combines AeroTransformer predictions <a href="https://arxiv.org/abs/2604.18062" target="_blank" rel="noopener" class="paper-citation" title="Towards a Foundation-Model Paradigm for Aerodynamic Prediction in Three-dimensional Design">(Yang et al., 2026)</a> with CFD evaluations. A method receives a score or a recorded failure type and can use that feedback in subsequent proposals.</p>
         <p>Recommended designs are assessed at checkpoints. We report the fraction that receive a valid score and the mean lift-to-drag ratio (L/D) among those valid designs.</p>
         <div class="study-stats">
           <div><strong>6,629</strong><span>CFD evaluation records</span></div>
@@ -119,33 +137,52 @@
 
     <section class="results-section" id="results" aria-labelledby="results-heading">
       <div class="container">
-        <div class="results-heading"><div><h2 id="results-heading">Baseline results</h2></div><p>Three CMA-ES variants use CFD feedback differently. The plots show recommendation validity and mean L/D as the query budget increases.</p></div>
+        <div class="results-heading"><h2 id="results-heading">Baseline results</h2><p>Three CMA-ES variants, differential evolution, and SMAC3 Bayesian optimization. Compare recommendation validity and mean L/D as the CFD query budget increases.</p></div>
         <div class="results-explorer">
-          <div class="explorer-toolbar"><div class="segmented" role="group" aria-label="Results load condition"><button type="button" data-task="low" aria-pressed="false">Low load</button><button type="button" data-task="nominal" aria-pressed="true">Nominal load</button><button type="button" data-task="high" aria-pressed="false">High load</button></div><span class="sample-label">10 runs per method · CMA-ES variants</span></div>
+          <div class="explorer-toolbar"><div class="segmented" role="group" aria-label="Baseline load condition"><button type="button" data-task="low" aria-pressed="false">Low load</button><button type="button" data-task="nominal" aria-pressed="true">Nominal load</button><button type="button" data-task="high" aria-pressed="false">High load</button></div><span class="sample-label">10 runs per method and task</span></div>
           <div class="explorer-body">
             <div class="chart-panel">
-              <div class="chart-heading"><p id="chart-metric-label">Mean lift-to-drag ratio</p><div class="metric-tabs" role="group" aria-label="Chart metric"><button type="button" data-metric="quality" aria-pressed="true">Quality</button><button type="button" data-metric="reliability" aria-pressed="false">Reliability</button></div></div>
-              <svg id="results-chart" viewBox="0 0 620 290" role="img" aria-labelledby="chart-title chart-description"><title id="chart-title">CMA-ES recommendation quality by CFD query budget</title><desc id="chart-description">Recorded results from ten runs per method. Detailed values appear in the adjacent summary and the accessible data table below.</desc></svg>
+              <div class="chart-heading"><p data-role="metric-label">Mean lift-to-drag ratio</p><div class="metric-tabs" role="group" aria-label="Baseline chart metric"><button type="button" data-metric="quality" aria-pressed="true">Quality</button><button type="button" data-metric="reliability" aria-pressed="false">Reliability</button></div></div>
+              <svg data-role="chart" class="results-chart" id="baseline-chart" viewBox="0 0 620 290" role="img" aria-labelledby="baseline-chart-title baseline-chart-description"><title id="baseline-chart-title" data-role="chart-title">Baseline recommendation quality by CFD query budget</title><desc id="baseline-chart-description">Recorded results from ten runs per method. Values appear in the summary and the accessible data table below.</desc></svg>
               <p class="chart-axis-label">Online CFD queries</p>
-              <div class="budget-control"><label for="query-budget">CFD query budget</label><output for="query-budget" id="query-output">4 CFD queries</output><input id="query-budget" type="range" min="0" max="6" step="1" value="3" aria-valuetext="4 CFD queries"><div class="range-labels" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>4</span><span>8</span><span>16</span><span>32</span></div></div>
+              <div class="budget-control"><label for="baseline-query">CFD query budget</label><output for="baseline-query" data-role="query-output">4 CFD queries</output><input id="baseline-query" data-role="query-budget" type="range" min="0" max="6" step="1" value="3" aria-valuetext="4 CFD queries"><div class="range-labels" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>4</span><span>8</span><span>16</span><span>32</span></div></div>
             </div>
-            <div class="checkpoint-panel" aria-live="polite" aria-atomic="true"><p class="checkpoint-title">At <span id="checkpoint-number">4</span> CFD queries</p><div id="method-summaries"></div><p class="checkpoint-note">L/D is averaged over valid recommendations only. Dots show valid recommendations out of 10 runs.</p></div>
+            <div class="checkpoint-panel" aria-live="polite" aria-atomic="true"><p class="checkpoint-title">At <span data-role="checkpoint">4</span> CFD queries</p><div class="method-summaries" data-role="summaries"></div><p class="checkpoint-note">Mean L/D includes valid recommendations only.</p></div>
           </div>
-          <p class="result-insight" id="result-insight">At four queries, the archive methods have higher mean L/D among valid recommendations. Feedback-guided CMA-ES returns a valid wing in all ten runs.</p>
+          <p class="result-insight" data-role="insight">Select a load condition, metric, or query budget to inspect the recorded results.</p>
         </div>
-        <div class="results-footnote"><p>These recorded results compare complete search policies. The methods differ in both feedback use and surrogate allocation, so the comparison does not isolate feedback’s causal effect. The plotted means do not include uncertainty bands.</p><a href="./assets/baseline-results.csv" download>Download result table</a></div>
-        <details class="accessible-data"><summary>View the data as a table</summary><div class="data-table-wrap"><table><caption id="data-table-caption">Nominal load · ten runs per method</caption><thead><tr><th scope="col">CFD queries</th><th scope="col">Method</th><th scope="col">Valid runs</th><th scope="col">Mean L/D</th></tr></thead><tbody id="data-table-body"></tbody></table></div></details>
+        <details class="accessible-data"><summary>View the data as a table</summary><div class="data-table-wrap"><table><caption data-role="table-caption">Nominal load · ten runs per method</caption><thead><tr><th scope="col">CFD queries</th><th scope="col">Method</th><th scope="col">Valid runs</th><th scope="col">Mean L/D</th></tr></thead><tbody data-role="table-body"></tbody></table></div></details>
+        <p class="results-download"><a href="./assets/baseline-results.csv" download>Download result table</a></p>
+        <p class="comparison-note">The four surrogate-assisted baselines share 62 prior CFD records and a 4,096-evaluation surrogate allowance. SMAC3 is the CFD-only reference. These are comparisons of complete search methods, with different uses of feedback and surrogate evaluations. The plotted means do not include uncertainty intervals.</p>
       </div>
     </section>
 
-    <section class="agents-section section container" aria-labelledby="agents-heading">
+    <section class="agents-section section container" id="agents" aria-labelledby="agents-heading">
       <div class="agents-intro"><h2 id="agents-heading">Agent comparison</h2><p>Three agent configurations share the same model, tools, and query caps. The study tests whether explicit reflection or planning improves on open-ended research.</p></div>
       <div class="agent-methods">
         <article><div><h3>Open-ended research</h3><p>The agent chooses what to analyze and which experiment to run next.</p></div></article>
         <article><div><h3>Explicit reflection</h3><p>The agent writes a reflection after each CFD result and receives it before the next decision.</p></div></article>
         <article><div><h3>Contingent planning</h3><p>Four planners propose two-step procedures. A common scoring rule selects a plan, and the agent replans after the next CFD result.</p></div></article>
       </div>
-      <div class="agent-takeaway"><span class="takeaway-label">Result</span><p>At the common four-query checkpoint, neither the tested reflection nor planning implementation consistently improved both recommendation validity and mean L/D over open-ended research across the three tasks.</p><a href="https://arxiv.org/abs/2611.28418" target="_blank" rel="noopener">Read the comparison and its limitations</a></div>
+      <div class="agent-results" id="agent-results" aria-label="Agent results explorer">
+        <div class="results-explorer">
+          <div class="explorer-toolbar"><div class="segmented" role="group" aria-label="Agent load condition"><button type="button" data-task="low" aria-pressed="false">Low load</button><button type="button" data-task="nominal" aria-pressed="true">Nominal load</button><button type="button" data-task="high" aria-pressed="false">High load</button></div><span class="sample-label">10 runs per method and task</span></div>
+          <div class="explorer-body">
+            <div class="chart-panel">
+              <div class="chart-heading"><p data-role="metric-label">Mean lift-to-drag ratio</p><div class="metric-tabs" role="group" aria-label="Agent chart metric"><button type="button" data-metric="quality" aria-pressed="true">Quality</button><button type="button" data-metric="reliability" aria-pressed="false">Reliability</button></div></div>
+              <svg data-role="chart" class="results-chart" id="agent-chart" viewBox="0 0 620 290" role="img" aria-labelledby="agent-chart-title agent-chart-description"><title id="agent-chart-title" data-role="chart-title">Agent recommendation quality by CFD query budget</title><desc id="agent-chart-description">Recorded results from ten runs per method. Values appear in the summary and the accessible data table below.</desc></svg>
+              <p class="chart-axis-label">Online CFD queries</p>
+              <div class="budget-control"><label for="agent-query">CFD query budget</label><output for="agent-query" data-role="query-output">4 CFD queries</output><input id="agent-query" data-role="query-budget" type="range" min="0" max="3" step="1" value="3" aria-valuetext="4 CFD queries"><div class="range-labels" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>4</span></div></div>
+            </div>
+            <div class="checkpoint-panel" aria-live="polite" aria-atomic="true"><p class="checkpoint-title">At <span data-role="checkpoint">4</span> CFD queries</p><div class="method-summaries" data-role="summaries"></div><p class="checkpoint-note">Mean L/D includes valid recommendations only.</p></div>
+          </div>
+          <p class="result-insight" data-role="insight">Select a load condition, metric, or query budget to inspect the recorded results.</p>
+        </div>
+        <details class="accessible-data"><summary>View the data as a table</summary><div class="data-table-wrap"><table><caption data-role="table-caption">Nominal load · ten runs per method</caption><thead><tr><th scope="col">CFD queries</th><th scope="col">Method</th><th scope="col">Valid runs</th><th scope="col">Mean L/D</th></tr></thead><tbody data-role="table-body"></tbody></table></div></details>
+        <p class="results-download"><a href="./assets/agent-results.csv" download>Download result table</a></p>
+        <p class="comparison-note">This plot uses the common four-query comparison: ten runs per configuration and task. Model usage is not equalized, and the means do not include uncertainty intervals. See the paper for the tested implementations and their limitations.</p>
+      </div>
+      <div class="agent-takeaway"><span class="takeaway-label">Result</span><p>At four CFD queries, neither the tested reflection nor planning implementation consistently improved both recommendation validity and mean L/D over open-ended research across the three tasks.</p><a href="https://arxiv.org/abs/2611.28418" target="_blank" rel="noopener">Read the comparison and its limitations</a></div>
     </section>
 
     <section class="resources-section" id="resources" aria-labelledby="resources-heading"><div class="container">
@@ -155,6 +192,7 @@
         <a href="https://github.com/davidxia3/wingbench/tree/main/benchmark" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#code-icon"/></svg><h3>Code &amp; benchmark</h3><p>The runner and interfaces for adding new methods.</p><span>Available on GitHub</span></a>
         <a href="https://github.com/davidxia3/wingbench/tree/main/data" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#data-icon"/></svg><h3>Data</h3><p>Recorded evaluations and recommendation scores.</p><span>6,629 CFD evaluation records</span></a>
       </div>
+      <div class="try-benchmark"><h3>Try WingBench</h3><p>Run your own optimizer or agent and compare it with the released results. The <a href="https://github.com/davidxia3/wingbench/blob/main/benchmark/README.md" target="_blank" rel="noopener">getting-started guide</a> includes the method interface, a worked example, and instructions for running and scoring an experiment.</p></div>
       <div class="citation"><div class="citation-heading"><h3>Cite this work</h3><button type="button" class="copy-button" id="copy-citation"><svg aria-hidden="true"><use href="#copy-icon"/></svg><span>Copy BibTeX</span></button></div><pre><code id="bibtex">@article{yang2026wingbench,
   title   = {WingBench: Benchmarking How AI Agents Search for Better Designs},
   author  = {Yang, Yiming and Xia, David and Li, Jisen and Jian, Yuqing

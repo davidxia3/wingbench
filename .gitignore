@@ -305,6 +305,8 @@
 !/docs/assets/
 !/docs/.nojekyll
 !/docs/app.js
+!/docs/assets/agent-results.csv
+!/docs/assets/agent-results.json
 !/docs/assets/baseline-results.csv
 !/docs/assets/best-found-wings.csv
 !/docs/assets/data-provenance.json

@@ -39,6 +39,15 @@
     }
   ],
   "geometry_renderer": "analysis/render_wing.py, build_wing; visualization surface resolution reduced for the web",
-  "results_source": "analysis/out/tables/tab_appendix_baseline_recommendations.csv; checked against data/recommendations.csv",
-  "display_note": "Wing surfaces only, not CFD volume meshes or pressure fields. Results are recorded data, not live CFD."
+  "results_source": "analysis/out/tables/tab_appendix_baseline_recommendations.csv and tab_appendix_agent_recommendations.csv; independently checked against data/recommendations.csv",
+  "display_note": "Wing surfaces only, not CFD volume meshes or pressure fields. Results are recorded data, not live CFD.",
+  "baseline_comparison": "All five baselines at checkpoints 0, 1, 2, 4, 8, 16, 32; ten episodes per method/task",
+  "agent_comparison": "Open-ended research, Reflection, Planning at their common checkpoints 0, 1, 2, 4; ten episodes per method/task",
+  "task_targets": {
+    "low": 0.15,
+    "nominal": 0.41,
+    "high": 0.66
+  },
+  "task_source": "agents/tasks/task_documents.json; verified against data/episodes.csv",
+  "aerotransformer_paper": "https://arxiv.org/abs/2604.18062"
 }
