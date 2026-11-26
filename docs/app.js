@@ -117,19 +117,19 @@
   createExplorer('#results', {
     label:'Baseline', file:'./assets/results.json', checkpoints:[0,1,2,4,8,16,32], ticks:[0,4,8,16,32],
     methods:[
-      {key:'CMA-ES no feedback',name:'CMA-ES · fixed archive',color:'#7c8790',dash:'6 5'},
-      {key:'CMA-ES selection only',name:'CMA-ES · archive reordering',color:'#48535d',dash:'2 4'},
-      {key:'CMA-ES feedback-guided',name:'CMA-ES · feedback-guided',color:'#365f80',dash:''},
-      {key:'DE feedback-guided',name:'Differential evolution',color:'#597763',dash:'10 4'},
-      {key:'SMAC3',name:'SMAC3',color:'#986b43',dash:'9 3 2 3'}
+      {key:'CMA-ES no feedback',name:'CMA-ES · fixed archive',color:'#81909c',dash:'6 5'},
+      {key:'CMA-ES selection only',name:'CMA-ES · archive reordering',color:'#b37440',dash:'2 4'},
+      {key:'CMA-ES feedback-guided',name:'CMA-ES · feedback-guided',color:'#2877a0',dash:''},
+      {key:'DE feedback-guided',name:'Differential evolution',color:'#238b80',dash:'10 4'},
+      {key:'SMAC3',name:'SMAC3',color:'#8d70a0',dash:'9 3 2 3'}
     ]
   });
   createExplorer('#agent-results', {
     label:'Agent', file:'./assets/agent-results.json', checkpoints:[0,1,2,4], ticks:[0,1,2,4],
     methods:[
-      {key:'Open-ended research',name:'Open-ended research',color:'#365f80',dash:''},
-      {key:'Reflection',name:'Explicit reflection',color:'#48535d',dash:'6 5'},
-      {key:'Planning',name:'Contingent planning',color:'#597763',dash:'2 4'}
+      {key:'Open-ended research',name:'Open-ended research',color:'#2877a0',dash:''},
+      {key:'Reflection',name:'Explicit reflection',color:'#b37440',dash:'6 5'},
+      {key:'Planning',name:'Contingent planning',color:'#238b80',dash:'2 4'}
     ]
   });
 
@@ -153,9 +153,10 @@
     const canvas=$('#wing-canvas'),ctx=canvas.getContext('2d');
     if(!ctx)return;
     const stage=$('#wing-stage');let mesh,vertices,colors;
-    let width=0,height=0,visible=true,paused=true,dragging=false;
-    let yaw=-1.05,elevation=.70,pointer={x:0,y:0},phase=0,last=0,dirty=true;
+    let width=0,height=0,visible=true,paused=motionPreference.matches,dragging=false,view='surface';
+    let yaw=-1.05,elevation=.78,pointer={x:0,y:0},phase=0,last=0,dirty=true;
     function select(task) {
+      if(mesh&&!motionPreference.matches)canvas.animate([{opacity:.3},{opacity:1}],{duration:400,easing:'ease-out'});
       mesh=meshes[task];
       const min=[0,1,2].map(k=>Math.min(...mesh.vertices.map(v=>v[k])));
       const max=[0,1,2].map(k=>Math.max(...mesh.vertices.map(v=>v[k])));
@@ -168,7 +169,7 @@
         const len=Math.hypot(nx,ny,nz)||1;nx/=len;ny/=len;nz/=len;
         const upper=i<mesh.faces.length/2;
         const light=Math.max(0,Math.min(1,.35+.53*Math.abs(nz)+.15*nx-.10*ny));
-        return upper?`rgb(${Math.round(53+light*78)},${Math.round(89+light*81)},${Math.round(117+light*82)})`:`rgb(${Math.round(38+light*46)},${Math.round(70+light*57)},${Math.round(95+light*63)})`;
+        return upper?`rgb(${Math.round(80+light*90)},${Math.round(130+light*88)},${Math.round(158+light*78)})`:`rgb(${Math.round(48+light*65)},${Math.round(91+light*75)},${Math.round(122+light*73)})`;
       });
       $('#wing-sweep').textContent=`${mesh.sweep.toFixed(1)}°`;
       $('#wing-aspect').textContent=mesh.aspectRatio.toFixed(2);
@@ -187,30 +188,37 @@
     function draw() {
       if(width===0||height===0||!vertices)return;
       ctx.clearRect(0,0,width,height);
-      const angle=yaw+(!paused&&!dragging?Math.sin(phase)*.12:0);
-      const elev=elevation+(!paused&&!dragging?Math.sin(phase*.65)*.025:0);
+      const angle=yaw+Math.sin(phase)*.23;
+      const elev=elevation+Math.sin(phase*.65)*.055;
       const ca=Math.cos(angle),sa=Math.sin(angle),ce=Math.cos(elev),se=Math.sin(elev);
       const raw=vertices.map(([x,y,z])=>{const xx=x*ca-y*sa,yy=x*sa+y*ca;return [xx,yy*se-z*ce,yy*ce+z*se];});
       const xs=raw.map(v=>v[0]),ys=raw.map(v=>v[1]);
       const minx=Math.min(...xs),maxx=Math.max(...xs),miny=Math.min(...ys),maxy=Math.max(...ys);
-      const factor=Math.min(width*.90/(maxx-minx),height*.62/(maxy-miny));
+      const factor=Math.min(width*.91/(maxx-minx),height*.69/(maxy-miny));
       const midx=(minx+maxx)/2,midy=(miny+maxy)/2;
       const points=raw.map(([x,y,z])=>[(x-midx)*factor+width*.50,(y-midy)*factor+height*.46,z]);
       const shadow=ctx.createRadialGradient(width*.52,height*.76,0,width*.52,height*.76,width*.38);
-      shadow.addColorStop(0,'rgba(38,66,89,.10)');shadow.addColorStop(1,'rgba(38,66,89,0)');
+      shadow.addColorStop(0,'rgba(122,220,218,.12)');shadow.addColorStop(1,'rgba(122,220,218,0)');
       ctx.save();ctx.translate(width*.52,height*.76);ctx.scale(1,.12);ctx.translate(-width*.52,-height*.76);ctx.fillStyle=shadow;ctx.beginPath();ctx.arc(width*.52,height*.76,width*.38,0,Math.PI*2);ctx.fill();ctx.restore();
       const faces=mesh.faces.map((f,i)=>({f,i,z:f.reduce((s,k)=>s+points[k][2],0)/f.length})).sort((a,b)=>a.z-b.z);
       ctx.lineJoin='round';ctx.lineWidth=.38;
       for(const {f,i} of faces) {
         ctx.beginPath();f.forEach((k,j)=>{const p=points[k];if(j===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);});ctx.closePath();
-        ctx.fillStyle=colors[i];ctx.fill();ctx.strokeStyle='rgba(34,71,101,.22)';ctx.stroke();
+        ctx.fillStyle=view==='wireframe'?'#102b3e':colors[i];ctx.fill();
+        if(view==='surface'){ctx.strokeStyle='rgba(23,68,95,.17)';ctx.stroke();}
+      }
+      if(view==='wireframe') {
+        ctx.strokeStyle='rgba(138,223,211,.66)';ctx.lineWidth=.65;
+        for(const line of mesh.lines){
+          ctx.beginPath();line.forEach((k,j)=>{const p=points[k];if(j===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);});ctx.stroke();
+        }
       }
       stage.classList.add('canvas-ready');dirty=false;
     }
     function frame(now) {
       const delta=Math.min((now-last)||0,60);
       if(visible&&!document.hidden&&now-last>32) {
-        if(!paused&&!dragging) {phase+=delta*.00017;dirty=true;}
+        if(!paused&&!dragging) {phase+=delta*.00025;dirty=true;}
         if(dirty) draw();last=now;
       }
       requestAnimationFrame(frame);
@@ -218,6 +226,7 @@
     function motionLabel(){
       const label=paused?'Play wing animation':'Pause wing animation';
       $('#toggle-motion').setAttribute('aria-label',label);$('#toggle-motion').title=label;
+      $('#toggle-motion').setAttribute('aria-pressed',String(!paused));
       $('#toggle-motion').innerHTML=paused?'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6Z" fill="currentColor"/></svg>':'<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10" stroke="currentColor" stroke-width="2"/></svg>';
       dirty=true;
     }
@@ -225,6 +234,10 @@
     motionPreference.addEventListener('change',e=>{if(e.matches)paused=true;motionLabel();});
     $$('[data-wing]').forEach(button=>button.addEventListener('click',()=>{
       $$('[data-wing]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));select(button.dataset.wing);
+    }));
+    $$('[data-view]').forEach(button=>button.addEventListener('click',()=>{
+      view=button.dataset.view;
+      $$('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));dirty=true;
     }));
     canvas.addEventListener('pointerdown',e=>{dragging=true;pointer={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId);canvas.classList.add('dragging');});
     canvas.addEventListener('pointermove',e=>{if(!dragging)return;yaw+=(e.clientX-pointer.x)*.007;elevation=Math.max(-.45,Math.min(1.25,elevation+(e.clientY-pointer.y)*.006));pointer={x:e.clientX,y:e.clientY};dirty=true;});
@@ -235,6 +248,23 @@
     select('nominal');resize();motionLabel();draw();requestAnimationFrame(frame);
   }
   fetch('./assets/wings.json').then(r=>{if(!r.ok)throw new Error('Wings unavailable');return r.json();}).then(initWings).catch(()=>{
-    $('#toggle-motion').hidden=true;$$('[data-wing]').forEach(b=>b.disabled=true);$('.stage-caption').textContent='Recorded nominal-load wing surface';
+    $('#toggle-motion').hidden=true;$$('[data-wing],[data-view]').forEach(b=>b.disabled=true);$('.stage-caption').textContent='Recorded nominal-load wing surface';
   });
+
+  if('IntersectionObserver' in window&&!motionPreference.matches){
+    const reveal=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('is-visible');reveal.unobserve(entry.target);}
+    }),{threshold:.06,rootMargin:'0px 0px -24px 0px'});
+    $$('#background > *, #overview > *, .protocol-top, .protocol-flow, .results-heading, .results-explorer, .agents-intro, .agent-methods, .agent-takeaway, .resources-intro, .resource-links, .try-benchmark').forEach((element,index)=>{
+      element.classList.add('reveal-pending');element.style.setProperty('--reveal-delay',`${index%3*55}ms`);reveal.observe(element);
+    });
+  }
+  let scrollQueued=false;
+  function updateReading(){
+    const end=document.documentElement.scrollHeight-window.innerHeight;
+    document.documentElement.style.setProperty('--read-progress',end>0?Math.min(1,Math.max(0,window.scrollY/end)):0);
+    scrollQueued=false;
+  }
+  window.addEventListener('scroll',()=>{if(!scrollQueued){scrollQueued=true;requestAnimationFrame(updateReading);}},{passive:true});
+  window.addEventListener('resize',updateReading);updateReading();
 })();
